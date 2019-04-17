@@ -1,9 +1,9 @@
 {
 	"mysql": {
 		"host": "127.0.0.1",
-		"user": "root",
-		"pass": "123456",
-		"db": "habbo"
+		"user": "jek",
+		"pass": "Tigers00",
+		"db":   "disbo"
 	},
 	"server": {
 		"ports": {
@@ -11,8 +11,8 @@
 		},
 		"rewards": {
 			"interval": 60,
-			"credits": 100,
-			"duckets": 500
+			"credits":  100,
+			"duckets":  500
 		},
 		"welcome": {
 			"enabled": true,

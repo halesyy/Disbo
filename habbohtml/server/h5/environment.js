@@ -23,12 +23,15 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-var http = require("http"),
-	socketIo = require("socket.io"),
-	pool = require("./database/pool"),
-	events = require("events"),
-	sanitizer = require("sanitizer"),
-	rl = require("readline").createInterface(process.stdin, process.stdout);
+var http      = require("http"),
+	  socketIo  = require("socket.io"),
+	  pool      = require("./database/pool"),
+	  events    = require("events"),
+  	sanitizer = require("sanitizer"),
+  	rl        = require("readline").createInterface(process.stdin, process.stdout);
+
+
+
 module.exports = function(b, d) {
 	var a = this;
 	a.users = {};
@@ -46,23 +49,27 @@ module.exports = function(b, d) {
 		a.event = new events.EventEmitter;
 	};
 	this.buildIo = function() {
-		a.io = socketIo(a.server);
+		a.io = socketIo(this.server);
 	};
 	this.buildPool = function() {
 		a.pool = pool(b);
 	};
+
 	this.listen = function() {
+    // console.log(b)
 		a.server.listen(b.server.ports.game, function(e) {
 			a.console.updateTitle();
 			setInterval(function() {
 				a.console.updateTitle();
 			}, 100);
 			a.console.writeLine.bass("H5 Habbo Server - Created by Kedi Agbogre");
-			e ? 
+      // console.log(a)
+      e ?
 				a.console.writeLine.error("Unable to listen on port " + b.server.ports.game) :
-					 (a.console.writeLine.warning("Server now listening on port " + b.server.ports.game), a.acceptCommands());
+				(a.console.writeLine.warning("Server now listening on port " + b.server.ports.game), a.acceptCommands());
 		});
 	};
+
 	this.acceptCommands = function() {
 		rl.on("line", function(e) {
 			switch (e) {

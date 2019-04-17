@@ -11,7 +11,7 @@
 	<body ng-controller="MainController">
 		<script>
 			var clientVars = {
-				host: '185.25.197.210',
+				host: 'localhost',
 				port: '7858',
 		sso: '<?php echo isset($_GET["sso"]) ? $_GET["sso"] : "abc"; ?>'
 		};
