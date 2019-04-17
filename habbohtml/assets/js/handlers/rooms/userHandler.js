@@ -40,7 +40,8 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 							top: d + "px",
 							left: c
 						});
-					}, 100 * b);
+          // Speed, 100 = default, 300 = normal habbo-like speed
+					}, 300 * b);
 				})(d);
 			}
 		},

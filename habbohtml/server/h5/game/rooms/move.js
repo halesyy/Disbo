@@ -34,6 +34,7 @@ module.exports = function(d, e, a) {
 		if (f + ":" + g != c + ":" + b) {
 			var h = new pf.Grid(a.matrix),
 				m = new pf.AStarFinder({
+          // future room-specific variable
 					allowDiagonal: !0
 				}),
 				k;
