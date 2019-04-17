@@ -18,4 +18,4 @@ At `/server/h5/game/rooms/move.js`, the algorithm is implemented with the option
 
 ### Movement speed
 
-`/habbohtml/assets/js/handlers/rooms/userHandler.js` handles the user-specific stuff, and the function `move` inside of it, changing the `setTimeout` integer will change the speed of which the user moves.
+`/habbohtml/assets/js/handlers/rooms/userHandler.js` handles the user-specific stuff, and the function `move` inside of it, changing the `setTimeout` integer will change the speed of which the user moves. (default = 100, habbo-like = 300)
