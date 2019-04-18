@@ -23,6 +23,10 @@ app.get('/', function(req, res) {
 //     at Socket.<anonymous> (/Users/oliy/Desktop/Disbo/habbohtml/server/node_modules/mysql/lib/Connection.js:96:28)
 //     at Socket.emit (events.js:197:13)
 //     at addChunk (_stream_readable.js:288:12)
+// ^ this is an error because he is creating queries, then not checking their status.
+//   when piping the <?php ?> bit into the query, it returns false since the query failed.
+//   the coder doesn't check this, so he goes to read a property of query in the query, and simply
+//   gets a typeerror.
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
