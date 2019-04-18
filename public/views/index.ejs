@@ -26,11 +26,11 @@
 				<i class="icon hc"></i>
 				<p>Join</p>
 			</span>
-			<ul id="hotel-view-faststats-buttons">
+			<!-- <ul id="hotel-view-faststats-buttons">
 				<li><a class="window-manager-button blue">Help</a></li>
 				<li ng-click="logout()"><a class="window-manager-button red"><i class="icon logout"></i></a></li>
 				<li><a class="window-manager-button purple"><i class="icon settings"></i></a></li>
-			</ul>
+			</ul> -->
 		</div>
 		<div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
 			<div class="title">{{ dialog.title }}</div>
@@ -79,7 +79,7 @@
 				<span id="hotel-view-bar-icon-h" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span>
 				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="featureNotImplemented()"></span>
 				<span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span>
-				<span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span>
+				<!-- <span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span> -->
 				<span id="hotel-view-bar-icon-inventory" ng-if="!superfluousBarItems" ng-click="featureNotImplemented()"></span>
 				<span id="hotel-view-bar-icon-user" ng-click="featureNotImplemented()">
 					<img src="https://www.habbo.com.tr/habbo-imaging/avatarimage?figure={{ userinfo.figure }}&size=n&direction=2&head_direction=2&crr=3&gesture=sml&frame=3">
@@ -90,7 +90,7 @@
 					<span class="hotel-view-bar-friends-icon-all" ng-click="featureNotImplemented()"></span>
 					<span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span>
 				</div>
-				<div class="hotel-view-bar-friends-slots" ng-if="superfluousFriendBarItems">
+				<!-- <div class="hotel-view-bar-friends-slots" ng-if="superfluousFriendBarItems">
 					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
 						<img src="assets/images/hotelview/barIcons/friend_head.png">
 						Find new <br>friends
@@ -103,13 +103,16 @@
 						<img src="assets/images/hotelview/barIcons/friend_head.png">
 						Find new <br>friends
 					</div>
-				</div>
+				</div> -->
 				<div id="hotel-view-bar-friends-more" class="flip" ng-class="{ flip: superfluousFriendBarItems }" ng-click="toggleSuperfluousFriendBarItems()" >
 					<img src="assets/images/hotelview/barIcons/arrow.png">
 				</div>
 			</div>
 		</div>
-		<div id="game" ng-view></div>
+		<div id="game" ng-view>
+
+
+		</div>
 		<script src="assets/js/dependencies.js" type="text/javascript"></script>
 		<script src="assets/js/ng.js" type="text/javascript"></script>
 		<script src="assets/js/ng-route.js" type="text/javascript"></script>
