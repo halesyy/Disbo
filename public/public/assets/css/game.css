@@ -121,7 +121,10 @@ body {
 	background-image: url(../images/hotelview/xmas15_background_hotel_left.png);
 }
 #hotel-view.xmas #hotel-view-right-background {
-	background-image: url(../images/hotelview/xmas15_background_hotel_right.png);
+	background-image: url('https://assets.change.org/photos/6/nv/ok/PVNvoKixjKpTWiz-400x400-noPad.jpg?1546132667');
+	background-size: cover;
+	background-position: cover;
+	/* background-image: url(../images/hotelview/xmas15_background_hotel_right.png); */
 }
 #hotel-view #hotel-view-drape {
 	position: absolute;
@@ -147,6 +150,7 @@ body {
 	z-index: 0;
 	width: 484px;
 	height: 463px;
+	/* background-image: url('https://assets.change.org/photos/6/nv/ok/PVNvoKixjKpTWiz-400x400-noPad.jpg?1546132667'); */
 	background-image: url(../images/hotelview/default_new_bg_right.png);
 }
 #hotel-view #hotel-view-left-background img {
@@ -867,7 +871,7 @@ body {
     line-height:          32px;
     text-align:           center;
     font-size:            11px;
-    color:                #333333;	
+    color:                #333333;
 }
 #map .tile .inner {
     position:             absolute;
@@ -876,7 +880,7 @@ body {
     width:                66px;
     height:               40px;
     background-repeat:    no-repeat;
-    background-position:  left bottom;	
+    background-position:  left bottom;
     text-indent:-999999px;
 }
 #map .tile.floor .inner {
