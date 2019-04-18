@@ -120,6 +120,11 @@ body {
 	width: 386px;
 	background-image: url(../images/hotelview/xmas15_background_hotel_left.png);
 }
+.fair-circle {
+	border-radius: 128px;
+	width: 128px;
+	height: 128px;
+}
 #hotel-view.xmas #hotel-view-right-background {
 	background-image: url('https://assets.change.org/photos/6/nv/ok/PVNvoKixjKpTWiz-400x400-noPad.jpg?1546132667');
 	background-size: cover;
