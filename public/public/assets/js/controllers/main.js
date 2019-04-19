@@ -32,12 +32,17 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 	$rootScope.hcWindow = {
 		enabled: false
 	};
+  $rootScope.loginDialog = {
+    enabled: false
+  }
 	$rootScope.superfluousBarItems = true;
 	$rootScope.superfluousFriendBarItems = true;
+
 	$socket.on('more credits', function() {
 		var audio = new Audio('assets/sounds/cashRegister.mp3');
 		audio.play();
 	});
+
 	$scope.toggleSuperfluousBarItems = function() {
 		$rootScope.superfluousBarItems = $rootScope.superfluousBarItems ? false : true;
 	};
@@ -67,11 +72,22 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 			$location.path('/view');
 		};
 	};
+
+  // Socket emmission for dialog handling in general
 	$socket.on('dialog', function(data) {
 		$rootScope.dialog.enabled = true;
 		$rootScope.dialog.title = data.title;
 		$rootScope.dialog.body = data.body;
 	});
+
+  // Login handling
+  $socket.on('signin-dialog', function(data){
+    console.log("Going to throw up the signin dialog!")
+    $rootScope.signinDialog.enabled = data.enabled;
+		// $rootScope.dialog.title = data.title;
+		// $rootScope.dialog.body = data.body;
+  });
+
 	$scope.buyHabboClub = function() {
 		$rootScope.dialog.enabled = true;
 		$rootScope.dialog.title = 'Feature not implemented yet';

@@ -13,7 +13,7 @@ module.exports = function(b, d) {
 	a.users = {};
 	a.rooms = {};
 	a.loops = [];
-	a.configuration = b;
+	a.configuration = b; //c
 	a.fuserights = d;
 	this.scope = function() {
 		return a;
