@@ -78,7 +78,7 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 				top: b + "px",
 				left: e
 			});
-			$(c).html(d + " said: " + a);
+			$(c).html(d + ": " + a);
 			$("#map #map-chat-bubbles").append(c);
 			setInterval(function() {
 				$(c).css({
