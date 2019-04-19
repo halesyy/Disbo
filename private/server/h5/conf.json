@@ -1,8 +1,8 @@
 {
 	"mysql": {
 		"host": "127.0.0.1",
-		"user": "jek",
-		"pass": "Tigers00",
+		"user": "root",
+		"pass": "",
 		"db":   "disbo"
 	},
 	"server": {
