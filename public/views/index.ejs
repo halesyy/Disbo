@@ -9,16 +9,7 @@
 		<link rel="stylesheet" href="assets/css/game.css" type="text/css">
 	</head>
 	<body ng-controller="MainController">
-		<script>
-			var clientVars = {
-				host: '27.33.240.140',
-				port: '7858',
-				sso:  'abc'
-			};
-			ssos = ["jack", "oliy"]
-			var ssochoice = ssos[Math.floor(Math.random() * ssos.length)];
-			clientVars["sso"] = ssochoice
-		</script>
+		<script src="/clientInfo.js"></script>
 		<div id="hotel-view-faststats" class="ng-hide" ng-show="isBootstrapped">
 			<ul id="hotel-view-faststats-stats">
 				<li class="diamonds">{{ userinfo.diamonds | limitTo:5 }} <i class="icon diamonds"></i></li>
