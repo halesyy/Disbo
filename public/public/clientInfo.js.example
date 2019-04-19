@@ -1,0 +1,8 @@
+var clientVars = {
+  host: 'ip',
+  port: '7858',
+  sso:  'abc'
+};
+ssos = ["jack", "oliy"]
+var ssochoice = ssos[Math.floor(Math.random() * ssos.length)];
+clientVars["sso"] = ssochoice
