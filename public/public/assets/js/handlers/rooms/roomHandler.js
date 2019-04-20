@@ -23,8 +23,24 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+
+// THIS IS A PUBLIC FILE
+
 app.service('roomHandler', ['$rootScope', function($rootScope) {
 	return {
+
+    /*
+     * apply the data in the JSON format to
+     * apply walkable or non-walkable physics
+     * to the room, e.g. if a furni is NON-WALKABLE,
+     * remove walking access in that area before the
+     * furni is painted over.
+     */
+    getBaseWithFurniPhysics: function(base, furni) {
+      for (var fData in furni) {
+        console.log(furni);
+      }
+    },
 
 		generateModel: function(b) {
 			var c = {

@@ -23,20 +23,26 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-var pf = require("pathfinding");
+var pathfinder = require("pathfinding");
 module.exports = function(d, e, a) {
 	e.on("verify movement", function(b) {
 		var c = d.rooms[a.roomId].users[e.currentUser.id].currentPosition.split(":"),
-			f = c[0],
-			g = c[1],
-			c = b.finalCoordinates.x;
-		b = b.finalCoordinates.y;
-		if (f + ":" + g != c + ":" + b) {
-			var h = new pf.Grid(a.matrix),
-				m = new pf.AStarFinder({
-          // future room-specific variable
-					allowDiagonal: !0
-				}),
+		  	f = c[0],
+			  g = c[1],
+			  c = b.finalCoordinates.x;
+		    b = b.finalCoordinates.y;
+
+    finalDestination = `${c}:${b}`;
+    initialPlacement = `${f}:${g}`;
+
+		if (finalDestination != initialPlacement) {
+      // "FG" is first place, where "GC" is the go-to
+      // console.log(a)
+			var h = new pathfinder.Grid(a.roomPush.base),
+				  m = new pathfinder.AStarFinder({
+            // future room-specific variable
+					  allowDiagonal: !0
+				  }),
 				k;
 			for (k in d.rooms[a.roomId].users) {
 				var l = d.rooms[a.roomId].users[k].currentPosition.split(":");
@@ -49,5 +55,6 @@ module.exports = function(d, e, a) {
 				id: e.currentUser.id
 			});
 		}
+
 	});
 };

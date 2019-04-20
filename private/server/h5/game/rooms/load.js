@@ -23,15 +23,33 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-module.exports = function(c, a, b) {
-  c.users[a.currentUser.id].currentRoom = b.roomId;
-  c.console.writeLine.info("(" + a.currentUser.ip + ') User "' + a.currentUser.username + '" joined ' + b.roomId);
-  a.emit("render room", {heightmap:b.matrix});
-  a.join(b.roomId);
-  c.rooms[b.roomId] || (c.rooms[b.roomId] = {}, c.rooms[b.roomId].users = {});
-  c.rooms[b.roomId].users[a.currentUser.id] = a.currentUser;
-  c.rooms[b.roomId].users[a.currentUser.id].currentPosition = "0:5";
-  c.io.sockets["in"](b.roomId).emit("dialog", {title:a.currentUser.username + " has joined the room", body:"Everybody give him/her a welcoming hug!"});
-  a.emit("load all users", c.securify(c.rooms[b.roomId].users));
-  a.broadcast.to(b.roomId).emit("user join", a.currentUser);
+
+// THIS IS A PRIVATE FILE
+
+module.exports = function(c, a, roomData) {
+
+  c.users[a.currentUser.id].currentRoom = roomData.roomId;
+  c.console.writeLine.info("(" + a.currentUser.ip + ') User "' + a.currentUser.username + '" joined ' + roomData.roomId);
+
+  // Connecting to frontend-generating piece of code, pulling the matrix
+  // from enter.js
+
+  a.emit("render room", {
+    base: roomData.roomPush.base,
+    furni: roomData.roomPush.furni
+  });
+  a.join(roomData.roomId);
+
+  c.rooms[roomData.roomId] || (c.rooms[roomData.roomId] = {}, c.rooms[roomData.roomId].users = {});
+  c.rooms[roomData.roomId].users[a.currentUser.id] = a.currentUser;
+  c.rooms[roomData.roomId].users[a.currentUser.id].currentPosition = "0:5";
+
+  c.io.sockets["in"](roomData.roomId).emit("dialog", {
+    title: a.currentUser.username + " has joined the room",
+    body:"Everybody give him/her a welcoming hug!"
+  });
+
+  a.emit("load all users", c.securify(c.rooms[roomData.roomId].users));
+  a.broadcast.to(roomData.roomId).emit("user join", a.currentUser);
+
 };

@@ -23,26 +23,40 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+
+// THIS IS A PUBLIC FILE
+
 app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope', 'userHandler', 'roomHandler',
 	function($scope, $socket, $location, $rootScope, userHandler, roomHandler) {
 		if (!$rootScope.isBootstrapped) {
 			$location.path('/');
 		} else {
 			$rootScope.isInRoom = true;
+
 			$socket.emit('load room', {
 				roomId: 1
 			});
+
 			$scope.chatMessage = '';
 			$socket.on('render room', function(data) {
         // from server/game/user/enter.js
-				roomHandler.generateModel(data.heightmap);
-				roomHandler.generateFurni([{
-					name: 'hc_exe_sofa',
-					tiles: ['13:5', '13:4', '13:3']
-				}, {
-					name: 'hc_tv',
-					tiles: ['10:5', '10:4']
-				}]);
+
+        console.log(data)
+        room = data
+        base  = room.base // the floor plan
+        furni = room.furni // the details about the furniture to parse
+
+        base = roomHandler.getBaseWithFurniPhysics(base, furni);
+        roomHandler.generateModel(base);
+
+				// roomHandler.generateFurni([{
+				// 	name: 'hc_exe_sofa',
+				// 	tiles: ['13:5', '13:4', '13:3']
+				// }, {
+				// 	name: 'hc_tv',
+				// 	tiles: ['10:5', '10:4']
+				// }]);
+
 			});
 			$('#map').click(function(event) {
 				var innerTile = userHandler.calculateTile(event);
