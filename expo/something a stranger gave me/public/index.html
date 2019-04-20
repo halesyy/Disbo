@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Habbo5 Client</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+</head>
+<body>
+
+  <div id="habbo">
+    
+    <!-- Only displayed when not in a room -->
+    <hotelview></hotelview>
+
+    <login ref="login"></login>
+
+    <!-- Only displayed when in a room -->
+    <room></room>
+
+    <!-- Bottom menu -->
+    <memenu>
+      <mainmenu></mainmenu>
+      <chat></chat>
+    </memenu>
+
+    <!-- Navigator -->
+    <navigator>
+    </navigator>
+
+    <alert ref="alerts"></alert>
+
+  </div>
+
+  <script src="./build/build.js"></script>
+</body>
+</html>
+
+

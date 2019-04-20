@@ -34,6 +34,7 @@ app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope'
 			});
 			$scope.chatMessage = '';
 			$socket.on('render room', function(data) {
+        // from server/game/user/enter.js
 				roomHandler.generateModel(data.heightmap);
 				roomHandler.generateFurni([{
 					name: 'hc_exe_sofa',

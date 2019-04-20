@@ -25,6 +25,7 @@
  */
 app.service('roomHandler', ['$rootScope', function($rootScope) {
 	return {
+
 		generateModel: function(b) {
 			var c = {
 					0: "floor",
@@ -34,16 +35,19 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 					4: "door"
 				},
 				a = $("#map");
+
 			$(a).css("width", 62 * (b.length + 1) + "px");
 			$(a).css("height", 32 * (b[0].length - .5) + "px");
 			$(a).css("position", "absolute");
 			$(a).css("top", "50%");
 			$(a).css("left", "50%");
+
 			var d = .5 * parseInt($(a).css("width")),
 				e = .5 * parseInt($(a).css("height"));
 			$(a).css("margin-left", -d + "px");
 			$(a).css("margin-top", -e + "px");
 			a = 31 * b.length;
+
 			for (yIndex = 0; yIndex < b.length; yIndex++) {
 				for (xIndex = 0; xIndex < b[yIndex].length; xIndex++) {
 					topValue = 16 * yIndex + 16 * xIndex,
@@ -66,8 +70,40 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 				}
 			}
 		},
+
 		generateFurni: function(furni) {
 			this.appendFurniPart = function(furnidata, furnielement, furnipartposition, furnipartid) {
+        /*
+        {
+            id: 1,
+            title: "Not a shit named furni like habbo do",
+            description: "Hello!",
+            walkable: true,
+            floor: false,
+            root: 3:1,
+            adjacent: [
+              #x:y, what to increase values by
+              #e.g. this would be a 2x2 structure, starting at x=3,y=1, spanning
+              #3,2 - 4,1 - 4,2
+              '0:1',
+              '1:0',
+              '1:1'
+            ] // figure out how to represent this, explains in what relation it has to the other tiles
+        }
+
+        {
+            "name": "green-floor",
+            "formal": "Green Floor",
+            "locations": {
+              "0:0": "assets/furni/floors/green-floor-1x1.png",
+              "1:0": "assets/furni/floors/green-floor-1x1.png",
+              "0:1": "assets/furni/floors/green-floor-1x1.png",
+              "1:1": "assets/furni/floors/green-floor-1x1.png",
+            }
+        }
+
+        EACH TILE IS WIDTH: 66px;, HEIGHT: 40px.
+        */
 				var img = $('<img class="furni-part" />');
 				$(img).attr('src', 'assets/images/furniture/' + furnidata.name + '/' + furnipartid + '.png');
 				$(img).load(function() {
@@ -76,6 +112,12 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 					var furniparttile = $(
 						'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
 					);
+          console.log(furnidata);
+          console.log(furnielement);
+          console.log(furnipartposition);
+          console.log(furnipartid);
+
+          // console.log(furnidata, furnielement, furnipartposition, furnipartid)
 					var top = parseInt($(furniparttile).css('top'));
 					var left = parseInt($(furniparttile).css('left'));
 
@@ -93,5 +135,6 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 				$('#map #map-furni').append(furnielement);
 			}
 		}
+
 	}
 }]);
