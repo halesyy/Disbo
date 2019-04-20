@@ -12,11 +12,12 @@ module.exports = function(api, socket) {
   // socket.emit("signin-dialog", {
   //   enabled: true
   // });
-  console.log(api.currentUser)
-  if (api.configuration.server.welcome.enabled == true) {
-    socket.emit("dialog", {
-      title: "Greetings from Habbo Staff",
-      body: api.filter(api.configuration.server.welcome.message, socket.currentUser)
-    });
-  }
+  
+  // console.log(api.currentUser)
+  // if (api.configuration.server.welcome.enabled == true) {
+  //   socket.emit("dialog", {
+  //     title: "Greetings from Habbo Staff",
+  //     body: api.filter(api.configuration.server.welcome.message, socket.currentUser)
+  //   });
+  // }
 };

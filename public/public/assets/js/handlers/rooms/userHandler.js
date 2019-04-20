@@ -34,6 +34,7 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 		move: function(a) {
 			for (var d in a.steps) {
 				(function(b) {
+
 					window.setTimeout(function() {
 						var c = $("[data-x=" + a.steps[b][0] + "][data-y=" + a.steps[b][1] + "]"),
 							d = parseInt($(c).css("top")) - 80,
@@ -43,8 +44,9 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 							left: c
 						});
           // Speed, 100 = default, 300 = normal habbo-like speed
-					}, 300 * b);
+        }, 300 * b);
 				})(d);
+
 			}
 		},
 

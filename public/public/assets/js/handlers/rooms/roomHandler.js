@@ -109,17 +109,23 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 				$(img).load(function() {
 					$(img).css('display', 'inline-block');
 					var furnipartpositions = furnipartposition.split(':');
-					var furniparttile = $(
+
+          // Gathering the
+					var $tile = $(
 						'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
 					);
+          furniparttile = $tile
+
+          console.log("Running furniture function");
           console.log(furnidata);
           console.log(furnielement);
           console.log(furnipartposition);
           console.log(furnipartid);
+          console.log(furniparttile);
 
           // console.log(furnidata, furnielement, furnipartposition, furnipartid)
-					var top = parseInt($(furniparttile).css('top'));
-					var left = parseInt($(furniparttile).css('left'));
+					var top = parseInt($tile.css('top'));
+					var left = parseInt($tile.css('left'));
 
 					$(this).css('top', (top-this.height) + 'px');
 					$(this).css('left', (left) + 'px');
@@ -127,6 +133,9 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 					$(this).appendTo(furnielement);
 				});
 			};
+
+      // Iterating and calling above function multiple times
+      // furnidata, furnielement, furnipartposition, furnipartid
 			for (var i in furni) {
 				var furnielement = $('<div class="furni" />');
 				for (var x in furni[i]['tiles']) {

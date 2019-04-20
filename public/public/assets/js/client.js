@@ -49,5 +49,3 @@ app.config(['$routeProvider', '$locationProvider', '$socketProvider',
 		setConnectionUrl('http://' + clientVars.host + ':' + clientVars.port);
 	}
 ]);
-
-
