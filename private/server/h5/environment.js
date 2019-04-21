@@ -60,15 +60,18 @@ module.exports = function(b, d) {
 			}
 		});
 	};
+
 	this.filter = function(a, b) {
 		for (var c in b) {
 			a = a.replace("%" + c + "%", b[c]);
 		}
 		return a;
 	};
+
 	this.sanitize = function(a) {
 		return sanitizer.escape(a);
 	};
+
 	this.securify = function(a) {
 		var b = ["password"];
 		if (a.id) {
@@ -84,6 +87,7 @@ module.exports = function(b, d) {
 		}
 		return a;
 	};
+
 	this.game = {
 		user: {
 			update: require("./game/user/update"),
@@ -100,6 +104,7 @@ module.exports = function(b, d) {
 			leave: require("./game/rooms/leave")
 		}
 	};
+
 	this.networking = {
 		socketConnection: require("./networking/connection").socketConnection,
 		gameConnection: require("./networking/connection").gameConnection,
@@ -107,5 +112,6 @@ module.exports = function(b, d) {
 		redundancyCheck: require("./networking/redundancy"),
 		login: require("./networking/login")
 	};
+	
 	this.console = require("./utils/console")(a);
 };

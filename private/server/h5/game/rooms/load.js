@@ -36,7 +36,7 @@ module.exports = function(c, a, roomData) {
 
   a.emit("render room", {
     base: roomData.roomPush.base,
-    furni: roomData.roomPush.furni
+    shorthandFurniture: roomData.roomPush.shorthandFurni
   });
   a.join(roomData.roomId);
 

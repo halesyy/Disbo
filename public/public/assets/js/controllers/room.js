@@ -24,7 +24,7 @@
  * IN THE SOFTWARE.
  */
 
-// THIS IS A PUBLIC FILE
+// THIS IS A FRONTEND FILE
 
 app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope', 'userHandler', 'roomHandler',
 	function($scope, $socket, $location, $rootScope, userHandler, roomHandler) {
@@ -41,12 +41,19 @@ app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope'
 			$socket.on('render room', function(data) {
         // from server/game/user/enter.js
 
-        console.log(data)
-        room = data
-        base  = room.base // the floor plan
-        furni = room.furni // the details about the furniture to parse
+				/*
+				 *
+				 */
+        base  = data.base // the floor plan
+				/*
+				 *
+				 */
+				furni = data.shorthandFurni
+				 // the details about the furniture to parse
 
-        base = roomHandler.getBaseWithFurniPhysics(base, furni);
+
+
+        basePhys = roomHandler.getBaseWithFurniPhysics(base, furni);
         roomHandler.generateModel(base);
 
 				// roomHandler.generateFurni([{

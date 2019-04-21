@@ -23,6 +23,9 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+
+// BACKEND
+
 var pathfinder = require("pathfinding");
 module.exports = function(d, e, a) {
 	e.on("verify movement", function(b) {

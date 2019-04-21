@@ -23,11 +23,26 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-module.exports = function(c, a) {
-	a.on("load room", function(data) {
+
+
+
+ //BACKEND
+module.exports = function(environment, frontend) {
+	// console.log("FIRST");
+	// console.log(c);
+	// console.log("SECOND");
+	// console.log(a);
+
+	environment.pool.getConnection(function(d, database){
+		console.log("the connction has workewd")
+
+	});
+
+	frontend.on("load room", function(data) {
     // console.log(data)
     rooms = {
       "1": {
+
         "base": [
           [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -45,17 +60,10 @@ module.exports = function(c, a) {
     			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ],
         "furni": [
-          //format:"name of item","root location"
-          "green_grass:1,1"
-        ]
-
-        // [{
-        //   name: "green_grass",
-        //   base: "1,1",
-        //   adjacentLocations: {
-        //    "0,0":
-        //   }
-        // }]
+					//f: name, base location in room
+					"green_grass:1,1",
+					"green_grass:1,2"
+				]
 
       }
     }
@@ -63,12 +71,12 @@ module.exports = function(c, a) {
     roomId = data["roomId"]
 
     data.roomPush = {}
-    // data.roomPush.roomId = data["roomId"]
-    data.roomPush.base   = rooms[roomId]["base"]
+    data.roomPush.base = rooms[roomId]["base"]
     data.roomPush.matrix = rooms[roomId]["base"] // to stop deprecation
-    data.roomPush.furni  = rooms[roomId]["furni"]
+    data.roomPush.shorthandFurni = rooms[roomId]["furni"]
+		// Converting the shorthand furniture names into sequencable furniture
+		// data.roomPush.furniData =
 
-    // console.log(rooms[roomId])
-		c.event.emit("load room", a, data);
+		environment.event.emit("load room", frontend, data);
 	});
 };

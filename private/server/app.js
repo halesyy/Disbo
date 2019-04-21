@@ -30,10 +30,15 @@ var callbacks = {
 		h5.networking.login(h5.scope(), a);
 		h5.game.user.loops.creditsAndDuckets(h5.scope(), a);
 	},
-	clientViewRendered: function(a) {
-    // console.log("Client view rendered")
-		h5.game.user.greet(h5.scope(), a);
-		h5.game.user.enter(h5.scope(), a);
+	clientViewRendered: function(frontend) {
+		/*
+		 * once the socket tells us that the client has finished rendering,
+		 * it is time to greet the user and run the enter process script to get
+		 * them in the room, and able to start moving in the next step.
+		 */
+
+		h5.game.user.greet(h5.scope(), frontend);
+		h5.game.user.enter(h5.scope(), frontend);
 	},
 	loadRoom: function(a, b) {
     // console.log("Load room")
