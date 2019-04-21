@@ -41,7 +41,10 @@ var callbacks = {
 		h5.game.user.enter(h5.scope(), frontend);
 	},
 	loadRoom: function(a, b) {
-    // console.log("Load room")
+		/*
+		 * starting the room loading process
+		 */
+
 		h5.game.rooms.load(h5.scope(), a, b);
 		h5.game.rooms.chat(h5.scope(), a, b);
 		h5.game.rooms.leave(h5.scope(), a, b);

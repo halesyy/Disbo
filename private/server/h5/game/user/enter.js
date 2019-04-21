@@ -75,7 +75,7 @@ module.exports = function(environment, frontend) {
     data.roomPush.matrix = rooms[roomId]["base"] // to stop deprecation
     data.roomPush.shorthandFurni = rooms[roomId]["furni"]
 		// Converting the shorthand furniture names into sequencable furniture
-		// data.roomPush.furniData =
+		data.roomPush.furniData = environment.furni.unify(environment, rooms[roomId]["furni"])
 
 		environment.event.emit("load room", frontend, data);
 	});

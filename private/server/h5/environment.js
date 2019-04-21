@@ -15,18 +15,23 @@ module.exports = function(b, d) {
 	a.loops = [];
 	a.configuration = b; //c
 	a.fuserights = d;
+
 	this.scope = function() {
 		return a;
 	};
+
 	this.buildHttp = function() {
 		a.server = http.createServer();
 	};
+
 	this.buildEventHandler = function() {
 		a.event = new events.EventEmitter;
 	};
+
 	this.buildIo = function() {
 		a.io = socketIo(this.server);
 	};
+
 	this.buildPool = function() {
 		a.pool = pool(b);
 	};
@@ -102,6 +107,9 @@ module.exports = function(b, d) {
 			move: require("./game/rooms/move"),
 			chat: require("./game/rooms/chat"),
 			leave: require("./game/rooms/leave")
+		},
+		furni: {
+			unify: require("./game/rooms/furniUnify")
 		}
 	};
 
@@ -112,6 +120,6 @@ module.exports = function(b, d) {
 		redundancyCheck: require("./networking/redundancy"),
 		login: require("./networking/login")
 	};
-	
+
 	this.console = require("./utils/console")(a);
 };
