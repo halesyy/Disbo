@@ -46,7 +46,7 @@ module.exports = function(c, a, roomData) {
 
   c.io.sockets["in"](roomData.roomId).emit("dialog", {
     title: a.currentUser.username + " has joined the room",
-    body:"Everybody give him/her a welcoming hug!"
+    body:"Everybody give him/her a welcoming hug! NO PUBLIC DISPLAYS OF AFFECTION"
   });
 
   a.emit("load all users", c.securify(c.rooms[roomData.roomId].users));

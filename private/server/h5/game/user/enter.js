@@ -33,10 +33,10 @@ module.exports = function(environment, frontend) {
 	// console.log("SECOND");
 	// console.log(a);
 
-	environment.pool.getConnection(function(d, database){
-		console.log("the connction has workewd")
-
-	});
+	// environment.pool.getConnection(function(d, database){
+	// 	console.log("the connction has workewd")
+	//
+	// });
 
 	frontend.on("load room", function(data) {
     // console.log(data)
@@ -75,7 +75,7 @@ module.exports = function(environment, frontend) {
     data.roomPush.matrix = rooms[roomId]["base"] // to stop deprecation
     data.roomPush.shorthandFurni = rooms[roomId]["furni"]
 		// Converting the shorthand furniture names into sequencable furniture
-		data.roomPush.furniData = environment.furni.unify(environment, rooms[roomId]["furni"])
+		data.roomPush.furniData = environment.game.furni.unify(environment, rooms[roomId]["furni"])
 
 		environment.event.emit("load room", frontend, data);
 	});
