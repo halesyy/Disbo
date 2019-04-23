@@ -1,10 +1,24 @@
 // Backend application
 
-var env = require("./h5/environment"),
-	conf  = require("./h5/conf.json"),
-	fuse  = require("./h5/fuserights.json"),
-	h5    = new env(conf, fuse);
+var env   = require("./h5/environment"),
+	  conf  = require("./h5/conf.json"),
+	  fuse  = require("./h5/fuserights.json"),
+	  h5    = new env(conf, fuse);
 
+const environment = h5
+
+// Setting up a constant database connection
+const Sequelize = require('sequelize');
+const globaldb = new Sequelize('disbo', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+// Setting globals
+global.globaldb  = globaldb
+global.Sequelize = Sequelize
+
+// Setting up all environment variables
 h5.buildHttp();
 h5.buildIo();
 h5.buildPool();

@@ -1,12 +1,9 @@
-
 var http      = require("http"),
 	  socketIo  = require("socket.io"),
 	  pool      = require("./database/pool"),
 	  events    = require("events"),
   	sanitizer = require("sanitizer"),
   	rl        = require("readline").createInterface(process.stdin, process.stdout);
-
-
 
 module.exports = function(b, d) {
 	var a = this;

@@ -8,47 +8,48 @@ module.exports = function(environment, shorthandFurni) {
     database = environment.pool;
 
     database.getConnection(function(d, db){
-      // console.log("We're in the furni unify, haha!");
 
-        /*
+        /* --
          * iterating through the short-hand to gather
          * the database rows into a furnitureData collection
          * that can be later managed.
          */
-        DBLoopPromises = []
+        CompletionPromises = []
         for (var furnix in shorthandFurni) {
           furniData = shorthandFurni[furnix]
           furniSplit = furniData.split(":")
 
-          /*
-           * checking against internal, configured rules
+          /* --
+           * checking against internal, configured rules whether the formatting
+           * is correct. (has to contain one ":" to get past default check)
            */
           if (furniSplit.length == environment.configuration.database_rules.furni.shorthand_segments) {
             nameIdentifier = furniSplit[0];
             basexy = furniSplit[1];
             const furnitureData = [];
 
-            DBLoopPromises.push(new Promise((resolve, reject) => {
-              // Getting all nameid information from shorthand [0] side
-              db.query("SELECT * FROM furniture WHERE nameId = ?", nameIdentifier, function(error, result, fields){
-                if (error) throw error; // getting the furniture information, shorthand -> descriptive
-                if (result.length == 0) return false;
-                // results, to use the first and append to previous array
+            // Getting all nameid information from shorthand [0] side
+            CompletionPromises.push(new Promise((resolve, reject) => {
+              globaldb.query("SELECT * FROM furniture WHERE nameId = :nameid", {
+                replacements: { nameid: nameIdentifier },
+                type: Sequelize.QueryTypes.SELECT
+              }).then(function(result){
                 row = result[0];
                 furnitureData.push({
                   nameId: nameIdentifier,
-                  description: row["description"],
-                  adjacentLocations: row["adjacentLocations"],
-                  rotateable: row["rotateble"]
+                  description: row.description,
+                  adjacentLocations: row.adjacentLocations,
+                  rotateable: row.rotateable
                 });
                 resolve(furnitureData)
-              });
+              })
             }))
-
           }
-        } // end for loop
 
-        Promise.all(DBLoopPromises).then((value) => {
+        } //# Finishing the for iterations, converting all shorthand -> longhand
+
+
+        Promise.all(CompletionPromises).then((value) => {
           console.log(value)
         });
 

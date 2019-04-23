@@ -61,8 +61,7 @@ module.exports = function(environment, frontend) {
         ],
         "furni": [
 					//f: name, base location in room
-					"green_grass:1,1",
-					"green_grass:1,2"
+					"green_grass:1,1"
 				]
 
       }
