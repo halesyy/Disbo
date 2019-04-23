@@ -23,15 +23,20 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+
+//FONTEND
 app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 	return {
+
 		calculateTile: function(a) {
 			a = document.elementFromPoint(a.pageX, a.pageY);
 			return !$(a).hasClass("inner") || $(a).parent().hasClass("empty") || $(a).parent().hasClass("wall-left") || $(a).parent().hasClass("wall-right") ? null : a;
 		},
+
 		move: function(a) {
 			for (var d in a.steps) {
 				(function(b) {
+
 					window.setTimeout(function() {
 						var c = $("[data-x=" + a.steps[b][0] + "][data-y=" + a.steps[b][1] + "]"),
 							d = parseInt($(c).css("top")) - 80,
@@ -41,10 +46,12 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 							left: c
 						});
           // Speed, 100 = default, 300 = normal habbo-like speed
-					}, 300 * b);
+        }, 300 * b);
 				})(d);
+
 			}
 		},
+
 		inject: function(a) {
 			var d = $('<div class="avatar"></div>'),
 				b = a.currentPosition.split(":"),
@@ -53,15 +60,18 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 				c = $(c).css("left");
 			$(d).attr("id", "user" + a.id);
 			$(d).css({
-				top: b + "px",
-				left: c,
-				"background-image": "url(https://www.habbo.com.tr/habbo-imaging/avatarimage?figure=" + a.figure + "&size=n&direction=2&head_direction=2&crr=3&gesture=sml&size=n&direction=2&head_direction=2&crr=3&gesture=sml)"
+				"top": b + "px",
+				"left": c,
+				"background-image": "url(https://www.habbo.com.tr/habbo-imaging/avatarimage?figure=" + a.figure + "&size=n&direction=2&head_direction=2&crr=3&gesture=sml&size=n&direction=2&head_direction=2&crr=3&gesture=sml)",
+        "transition": "all 0.3s linear 0s"
 			});
 			$("#map #map-users").append(d);
 		},
+
 		remove: function(a) {
 			$("#user" + a).remove();
 		},
+
 		chatBubble: function(a, d, b) {
 			var c = $('<div class="chat-bubble"></div>');
 			b = b.split(":");
@@ -72,7 +82,7 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 				top: b + "px",
 				left: e
 			});
-			$(c).html(d + " said: " + a);
+			$(c).html(d + ": " + a);
 			$("#map #map-chat-bubbles").append(c);
 			setInterval(function() {
 				$(c).css({
