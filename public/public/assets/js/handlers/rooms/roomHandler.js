@@ -122,7 +122,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
           $img = $("<img class='furni-part' />");
           $img.attr('src', `assets/furni/${filelocation}`);
           $img.load(function(){
-              $img.css('display', 'inline-block');
+              $(this).css('display', 'inline-block');
 
               // The tile that bounds the X/Y coords
               $tile = $(`[data-x=${furniChildX}][data-y=${furniChildY}]`);
@@ -130,13 +130,13 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
               tileTop  = parseInt($tile.css("top"));
               tileLeft = parseInt($tile.css("left"));
 
-              $img.css('top',  `${tileTop}px`);
-              $img.css('left', `${tileLeft}px`);
-              $FurniParent.append($img)
+              $(this).css('top',  `${tileTop}px`);
+              $(this).css('left', `${tileLeft}px`);
+              $FurniParent.append($(this))
           });
         }
-        $('#map #map-furni').append($FurniParent);
       }
+      $('#map #map-furni').append($FurniParent);
 			// return false;
 		},
 
