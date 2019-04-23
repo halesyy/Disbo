@@ -106,7 +106,8 @@ module.exports = function(b, d) {
 			leave: require("./game/rooms/leave")
 		},
 		furni: {
-			unify: require("./game/rooms/furniUnify")
+			expandShorthand: require("./game/furni/expandShorthand"),
+			floorplanMerge: require("./game/furni/floorplanMerge")
 		}
 	};
 

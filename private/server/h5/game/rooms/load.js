@@ -33,10 +33,10 @@ module.exports = function(c, a, roomData) {
 
   // Connecting to frontend-generating piece of code, pulling the matrix
   // from enter.js
-
   a.emit("render room", {
-    base: roomData.roomPush.base,
-    shorthandFurniture: roomData.roomPush.shorthandFurni
+    base: roomData.roomData.base,
+    shorthandFurni: roomData.roomData.shorthandFurni,
+    longhandFurni: roomData.roomData.longhandFurni
   });
   a.join(roomData.roomId);
 

@@ -29,19 +29,6 @@
 app.service('roomHandler', ['$rootScope', function($rootScope) {
 	return {
 
-    /*
-     * apply the data in the JSON format to
-     * apply walkable or non-walkable physics
-     * to the room, e.g. if a furni is NON-WALKABLE,
-     * remove walking access in that area before the
-     * furni is painted over.
-     */
-    getBaseWithFurniPhysics: function(base, furni) {
-      for (var fData in furni) {
-        console.log(furni);
-      }
-    },
-
 		generateModel: function(b) {
 			var c = {
 					0: "floor",
@@ -87,8 +74,74 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 			}
 		},
 
+		/*
+		 * generating appropriate furniture
+		 * scheme: {
+		 *	 nameId: nameIdentifier,
+		 *	 description: row.description,
+		 *	 adjacentLocations: row.adjacentLocations,
+		 *	 rotateable: row.rotateable,
+		 *	 walkable: row.walkable,
+		 *	 rootBlock: basexy
+		 * }
+		 * --
+		 *  their process:
+		 *  1. iterate over the tiles presented,
+     *     - making a new image class furni-part for each tile
+     *     - adjusting the CSS dependant on it
+		 */
+		generateFurniture: function(longhandFurni) {
+
+      //# iterating over each piece of furniture to be
+      //# introduced into the gameworld
+			for (furnix in longhandFurni) {
+        $FurniParent = $(`<div class="furni-${furnix}" />`);
+
+				schemeData = longhandFurni[furnix];
+        rootBlock = schemeData.rootBlock.split(',')
+        x = parseInt(rootBlock[0]); //r
+        y = parseInt(rootBlock[1]); //r
+
+        //# the furniture container
+        adjacentRows = schemeData.adjacentLocations.split("\n");
+
+        // Iterating over each tile worth of data
+        for (rowidx in adjacentRows) {
+          rowData = adjacentRows[rowidx].split(': ');
+          xyMovement = rowData[0].split(',');
+          xmove = parseInt(xyMovement[0])
+          ymove = parseInt(xyMovement[1])
+          filelocation = rowData[1];
+
+          // Furni location
+          furniChildX = x + xmove;
+          furniChildY = x + ymove;
+          console.log(furniChildX, furniChildY);
+
+          // Loading image, then appending to the furni class
+          $img = $("<img class='furni-part' />");
+          $img.attr('src', `assets/furni/${filelocation}`);
+          $img.load(function(){
+              $img.css('display', 'inline-block');
+
+              // The tile that bounds the X/Y coords
+              $tile = $(`[data-x=${furniChildX}][data-y=${furniChildY}]`);
+
+              tileTop  = parseInt($tile.css("top"));
+              tileLeft = parseInt($tile.css("left"));
+
+              $img.css('top',  `${tileTop}px`);
+              $img.css('left', `${tileLeft}px`);
+              $FurniParent.append($img)
+          });
+        }
+        $('#map #map-furni').append($FurniParent);
+      }
+			// return false;
+		},
+
 		generateFurni: function(furni) {
-			this.appendFurniPart = function(furnidata, furnielement, furnipartposition, furnipartid) {
+			this.appendFurniPart = function(furnidata, furnipartposition, furnipartid) {
         /*
         {
             id: 1,
@@ -105,9 +158,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
               '1:0',
               '1:1'
             ] // figure out how to represent this, explains in what relation it has to the other tiles
-        }
-
-        {
+        } - {
             "name": "green-floor",
             "formal": "Green Floor",
             "locations": {
@@ -117,47 +168,42 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
               "1:1": "assets/furni/floors/green-floor-1x1.png",
             }
         }
-
         EACH TILE IS WIDTH: 66px;, HEIGHT: 40px.
         */
+				var furnielement = $("<div class='furni' />");
+
+
 				var img = $('<img class="furni-part" />');
 				$(img).attr('src', 'assets/images/furniture/' + furnidata.name + '/' + furnipartid + '.png');
 				$(img).load(function() {
-					$(img).css('display', 'inline-block');
-					var furnipartpositions = furnipartposition.split(':');
+						$(img).css('display', 'inline-block');
+						var furnipartpositions = furnipartposition.split(':');
 
-          // Gathering the
-					var $tile = $(
-						'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
-					);
-          furniparttile = $tile
+	          // Gathering the
+						var $tile = $(
+							'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
+						);
+	          furniparttile = $tile
 
-          console.log("Running furniture function");
-          console.log(furnidata);
-          console.log(furnielement);
-          console.log(furnipartposition);
-          console.log(furnipartid);
-          console.log(furniparttile);
+						var top = parseInt($tile.css('top'));
+						var left = parseInt($tile.css('left'));
 
-          // console.log(furnidata, furnielement, furnipartposition, furnipartid)
-					var top = parseInt($tile.css('top'));
-					var left = parseInt($tile.css('left'));
+						$(this).css('top', (top-this.height) + 'px');
+						$(this).css('left', (left) + 'px');
 
-					$(this).css('top', (top-this.height) + 'px');
-					$(this).css('left', (left) + 'px');
-
-					$(this).appendTo(furnielement);
+						$(this).appendTo(furnielement);
 				});
 			};
 
       // Iterating and calling above function multiple times
       // furnidata, furnielement, furnipartposition, furnipartid
-			for (var i in furni) {
-				var furnielement = $('<div class="furni" />');
-				for (var x in furni[i]['tiles']) {
-					this.appendFurniPart(furni[i], furnielement, furni[i]['tiles'][x], x);
-				};
-				$('#map #map-furni').append(furnielement);
+			for (furnix in furni) {
+				for (x in furni[furnix]['tiles']) {
+
+					this.appendFurniPart(furni[furnix], furni[furnix]['tiles'][x], x);
+
+				}
+
 			}
 		}
 

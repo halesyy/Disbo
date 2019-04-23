@@ -39,7 +39,7 @@ module.exports = function(environment, frontend) {
 	// });
 
 	frontend.on("load room", function(data) {
-    // console.log(data)
+
     rooms = {
       "1": {
 
@@ -69,14 +69,30 @@ module.exports = function(environment, frontend) {
 
     roomId = data["roomId"]
 
-    data.roomPush = {}
-    data.roomPush.base = rooms[roomId]["base"]
-    data.roomPush.matrix = rooms[roomId]["base"] // to stop deprecation
-    data.roomPush.shorthandFurni = rooms[roomId]["furni"]
+    data.roomData = {}
+    data.roomData.originalBase = rooms[roomId]["base"]
+    data.roomData.matrix = rooms[roomId]["base"] // to stop deprecation
+    data.roomData.shorthandFurni = rooms[roomId]["furni"]
 
-		// Converting shorthand (green_grass:1,1) -> appropriate scheme
-		data.roomPush.furniData = environment.game.furni.unify(environment, rooms[roomId]["furni"])
+		/*
+		 * 1. convert shorthand into data
+		 * 2. combine base + longhand data to remove spaces
+		 * 3. sending forward to get parsed and furniture added
+		 */
 
-		environment.event.emit("load room", frontend, data);
+		//# Converting shorthand (green_grass:1,1) -> appropriate scheme for placing furniture
+		environment.game.furni.expandShorthand(environment, rooms[roomId]["furni"])
+			.then((longhand => {
+				data.roomData.longhandFurni = longhand
+			}))
+			.then(function(){
+				//# Combining the longhand + originalBase to get a wholistic app view
+				data.roomData.base = data.roomData.originalBase;
+				environment.game.furni.floorplanMerge(environment, data.roomData.base, data.roomData.longhandFurni);
+
+			})
+			.then(function(){
+				environment.event.emit("load room", frontend, data);
+			})
 	});
 };

@@ -42,19 +42,16 @@ app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope'
         // from server/game/user/enter.js
 
 				/*
-				 *
+				 * base data for floorplan
 				 */
         base  = data.base // the floor plan
 				/*
-				 *
+				 * shorthand furniture data
 				 */
-				furni = data.shorthandFurni
-				 // the details about the furniture to parse
+				furni = data.longhandFurni
 
-
-
-        basePhys = roomHandler.getBaseWithFurniPhysics(base, furni);
         roomHandler.generateModel(base);
+				roomHandler.generateFurniture(data.longhandFurni);
 
 				// roomHandler.generateFurni([{
 				// 	name: 'hc_exe_sofa',
@@ -65,6 +62,7 @@ app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope'
 				// }]);
 
 			});
+
 			$('#map').click(function(event) {
 				var innerTile = userHandler.calculateTile(event);
 				if (innerTile != null) {
@@ -78,33 +76,42 @@ app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope'
 					});
 				};
 			});
+
 			$('#chat-input').keyup(function(e) {
 				!this.value ? $socket.emit('user stopped typing') : $socket.emit('user typing');
 			});
+
 			$scope.sendChatMessage = function() {
 				$socket.emit('user chat', $scope.chatMessage);
 				$scope.chatMessage = null;
 			};
+
 			$socket.on('user join', function(data) {
 				$scope.injectUser(data);
 			});
+
 			$socket.on('user chat bubble', function(message, username, position) {
 				userHandler.chatBubble(message, username, position);
 			});
+
 			$socket.on('remove user', function(userData) {
 				userHandler.remove(userData)
 			});
+
 			$socket.on('load all users', function(allUsers) {
 				for (var user in allUsers) {
 					userHandler.inject(allUsers[user]);
 				};
 			});
+
 			$socket.on('user typing bubble', function(userid) {
 				$('#user' + userid).html('<img style="float:right" src="assets/images/hotelview/userIcons/typing.png">');
 			});
+
 			$socket.on('user stopped typing', function(userid) {
 				$('#user' + userid).html('');
 			});
+
 			$socket.on('user move', function(data) {
 				userHandler.move(data);
 			});

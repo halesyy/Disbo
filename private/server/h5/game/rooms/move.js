@@ -41,7 +41,7 @@ module.exports = function(d, e, a) {
 		if (finalDestination != initialPlacement) {
       // "FG" is first place, where "GC" is the go-to
       // console.log(a)
-			var h = new pathfinder.Grid(a.roomPush.base),
+			var h = new pathfinder.Grid(a.roomData.base),
 				  m = new pathfinder.AStarFinder({
             // future room-specific variable
 					  allowDiagonal: !0

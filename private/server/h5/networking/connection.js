@@ -1,9 +1,9 @@
 
 module.exports = {
 	socketConnection: function(a) {
-    console.log("[XX:XX:XX] Socket initiated")
+    // console.log("[XX:XX:XX] Socket initiated")
 		a.io.on("connection", function(socket) {
-      console.log("Connection gathered! Socket Connection inside io conn")
+      // console.log("Connection gathered! Socket Connection inside io conn")
 			a.event.emit("begin client connection", socket);
 			socket.on("disconnect", function() {
 				for (var b in a.users) {

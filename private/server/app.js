@@ -17,6 +17,7 @@ const globaldb = new Sequelize('disbo', 'root', '', {
 // Setting globals
 global.globaldb  = globaldb
 global.Sequelize = Sequelize
+global.environment = environment
 
 // Setting up all environment variables
 h5.buildHttp();
