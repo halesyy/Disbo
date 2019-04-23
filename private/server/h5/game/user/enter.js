@@ -43,22 +43,7 @@ module.exports = function(environment, frontend) {
     rooms = {
       "1": {
 
-        "base": [
-          [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ],
+        "baseString": "c t t t t t t\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\nd 0 0 0 0 0 0\ns 0 0 0 0 0 0",
         "furni": [
 					//f: name, base location in room
 					"green_grass:1,1"
@@ -67,28 +52,28 @@ module.exports = function(environment, frontend) {
       }
     }
 
-    roomId = data["roomId"]
+		roomId = data["roomId"]
 
     data.roomData = {}
-    data.roomData.originalBase = rooms[roomId]["base"]
-    data.roomData.matrix = rooms[roomId]["base"] // to stop deprecation
-    data.roomData.shorthandFurni = rooms[roomId]["furni"]
+		data.roomId = roomId
 
-		/*
-		 * 1. convert shorthand into data
-		 * 2. combine base + longhand data to remove spaces
-		 * 3. sending forward to get parsed and furniture added
-		 */
+		// Identifiers are the string-based variable changes in the room, such as d=door
+    data.roomData.baseIdentifierArray = environment.game.rooms.converter.fromString(rooms[roomId]["baseString"]);
+		data.roomData.baseIdentifierString = rooms[roomId]["baseString"];
+		// The original, safe, only-numeric matrix/base as well as furnishorthands
+		data.roomData.base   = environment.game.rooms.converter.toNumeric(rooms[roomId]["baseString"]);
+		data.roomData.matrix = environment.game.rooms.converter.toNumeric(rooms[roomId]["baseString"]); // to stop deprecation
+    data.roomData.shorthandFurni = rooms[roomId]["furni"];
 
-		//# Converting shorthand (green_grass:1,1) -> appropriate scheme for placing furniture
+		// Converting shorthand (green_grass:1,1) -> appropriate scheme for placing furniture
 		environment.game.furni.expandShorthand(environment, rooms[roomId]["furni"])
 			.then((longhand => {
 				data.roomData.longhandFurni = longhand
 			}))
 			.then(function(){
 				//# Combining the longhand + originalBase to get a wholistic app view
-				data.roomData.base = data.roomData.originalBase;
-				environment.game.furni.floorplanMerge(environment, data.roomData.base, data.roomData.longhandFurni);
+				// data.roomData.base = data.roomData.originalBase;
+				data.roomData.base = environment.game.furni.floorplanMerge(environment, data.roomData.base, data.roomData.longhandFurni);
 
 			})
 			.then(function(){

@@ -35,7 +35,6 @@ module.exports = function(c, a, roomData) {
   // from enter.js
   a.emit("render room", {
     base: roomData.roomData.base,
-    shorthandFurni: roomData.roomData.shorthandFurni,
     longhandFurni: roomData.roomData.longhandFurni
   });
   a.join(roomData.roomId);

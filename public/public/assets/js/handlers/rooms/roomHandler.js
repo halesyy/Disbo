@@ -29,33 +29,45 @@
 app.service('roomHandler', ['$rootScope', function($rootScope) {
 	return {
 
-		generateModel: function(b) {
-			var c = {
+		generateModel: function(base) {
+      b = base
+
+      // Mapping the base to root out pre-sprite variables for simplicity
+      // for (rowx in base)
+      //   for (colx in base[rowx])
+      //     for (search in preSpriteConverter) {
+      //       replace = preSpriteConverter[search]
+      //       base[rowx][colx] = base[rowx][colx].replace(search, replace);
+      //     }
+      console.log(base);
+
+			var spriteConverter = {
 					0: "floor",
 					1: "empty",
 					2: "wall-left",
 					3: "wall-right",
 					4: "door"
-				},
-				a = $("#map");
+      };
+
+			var a = $("#map");
 
 			$(a).css("width", 62 * (b.length + 1) + "px");
 			$(a).css("height", 32 * (b[0].length - .5) + "px");
 			$(a).css("position", "absolute");
-			$(a).css("top", "50%");
+			$(a).css("top",  "50%");
 			$(a).css("left", "50%");
 
 			var d = .5 * parseInt($(a).css("width")),
-				e = .5 * parseInt($(a).css("height"));
+				  e = .5 * parseInt($(a).css("height"));
 			$(a).css("margin-left", -d + "px");
-			$(a).css("margin-top", -e + "px");
+			$(a).css("margin-top",  -e + "px");
 			a = 31 * b.length;
 
 			for (yIndex = 0; yIndex < b.length; yIndex++) {
 				for (xIndex = 0; xIndex < b[yIndex].length; xIndex++) {
 					topValue = 16 * yIndex + 16 * xIndex,
 						leftValue = 32 * xIndex - 32 * yIndex,
-						sprite = c[b[yIndex][xIndex]],
+						sprite = spriteConverter[b[yIndex][xIndex]],
 						inside = $("<div></div>"),
 						$(inside).addClass("inner"),
 						$(inside).html(xIndex + ":" + yIndex),
@@ -84,11 +96,6 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 		 *	 walkable: row.walkable,
 		 *	 rootBlock: basexy
 		 * }
-		 * --
-		 *  their process:
-		 *  1. iterate over the tiles presented,
-     *     - making a new image class furni-part for each tile
-     *     - adjusting the CSS dependant on it
 		 */
 		generateFurniture: function(longhandFurni) {
 
