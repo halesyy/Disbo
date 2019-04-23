@@ -1,9 +1,19 @@
 // Backend application
 
+<<<<<<< HEAD
+// require API
+require('./api');
+
+var env = require("./h5/environment"),
+	conf  = require("./h5/conf.json"),
+	fuse  = require("./h5/fuserights.json"),
+	h5    = new env(conf, fuse);
+=======
 var env   = require("./h5/environment"),
 	  conf  = require("./h5/conf.json"),
 	  fuse  = require("./h5/fuserights.json"),
 	  h5    = new env(conf, fuse);
+>>>>>>> 08bf34b279ee20ec67b0b079e9a993b78cef872a
 
 const environment = h5
 

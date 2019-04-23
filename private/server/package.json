@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "colors": "^1.1.2",
+    "express": "^4.16.4",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "package.json": "^2.0.1",
