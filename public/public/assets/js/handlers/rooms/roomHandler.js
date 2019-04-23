@@ -97,10 +97,12 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 			for (furnix in longhandFurni) {
         $FurniParent = $(`<div class="furni-${furnix}" />`);
 
-				schemeData = longhandFurni[furnix];
-        rootBlock = schemeData.rootBlock.split(',')
-        x = parseInt(rootBlock[0]); //r
-        y = parseInt(rootBlock[1]); //r
+
+				const schemeData = longhandFurni[furnix];
+        const rootBlock = schemeData.rootBlock.split(',')
+        const walkable = schemeData.walkable
+        const x = parseInt(rootBlock[0]); //r
+        const y = parseInt(rootBlock[1]); //r
 
         //# the furniture container
         adjacentRows = schemeData.adjacentLocations.split("\n");
@@ -114,22 +116,22 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
           filelocation = rowData[1];
 
           // Furni location
-          furniChildX = x + xmove;
-          furniChildY = x + ymove;
-          console.log(furniChildX, furniChildY);
+          const furniChildX = x + xmove;
+          const furniChildY = x + ymove;
 
           // Loading image, then appending to the furni class
           $img = $("<img class='furni-part' />");
           $img.attr('src', `assets/furni/${filelocation}`);
           $img.load(function(){
               $(this).css('display', 'inline-block');
+              if (walkable) $(this).addClass('walkable-furni');
+
 
               // The tile that bounds the X/Y coords
               $tile = $(`[data-x=${furniChildX}][data-y=${furniChildY}]`);
 
               tileTop  = parseInt($tile.css("top"));
               tileLeft = parseInt($tile.css("left"));
-
               $(this).css('top',  `${tileTop}px`);
               $(this).css('left', `${tileLeft}px`);
               $FurniParent.append($(this))
