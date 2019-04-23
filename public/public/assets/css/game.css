@@ -58,7 +58,11 @@ body {
 	background-image: url(../images/splash_screen/photo.png);
 }
 #splash-screen-logo #splash-screen-logo-frame {
-	background-image: url(../images/splash_screen/frame.png);
+	/* background-image: url(../images/splash_screen/frame.png); */
+	background-image: url('https://i.redd.it/4h8qu2abglxy.jpg');
+	border-radius: 24px;
+	background-size: cover;
+	background-position: center;
 	width: 500px;
 	height: 434px;
 	position: absolute;
