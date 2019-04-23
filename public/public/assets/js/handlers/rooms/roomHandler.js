@@ -23,32 +23,51 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+
+// THIS IS A PUBLIC FILE
+
 app.service('roomHandler', ['$rootScope', function($rootScope) {
 	return {
-		generateModel: function(b) {
-			var c = {
+
+		generateModel: function(base) {
+      b = base
+
+      // Mapping the base to root out pre-sprite variables for simplicity
+      // for (rowx in base)
+      //   for (colx in base[rowx])
+      //     for (search in preSpriteConverter) {
+      //       replace = preSpriteConverter[search]
+      //       base[rowx][colx] = base[rowx][colx].replace(search, replace);
+      //     }
+      // console.log(base);
+
+			var spriteConverter = {
 					0: "floor",
 					1: "empty",
 					2: "wall-left",
 					3: "wall-right",
 					4: "door"
-				},
-				a = $("#map");
+      };
+
+			var a = $("#map");
+
 			$(a).css("width", 62 * (b.length + 1) + "px");
 			$(a).css("height", 32 * (b[0].length - .5) + "px");
 			$(a).css("position", "absolute");
-			$(a).css("top", "50%");
+			$(a).css("top",  "50%");
 			$(a).css("left", "50%");
+
 			var d = .5 * parseInt($(a).css("width")),
-				e = .5 * parseInt($(a).css("height"));
+				  e = .5 * parseInt($(a).css("height"));
 			$(a).css("margin-left", -d + "px");
-			$(a).css("margin-top", -e + "px");
+			$(a).css("margin-top",  -e + "px");
 			a = 31 * b.length;
+
 			for (yIndex = 0; yIndex < b.length; yIndex++) {
 				for (xIndex = 0; xIndex < b[yIndex].length; xIndex++) {
 					topValue = 16 * yIndex + 16 * xIndex,
 						leftValue = 32 * xIndex - 32 * yIndex,
-						sprite = c[b[yIndex][xIndex]],
+						sprite = spriteConverter[b[yIndex][xIndex]],
 						inside = $("<div></div>"),
 						$(inside).addClass("inner"),
 						$(inside).html(xIndex + ":" + yIndex),
@@ -66,32 +85,136 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 				}
 			}
 		},
+
+		/*
+		 * generating appropriate furniture
+		 * scheme: {
+		 *	 nameId: nameIdentifier,
+		 *	 description: row.description,
+		 *	 adjacentLocations: row.adjacentLocations,
+		 *	 rotateable: row.rotateable,
+		 *	 walkable: row.walkable,
+		 *	 rootBlock: basexy
+		 * }
+		 */
+		generateFurniture: function(longhandFurni) {
+
+      //# iterating over each piece of furniture to be
+      //# introduced into the gameworld
+			for (furnix in longhandFurni) {
+        $FurniParent = $(`<div class="furni-${furnix}" />`);
+
+
+				const schemeData = longhandFurni[furnix];
+        const rootBlock = schemeData.rootBlock.split(',')
+        const walkable = schemeData.walkable
+        const x = parseInt(rootBlock[0]); //r
+        const y = parseInt(rootBlock[1]); //r
+
+        //# the furniture container
+        adjacentRows = schemeData.adjacentLocations.split("\n");
+
+        // Iterating over each tile worth of data
+        for (rowidx in adjacentRows) {
+          rowData = adjacentRows[rowidx].split(': ');
+          xyMovement = rowData[0].split(',');
+          xmove = parseInt(xyMovement[0])
+          ymove = parseInt(xyMovement[1])
+          filelocation = rowData[1];
+
+          // Furni location
+          const furniChildX = x + xmove;
+          const furniChildY = x + ymove;
+
+          // Loading image, then appending to the furni class
+          $img = $("<img class='furni-part' />");
+          $img.attr('src', `assets/furni/${filelocation}`);
+          $img.load(function(){
+              $(this).css('display', 'inline-block');
+              if (walkable) $(this).addClass('walkable-furni');
+
+
+              // The tile that bounds the X/Y coords
+              $tile = $(`[data-x=${furniChildX}][data-y=${furniChildY}]`);
+
+              tileTop  = parseInt($tile.css("top"));
+              tileLeft = parseInt($tile.css("left"));
+              $(this).css('top',  `${tileTop}px`);
+              $(this).css('left', `${tileLeft}px`);
+              $FurniParent.append($(this))
+          });
+        }
+      }
+      $('#map #map-furni').append($FurniParent);
+			// return false;
+		},
+
 		generateFurni: function(furni) {
-			this.appendFurniPart = function(furnidata, furnielement, furnipartposition, furnipartid) {
+			this.appendFurniPart = function(furnidata, furnipartposition, furnipartid) {
+        /*
+        {
+            id: 1,
+            title: "Not a shit named furni like habbo do",
+            description: "Hello!",
+            walkable: true,
+            floor: false,
+            root: 3:1,
+            adjacent: [
+              #x:y, what to increase values by
+              #e.g. this would be a 2x2 structure, starting at x=3,y=1, spanning
+              #3,2 - 4,1 - 4,2
+              '0:1',
+              '1:0',
+              '1:1'
+            ] // figure out how to represent this, explains in what relation it has to the other tiles
+        } - {
+            "name": "green-floor",
+            "formal": "Green Floor",
+            "locations": {
+              "0:0": "assets/furni/floors/green-floor-1x1.png",
+              "1:0": "assets/furni/floors/green-floor-1x1.png",
+              "0:1": "assets/furni/floors/green-floor-1x1.png",
+              "1:1": "assets/furni/floors/green-floor-1x1.png",
+            }
+        }
+        EACH TILE IS WIDTH: 66px;, HEIGHT: 40px.
+        */
+				var furnielement = $("<div class='furni' />");
+
+
 				var img = $('<img class="furni-part" />');
 				$(img).attr('src', 'assets/images/furniture/' + furnidata.name + '/' + furnipartid + '.png');
 				$(img).load(function() {
-					$(img).css('display', 'inline-block');
-					var furnipartpositions = furnipartposition.split(':');
-					var furniparttile = $(
-						'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
-					);
-					var top = parseInt($(furniparttile).css('top'));
-					var left = parseInt($(furniparttile).css('left'));
+						$(img).css('display', 'inline-block');
+						var furnipartpositions = furnipartposition.split(':');
 
-					$(this).css('top', (top-this.height) + 'px');
-					$(this).css('left', (left) + 'px');
+	          // Gathering the
+						var $tile = $(
+							'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
+						);
+	          furniparttile = $tile
 
-					$(this).appendTo(furnielement);
+						var top = parseInt($tile.css('top'));
+						var left = parseInt($tile.css('left'));
+
+						$(this).css('top', (top-this.height) + 'px');
+						$(this).css('left', (left) + 'px');
+
+						$(this).appendTo(furnielement);
 				});
 			};
-			for (var i in furni) {
-				var furnielement = $('<div class="furni" />');
-				for (var x in furni[i]['tiles']) {
-					this.appendFurniPart(furni[i], furnielement, furni[i]['tiles'][x], x);
-				};
-				$('#map #map-furni').append(furnielement);
+
+      // Iterating and calling above function multiple times
+      // furnidata, furnielement, furnipartposition, furnipartid
+			for (furnix in furni) {
+				for (x in furni[furnix]['tiles']) {
+
+					this.appendFurniPart(furni[furnix], furni[furnix]['tiles'][x], x);
+
+				}
+
 			}
 		}
+
 	}
 }]);

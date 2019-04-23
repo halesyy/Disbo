@@ -23,38 +23,61 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-module.exports = function(c, a) {
-	a.on("load room", function(b) {
-		b.matrix = [
-			[1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		];
-    b.matrix = [
-      [1, 3, 3, 3, 3, 3, 3],
-      [4, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0],
-      [2, 0, 0, 0, 0, 0, 0]
-    ];
-		c.event.emit("load room", a, b);
+
+
+
+ //BACKEND
+module.exports = function(environment, frontend) {
+	// console.log("FIRST");
+	// console.log(c);
+	// console.log("SECOND");
+	// console.log(a);
+
+	// environment.pool.getConnection(function(d, database){
+	// 	console.log("the connction has workewd")
+	//
+	// });
+
+	frontend.on("load room", function(data) {
+
+    rooms = {
+      "1": {
+
+        "baseString": "c t t t t t t\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\nd 0 0 0 0 0 0\ns 0 0 0 0 0 0",
+        "furni": [
+					//f: name, base location in room
+					"green_grass:1,1"
+				]
+
+      }
+    }
+
+		roomId = data["roomId"]
+
+    data.roomData = {}
+		data.roomId = roomId
+
+		// Identifiers are the string-based variable changes in the room, such as d=door
+    data.roomData.baseIdentifierArray = environment.game.rooms.converter.fromString(rooms[roomId]["baseString"]);
+		data.roomData.baseIdentifierString = rooms[roomId]["baseString"];
+		// The original, safe, only-numeric matrix/base as well as furnishorthands
+		data.roomData.base   = environment.game.rooms.converter.toNumeric(rooms[roomId]["baseString"]);
+		data.roomData.matrix = environment.game.rooms.converter.toNumeric(rooms[roomId]["baseString"]); // to stop deprecation
+    data.roomData.shorthandFurni = rooms[roomId]["furni"];
+
+		// Converting shorthand (green_grass:1,1) -> appropriate scheme for placing furniture
+		environment.game.furni.expandShorthand(environment, rooms[roomId]["furni"])
+			.then((longhand => {
+				data.roomData.longhandFurni = longhand
+			}))
+			.then(function(){
+				//# Combining the longhand + originalBase to get a wholistic app view
+				// data.roomData.base = data.roomData.originalBase;
+				data.roomData.base = environment.game.furni.floorplanMerge(environment, data.roomData.base, data.roomData.longhandFurni);
+
+			})
+			.then(function(){
+				environment.event.emit("load room", frontend, data);
+			})
 	});
 };

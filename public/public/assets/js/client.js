@@ -36,10 +36,13 @@ app.config(['$routeProvider', '$locationProvider', '$socketProvider',
 			templateUrl: 'partials/view.html',
 			controller: 'HotelViewController'
 		}).
-		when('/room', {
+		when('/room/:roomId', {
 			templateUrl: 'partials/room.html',
 			controller: 'RoomController'
 		}).
+    when('/room', {
+      redirectTo: '/'
+    }).
 		otherwise({
 			redirectTo: '/view'
 		});
@@ -49,5 +52,3 @@ app.config(['$routeProvider', '$locationProvider', '$socketProvider',
 		setConnectionUrl('http://' + clientVars.host + ':' + clientVars.port);
 	}
 ]);
-
-

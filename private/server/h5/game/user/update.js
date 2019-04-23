@@ -8,11 +8,12 @@ module.exports = function(api, socket, database) {
 
 	database.query("SELECT * FROM users WHERE id = ?", a.currentUser.id, function(f, c) {
 		if (api.users[socket.currentUser.id]) {
-			for (var e in c[0]) {
+			for (var e in c[0])
 				api.users[a.currentUser.id][e] = c[0][e];
-			}
-			socket.emit("update userinfo", api.securify(c[0]));
-		}
+
+      socket.emit("update userinfo", api.securify(c[0]));
+
+    }
 		database.release();
 	});
 };
