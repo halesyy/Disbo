@@ -7,6 +7,7 @@ const config = require('../config');
 const main = require('../app');
 
 router.get('/', (req, res) => {
+  if (!req.user) return res.redirect('/login');
   res.render('client', { user: req.user });
 });
 

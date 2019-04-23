@@ -1,5 +1,8 @@
 // Backend application
 
+// require API
+require('./api');
+
 var env = require("./h5/environment"),
 	conf  = require("./h5/conf.json"),
 	fuse  = require("./h5/fuserights.json"),
