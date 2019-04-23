@@ -72,7 +72,7 @@ module.exports = function(environment, frontend, data) {
 			steps = path.findPath(x1, y1, x2, y2, grid.clone());
 			environment.rooms[data.roomId].users[frontend.currentUser.id].currentPosition = finalDestination;
       // console.log(steps);
-      console.log(`[XX:XX:XX] User ${environment.rooms[data.roomId].users[frontend.currentUser.id].username} moved from ${initialPlacement} to ${finalDestination}`);
+      console.log(`[XX:XX:XX] User ${environment.rooms[data.roomId].users[frontend.currentUser.id].username} moved from ${initialPlacement} to ${finalDestination} in room id ${a.roomId}`);
 
 			environment.io.sockets["in"](data.roomId).emit("user move", {
 				steps: steps,

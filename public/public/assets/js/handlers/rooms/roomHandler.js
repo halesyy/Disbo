@@ -39,7 +39,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
       //       replace = preSpriteConverter[search]
       //       base[rowx][colx] = base[rowx][colx].replace(search, replace);
       //     }
-      console.log(base);
+      // console.log(base);
 
 			var spriteConverter = {
 					0: "floor",
