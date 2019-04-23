@@ -26,10 +26,11 @@
 module.exports = {
 	creditsAndDuckets: function(a, b) {
 		a.loops[b.currentUser.id].creditsAndDuckets = setInterval(function() {
-			a.pool.getConnection(function(d, c) {
-				c.query("UPDATE users SET credits = credits + " + a.configuration.server.rewards.credits + ", duckets = duckets + " + a.configuration.server.rewards.duckets + " WHERE id = ?", b.currentUser.id, function() {
+      // api.pool.getConnection( function(d, database) )
+			a.pool.getConnection(function(d, database) {
+				database.query("UPDATE users SET credits = credits + " + a.configuration.server.rewards.credits + ", duckets = duckets + " + a.configuration.server.rewards.duckets + " WHERE id = ?", b.currentUser.id, function() {
 					b.emit("more credits");
-					a.game.user.update(a, b, c);
+					a.game.user.update(a, b, database);
 				});
 			});
 		}, 1E3 * a.configuration.server.rewards.interval);

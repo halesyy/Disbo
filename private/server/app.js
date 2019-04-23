@@ -1,5 +1,6 @@
 // Backend application
 
+<<<<<<< HEAD
 // require API
 require('./api');
 
@@ -7,7 +8,28 @@ var env = require("./h5/environment"),
 	conf  = require("./h5/conf.json"),
 	fuse  = require("./h5/fuserights.json"),
 	h5    = new env(conf, fuse);
+=======
+var env   = require("./h5/environment"),
+	  conf  = require("./h5/conf.json"),
+	  fuse  = require("./h5/fuserights.json"),
+	  h5    = new env(conf, fuse);
+>>>>>>> 08bf34b279ee20ec67b0b079e9a993b78cef872a
 
+const environment = h5
+
+// Setting up a constant database connection
+const Sequelize = require('sequelize');
+const globaldb = new Sequelize('disbo', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+// Setting globals
+global.globaldb  = globaldb
+global.Sequelize = Sequelize
+global.environment = environment
+
+// Setting up all environment variables
 h5.buildHttp();
 h5.buildIo();
 h5.buildPool();
@@ -33,13 +55,21 @@ var callbacks = {
 		h5.networking.login(h5.scope(), a);
 		h5.game.user.loops.creditsAndDuckets(h5.scope(), a);
 	},
-	clientViewRendered: function(a) {
-    // console.log("Client view rendered")
-		h5.game.user.greet(h5.scope(), a);
-		h5.game.user.enter(h5.scope(), a);
+	clientViewRendered: function(frontend) {
+		/*
+		 * once the socket tells us that the client has finished rendering,
+		 * it is time to greet the user and run the enter process script to get
+		 * them in the room, and able to start moving in the next step.
+		 */
+
+		h5.game.user.greet(h5.scope(), frontend);
+		h5.game.user.enter(h5.scope(), frontend);
 	},
 	loadRoom: function(a, b) {
-    // console.log("Load room")
+		/*
+		 * starting the room loading process
+		 */
+
 		h5.game.rooms.load(h5.scope(), a, b);
 		h5.game.rooms.chat(h5.scope(), a, b);
 		h5.game.rooms.leave(h5.scope(), a, b);

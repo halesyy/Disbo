@@ -1,12 +1,9 @@
-
 var http      = require("http"),
 	  socketIo  = require("socket.io"),
 	  pool      = require("./database/pool"),
 	  events    = require("events"),
   	sanitizer = require("sanitizer"),
   	rl        = require("readline").createInterface(process.stdin, process.stdout);
-
-
 
 module.exports = function(b, d) {
 	var a = this;
@@ -15,18 +12,23 @@ module.exports = function(b, d) {
 	a.loops = [];
 	a.configuration = b; //c
 	a.fuserights = d;
+
 	this.scope = function() {
 		return a;
 	};
+
 	this.buildHttp = function() {
 		a.server = http.createServer();
 	};
+
 	this.buildEventHandler = function() {
 		a.event = new events.EventEmitter;
 	};
+
 	this.buildIo = function() {
 		a.io = socketIo(this.server);
 	};
+
 	this.buildPool = function() {
 		a.pool = pool(b);
 	};
@@ -60,15 +62,18 @@ module.exports = function(b, d) {
 			}
 		});
 	};
+
 	this.filter = function(a, b) {
 		for (var c in b) {
 			a = a.replace("%" + c + "%", b[c]);
 		}
 		return a;
 	};
+
 	this.sanitize = function(a) {
 		return sanitizer.escape(a);
 	};
+
 	this.securify = function(a) {
 		var b = ["password"];
 		if (a.id) {
@@ -84,6 +89,7 @@ module.exports = function(b, d) {
 		}
 		return a;
 	};
+
 	this.game = {
 		user: {
 			update: require("./game/user/update"),
@@ -97,9 +103,15 @@ module.exports = function(b, d) {
 			load: require("./game/rooms/load"),
 			move: require("./game/rooms/move"),
 			chat: require("./game/rooms/chat"),
-			leave: require("./game/rooms/leave")
+			leave: require("./game/rooms/leave"),
+			converter: require("./game/rooms/converter")
+		},
+		furni: {
+			expandShorthand: require("./game/furni/expandShorthand"),
+			floorplanMerge: require("./game/furni/floorplanMerge")
 		}
 	};
+
 	this.networking = {
 		socketConnection: require("./networking/connection").socketConnection,
 		gameConnection: require("./networking/connection").gameConnection,
@@ -107,5 +119,6 @@ module.exports = function(b, d) {
 		redundancyCheck: require("./networking/redundancy"),
 		login: require("./networking/login")
 	};
+
 	this.console = require("./utils/console")(a);
 };
