@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = new Router();
 const fetch = require('node-fetch');
-
+const jwt = require('jsonwebtoken');
 const db = require('../utils/db');
 const config = require('../config');
 const main = require('../app');
@@ -43,9 +43,17 @@ router.get('/login/callback', async (req, res, next) => {
       if (userRes.ok) {
         const userBody = await userRes.json();
 
-        db.User.findOne({ id: userBody.id }, (err, user) => {
+        db.User.findOne({ id: userBody.id }, async (err, user) => {
           if (err) return next(err);
           if (!user) user = new db.User();
+
+          const token = jwt.sign({
+              id: userBody.id,
+              username: userBody.username,
+              discriminator: userBody.discriminator,
+              avatar: userBody.avatar,
+          }, 'memes');
+          console.log(token);
 
           user.access_token = accessToken; // eslint-disable-line camelcase
           user.refresh_token = refreshToken; // eslint-disable-line camelcase
@@ -53,12 +61,34 @@ router.get('/login/callback', async (req, res, next) => {
           user.username = userBody.username;
           user.discriminator = userBody.discriminator;
           user.avatar = userBody.avatar;
-          
+          user.token = token;
+
           user.save(err => {
             if (err) return next(err);
             req.session.did = user.id;
             res.redirect(state ? state : '/');
           });
+
+          const body = {
+            user: {
+              id: userBody.id,
+              username: userBody.username,
+              discriminator: userBody.discriminator,
+              avatar: userBody.avatar,
+              token: token,
+            }
+          }
+
+          const setTokenGameServer = await fetch('http://localhost:7777/set/token', {
+            method: 'post',
+            body: JSON.stringify(body),
+            headers: {
+              Authorization: `teste`,
+              'Content-Type': 'application/json'
+            },
+          });
+
+          if (setTokenGameServer.ok) console.log(1);
         });
       } else {
         return res.sendError(500, 'An unknown error occurred while getting your data. Please try again.');

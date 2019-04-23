@@ -8,6 +8,7 @@ const UserSchema = mongoose.Schema({
   access_token: String,
   refresh_token: String,
   avatar: String,
+  token: String,
 });
 
 const User = mongoose.model('User', UserSchema);

@@ -60,10 +60,14 @@ class Main {
     // Set global favicon
     // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+    app.use(require('./routes/global'));
+
     // Use routes
     // app.use('/', require('./routes/static'));
     app.use('/', require('./routes/auth'));
-    // app.use('/', require('./routes/home'));
+    app.use('/play', require('./routes/game'));
+    app.use('/', require('./routes/home'));
+
 
     // Error handlers
     const errorHandlers = require('./routes/error');
