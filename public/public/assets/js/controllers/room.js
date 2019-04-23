@@ -26,17 +26,21 @@
 
 // THIS IS A FRONTEND FILE
 
-app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope', 'userHandler', 'roomHandler',
-	function($scope, $socket, $location, $rootScope, userHandler, roomHandler) {
+app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$location', '$rootScope', 'userHandler', 'roomHandler',
+	function($routeParams, $scope, $socket, $location, $rootScope, userHandler, roomHandler) {
 		if (!$rootScope.isBootstrapped) {
 			$location.path('/');
+
 		} else {
-			$rootScope.isInRoom = true;
+
+			var roomId = $routeParams.roomId;
+			if (isNaN(roomId)) $location.path('/')
 
 			$socket.emit('load room', {
-				roomId: 1
+				roomId: roomId
 			});
 
+			$rootScope.isInRoom = true;
 			$scope.chatMessage = '';
 			$socket.on('render room', function(data) {
         // from server/game/user/enter.js
@@ -52,15 +56,6 @@ app.controller('RoomController', ['$scope', '$socket', '$location', '$rootScope'
 
         roomHandler.generateModel(base);
 				roomHandler.generateFurniture(data.longhandFurni);
-
-				// roomHandler.generateFurni([{
-				// 	name: 'hc_exe_sofa',
-				// 	tiles: ['13:5', '13:4', '13:3']
-				// }, {
-				// 	name: 'hc_tv',
-				// 	tiles: ['10:5', '10:4']
-				// }]);
-
 			});
 
 			$('#map').click(function(event) {
