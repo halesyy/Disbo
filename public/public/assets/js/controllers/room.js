@@ -7,7 +7,6 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			$location.path('/');
 
 		} else {
-
 			var roomId = $routeParams.roomId;
 			if (isNaN(roomId)) $location.path('/')
 
@@ -59,6 +58,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
           // alert(`${clientVars.host}:7777/api/profile/${userid}`);
           $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
             if (profileData.error === true) {
+
             }
             else {
               $rootScope.profileViewWindow.enabled = true;
@@ -98,8 +98,8 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			});
 
 			$socket.on('load all users', function(allUsers) {
-        console.log("load all users:");
-        console.log(allUsers);
+        // console.log("load all users:");
+        // console.log(allUsers);
         // console.log(userHandler);
 				for (var user in allUsers) {
 					userHandler.inject(allUsers[user]);

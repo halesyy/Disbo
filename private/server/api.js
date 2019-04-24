@@ -38,24 +38,18 @@ app.get("/api/profile/:id", function(req, res){
 });
 
 app.get("/api/friends/:sso", async function(req, res){
-  var sso = req.params.sso;
-  var userid = environment.dbops.users.ssoToUserId(sso);
+  var sso    = req.params.sso;
+  var userid = await environment.game.dbops.users.ssoToUserId(sso);
 
-
-  // var userid =
-
-  // globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending != 1", {
-  //   replacements: { userid: userid },
-  //   type: Sequelize.QueryTypes.SELECT
-  // }).then(function(result){
-  //   // Profile exists, checking if client is their friend...
-  //   if (result.length > 0) {
-  //     result[0].discordavatarurl = `https://images.discordapp.net/avatars/${result[0]["discordid"]}/${result[0]["avatar"]}.png?size=256`;
-  //     res.json(result[0]);
-  //   }
-  //   else res.json({error: true});
-  // });
-  // console.log();
+  globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending != 1", {
+    replacements: { userid: userid },
+    type: Sequelize.QueryTypes.SELECT
+  }).then(function(result){
+    res.json(result[0]);
+    // Profile exists, checking if client is their friend...
+    // if (result.length > 0) res.join({error: false});
+    // else res.json({error: true});
+  });
 });
 
 app.post('/set/token', function (req, res) {

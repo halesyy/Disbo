@@ -23,7 +23,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', function($scope, $rootScope, $socket, $location) {
+app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', '$http', function($scope, $rootScope, $socket, $location, $http) {
 
   $rootScope.dialog = {
 		enabled: false,
@@ -35,15 +35,16 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   // $socket.on("got client friends list", function(friendshipsData){
   //   console.log("got");
   // });
+  $http.get(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
+    console.log(data);
+    // if (profileData.error === true) {
+    // }
+    // else {
+    //   $rootScope.profileViewWindow.enabled = true;
+    //   $rootScope.profileViewWindow.data = profileData;
+    //   $rootScope.$apply();
+    // }
 
-  $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(profileData){
-    if (profileData.error === true) {
-    }
-    else {
-      $rootScope.profileViewWindow.enabled = true;
-      $rootScope.profileViewWindow.data = profileData;
-      $rootScope.$apply();
-    }
   });
 
 	$rootScope.hcWindow = {
