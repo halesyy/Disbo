@@ -584,7 +584,7 @@ body {
 	width: 700px !important;
 	/* background: rgba(); */
 	opacity: 0.7;
-
+	position: absolute;
 	transition: opacity 0.5s;
 }
 .profile-dialog:hover {
@@ -593,6 +593,7 @@ body {
 	transition: opacity 0.5s;
 }
 .profile-dialog .avatar {
+	/* position: absolute; */
 	width: 150px;
 	height: 150px;
 	border-radius: 150px;
@@ -604,6 +605,10 @@ body {
 }
 .profile-dialog .avatar:hover {
 	transition: all 0.5s;
+	border-radius: 0;
+	border-radius: 5px;
+	width: 200px;
+	height: 200px;
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -611,12 +616,13 @@ body {
 .dialog .title .left {
 	/* position: absolute; */
 	float: left;
+	margin-left: 40px;
 	/* left: 0; */
 }
 .dialog .title .right {
 	position: absolute;
 	float: right;
-	right: 10px;
+	right: 14px;
 }
 #hotel-view-beans {
 	width: 890px;
@@ -1009,3 +1015,24 @@ body {
 .walkable-furni {
 	pointer-events: none;
 }
+
+.container {
+	width: 100%;
+}
+.third {
+	width: 33.32%;
+	float: left;
+}
+.two-third {
+	width: 66.64%;
+	float: left;
+}
+.content {
+
+}
+.clear {
+	clear: both;
+}
+/* .avatar-aisle .button {
+	position: absolute;
+} */

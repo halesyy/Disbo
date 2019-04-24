@@ -23,7 +23,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', '$http', function($scope, $rootScope, $socket, $location, $http) {
+app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', function($scope, $rootScope, $socket, $location) {
 
   $rootScope.dialog = {
 		enabled: false,
@@ -35,8 +35,10 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   // $socket.on("got client friends list", function(friendshipsData){
   //   console.log("got");
   // });
-  $http.get(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
-    console.log(data);
+  console.log("This is working?");
+  $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
+    console.log("friends: ", data);
+    $rootScope.friends = data;
     // if (profileData.error === true) {
     // }
     // else {
@@ -44,8 +46,28 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     //   $rootScope.profileViewWindow.data = profileData;
     //   $rootScope.$apply();
     // }
-
+    $rootScope.$apply();
   });
+
+  $rootScope.isFriend = function(){
+    // console.log($rootScope.friends.friendIds);
+    // console.log($rootScope.profileViewWindow.data.id);
+    var inside = false;
+    for (clientFriendsID in $rootScope.friends.friendIds) {
+      if ($rootScope.friends.friendIds[clientFriendsID] == $rootScope.profileViewWindow.data.id) inside = true;
+    }
+    // returning for case that you are viewing your own profile
+    // if ($rootScope.friends.clientID == $rootScope.profileViewWindow.data.id) return 2;
+    return inside;
+  }
+
+  $rootScope.isYou = function(){
+    // console.log($rootScope.friends.clientID);
+    // console.log($rootScope.profileViewWindow.data.id);
+    if ($rootScope.friends.clientID == $rootScope.profileViewWindow.data.id)
+      return true;
+    else return false;
+  }
 
 	$rootScope.hcWindow = {
 		enabled: false

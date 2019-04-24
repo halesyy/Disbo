@@ -54,10 +54,36 @@
 				</div>
 				<div style="clear: both;"></div>
 			</div>
-			<img class="avatar" src="{{ profileViewWindow.data.discordavatarurl }}" />
-			<p>Nothing to see here.. This is on it's way!</p>
+			<!-- <p>{{ friends }}</p> -->
+			<div class="container">
+				<div class="third avatar-aisle">
+					<div class="content">
+						<img class="avatar" src="{{ profileViewWindow.data.discordavatarurl }}" />
+					</div>
+					<div ng-if="isBootstrapped && !isFriend() && !isYou()" style="padding-bottom: 20px;">
+						<a class="button" ng-click="" style="z-index: 1005; margin-bottom: 20px; background: green;">Friend</a>
+					</div>
+					<div ng-if="isBootstrapped && isFriend() && !isYou()" style="padding-bottom: 20px;">
+						<a class="button" ng-click="" style="z-index: 1005; margin-bottom: 20px; background: #c21f1f; color: white;">Unfriend</a>
+					</div>
+					<div ng-if="isBootstrapped && isYou()">
+						<h3 style="margin-bottom: 20px;">Looking sexy!</h3>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="two-third">
+					<div class="content">
+						<div style="margin: 15px; padding: 10px; background: lightgrey;">
+							{{ profileViewWindow.data.motto }}
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
 			<div class="bottom">
 			</div>
+
+			<div class="clear"></div>
 		</div>
 
 		<!-- <div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">

@@ -24,12 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
  */
 app.get("/api/profile/:id", function(req, res){
   var userid = req.params.id;
-  globaldb.query("SELECT username,figure,avatar,discordid FROM users WHERE id = :userid", {
+  globaldb.query("SELECT id,username,motto,figure,avatar,discordid FROM users WHERE id = :userid", {
     replacements: { userid: userid },
     type: Sequelize.QueryTypes.SELECT
   }).then(function(result){
     // Profile exists, checking if client is their friend...
     if (result.length > 0) {
+      // result[0].userid =
       result[0].discordavatarurl = `https://images.discordapp.net/avatars/${result[0]["discordid"]}/${result[0]["avatar"]}.png?size=256`;
       res.json(result[0]);
     }
@@ -38,17 +39,15 @@ app.get("/api/profile/:id", function(req, res){
 });
 
 app.get("/api/friends/:sso", async function(req, res){
-  var sso    = req.params.sso;
-  var userid = await environment.game.dbops.users.ssoToUserId(sso);
-
-  globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending != 1", {
-    replacements: { userid: userid },
-    type: Sequelize.QueryTypes.SELECT
-  }).then(function(result){
-    res.json(result[0]);
-    // Profile exists, checking if client is their friend...
-    // if (result.length > 0) res.join({error: false});
-    // else res.json({error: true});
+  var sso          = req.params.sso;
+  var userid       = await environment.game.dbops.users.ssoToUserId(sso);
+  var friendsRows  = await environment.game.dbops.users.friendsIds(userid);
+  var friendIds    = await environment.game.dbops.users.justFriendsIds(friendsRows, userid);
+  var friendBriefs = await environment.game.dbops.users.friendsIdsToBrief(friendsRows, userid);
+  res.json({
+    clientID: userid,
+    friendIds: friendIds,
+    friendBriefs: friendBriefs
   });
 });
 
