@@ -43,10 +43,10 @@ module.exports = function(c, a, roomData) {
   c.rooms[roomData.roomId].users[a.currentUser.id] = a.currentUser;
   c.rooms[roomData.roomId].users[a.currentUser.id].currentPosition = "0:5";
 
-  c.io.sockets["in"](roomData.roomId).emit("dialog", {
-    title: a.currentUser.username + " has joined the room",
-    body:"Everybody give him/her a welcoming hug! NO PUBLIC DISPLAYS OF AFFECTION"
-  });
+  // c.io.sockets["in"](roomData.roomId).emit("dialog", {
+  //   title: a.currentUser.username + " has joined the room",
+  //   body:"Everybody give him/her a welcoming hug! NO PUBLIC DISPLAYS OF AFFECTION"
+  // });
 
   a.emit("load all users", c.securify(c.rooms[roomData.roomId].users));
   a.broadcast.to(roomData.roomId).emit("user join", a.currentUser);

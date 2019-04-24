@@ -43,7 +43,8 @@ module.exports = function(environment, frontend) {
     rooms = {
       "1": {
 
-        "baseString": "c t t t t t t\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\nd 0 0 0 0 0 0\ns 0 0 0 0 0 0",
+        // "baseString": "c t t t t t t\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\ns 0 0 0 0 0 0\nd 0 0 0 0 0 0\ns 0 0 0 0 0 0",
+        "baseString": "c t t t t t t t t t t t t t t t\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
         "furni": [
 					//f: name, base location in room
 					"green_grass:1,1"

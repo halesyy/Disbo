@@ -12,11 +12,12 @@
 		<script src="/clientInfo.js"></script>
 		<script>
 		var clientVars = {
-		  host: 'localhost',
+		  host: '115.64.232.86',
 		  port: '7858',
 		  sso:  '<%= user.token %>'
 		};
 		</script>
+
 		<div id="hotel-view-faststats" class="ng-hide" ng-show="isBootstrapped">
 			<ul id="hotel-view-faststats-stats">
 				<li class="diamonds">{{ userinfo.diamonds | limitTo:5 }} <i class="icon diamonds"></i></li>
@@ -42,9 +43,20 @@
 			</div>
 		</div>
 
-		<!-- For the login / register dialog -->
-		<div class="dialog alert ng-hide" ng-draggable ng-show="signinDialog.enabled && isBootstrapped">
-			Its time to login!
+		<!--PROFILE VIEW-->
+		<div id="profile-view-window" class="dialog profile-dialog alert ng-hide" style="z-index: 1001;" ng-draggable ng-show="profileViewWindow.enabled && isBootstrapped">
+			<div class="title" style="z-index: 1005;">
+				<div class="left">
+					{{ profileViewWindow.data.username }}'s Profile
+				</div>
+				<div class="right">
+					<a class="button" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005;">x</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<p>Nothing to see here.. This is on it's way!</p>
+			<div class="bottom">
+			</div>
 		</div>
 
 		<!-- <div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">

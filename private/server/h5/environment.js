@@ -97,7 +97,9 @@ module.exports = function(b, d) {
 			enter: require("./game/user/enter"),
 			loops: {
 				creditsAndDuckets: require("./game/user/loops").creditsAndDuckets
-			}
+			},
+			loadProfile: require("./game/user/loadProfileHandler"),
+			friends: require("./game/user/friends")
 		},
 		rooms: {
 			load: require("./game/rooms/load"),

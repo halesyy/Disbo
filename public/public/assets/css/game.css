@@ -569,16 +569,37 @@ body {
 }
 .dialog .title {
 	width: 100%;
-	border: 2px solid #408CAF;
+	/* border: 2px solid #7d1577; */
 	color: #fff;
 	padding: 10px;
-	background-color: #367897;
+	background-color: #c14083;
 	font-weight: 600;
 	font-size: 14px;
 	border-bottom: 1px solid #000;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	text-align: center;
+}
+.profile-dialog {
+	width: 700px !important;
+	/* background: rgba(); */
+	opacity: 0.7;
+	transition: opacity 0.5s;
+}
+.profile-dialog:hover {
+	/* background: rgba(0, 0, 0, 1); */
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+.dialog .title .left {
+	/* position: absolute; */
+	float: left;
+	/* left: 0; */
+}
+.dialog .title .right {
+	position: absolute;
+	float: right;
+	right: 10px;
 }
 #hotel-view-beans {
 	width: 890px;
@@ -949,6 +970,8 @@ body {
     display:inline-block;
     z-index: 100;
     background-image:url(fallback.png);
+		/*to allow clicking through avatar*/
+		/* pointer-events: none; */
 }
 #map #map-chat-bubbles .chat-bubble {
 	max-width:400px;

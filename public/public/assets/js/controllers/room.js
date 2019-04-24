@@ -72,6 +72,30 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				};
 			});
 
+      /*
+       * handling another user being clicked, and bringing up
+       * the appropriate view for the user.
+       */
+      $(document).on('click', '.avatar', function(event){
+        let userid = parseInt($(this).attr('id').replace('user', ''));
+        if (!isNaN(userid)) {
+          // push to backend to render the profile data
+          // Pulling backend data...
+          // alert(`${clientVars.host}:7777/api/profile/${userid}`);
+          $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
+            if (profileData.error === true) {
+            }
+            else {
+              $rootScope.profileViewWindow.enabled = true;
+              $rootScope.profileViewWindow.data = profileData;
+              $rootScope.$apply();
+            }
+          });
+        }
+      });
+
+
+
 			$('#chat-input').keyup(function(e) {
 				!this.value ? $socket.emit('user stopped typing') : $socket.emit('user typing');
 			});
@@ -82,11 +106,16 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			};
 
 			$socket.on('user join', function(data) {
-				$scope.injectUser(data);
+        // console.log("user join");
+        // console.log(data);
+				// $scope.injectUser(data);
+        userdata = data;
+        userHandler.inject(userdata);
 			});
 
 			$socket.on('user chat bubble', function(message, username, position) {
 				userHandler.chatBubble(message, username, position);
+        // console.log(`[XX:XX:XX] ${username}: "${message}"`);
 			});
 
 			$socket.on('remove user', function(userData) {
@@ -94,6 +123,9 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			});
 
 			$socket.on('load all users', function(allUsers) {
+        console.log("load all users:");
+        console.log(allUsers);
+        // console.log(userHandler);
 				for (var user in allUsers) {
 					userHandler.inject(allUsers[user]);
 				};

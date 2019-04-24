@@ -65,8 +65,8 @@ class Main {
     // Use routes
     // app.use('/', require('./routes/static'));
     app.use('/', require('./routes/auth'));
-    app.use('/play', require('./routes/game'));
-    app.use('/', require('./routes/home'));
+    app.use('/', require('./routes/game'));
+    // app.use('/', require('./routes/home'));
 
 
     // Error handlers

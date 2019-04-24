@@ -3,17 +3,40 @@ const app = express();
 const bodyParser = require('body-parser');
 const database = require("./h5/database/pool");
 const mysql = require('mysql');
+// for cross-origina-request-s
+const cors = require('cors');
 
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'ilovejek123',
+  password : '',
   database : 'disbo'
 });
 connection.connect();
 
 app.use(bodyParser.json({ limit: '1mb' }));
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
+
+/*
+ * returning the GET data for a profile that exists,
+ * with reference to the session.
+ */
+app.get("/api/profile/:id", function(req, res){
+  // console.log("API CALL TO WHAT WE WANT");
+  // console.log(req, res);
+  console.log("Called 1");
+  let userid = req.params.id;
+  globaldb.query("SELECT username,figure FROM users WHERE id = :userid", {
+    replacements: { userid: userid },
+    type: Sequelize.QueryTypes.SELECT
+  }).then(function(result){
+    // Profile exists, checking if client is their friend...
+    console.log("Called 2");
+    if (result.length > 0) res.json(result[0])
+    else res.json({error: true});
+  });
+});
 
 app.post('/set/token', function (req, res) {
   let checkUserExists = `SELECT * FROM users WHERE discordid = ?`
@@ -31,16 +54,10 @@ app.post('/set/token', function (req, res) {
     let setToken = `UPDATE users SET sso = '${req.body.user.token}' WHERE discordid = '${req.body.user.id}'`;
     connection.query(setToken, function (error, results, fields) {
       if (error) throw error;
-
     });
-
-  })
-
-
+  });
 });
 
 
-
-
-
+// app.use('/api', router);
 app.listen(7777)

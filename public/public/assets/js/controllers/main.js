@@ -24,18 +24,30 @@
  * IN THE SOFTWARE.
  */
 app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', function($scope, $rootScope, $socket, $location) {
-	$rootScope.dialog = {
+
+  $rootScope.dialog = {
 		enabled: false,
 		title: '',
 		body: ''
 	};
+
+  $socket.emit("client friends list");
+
+  $socket.on("got client friends list", function(friendshipsData){
+    console.log("got");
+  });
+
 	$rootScope.hcWindow = {
 		enabled: false
 	};
-  $rootScope.loginDialog = {
-    enabled: false
-  }
+
+  $rootScope.profileViewWindow = {
+    enabled: false,
+    data: {}
+  };
+
 	$rootScope.superfluousBarItems = true;
+
 	$rootScope.superfluousFriendBarItems = true;
 
 	$socket.on('more credits', function() {
@@ -46,17 +58,21 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 	$scope.toggleSuperfluousBarItems = function() {
 		$rootScope.superfluousBarItems = $rootScope.superfluousBarItems ? false : true;
 	};
+
 	$scope.toggleSuperfluousFriendBarItems = function() {
 		$rootScope.superfluousFriendBarItems = $rootScope.superfluousFriendBarItems ? false : true;
 	};
+
 	$scope.logout = function() {
 		close();
 	};
+
 	$scope.enterRoom = function() {
 		if(!$rootScope.isInRoom) {
 			$location.path('/room');
 		};
 	};
+
 	$scope.leaveRoom = function() {
 		if($rootScope.isInRoom) {
 			$socket.emit('user leave');
@@ -80,13 +96,13 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		$rootScope.dialog.body = data.body;
 	});
 
-  // Login handling
-  $socket.on('signin-dialog', function(data){
-    console.log("Going to throw up the signin dialog!")
-    $rootScope.signinDialog.enabled = data.enabled;
+  // Profile view handling
+  // $socket.on('signin-dialog', function(data){
+    // console.log("Going to throw up the signin dialog!")
+    // $rootScope.signinDialog.enabled = data.enabled;
 		// $rootScope.dialog.title = data.title;
 		// $rootScope.dialog.body = data.body;
-  });
+  // });
 
 	$scope.buyHabboClub = function() {
 		$rootScope.dialog.enabled = true;

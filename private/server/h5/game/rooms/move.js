@@ -28,51 +28,47 @@
 
 var pathfinder = require("pathfinding");
 
-module.exports = function(environment, frontend, data) {
-  d = environment
-  e = frontend
-  a = data
+module.exports = function(env, frontend, data) {
+  // d = environment
+  // e = frontend
+  // a = data
   // console.log(data);
   // console.log(data);s
 
 	frontend.on("verify movement", function(frontendData) {
-    b = frontendData
-		var c = d.rooms[a.roomId].users[e.currentUser.id].currentPosition.split(":"),
+    // b = frontendData
+		c = environment.rooms[data.roomId].users[frontend.currentUser.id].currentPosition.split(":"),
 		  	f = c[0],
 			  g = c[1],
-			  c = b.finalCoordinates.x;
-		    b = b.finalCoordinates.y;
+			  c = frontendData.finalCoordinates.x;
+		    b = frontendData.finalCoordinates.y;
 
-    let x1 = parseInt(f)
-    let y1 = parseInt(g)
-    let x2 = parseInt(c)
-    let y2 = parseInt(b)
+    var x1 = parseInt(f)
+    var y1 = parseInt(g)
+    var x2 = parseInt(c)
+    var y2 = parseInt(b)
 
-    let finalDestination = `${c}:${b}`;
-    let initialPlacement = `${f}:${g}`;
-
-    // console.log(initialPlacement, finalDestination);
+    var finalDestination = `${c}:${b}`;
+    var initialPlacement = `${f}:${g}`;
 
 		if (finalDestination != initialPlacement) {
       // "FG" is first place, where "GC" is the go-to
-			var grid = new pathfinder.Grid(a.roomData.base);
+			var grid = new pathfinder.Grid(data.roomData.base);
 			var path = new pathfinder.AStarFinder({
             // future room-specific variable
 					  allowDiagonal: true
 		  });
-      // console.log(a.roomData.base);
-      // console.log(grid);
 
 			for (userx in environment.rooms[data.roomId].users) {
         // console.log(d.rooms[a.roomId].users)
-				var currentPosition = d.rooms[a.roomId].users[userx].currentPosition.split(":");
+				var currentPosition = environment.rooms[data.roomId].users[userx].currentPosition.split(":");
 				grid.setWalkableAt(currentPosition[0], currentPosition[1], false);
 			}
       //f, g, c, b
 			steps = path.findPath(x1, y1, x2, y2, grid.clone());
 			environment.rooms[data.roomId].users[frontend.currentUser.id].currentPosition = finalDestination;
       // console.log(steps);
-      console.log(`[XX:XX:XX] User ${environment.rooms[data.roomId].users[frontend.currentUser.id].username} moved from ${initialPlacement} to ${finalDestination} in room id ${a.roomId}`);
+      console.log(`[XX:XX:XX] User ${environment.rooms[data.roomId].users[frontend.currentUser.id].username} moved from ${initialPlacement} to ${finalDestination} in room id ${data.roomId}`);
 
 			environment.io.sockets["in"](data.roomId).emit("user move", {
 				steps: steps,

@@ -1,6 +1,5 @@
 // Backend application
 // require API
-require('./api');
 
 var env = require("./h5/environment"),
 	conf  = require("./h5/conf.json"),
@@ -12,7 +11,6 @@ var env   = require("./h5/environment"),
 	  fuse  = require("./h5/fuserights.json"),
 	  h5    = new env(conf, fuse);
 
-
 const environment = h5
 
 // Setting up a constant database connection
@@ -21,6 +19,8 @@ const globaldb = new Sequelize('disbo', 'root', '', {
   host: 'localhost',
   dialect: 'mysql'
 });
+
+require('./api');
 
 // Setting globals
 global.globaldb  = globaldb
@@ -62,6 +62,8 @@ var callbacks = {
 
 		h5.game.user.greet(h5.scope(), frontend);
 		h5.game.user.enter(h5.scope(), frontend);
+		h5.game.user.loadProfile.handler(frontend);
+		h5.game.user.friends(frontend);
 	},
 	loadRoom: function(a, b) {
 		/*

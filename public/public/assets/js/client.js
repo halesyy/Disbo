@@ -27,25 +27,32 @@ var app = angular.module('Habbo', ['ngRoute', 'socket.io']);
 app.config(['$routeProvider', '$locationProvider', '$socketProvider',
 	function($routeProvider, $locationProvider, $socketProvider) {
 		$locationProvider.hashPrefix('!');
+
 		$routeProvider.
+
 		when('/', {
 			templateUrl: 'partials/loading.html',
 			controller: 'SplashScreenController'
 		}).
+
 		when('/view', {
 			templateUrl: 'partials/view.html',
 			controller: 'HotelViewController'
 		}).
+
 		when('/room/:roomId', {
 			templateUrl: 'partials/room.html',
 			controller: 'RoomController'
 		}).
+
     when('/room', {
       redirectTo: '/'
     }).
+
 		otherwise({
 			redirectTo: '/view'
 		});
+
 		$socketProvider.
 		setTryMultipleTransports(true);
 		$socketProvider.
