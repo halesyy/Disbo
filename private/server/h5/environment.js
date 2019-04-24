@@ -91,6 +91,9 @@ module.exports = function(b, d) {
 	};
 
 	this.game = {
+		dbops: {
+			users: require("./dbops/users")
+		},
 		user: {
 			update: require("./game/user/update"),
 			greet: require("./game/user/greet"),

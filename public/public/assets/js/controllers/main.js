@@ -31,10 +31,19 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
-  $socket.emit("client friends list");
+  // $socket.emit("client friends list");
+  // $socket.on("got client friends list", function(friendshipsData){
+  //   console.log("got");
+  // });
 
-  $socket.on("got client friends list", function(friendshipsData){
-    console.log("got");
+  $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(profileData){
+    if (profileData.error === true) {
+    }
+    else {
+      $rootScope.profileViewWindow.enabled = true;
+      $rootScope.profileViewWindow.data = profileData;
+      $rootScope.$apply();
+    }
   });
 
 	$rootScope.hcWindow = {

@@ -20,12 +20,14 @@ const globaldb = new Sequelize('disbo', 'root', '', {
   dialect: 'mysql'
 });
 
-require('./api');
 
 // Setting globals
 global.globaldb  = globaldb
 global.Sequelize = Sequelize
 global.environment = environment
+
+// Loading the public->private API
+require('./api');
 
 // Setting up all environment variables
 h5.buildHttp();
