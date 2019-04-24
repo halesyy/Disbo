@@ -85,6 +85,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
         // console.log(data);
 				// $scope.injectUser(data);
         userdata = data;
+        console.log(userdata);
         userHandler.inject(userdata);
 			});
 
