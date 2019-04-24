@@ -8,7 +8,11 @@ const main = require('../app');
 
 router.get('/', (req, res) => {
   if (!req.user) return res.redirect('/login');
-  res.render('client', { user: req.user });
+  const opts = {
+    host: config.gameServer.host,
+    port: config.gameServer.port,
+  }
+  res.render('client', { user: req.user, opts });
 });
 
 

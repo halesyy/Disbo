@@ -9,15 +9,13 @@
 		<link rel="stylesheet" href="assets/css/game.css" type="text/css">
 	</head>
 	<body ng-controller="MainController">
-		<script src="/clientInfo.js"></script>
 		<script>
 		var clientVars = {
-		  host: '115.64.232.86',
-		  port: '7858',
+		  host: '<%= opts.host %>',
+		  port: '<%= opts.port %>',
 		  sso:  '<%= user.token %>'
 		};
 		</script>
-
 		<div id="hotel-view-faststats" class="ng-hide" ng-show="isBootstrapped">
 			<ul id="hotel-view-faststats-stats">
 				<li class="diamonds">{{ userinfo.diamonds | limitTo:5 }} <i class="icon diamonds"></i></li>

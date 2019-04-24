@@ -1,4 +1,5 @@
 private/server/h5/conf.json
-public/public/clientInfo.js
 public/node_modules
 private/server/node_modules
+.DS_Store
+public/config.js
