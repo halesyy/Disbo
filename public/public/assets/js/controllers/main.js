@@ -31,6 +31,11 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
+  $rootScope.friendList = {
+    enabled: false,
+    open: "friends"
+  };
+
   $rootScope.refreshFriends = function() {
     $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
       console.log("friends: ", data);
@@ -39,6 +44,10 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     });
   };
 
+  /*
+   * sending over friend requests from the SSO-based userid to the
+   * current viewing id.
+   */
   $rootScope.sendFriendRequest = function() {
     if (!isNaN($rootScope.profileViewWindow.data.id)) {
       console.log("Going to send f/r");
@@ -68,13 +77,35 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     else console.log("No profile window ID provided in scope.");
   };
 
+  /*
+   * deleting friends from the unfriend link from SSO-based userid
+   * to the current viewing id.
+   */
   $rootScope.removeFriendship = function() {
     if (!isNaN($rootScope.profileViewWindow.data.id)) {
-      // $.post(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, {
-      //   sso: clientVars.sso,
-      //   friendID: profileViewWindow.data.id
-      // })
       console.log("Going to remove f/r");
+      $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+        sso: clientVars.sso,
+        friendID: $rootScope.profileViewWindow.data.id
+      }, function(data){
+        if (data.hasdata === false) {
+          // already set as a friend, pending or not...
+          // give them some space bruh
+          $rootScope.dialog = {
+            enabled: true,
+            title: "User is not your friend",
+            body: "Sad times..."
+          }
+          pushSmallDialog();
+          $rootScope.$apply();
+          console.log("friend did not exist in row OR f/r is pending");
+        }
+        else {
+          // alert(data);
+          console.log(data);
+          $('.unfriend').html("<strong>Friend deleted.</strong>");
+        }
+      });
     }
     else console.log("No profile window ID provided in scope.");
   }

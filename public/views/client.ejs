@@ -85,6 +85,38 @@
 			<div class="clear"></div>
 		</div>
 
+		<!--FRIENDS LIST VIEW-->
+		<div id="friend-list-window" class="dialog friend-list-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="friendList.enabled && isBootstrapped">
+			<!-- <p>{{ friends }}</p> -->
+			<div class="container">
+				<div class="half">
+					<div class="title friend-selector fs-title-left" ng-click="friendList.open = 'friends'">Friends</div>
+				</div>
+				<div class="half">
+					<div class="title friend-selector fs-title-right" ng-click="friendList.open = 'pending'">Pending</div>
+				</div>
+			</div>
+			<div class="container f-content-container">
+				<div class="content-friends " ng-if="friendList.open == 'friends'">
+					<div class="fl-friend" ng-repeat="friendContainer in friends.friendBriefs">
+						<div class="profile-icon">
+							<img src="{{ friendContainer.discordavatarurl }}" />
+						</div>
+						<div class="rest">
+							<span class="username">{{ friendContainer.username }}</span>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="container-pending" ng-if="friendList.open == 'pending'">
+					content from pending
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
 		<!-- <div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
 			<div class="title">{{ dialog.title }}</div>
 			<p>{{ dialog.body }}</p>
@@ -139,9 +171,10 @@
 			</div>
 			<div id="hotel-view-bar-friends">
 				<div id="hotel-view-bar-friends-icons">
-					<span class="hotel-view-bar-friends-icon-all" ng-click="featureNotImplemented()"></span>
-					<span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span>
+					<span class="hotel-view-bar-friends-icon-all" ng-click="friendList.enabled = true"></span>
+					<!-- <span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span> -->
 				</div>
+
 				<!-- <div class="hotel-view-bar-friends-slots" ng-if="superfluousFriendBarItems">
 					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
 						<img src="assets/images/hotelview/barIcons/friend_head.png">
@@ -156,6 +189,7 @@
 						Find new <br>friends
 					</div>
 				</div> -->
+
 				<div id="hotel-view-bar-friends-more" class="flip" ng-class="{ flip: superfluousFriendBarItems }" ng-click="toggleSuperfluousFriendBarItems()" >
 					<img src="assets/images/hotelview/barIcons/arrow.png">
 				</div>

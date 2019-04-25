@@ -11,11 +11,6 @@ module.exports = {
       });
     },
 
-    sendFR: async function(fromid, toid) {
-      
-
-    },
-
     friendsIds: async function(userid) {
       return new Promise((resolve, reject) => {
         globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending = 0", {
@@ -23,6 +18,17 @@ module.exports = {
           type: Sequelize.QueryTypes.SELECT
         }).then(function(friends){
           resolve(friends);
+        });
+      });
+    },
+
+    pending: async function(userid) {
+      return new Promise((resolve, reject) => {
+        globaldb.query("SELECT * FROM friends WHERE (userID2 = :userid) AND pending = 1", {
+          replacements: { userid: userid },
+          type: Sequelize.QueryTypes.SELECT
+        }).then(function(pending){
+          resolve(pending);
         });
       });
     },
@@ -52,7 +58,8 @@ module.exports = {
               type: Sequelize.QueryTypes.SELECT
             }).then(function(results){
               if (results.length == 1) {
-                Briefs.push([results[0]]);
+                results[0].discordavatarurl = `https://images.discordapp.net/avatars/${results[0]["discordid"]}/${results[0]["avatar"]}.png?size=256`;
+                Briefs.push(results[0]);
                 resolve(true);
               }
             });

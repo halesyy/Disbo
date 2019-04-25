@@ -591,6 +591,8 @@ body {
 	border-top-right-radius: 8px;
 	text-align: center;
 }
+
+
 .profile-dialog {
 	/* position: relative; */
 	width: 700px !important;
@@ -625,6 +627,54 @@ body {
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
+
+
+.friend-list-dialog {
+	width: 320px !important;
+}
+.friend-list-dialog .friend-selector {
+	background: #3db9b2;
+	cursor: pointer;
+}
+.friend-list-dialog .friend-selector:hover {
+	background: #2f9a94;
+}
+.fs-title-left {
+	border-top-right-radius: 0 !important;
+}
+.fs-title-right {
+	border-top-left-radius: 0 !important;
+}
+.f-content-container {
+	height: 450px;
+	overflow-y: scroll;
+}
+.fl-friend {
+	transition: 0.4s;
+	height: 64px;
+	overflow: hidden;
+	line-height: 64px;
+}
+.fl-friend:hover {
+	transition: 0.4s;
+	background: lightgrey;
+}
+.fl-friend .profile-icon img {
+	width: 64px;
+	height: 64px;
+}
+.fl-friend .profile-icon {
+	width: 64px;
+	height: 64px;
+	float: left;
+}
+.fl-friend .rest {
+	width: calc(100% - 64px);
+	height: 64px
+	float: left;
+}
+
+
 .dialog .title .left {
 	/* position: absolute; */
 	float: left;
@@ -1039,12 +1089,13 @@ body {
 	width: 66.64%;
 	float: left;
 }
+.half {
+	width: 50%;
+	float: left;
+}
 .content {
 
 }
 .clear {
 	clear: both;
 }
-/* .avatar-aisle .button {
-	position: absolute;
-} */
