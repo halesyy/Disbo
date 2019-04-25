@@ -23,9 +23,11 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+ 
+ // LOGIN.JS FILE
 module.exports = function(b, c) {
 	var a = c.currentUser;
-	a.ip = c.handshake.address;
+	// a.ip = c.handshake.address;
 	a.socketId = c.id;
 	a.currentRoom = null;
 	b.users[a.id] = a;

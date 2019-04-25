@@ -18,5 +18,11 @@
 			"enabled": true,
 			"message": "Welcome to Habbo, %username%"
 		}
+	},
+	"database_rules": {
+		"furni": {
+			"_comment": "the split side in shorthand representations of furniture data, e.g. (shorthand:placement) == 2 required",
+			"shorthand_segments": 2
+		}
 	}
 }

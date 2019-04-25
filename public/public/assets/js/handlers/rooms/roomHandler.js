@@ -103,6 +103,10 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
       //# introduced into the gameworld
 			for (furnix in longhandFurni) {
         $FurniParent = $(`<div class="furni-${furnix}" />`);
+        $FurniParent.attr("ng-draggable");
+        $FurniParent.css({
+          "z-index": 50
+        });
 
 
 				const schemeData = longhandFurni[furnix];
@@ -129,6 +133,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
           // Loading image, then appending to the furni class
           $img = $("<img class='furni-part' />");
           $img.attr('src', `assets/furni/${filelocation}`);
+          // $img.css({'z-index': "99"});
           $img.load(function(){
               $(this).css('display', 'inline-block');
               if (walkable) $(this).addClass('walkable-furni');
@@ -146,6 +151,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
         }
       }
       $('#map #map-furni').append($FurniParent);
+      $rootScope.$apply();
 			// return false;
 		},
 

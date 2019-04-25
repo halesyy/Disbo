@@ -20,7 +20,6 @@ const globaldb = new Sequelize('disbo', 'root', '', {
   dialect: 'mysql'
 });
 
-
 // Setting globals
 global.globaldb  = globaldb
 global.Sequelize = Sequelize
