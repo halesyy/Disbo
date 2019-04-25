@@ -2,15 +2,16 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 const database = require("./h5/database/pool");
+const conf = require("./h5/conf.json")
 const mysql = require('mysql');
 // for cross-origina-request-s
 const cors = require('cors');
 
 const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'disbo'
+  host     : conf.mysql.host,
+  user     : conf.mysql.user,
+  password : conf.mysql.pass,
+  database : conf.mysql.db
 });
 connection.connect();
 

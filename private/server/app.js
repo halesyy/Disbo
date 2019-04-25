@@ -15,8 +15,8 @@ const environment = h5
 
 // Setting up a constant database connection
 const Sequelize = require('sequelize');
-const globaldb = new Sequelize('disbo', 'root', '', {
-  host: 'localhost',
+const globaldb = new Sequelize(conf.mysql.db, conf.mysql.user, conf.mysql.pass, {
+  host: conf.mysql.host,
   dialect: 'mysql'
 });
 
