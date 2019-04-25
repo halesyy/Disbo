@@ -35,7 +35,7 @@
 			</ul> -->
 		</div>
 
-		<div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
+		<div class="dialog small-dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
 			<div class="title">{{ dialog.title }}</div>
 			<p>{{ dialog.body }}</p>
 			<div class="bottom">
@@ -44,7 +44,9 @@
 		</div>
 
 		<!--PROFILE VIEW-->
-		<div id="profile-view-window" class="dialog profile-dialog alert ng-hide" style="z-index: 1001;" ng-draggable ng-show="profileViewWindow.enabled && isBootstrapped">
+		<div id="profile-view-window" class="dialog profile-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="profileViewWindow.enabled && isBootstrapped">
 			<div class="title" style="z-index: 1005;">
 				<div class="left">
 					{{ profileViewWindow.data.username }}'s Profile
@@ -60,11 +62,11 @@
 						<div class="content">
 							<img class="avatar" src="{{ profileViewWindow.data.discordavatarurl }}" />
 						</div>
-						<div ng-if="isBootstrapped && !isFriend() && !isYou()" style="padding-bottom: 20px;">
-							<a class="button dialog-clickable" ng-click="" style="z-index: 1005; margin-bottom: 20px; background: green;">Friend</a>
+						<div class="dialog-clickable-container friend" ng-if="isBootstrapped && !isFriend() && !isYou()" style="padding-bottom: 20px;">
+							<a class="button dialog-clickable" ng-click="sendFriendRequest();" style="z-index: 1005; margin-bottom: 20px; background: green;">Friend</a>
 						</div>
-						<div ng-if="isBootstrapped && isFriend() && !isYou()" style="padding-bottom: 20px;">
-							<a class="button dialog-clickable" ng-click="" style="z-index: 1005; margin-bottom: 20px; background: #c21f1f; color: white;">Unfriend</a>
+						<div class="dialog-clickable-container unfriend" ng-if="isBootstrapped && isFriend() && !isYou()" style="padding-bottom: 20px;">
+							<a class="button dialog-clickable" ng-click="removeFriendship();" style="z-index: 1005; margin-bottom: 20px; background: #c21f1f; color: white;">Unfriend</a>
 						</div>
 						<div ng-if="isBootstrapped && isYou()">
 							<h3 style="margin-bottom: 20px;">Looking sexy!</h3>
@@ -176,5 +178,21 @@
 		<script src="assets/js/controllers/splash.js" type="text/javascript"></script>
 		<script src="assets/js/controllers/view.js" type="text/javascript"></script>
 		<script src="assets/js/controllers/room.js" type="text/javascript"></script>
+
+		<script>
+			var zipush = 1000;
+			$(document).on('click', '.dialog', function(event){
+				$(this).css({
+					"z-index": zipush
+				});
+				zipush += 1;
+			})
+			function pushSmallDialog() {
+				$('.small-dialog').css({
+					"z-index": zipush
+				});
+				zipush += 1;
+			}
+		</script>
 	</body>
 </html>

@@ -31,33 +31,61 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
-  // $socket.emit("client friends list");
-  // $socket.on("got client friends list", function(friendshipsData){
-  //   console.log("got");
-  // });
-  console.log("This is working?");
-  $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
-    console.log("friends: ", data);
-    $rootScope.friends = data;
-    // if (profileData.error === true) {
-    // }
-    // else {
-    //   $rootScope.profileViewWindow.enabled = true;
-    //   $rootScope.profileViewWindow.data = profileData;
-    //   $rootScope.$apply();
-    // }
-    $rootScope.$apply();
-  });
+  $rootScope.refreshFriends = function() {
+    $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
+      console.log("friends: ", data);
+      $rootScope.friends = data;
+      $rootScope.$apply();
+    });
+  };
+
+  $rootScope.sendFriendRequest = function() {
+    if (!isNaN($rootScope.profileViewWindow.data.id)) {
+      console.log("Going to send f/r");
+      $.post(`http://${clientVars.host}:7777/api/addFriend`, {
+        sso: clientVars.sso,
+        friendID: $rootScope.profileViewWindow.data.id
+      }, function(data){
+        if (data.hasdata) {
+          // already set as a friend, pending or not...
+          // give them some space bruh
+          $rootScope.dialog = {
+            enabled: true,
+            title: "Already sent them a request",
+            body: "Give it some time! Maybe they need some space..."
+          }
+          pushSmallDialog();
+          $rootScope.$apply();
+          console.log("already a friend OR f/r is pending");
+        }
+        else {
+          // alert(data);
+          console.log(data);
+          $('.friend').html("<strong>Friend request sent!</strong>");
+        }
+      });
+    }
+    else console.log("No profile window ID provided in scope.");
+  };
+
+  $rootScope.removeFriendship = function() {
+    if (!isNaN($rootScope.profileViewWindow.data.id)) {
+      // $.post(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, {
+      //   sso: clientVars.sso,
+      //   friendID: profileViewWindow.data.id
+      // })
+      console.log("Going to remove f/r");
+    }
+    else console.log("No profile window ID provided in scope.");
+  }
+
+  $rootScope.refreshFriends();
 
   $rootScope.isFriend = function(){
-    // console.log($rootScope.friends.friendIds);
-    // console.log($rootScope.profileViewWindow.data.id);
     var inside = false;
     for (clientFriendsID in $rootScope.friends.friendIds) {
       if ($rootScope.friends.friendIds[clientFriendsID] == $rootScope.profileViewWindow.data.id) inside = true;
     }
-    // returning for case that you are viewing your own profile
-    // if ($rootScope.friends.clientID == $rootScope.profileViewWindow.data.id) return 2;
     return inside;
   }
 

@@ -89,10 +89,10 @@ module.exports = function(b, d) {
 		}
 		return a;
 	};
-
 	this.game = {
 		dbops: {
-			users: require("./dbops/users")
+			users: require("./dbops/users"),
+			basic: require("./dbops/basic")
 		},
 		user: {
 			update: require("./game/user/update"),
@@ -116,6 +116,8 @@ module.exports = function(b, d) {
 			floorplanMerge: require("./game/furni/floorplanMerge")
 		}
 	};
+
+	this.dbops = this.game.dbops;
 
 	this.networking = {
 		socketConnection: require("./networking/connection").socketConnection,

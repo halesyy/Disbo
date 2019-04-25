@@ -11,6 +11,11 @@ module.exports = {
       });
     },
 
+    sendFR: async function(fromid, toid) {
+      
+
+    },
+
     friendsIds: async function(userid) {
       return new Promise((resolve, reject) => {
         globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending = 0", {

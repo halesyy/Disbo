@@ -5683,8 +5683,9 @@
 				var s = this._uiHash();
 				if (this._trigger("drag", t, s) === !1) return this._mouseUp({}), !1;
 				this.position = s.position
+
 			}
-			return this.helper[0].style.left = this.position.left + "px", this.helper[0].style.top = this.position.top + "px", e.ui.ddmanager && e.ui.ddmanager.drag(this, t), !1
+			return this.helper[0].style.height = "auto", this.helper[0].style.left = this.position.left + "px", this.helper[0].style.top = this.position.top + "px", e.ui.ddmanager && e.ui.ddmanager.drag(this, t), !1
 		},
 		_mouseStop: function(t) {
 			var i = this,
@@ -5760,6 +5761,7 @@
 		_cacheHelperProportions: function() {
 			this.helperProportions = {
 				width: this.helper.outerWidth(),
+				// height: "auto",
 				height: this.helper.outerHeight()
 			}
 		},
@@ -6683,7 +6685,9 @@
 					var o = i.uiDialog.offset(),
 						r = o.left - i.document.scrollLeft(),
 						h = o.top - i.document.scrollTop();
-					s.height = i.uiDialog.height(), s.width = i.uiDialog.width(), s.position = {
+					s.height = i.uiDialog.height();
+					// s.height = "auto";
+					s.width = i.uiDialog.width(), s.position = {
 						my: "left top",
 						at: "left" + (r >= 0 ? "+" : "") + r + " " + "top" + (h >= 0 ? "+" : "") + h,
 						of: i.window

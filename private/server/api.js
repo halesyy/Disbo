@@ -51,6 +51,39 @@ app.get("/api/friends/:sso", async function(req, res){
   });
 });
 
+app.post("/api/addFriend", async function(req, res){
+  // checking friendid is a number
+    let sso      = req.body.sso;
+    let friendID = req.body.friendID;
+    if (isNaN(friendID)) res.json({error:true,message:"friend id not int"});
+
+    // getting other friend data ready to manipulate
+    let userid   = await environment.dbops.users.ssoToUserId(sso);
+    let query = "SELECT id FROM friends WHERE (userID1 = :clientid AND userID2 = :friendid) OR (userID2 = :clientid AND userID1 = :friendid)";
+    let replacements = {
+      clientid: userid,
+      friendid: friendID
+    }
+    if (await environment.dbops.basic.hasData(query, replacements)) {
+      // has data - let the user know so they dont nek
+      res.json({
+        hasdata: true
+      });
+    }
+    else {
+      // no data - inserting into database.
+      // var res = await enironment.dbops.friends.sendFR(userid, friendID);
+      let insertQuery = "INSERT INTO friends (userID1, userID2, pending) VALUES (:clientid, :friendid, '1')";
+      let insertReplacements = {
+        clientid: userid,
+        friendid: friendID
+      };
+      let ins = await environment.dbops.basic.insert(insertQuery, insertReplacements);
+      console.log(ins);
+      res.json({success: true});
+    }
+});
+
 app.post('/set/token', function (req, res) {
   let checkUserExists = `SELECT * FROM users WHERE discordid = ?`
   connection.query(checkUserExists, req.body.user.id, function(error, results, fields) {
