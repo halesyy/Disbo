@@ -36,13 +36,37 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     open: "friends"
   };
 
-  $rootScope.refreshFriends = function() {
+  $rootScope.refreshFriends = function(ondone = false) {
     $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
       console.log("friends: ", data);
       $rootScope.friends = data;
       $rootScope.$apply();
+      if (ondone !== false) {
+        ondone();
+      }
     });
   };
+  $rootScope.refreshFriends();
+
+  $rootScope.profileLoad = function(profileid) {
+    if (!isNaN(profileid)) {
+      // Pulling backend data...
+      $.getJSON(`http://${clientVars.host}:7777/api/profile/${profileid}`, function(profileData){
+        if (profileData.error === true) {
+
+        }
+        else {
+          $rootScope.profileViewWindow.enabled = true;
+          $rootScope.profileViewWindow.data = profileData;
+          $rootScope.$apply();
+          $('.profile-dialog').css({
+            "z-index": zipush
+          });
+          zipush += 1;
+        }
+      });
+    }
+  }
 
   /*
    * sending over friend requests from the SSO-based userid to the
@@ -78,6 +102,56 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
 
   /*
+   * handles the opening of the friends list,
+   * quickly does a get request to refresh the friend
+   * data before.
+   */
+  $rootScope.friendsListHandler = function() {
+    $rootScope.refreshFriends(function(){
+      $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
+      $rootScope.$apply();
+    });
+  };
+  $rootScope.changeFriendsListTab = function(to) {
+    $rootScope.refreshFriends(function(){
+      $rootScope.friendList.open = to;
+      $rootScope.$apply();
+    });
+  }
+
+  $scope.fl_removeFriend = function(theirid) {
+    console.log(theirid);
+    if (isNaN(theirid)) return false;
+    $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+      sso: clientVars.sso,
+      friendID: theirid
+    }, function(data){
+      console.log("did..");
+      if (data.success === true) {
+        $('#friendid-'+theirid).parent().fadeOut(500, function(){
+          $(this).remove();
+        });
+      }
+    });
+  }
+
+  $scope.fl_acceptfriend = function(theirid) {
+    console.log(theirid);
+    if (isNaN(theirid)) return false;
+    $.post(`http://${clientVars.host}:7777/api/acceptPending`, {
+      sso: clientVars.sso,
+      friendID: theirid
+    }, function(data){
+      console.log("did..");
+      if (data.success === true) {
+        $('#friendid-'+theirid).parent().fadeOut(500, function(){
+          $(this).remove();
+        });
+      }
+    });
+  }
+
+  /*
    * deleting friends from the unfriend link from SSO-based userid
    * to the current viewing id.
    */
@@ -110,7 +184,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     else console.log("No profile window ID provided in scope.");
   }
 
-  $rootScope.refreshFriends();
 
   $rootScope.isFriend = function(){
     var inside = false;

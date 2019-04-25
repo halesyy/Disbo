@@ -22,6 +22,17 @@ module.exports = {
       });
     },
 
+    update: async function(query, replacements) {
+      return new Promise((resolve, reject) => {
+        globaldb.query(query, {
+          replacements: replacements,
+          type: Sequelize.QueryTypes.UPDATE
+        }).then(function(rows){
+          resolve(rows);
+        });
+      });
+    },
+
     delete: async function(query, replacements) {
       return new Promise((resolve, reject) => {
         globaldb.query(query, {

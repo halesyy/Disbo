@@ -673,6 +673,26 @@ body {
 	height: 64px
 	float: left;
 }
+.fl-friend .rest .username {
+	font-size: 18px;
+	margin-left: 8px;
+	cursor: pointer;
+}
+.fl-friend .rest .right-options {
+	font-size: 22px;
+	position: absolute;
+	right: 28px;
+	/* margin-left: 8px; */
+}
+.fl-friend .rest .right-options .remove {
+	color: #c21f1f;
+}
+.fl-friend .button {
+	padding-left: 7px;
+	padding-right: 7px;
+	font-size: 10px;
+	cursor: pointer !important;
+}
 
 
 .dialog .title .left {

@@ -92,26 +92,43 @@
 			<!-- <p>{{ friends }}</p> -->
 			<div class="container">
 				<div class="half">
-					<div class="title friend-selector fs-title-left" ng-click="friendList.open = 'friends'">Friends</div>
+					<div class="title friend-selector fs-title-left" ng-click="changeFriendsListTab('friends')">Friends</div>
 				</div>
 				<div class="half">
-					<div class="title friend-selector fs-title-right" ng-click="friendList.open = 'pending'">Pending</div>
+					<div class="title friend-selector fs-title-right" ng-click="changeFriendsListTab('pending')">Pending</div>
 				</div>
 			</div>
 			<div class="container f-content-container">
+				<!--all friends on friends list-->
 				<div class="content-friends " ng-if="friendList.open == 'friends'">
 					<div class="fl-friend" ng-repeat="friendContainer in friends.friendBriefs">
-						<div class="profile-icon">
+						<div class="profile-icon" id="friendid-{{ friendContainer.id }}">
 							<img src="{{ friendContainer.discordavatarurl }}" />
 						</div>
 						<div class="rest">
-							<span class="username">{{ friendContainer.username }}</span>
+							<span class="username" ng-click="profileLoad(friendContainer.id)">{{ friendContainer.username }}</span>
+							<span class="right-options">
+								<a class="button remove" ng-click="fl_removeFriend(friendContainer.id);">x</a>
+							</span>
 						</div>
 						<div class="clear"></div>
 					</div>
 				</div>
+				<!--all pending-->
 				<div class="container-pending" ng-if="friendList.open == 'pending'">
-					content from pending
+					<div class="fl-friend" ng-repeat="pendingContainer in friends.pendingBriefs">
+						<div class="profile-icon" id="friendid-{{ pendingContainer.id }}">
+							<img src="{{ pendingContainer.discordavatarurl }}" />
+						</div>
+						<div class="rest">
+							<span class="username" ng-click="profileLoad(pendingContainer.id)">{{ pendingContainer.username }}</span>
+							<span class="right-options">
+								<a class="button remove" ng-click="fl_removeFriend(pendingContainer.id);">x</a>
+								<a class="button" style="color: green;" ng-click="fl_acceptfriend(pendingContainer.id);">+</a>
+							</span>
+						</div>
+						<div class="clear"></div>
+					</div>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -171,7 +188,7 @@
 			</div>
 			<div id="hotel-view-bar-friends">
 				<div id="hotel-view-bar-friends-icons">
-					<span class="hotel-view-bar-friends-icon-all" ng-click="friendList.enabled = true"></span>
+					<span class="hotel-view-bar-friends-icon-all" ng-click="friendsListHandler()"></span>
 					<!-- <span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span> -->
 				</div>
 

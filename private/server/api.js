@@ -46,17 +46,19 @@ app.get("/api/profile/:id", function(req, res){
  * as hell.
  */
 app.get("/api/friends/:sso", async function(req, res){
-  var sso          = req.params.sso;
-  var userid       = await environment.game.dbops.users.ssoToUserId(sso);
-  var friendsRows  = await environment.game.dbops.users.friendsIds(userid);
-  var friendIds    = await environment.game.dbops.users.justFriendsIds(friendsRows, userid);
-  var friendBriefs = await environment.game.dbops.users.friendsIdsToBrief(friendsRows, userid);
-  var pending      = await environment.game.dbops.users.pending(userid);
+  var sso           = req.params.sso;
+  var userid        = await environment.game.dbops.users.ssoToUserId(sso);
+  var friendsRows   = await environment.game.dbops.users.friendsIds(userid);
+  var friendIds     = await environment.game.dbops.users.justFriendsIds(friendsRows, userid);
+  var friendBriefs  = await environment.game.dbops.users.friendsIdsToBrief(friendsRows, userid);
+  var pendingIds    = await environment.game.dbops.users.pendingIds(userid);
+  var pendingbriefs = await environment.game.dbops.users.pendingBriefs(pendingIds, userid);
   res.json({
     clientID: userid,
     friendIds: friendIds,
     friendBriefs: friendBriefs,
-    pending: pending
+    pending: pendingIds,
+    pendingBriefs: pendingbriefs
   });
 });
 
@@ -117,6 +119,40 @@ app.post("/api/removeFriend", async function(req, res){
         friendid: friendID
       };
       let ins = await environment.dbops.basic.delete(deleteQuery, deleteReplacements);
+      console.log(ins);
+      res.json({success: true});
+    }
+    else {
+      // opposite of adding friend, row doesnt exist therefore
+      // we don't do anything.
+      res.json({
+        hasdata: false
+      });
+    }
+});
+
+
+app.post("/api/acceptPending", async function(req, res){
+  // checking friendid is a number
+    let sso      = req.body.sso;
+    let friendID = req.body.friendID;
+    if (isNaN(friendID)) res.json({error:true,message:"friend id not int"});
+
+    // getting other friend data ready to manipulate
+    let userid   = await environment.dbops.users.ssoToUserId(sso);
+    let query = "SELECT id FROM friends WHERE (userID1 = :friendid AND userID2 = :clientid)";
+    let replacements = {
+      clientid: userid,
+      friendid: friendID
+    }
+    if (await environment.dbops.basic.hasData(query, replacements)) {
+      // has data - updating it.
+      let updateQuery = "UPDATE friends SET pending = '0' WHERE (userID1 = :friendid AND userID2 = :clientid)";
+      let updateReplacements = {
+        clientid: userid,
+        friendid: friendID
+      };
+      let ins = await environment.dbops.basic.update(updateQuery, updateReplacements);
       console.log(ins);
       res.json({success: true});
     }

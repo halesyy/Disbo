@@ -22,7 +22,7 @@ module.exports = {
       });
     },
 
-    pending: async function(userid) {
+    pendingIds: async function(userid) {
       return new Promise((resolve, reject) => {
         globaldb.query("SELECT * FROM friends WHERE (userID2 = :userid) AND pending = 1", {
           replacements: { userid: userid },
@@ -31,6 +31,44 @@ module.exports = {
           resolve(pending);
         });
       });
+    },
+
+    get: async function(query, replacements) {
+      return new Promise((resolve, reject) => {
+        globaldb.query(query, {
+          replacements: replacements,
+          type: Sequelize.QueryTypes.SELECT
+        }).then(function(rows){
+          resolve(rows);
+        });
+      });
+    },
+
+    pendingBriefs: async function(pendingIds, clientid) {
+      for (pendingIdx in pendingIds) {
+        //e.g.:id: 1, userID1: 2, userID2: 1, pending: 0
+        let friendRow = pendingIds[pendingIdx];
+        if (friendRow.userID1 == clientid) pendingIds[pendingIdx].friendId = friendRow.userID2
+        else pendingIds[pendingIdx].friendId = friendRow.userID1
+      }
+
+
+      const friendsRowsEdit = pendingIds;
+      const Briefs = [];
+
+      for (idx in friendsRowsEdit) {
+        //e.g.:id: 1, userID1: 2, userID2: 1, pending: 0
+        let friendRow = friendsRowsEdit[idx];
+        // console.log(friendRow);
+        let userData = await this.get("SELECT avatar,discordid,id,username,nickname FROM users WHERE (id = :id1)", {
+          id1: friendRow.friendId
+        });
+        console.log("user data");
+        console.log(userData);
+        userData[0].discordavatarurl = `https://images.discordapp.net/avatars/${userData[0]["discordid"]}/${userData[0]["avatar"]}.png?size=256`;
+        Briefs.push(userData[0]);
+      }
+      return Briefs;
     },
 
     // returning an array of JUST ids that are other users
