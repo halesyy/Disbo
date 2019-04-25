@@ -50,20 +50,22 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 
   $rootScope.profileLoad = function(profileid) {
     if (!isNaN(profileid)) {
-      // Pulling backend data...
-      $.getJSON(`http://${clientVars.host}:7777/api/profile/${profileid}`, function(profileData){
-        if (profileData.error === true) {
+      $rootScope.refreshFriends(function(){
+          // Pulling backend data...
+          $.getJSON(`http://${clientVars.host}:7777/api/profile/${profileid}`, function(profileData){
+            if (profileData.error === true) {
 
-        }
-        else {
-          $rootScope.profileViewWindow.enabled = true;
-          $rootScope.profileViewWindow.data = profileData;
-          $rootScope.$apply();
-          $('.profile-dialog').css({
-            "z-index": zipush
+            }
+            else {
+              $rootScope.profileViewWindow.enabled = true;
+              $rootScope.profileViewWindow.data = profileData;
+              $rootScope.$apply();
+              $('.profile-dialog').css({
+                "z-index": zipush
+              });
+              zipush += 1;
+            }
           });
-          zipush += 1;
-        }
       });
     }
   }

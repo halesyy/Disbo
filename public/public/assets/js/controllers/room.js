@@ -53,19 +53,20 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
       $(document).on('click', '.avatar', function(event){
         let userid = parseInt($(this).attr('id').replace('user', ''));
         if (!isNaN(userid)) {
+					$rootScope.profileLoad(userid);
           // push to backend to render the profile data
           // Pulling backend data...
           // alert(`${clientVars.host}:7777/api/profile/${userid}`);
-          $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
-            if (profileData.error === true) {
-
-            }
-            else {
-              $rootScope.profileViewWindow.enabled = true;
-              $rootScope.profileViewWindow.data = profileData;
-              $rootScope.$apply();
-            }
-          });
+          // $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
+          //   if (profileData.error === true) {
+					//
+          //   }
+          //   else {
+          //     $rootScope.profileViewWindow.enabled = true;
+          //     $rootScope.profileViewWindow.data = profileData;
+          //     $rootScope.$apply();
+          //   }
+          // });
         }
       });
 
