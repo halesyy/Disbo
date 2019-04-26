@@ -103,20 +103,24 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
       //# introduced into the gameworld
 			for (furnix in longhandFurni) {
         $FurniParent = $(`<div class="furni-${furnix}" />`);
-        $FurniParent.attr("ng-draggable");
-        $FurniParent.css({
-          "z-index": 50
-        });
-
+        // $FurniParent.css({
+        //   position: 'absolute'
+        // });
+        // console.log(furnix);
+        // console.log("---");
 
 				const schemeData = longhandFurni[furnix];
+        // console.log(schemeData);
         const rootBlock = schemeData.rootBlock.split(',')
         const walkable = schemeData.walkable
         const x = parseInt(rootBlock[0]); //r
         const y = parseInt(rootBlock[1]); //r
+        // console.log("const x,y", x, y);
 
         //# the furniture container
         adjacentRows = schemeData.adjacentLocations.split("\n");
+        // console.log(schemeData);
+        // console.log(rootBlock);
 
         // Iterating over each tile worth of data
         for (rowidx in adjacentRows) {
@@ -128,11 +132,17 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 
           // Furni location
           const furniChildX = x + xmove;
-          const furniChildY = x + ymove;
+          const furniChildY = y + ymove;
+
+          // console.log(furniChildX, furniChildY);
 
           // Loading image, then appending to the furni class
           $img = $("<img class='furni-part' />");
           $img.attr('src', `assets/furni/${filelocation}`);
+          $img.css({
+            "pointer-events": "none"
+          });
+          // $img.attr('src', `assets/furni/${filelocation}`);
           // $img.css({'z-index': "99"});
           $img.load(function(){
               $(this).css('display', 'inline-block');
@@ -140,18 +150,18 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 
 
               // The tile that bounds the X/Y coords
-              $tile = $(`[data-x=${furniChildX}][data-y=${furniChildY}]`);
+              $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
 
-              tileTop  = parseInt($tile.css("top"));
+              tileBottom = parseInt($tile.css("bottom")) + 8;
               tileLeft = parseInt($tile.css("left"));
-              $(this).css('top',  `${tileTop}px`);
+              $(this).css('bottom',  `${tileBottom}px`);
               $(this).css('left', `${tileLeft}px`);
               $FurniParent.append($(this))
           });
         }
       }
       $('#map #map-furni').append($FurniParent);
-      $rootScope.$apply();
+      // $rootScope.$apply();
 			// return false;
 		},
 

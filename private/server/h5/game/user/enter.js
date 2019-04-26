@@ -47,7 +47,29 @@ module.exports = function(environment, frontend) {
         "baseString": "c t t t t t t t t t t t t t t t\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\ns 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
         "furni": [
 					//f: name, base location in room
-					"green_grass:1,1"
+					"green_grass:1,1",
+
+					"green_grass:3,1",
+					"green_grass:1,3",
+					"green_grass:3,3",
+
+					"green_grass:5,1",
+					"green_grass:1,5",
+					"green_grass:5,5",
+					"green_grass:3,5",
+					"green_grass:5,3",
+
+          "autistic_table:6,1",
+          "autistic_table:6,2",
+          "autistic_table:6,3",
+          "autistic_table:6,4",
+          "autistic_table:6,5",
+          "autistic_table:1,6",
+          "autistic_table:2,6",
+          "autistic_table:3,6",
+          "autistic_table:4,6",
+          "autistic_table:6,6",
+          // "autistic_table:6,5",
 				]
 
       }

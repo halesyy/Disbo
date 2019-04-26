@@ -5685,7 +5685,18 @@
 				this.position = s.position
 
 			}
-			return this.helper[0].style.height = "auto", this.helper[0].style.left = this.position.left + "px", this.helper[0].style.top = this.position.top + "px", e.ui.ddmanager && e.ui.ddmanager.drag(this, t), !1
+			// console.log(this.helper[0]);
+			// console.log($(this.helper[0]).attr('id'));
+			// console.log(idOfElement);
+			let idOfElement = jQuery(this.helper[0]).attr('id');
+			if (idOfElement == 'map') {
+				return this.helper[0].style.left = this.position.left + "px", this.helper[0].style.top = this.position.top + "px", e.ui.ddmanager && e.ui.ddmanager.drag(this, t), !1
+			}
+			else if (idOfElement != 'map') {
+				return this.helper[0].style.height = "auto", this.helper[0].style.left = this.position.left + "px", this.helper[0].style.top = this.position.top + "px", e.ui.ddmanager && e.ui.ddmanager.drag(this, t), !1
+			}
+
+			// console.log(this.helper[0].attr('id'));
 		},
 		_mouseStop: function(t) {
 			var i = this,
