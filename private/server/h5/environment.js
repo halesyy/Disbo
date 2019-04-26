@@ -109,7 +109,8 @@ module.exports = function(b, d) {
 			move: require("./game/rooms/move"),
 			chat: require("./game/rooms/chat"),
 			leave: require("./game/rooms/leave"),
-			converter: require("./game/rooms/converter")
+			converter: require("./game/rooms/converter"),
+			db: require("./game/rooms/db")
 		},
 		furni: {
 			expandShorthand: require("./game/furni/expandShorthand"),
