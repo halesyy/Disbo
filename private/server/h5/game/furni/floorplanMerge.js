@@ -10,7 +10,7 @@ module.exports = function(environment, base, longhandFurni) {
   // console.log(base);
   // console.log(longhandFurni);
 
-  NOT_WALKABLE = 1
+  NOT_WALKABLE = 6
   WALKABLE = 0
   // console.log(base);
   for (schemex in longhandFurni) {

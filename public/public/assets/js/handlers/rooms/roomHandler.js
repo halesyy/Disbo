@@ -46,7 +46,9 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 					1: "empty",
 					2: "wall-left",
 					3: "wall-right",
-					4: "door"
+					4: "door",
+          5: "inline-corner",
+          6: "unclickable-floor"
       };
 
 			var a = $("#map");
@@ -102,20 +104,15 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
       //# iterating over each piece of furniture to be
       //# introduced into the gameworld
 			for (furnix in longhandFurni) {
-        $FurniParent = $(`<div class="furni-${furnix}" />`);
-        // $FurniParent.css({
-        //   position: 'absolute'
-        // });
-        // console.log(furnix);
-        // console.log("---");
 
 				const schemeData = longhandFurni[furnix];
-        // console.log(schemeData);
         const rootBlock = schemeData.rootBlock.split(',')
         const walkable = schemeData.walkable
         const x = parseInt(rootBlock[0]); //r
         const y = parseInt(rootBlock[1]); //r
         // console.log("const x,y", x, y);
+
+        const $FurniParent = $(`<div class="furni-${furnix}" />`);
 
         //# the furniture container
         adjacentRows = schemeData.adjacentLocations.split("\n");
@@ -158,9 +155,9 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
               $(this).css('left', `${tileLeft}px`);
               $FurniParent.append($(this))
           });
+          $('#map #map-furni').append($FurniParent);
         }
       }
-      $('#map #map-furni').append($FurniParent);
       // $rootScope.$apply();
 			// return false;
 		},

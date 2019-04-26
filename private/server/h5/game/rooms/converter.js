@@ -28,7 +28,9 @@ module.exports = {
           "c": 1,
           "t": 3,
           "s": 2,
-          "d": 4
+          "d": 4,
+          "i": 5,
+          "e": 6
       };
 
       // metaBaseString = this.fromArray(metaBaseArray);

@@ -11,8 +11,9 @@ module.exports = {
       if (isNaN(roomid)) return false;
           // console.log("going to get furni");
           // roomid-based furni, that contains a root :)
-          const userFurniDataRows = await environment.dbops.basic.get("SELECT * FROM users_inventory WHERE roomID = :roomid AND root LIKE '%*%'", {roomid: roomid});
+          const userFurniDataRows = await environment.dbops.basic.get("SELECT * FROM users_inventory WHERE roomID = :roomid AND root LIKE '%,%'", {roomid: roomid});
           // gotta combine the "identifier:root"
+          // console.log(userFurniDataRows);
           const shorthand = [];
           for (rowidx in userFurniDataRows) {
             furniRow = userFurniDataRows[rowidx];

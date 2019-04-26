@@ -1027,6 +1027,14 @@ body {
 }
 #map .tile.floor .inner {
 	z-index:6;
+	/* background-position: center; */
+	background-size: cover;
+	/* background-image: url("../images/sprites/floor.png"); */
+	background-image: url("../furni/main/tile3.png");
+}
+#map .tile.unclickable-floor .inner {
+	z-index:6;
+	pointer-events: none !important;
 	background-image: url("../images/sprites/floor.png");
 }
 #map .tile.door-floor .inner {

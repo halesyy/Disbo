@@ -105,6 +105,7 @@ module.exports = function(b, d) {
 			friends: require("./game/user/friends")
 		},
 		rooms: {
+			join: require("./game/rooms/load"),
 			load: require("./game/rooms/load"),
 			move: require("./game/rooms/move"),
 			chat: require("./game/rooms/chat"),

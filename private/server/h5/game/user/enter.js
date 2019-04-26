@@ -40,8 +40,8 @@ module.exports = function(environment, frontend) {
 
 	frontend.on("load room", async function(data) {
 
-		const roomId = data["roomId"]
-		const roomData = await environment.game.rooms.db.loadFromId(roomId);
+		const roomId = data.roomId;
+		const roomData  = await environment.game.rooms.db.loadFromId(roomId);
 		const furniData = await environment.game.rooms.db.shorthandFurni(roomId);
 		data.roomData = {}
 		// console.log(furniData);
@@ -68,6 +68,7 @@ module.exports = function(environment, frontend) {
 
 			})
 			.then(function(){
+        // send to next stage :)
 				environment.event.emit("load room", frontend, data);
 			})
 	});

@@ -60,21 +60,26 @@ var callbacks = {
 		 * it is time to greet the user and run the enter process script to get
 		 * them in the room, and able to start moving in the next step.
 		 */
-
+	  // console.log("client view rendered...");
 		h5.game.user.greet(h5.scope(), frontend);
 		h5.game.user.enter(h5.scope(), frontend);
 		h5.game.user.loadProfile.handler(frontend);
-		h5.game.user.friends(frontend);
+		// h5.game.user.friends(frontend);
 	},
-	loadRoom: function(a, b) {
+	loadRoom: function(frontend, frontenddata) {
 		/*
 		 * starting the room loading process
 		 */
-
-		h5.game.rooms.load(h5.scope(), a, b);
-		h5.game.rooms.chat(h5.scope(), a, b);
-		h5.game.rooms.leave(h5.scope(), a, b);
-		h5.game.rooms.move(h5.scope(), a, b);
+	  // console.log("load room start...");
+		// console.log("Just got data to load room, here it is!...: ")
+		// console.log(frontenddata);
+		// h5.game.rooms.join(h5.scope(), frontend, frontenddata);
+		// console.log(environment.rooms);
+		h5.game.rooms.load(h5.scope(), frontend, frontenddata);
+		h5.game.rooms.chat(h5.scope(), frontend, frontenddata);
+		h5.game.rooms.leave(h5.scope(), frontend, frontenddata);
+		h5.game.rooms.move(h5.scope(), frontend, frontenddata);
+		// console.log(environment.rooms);
 	}
 };
 
@@ -85,5 +90,12 @@ h5.event.on("establish connection",    callbacks.establishConnection);
 h5.event.on("user login",              callbacks.userLogin);
 h5.event.on("client view rendered",    callbacks.clientViewRendered);
 h5.event.on("load room",               callbacks.loadRoom);
+
+// h5.event.on("bigtest", function(frontend){
+// 	console.log("rec!!!!!!!!!!!!!!!!!!!!!!!!!!");
+// });
+// h5.event.on("bigtest", function(){
+// 	console.log("rec!!!!!!!!!!!!!!!");
+// });
 
 h5.listen();

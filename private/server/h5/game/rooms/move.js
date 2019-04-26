@@ -29,11 +29,14 @@
 var pathfinder = require("pathfinding");
 
 module.exports = function(env, frontend, data) {
+  // console.log("data for moving:");
+  // console.log(data.roomId);
   // d = environment
   // e = frontend
   // a = data
   // console.log(data);
   // console.log(data);s
+  // const data = data;
 
 	frontend.on("verify movement", function(frontendData) {
     // b = frontendData

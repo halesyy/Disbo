@@ -31,6 +31,9 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
+  $rootScope.roomId = false; // the current roomid occupied by client user.
+  $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
+
   $rootScope.friendList = {
     enabled: false,
     open: "friends"
