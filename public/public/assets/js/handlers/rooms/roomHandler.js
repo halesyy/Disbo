@@ -115,17 +115,18 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
         const $FurniParent = $(`<div class="furni-${furnix}" />`);
 
         //# the furniture container
-        adjacentRows = schemeData.adjacentLocations.split("\n");
-        // console.log(schemeData);
+        // adjacentRows = schemeData.adjacentLocations.split("\n");
+        adjacents = schemeData.adjacents.split("\n");
+        console.log(schemeData);
         // console.log(rootBlock);
 
         // Iterating over each tile worth of data
-        for (rowidx in adjacentRows) {
-          rowData = adjacentRows[rowidx].split(': ');
-          xyMovement = rowData[0].split(',');
+        for (rowidx in adjacents) {
+          // rowData = adjacents[rowidx].split(': ');
+          xyMovement = adjacents[rowidx].split(',');
           xmove = parseInt(xyMovement[0])
           ymove = parseInt(xyMovement[1])
-          filelocation = rowData[1];
+          filelocation = schemeData.location;
 
           // Furni location
           const furniChildX = x + xmove;

@@ -23,14 +23,14 @@ module.exports = function(environment, base, longhandFurni) {
 
       // Now iterating over adjacentLocations, as that should contain
       // a 0:0 for base, splitting the adjacentLocations TEXT from Database
-      locationDataRows = schemeData.adjacentLocations.split("\n");
+      locationDataRows = schemeData.adjacents.split("\n");
       for (locationx in locationDataRows) {
         // The split data from each individual TEXT row at `adjacentLocations` in `furniture`
         locationRow = locationDataRows[locationx];
-        locationData = locationRow.split(': ');
+        // locationData = locationRow.split(': ');
 
-        xyMovement = locationData[0]
-        filelocation = locationData[1]
+        xyMovement = locationRow;
+        // filelocation = locationData[1];
         xmove = parseInt(xyMovement.split(',')[0]);
         ymove = parseInt(xyMovement.split(',')[1]);
 

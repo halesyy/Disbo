@@ -24,14 +24,22 @@ module.exports = {
     },
 
     toNumeric: function(metaBaseString) {
+      // var preSpriteConverter = {
+      //     "c": 1,
+      //     "t": 3,
+      //     "s": 2,
+      //     "d": 4,
+      //     "i": 5,
+      //     "e": 6
+      // };
       var preSpriteConverter = {
-          "c": 1,
-          "t": 3,
-          "s": 2,
-          "d": 4,
-          "i": 5,
-          "e": 6
-      };
+        "c": 0,
+        "t": 0,
+        "s": 0,
+        "d": 0,
+        "i": 0,
+        "e": 6
+      }
 
       // metaBaseString = this.fromArray(metaBaseArray);
       for (search in preSpriteConverter) {

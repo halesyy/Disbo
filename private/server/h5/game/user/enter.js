@@ -28,15 +28,6 @@
 
  //BACKEND
 module.exports = function(environment, frontend) {
-	// console.log("FIRST");
-	// console.log(c);
-	// console.log("SECOND");
-	// console.log(a);
-
-	// environment.pool.getConnection(function(d, database){
-	// 	console.log("the connction has workewd")
-	//
-	// });
 
 	frontend.on("load room", async function(data) {
 
@@ -44,8 +35,9 @@ module.exports = function(environment, frontend) {
 		const roomData  = await environment.game.rooms.db.loadFromId(roomId);
 		const furniData = await environment.game.rooms.db.shorthandFurni(roomId);
 		data.roomData = {}
-		// console.log(furniData);
-		// furniArrayGoesHere = [];
+
+    // let jacksinventory = await environment.game.dbops.users.inventory(1, true);
+    // environment.game.dbops.users.countInventory(jacksinventory);
 
 		// Identifiers are the string-based variable changes in the room, such as d=door
     data.roomData.baseIdentifierArray = environment.game.rooms.converter.fromString(roomData.base);

@@ -31,12 +31,19 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
+  $rootScope.friends = false;
+  $rootScope.inventory = false;
+
   $rootScope.roomId = false; // the current roomid occupied by client user.
   $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
 
   $rootScope.friendList = {
     enabled: false,
     open: "friends"
+  };
+
+  $rootScope.inventoryWindow = {
+    enabled: false
   };
 
   $rootScope.refreshFriends = function(ondone = false) {
@@ -50,6 +57,18 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     });
   };
   $rootScope.refreshFriends();
+
+  $rootScope.refreshInventory = function(ondone = false) {
+    $.getJSON(`http://${clientVars.host}:7777/api/inventory/${clientVars.sso}`, function(data){
+      console.log("inventory: ", data);
+      $rootScope.inventory = data.inventory;
+      $rootScope.$apply();
+      if (ondone !== false) {
+        ondone();
+      }
+    });
+  }
+  $rootScope.refreshInventory();
 
   $rootScope.profileLoad = function(profileid) {
     if (!isNaN(profileid)) {

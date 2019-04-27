@@ -30,10 +30,13 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				$socket.off('user move');
 			}
 
-			// console.log("i am sending");
-			// $socket.emit("bigtest", {
-			// 	go: true
-			// });
+			// INVENTORY MANAGEMENT...
+			$rootScope.placeFurni = function() {
+					console.log("this!");
+					$('#map .tile .inner:hover').hover(function(){
+						$(this).css("background-color", "red !important");
+					});
+			}
 
 
 			const roomId = $routeParams.roomId;
