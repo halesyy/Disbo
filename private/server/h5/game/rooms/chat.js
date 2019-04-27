@@ -56,10 +56,6 @@ module.exports = function(env, frontend, frontenddata) {
       // if the message is not a command, reply with the emitting
       if (!isCommand) {
         message = environment.sanitize(a);
-				console.log(c.currentUser);
-							!isCommand && (a = b.sanitize(a), b.io.sockets["in"](d.roomId).emit("user chat bubble", a, c.currentUser.username, c.currentUser.discordid, b.rooms[d.roomId].users[c.currentUser.id].currentPosition, c.currentUser.avatar));
-
-
         var all_in_room = environment.io.to(frontenddata.roomId).adapter.rooms[frontenddata.roomId];
         console.log(all_in_room);
         console.log(`[XX:XX:XX] ${frontend.currentUser.username} just said: "${message}" in room ${frontenddata.roomId}`);
