@@ -37,6 +37,13 @@ module.exports = function(c, a, roomData) {
     base: roomData.roomData.base,
     longhandFurni: roomData.roomData.longhandFurni
   });
+  // console.log(a.rooms);
+  let currentRoomsIn = a.rooms;
+  for (var roomname in currentRoomsIn) {
+    a.leave(currentRoomsIn[roomname]);
+    // console.log("left "+currentRoomsIn[roomname]);
+  }
+
   a.join(roomData.roomId);
 
   c.rooms[roomData.roomId] || (c.rooms[roomData.roomId] = {}, c.rooms[roomData.roomId].users = {});

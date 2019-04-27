@@ -38,7 +38,9 @@ module.exports = function(environment, shorthandFurni) {
             resolve({
               nameId: nameIdentifier,
               description: row.description,
-              adjacentLocations: row.adjacentLocations,
+              // adjacentLocations: row.adjacentLocations,
+              location: row.location,
+              adjacents: row.adjacents,
               rotateable: row.rotateable,
               walkable: row.walkable,
               rootBlock: basexy

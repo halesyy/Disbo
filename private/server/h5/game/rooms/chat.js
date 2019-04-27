@@ -24,11 +24,20 @@
  * IN THE SOFTWARE.
  */
 var pf = require("pathfinding");
-module.exports = function(b, c, d) {
-	c.on("user chat", function(a) {
-		if (a != null) {
+module.exports = function(env, frontend, frontenddata) {
+  const b = env;
+  const c = frontend;
+  const d = frontenddata;
+
+  // frontend.off("user chat", function(){
+  //   console.log("This was successfully turnt off");
+  // });
+
+	frontend.on("user chat", function(message) {
+    const a = message
+		if (message != null) {
 			var isCommand = false;
-			var ha = a.match("\:ha (.*)");
+			var ha = message.match("\:ha (.*)");
 			if (ha) {
 				b.io.sockets.emit('dialog', {
 					title: 'Message by Habbo Staff',
@@ -36,21 +45,33 @@ module.exports = function(b, c, d) {
 				});
 				isCommand = true;
 			};
-			var about = a.match("\:about");
+			var about = message.match("\:about");
 			if (about) {
 				c.emit('dialog', {
-					title: 'About H5 Habbo Server',
-					body: 'Created by Kedi Agbogre'
+					title: 'Discord Game',
+					body: 'Created by Jack Hales & Oliy Barrett'
 				});
 				isCommand = true;
 			};
-			!isCommand && (a = b.sanitize(a), b.io.sockets["in"](d.roomId).emit("user chat bubble", a, c.currentUser.username, b.rooms[d.roomId].users[c.currentUser.id].currentPosition));
+      // if the message is not a command, reply with the emitting
+      if (!isCommand) {
+        message = environment.sanitize(a);
+        // console.log(environment.io.to(frontenddata.roomId));
+        var all_in_room = environment.io.to(frontenddata.roomId).adapter.rooms[frontenddata.roomId];
+        console.log(all_in_room);
+        console.log(`[XX:XX:XX] ${frontend.currentUser.username} just said: "${message}" in room ${frontenddata.roomId}`);
+        environment.io.to(frontenddata.roomId).emit("user chat bubble",
+          message,
+          frontend.currentUser.username,
+          environment.rooms[frontenddata.roomId].users[frontend.currentUser.id].currentPosition
+        );
+      }
 		}
 	});
-	c.on("user typing", function() {
+	frontend.on("user typing", function() {
 		b.io.sockets["in"](d.roomId).emit('user typing bubble', c.currentUser.id);
 	});
-	c.on("user stopped typing", function() {
+	frontend.on("user stopped typing", function() {
 		b.io.sockets["in"](d.roomId).emit('user stopped typing', c.currentUser.id);
 	});
 };

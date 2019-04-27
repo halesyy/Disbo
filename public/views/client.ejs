@@ -50,11 +50,10 @@
 					{{ profileViewWindow.data.username }}'s Profile
 				</div>
 				<div class="right">
-					<a class="button" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005;">x</a>
+					<a class="button hover-change-red" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
 				</div>
 				<div style="clear: both;"></div>
 			</div>
-			<!-- <p>{{ friends }}</p> -->
 			<div class="container">
 				<div class="third avatar-aisle" style="text-align: center;">
 						<div class="content">
@@ -83,6 +82,28 @@
 			<div class="clear"></div>
 		</div>
 
+		<!--INVENTORY CONTAINER-->
+		<div id="inventory-window" class="dialog inventory-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="inventoryWindow.enabled && isBootstrapped">
+			<div class="title">
+				<div class="left">
+					Your Inventory
+				</div>
+				<div class="right">
+					<a class="button hover-change-red" ng-click="inventoryWindow.enabled = false" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="container">
+				<div class="furni-container" ng-repeat="furnitureItem in inventory">
+					<img src="assets/furni/{{ furnitureItem.iconloc }}" ng-click="placeFurni()" />
+					<span class="amount">{{ furnitureItem.amount }}</span>
+					<!-- {{furniriteItem}} -->
+				</div>
+			</div>
+		</div>
+
 		<!--FRIENDS LIST VIEW-->
 		<div id="friend-list-window" class="dialog friend-list-dialog alert ng-hide"
 			style="z-index: 999; height: auto;"
@@ -93,7 +114,12 @@
 					<div class="title friend-selector fs-title-left" ng-click="changeFriendsListTab('friends')">Friends</div>
 				</div>
 				<div class="half">
-					<div class="title friend-selector fs-title-right" ng-click="changeFriendsListTab('pending')">Pending</div>
+					<div class="title friend-selector fs-title-right" ng-click="changeFriendsListTab('pending')">
+						Pending
+						<div style="float: right;">
+							<a class="button hover-change-red" ng-click="friendsListHandler()" style="padding-left: 9px; padding-right: 9px;">x</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="container f-content-container">
@@ -179,7 +205,7 @@
 				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="featureNotImplemented()"></span>
 				<span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span>
 				<!-- <span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span> -->
-				<span id="hotel-view-bar-icon-inventory" ng-if="!superfluousBarItems" ng-click="featureNotImplemented()"></span>
+				<span id="hotel-view-bar-icon-inventory" ng-if="superfluousBarItems" ng-click="inventoryWindow.enabled = !inventoryWindow.enabled"></span>
 				<span id="hotel-view-bar-icon-user" ng-click="featureNotImplemented()">
 					<img src="https://www.habbo.com.tr/habbo-imaging/avatarimage?figure={{ userinfo.figure }}&size=n&direction=2&head_direction=2&crr=3&gesture=sml&frame=3">
 				</span>

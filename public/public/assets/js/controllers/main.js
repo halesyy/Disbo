@@ -31,9 +31,19 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
+  $rootScope.friends = false;
+  $rootScope.inventory = false;
+
+  $rootScope.roomId = false; // the current roomid occupied by client user.
+  $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
+
   $rootScope.friendList = {
     enabled: false,
     open: "friends"
+  };
+
+  $rootScope.inventoryWindow = {
+    enabled: false
   };
 
   $rootScope.refreshFriends = function(ondone = false) {
@@ -47,6 +57,18 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     });
   };
   $rootScope.refreshFriends();
+
+  $rootScope.refreshInventory = function(ondone = false) {
+    $.getJSON(`http://${clientVars.host}:7777/api/inventory/${clientVars.sso}`, function(data){
+      console.log("inventory: ", data);
+      $rootScope.inventory = data.inventory;
+      $rootScope.$apply();
+      if (ondone !== false) {
+        ondone();
+      }
+    });
+  }
+  $rootScope.refreshInventory();
 
   $rootScope.profileLoad = function(profileid) {
     if (!isNaN(profileid)) {
@@ -109,11 +131,18 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
    * data before.
    */
   $rootScope.friendsListHandler = function() {
-    $rootScope.refreshFriends(function(){
+    if ($rootScope.friendList.enabled === true) {
       $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
-      $rootScope.$apply();
-    });
+      // $rootScope.$apply();
+    }
+    else {
+      $rootScope.refreshFriends(function(){
+        $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
+        $rootScope.$apply();
+      });
+    }
   };
+
   $rootScope.changeFriendsListTab = function(to) {
     $rootScope.refreshFriends(function(){
       $rootScope.friendList.open = to;

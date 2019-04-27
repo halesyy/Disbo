@@ -1027,28 +1027,36 @@ body {
 }
 #map .tile.floor .inner {
 	z-index:6;
+	/* background-position: center; */
+	background-size: cover;
+	background-image: url("../images/sprites/floor.png");
+	/* background-image: url("https://cdn.discordapp.com/attachments/313482274517811203/571338887318994944/tiletextured.png"); */
+}
+#map .tile.unclickable-floor .inner {
+	z-index:6;
+	pointer-events: none !important;
 	background-image: url("../images/sprites/floor.png");
 }
 #map .tile.door-floor .inner {
-	background-image: url("../images/sprites/door_floor.png");
+	/* background-image: url("../images/sprites/door_floor.png"); */
 	background-position:70px 20px;
 	z-index:5;
 }
 #map .tile.wall-right .inner {
 	height:149px;
-	background-image: url("../images/sprites/wall_right.png");
+	/* background-image: url("../images/sprites/wall_right.png"); */
 }
 #map .tile.wall-left .inner {
 	height:149px;
 	background-position:23px;
 	z-index:6;
-	background-image: url("../images/sprites/wall_left.png");
+	/* background-image: url("../images/sprites/wall_left.png"); */
 }
 #map .tile.door .inner {
 	height:155px;
 	z-index:6;
 	background-position:32px;
-	background-image: url("../images/sprites/door.png");
+	/* background-image: url("../images/sprites/door.png"); */
 }
 #map .tile.empty .inner {
 
@@ -1057,13 +1065,13 @@ body {
 	background-image: none!important;
 }
 #map .tile.wall-left:hover .inner {
-	background-image: url("../images/sprites/wall_left.png") !important;
+	/* background-image: url("../images/sprites/wall_left.png") !important; */
 }
 #map .tile.door:hover .inner {
-	background-image: url("../images/sprites/door.png") !important;
+	/* background-image: url("../images/sprites/door.png") !important; */
 }
 #map .tile.wall-right:hover .inner {
-		background-image: url("../images/sprites/wall_right.png") !important;
+		/* background-image: url("../images/sprites/wall_right.png") !important; */
 }
 #map .tile .inner:hover {
     background-image: url("../images/sprites/selected.png") !important;
@@ -1118,4 +1126,34 @@ body {
 }
 .clear {
 	clear: both;
+}
+
+.hover-change-red {
+	background: #c21f1f !important;
+	transition: all 0.1s;
+}
+.hover-change-red:hover {
+	background: #d43232 !important;
+	transition: all 0.1s;
+}
+.furni-container {
+	float: left;
+	width: 60px;
+	height: 50px;
+	margin: 5px;
+	padding: 5px;
+	line-height: 50px;
+  display: inline-block;
+	background: lightgrey;
+}
+.furni-container .amount {
+	position: absolute;
+	top: 30px;
+}
+.furni-container img {
+	vertical-align: middle;
+	width: 50px;
+	/* height: 50px; */
+	border-radius: 4px;
+	cursor: pointer;
 }

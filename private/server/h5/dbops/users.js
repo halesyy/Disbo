@@ -22,6 +22,49 @@ module.exports = {
       });
     },
 
+    // if all = false, then it's just getting the furni
+    // that has no root and room id, since that furni has been
+    // placed
+    inventory: async function(userid, all=true) {
+      if (all) {
+        var inven = await environment.game.dbops.basic.get("SELECT * FROM users_inventory WHERE userID = :id", {id: userid});
+      }
+      else {
+        var inven = await environment.game.dbops.basic.get("SELECT * FROM users_inventory WHERE root = '' AND roomID < 1 AND userID = :id", {id: userid});
+      }
+      // console.log(inven);
+      return inven;
+    },
+
+    /*
+     * taking all of the rows and creating a better way
+     * to represent them to the user.
+     */
+    countInventory: async function(furnis) {
+      countedInventory = {}
+      for (furnirowx in furnis) {
+        // userID, roomID, identifier, root, rotation
+        if (furnis[furnirowx].identifier in countedInventory) {
+          // console.log("")
+          countedInventory[furnis[furnirowx].identifier].amount += 1
+        }
+        else {
+          let longhand = await environment.game.dbops.basic.get("SELECT * FROM furniture WHERE nameId = :nid", {nid: furnis[furnirowx].identifier});
+          countedInventory[furnis[furnirowx].identifier] = {
+            amount: 1,
+            iconloc: longhand[0].location
+          }
+        }
+      }
+      return countedInventory;
+      // console.log(countedInventory);
+    },
+
+    inventoryFromSso: async function(sso, all=true) {
+      let userid = await this.ssoToUserId(sso);
+      return await this.inventory(userid, all);
+    },
+
     pendingIds: async function(userid) {
       return new Promise((resolve, reject) => {
         globaldb.query("SELECT * FROM friends WHERE (userID2 = :userid) AND pending = 1", {
