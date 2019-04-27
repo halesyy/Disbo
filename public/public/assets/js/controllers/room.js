@@ -126,8 +126,8 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
         userHandler.inject(userdata);
 			});
 
-			$socket.on('user chat bubble', function(message, username, position) {
-				userHandler.chatBubble(message, username, position);
+			$socket.on('user chat bubble', function(message, username, userid, position, avatar) {
+				userHandler.chatBubble(message, username, userid, position, avatar);
         console.log(`[XX:XX:XX] ${username}: "${message}"`);
 			});
 

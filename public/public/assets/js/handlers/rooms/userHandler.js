@@ -52,24 +52,38 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 		remove: function(a) {
 			$("#user" + a).remove();
 		},
+		//                      a      d                      b
+		chatBubble: function(message, username, userid, position, avatar) {
+			console.log(message, username, userid, position, avatar)
+			const $chatBubblesContainer = document.getElementById('map-chat-bubbles')
 
-		chatBubble: function(a, d, b) {
-			var c = $('<div class="chat-bubble"></div>');
-			b = b.split(":");
-			var e = $("[data-x=" + b[0] + "][data-y=" + b[1] + "]");
-			b = parseInt($(e).css("top")) - 100;
-			e = $(e).css("left");
-			$(c).css({
-				top: b + "px",
-				left: e
-			});
-			$(c).html(d + ": " + a);
-			$("#map #map-chat-bubbles").append(c);
+	    const $chatBubble = document.createElement('div');
+	    $chatBubble.classList.add('chatbubble')
+
+			const $chatBubbleImg = document.createElement('img');
+			$chatBubbleImg.src = `https://images.discordapp.net/avatars/${userid}/${avatar}.png?size=256`
+
+			const $chatMessage = document.createElement('p');
+			$chatMessage.innerHTML = `<p><span>${username}: </span> ${message}</p>`
+
+			$chatBubble.appendChild($chatBubbleImg);
+			$chatBubble.appendChild($chatMessage);
+			$chatBubble.style.marginBottom = "100px";
+
+			position = position.split(':');
+			let dataPoints = $("[data-x=" + position[0] + "][data-y=" + position[1] + "]");
+			position = parseInt($(dataPoints).css("top")) - 100;
+			dataPoints = $(dataPoints).css("left");
+			$($chatBubble).css({
+				top: position + "px",
+				left: dataPoints
+			})
+			$("#map #map-chat-bubbles").append($chatBubble);
 			setInterval(function() {
-				$(c).css({
-					top: parseInt($(c).css("top")) - 30 + "px"
+				$($chatBubble).css({
+					top: parseInt($($chatBubble).css("top")) - 30 + "px",
 				});
-			}, 2E3);
+			}, 2000);
 		}
 	};
 }]);

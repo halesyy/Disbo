@@ -1086,16 +1086,40 @@ body {
 		/*to allow clicking through avatar*/
 		/* pointer-events: none; */
 }
-#map #map-chat-bubbles .chat-bubble {
-	max-width:400px;
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+#map #map-chat-bubbles .chatbubble {
+  display: flex;
+  max-width:400px;
 	background:#fff;
 	color:#000;
-	padding:5px;
 	font-size:14px;
-	border-radius:8px;
+	border-radius:3px;
 	position:absolute;
 	z-index:10;
 	transition: 0.5s top;
+  align-items: center;
+  border: 1px solid #484848;
+	overflow-x: none!important;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+
+#map #map-chat-bubbles .chatbubble img {
+  width: 20px;
+  margin-right: 3px;
+	height: 100%;
+}
+
+#map #map-chat-bubbles .chatbubble p {
+  margin:0;
+  margin-right:3px;
+	font-family: 'Lato', sans-serif;
+}
+
+#map #map-chat-bubbles .chatbubble p span {
+	font-weight: bold;
 }
 
 /*
