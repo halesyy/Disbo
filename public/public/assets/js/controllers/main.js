@@ -42,10 +42,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     open: "friends"
   };
 
-  $rootScope.inventoryWindow = {
-    enabled: false
-  };
-
   $rootScope.refreshFriends = function(ondone = false) {
     $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
       console.log("friends: ", data);

@@ -1073,7 +1073,7 @@ body {
 		/* background-image: url("../images/sprites/wall_right.png") !important; */
 }
 #map .tile .inner:hover {
-    background-image: url("../images/sprites/selected.png") !important;
+    background-image: url("../images/sprites/selected.png");
 }
 #map .avatar {
     width:64px;
@@ -1101,6 +1101,8 @@ body {
   align-items: center;
   border: 1px solid #484848;
 	overflow-x: none!important;
+white-space: pre-wrap;
+word-wrap: break-word;
 }
 
 #map #map-chat-bubbles .chatbubble img {
@@ -1177,4 +1179,11 @@ body {
 	/* height: 50px; */
 	border-radius: 4px;
 	cursor: pointer;
+}
+/*hoverable furni overlay stuff*/
+.furni-hoverable {
+	pointer-events: none;
+}
+.furni-hoverable #furni-hover-overlay {
+
 }

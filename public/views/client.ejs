@@ -97,7 +97,7 @@
 			</div>
 			<div class="container">
 				<div class="furni-container" ng-repeat="furnitureItem in inventory">
-					<img src="assets/furni/{{ furnitureItem.iconloc }}" ng-click="placeFurni()" />
+					<img class="furni-icon" src="assets/furni/{{ furnitureItem.iconloc }}" ng-click="placeFurni(furnitureItem)" />
 					<span class="amount">{{ furnitureItem.amount }}</span>
 					<!-- {{furniriteItem}} -->
 				</div>

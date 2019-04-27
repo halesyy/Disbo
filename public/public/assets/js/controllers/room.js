@@ -30,12 +30,81 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				$socket.off('user move');
 			}
 
+		  $rootScope.inventoryWindow = {
+		    enabled: false,
+		    furniOverlayEnabled: false
+		  };
+
 			// INVENTORY MANAGEMENT...
-			$rootScope.placeFurni = function() {
-					console.log("this!");
-					$('#map .tile .inner:hover').hover(function(){
-						$(this).css("background-color", "red !important");
+			$rootScope.placeFurni = function(furnitureItem) {
+
+					console.log("Toggling furni placing on.");
+					// $rootScope.inventoryWindow.furniOverlayEnabled = true;
+					$furnioverlay = $('#furni-hover-overlay');
+					$furnioverlay.attr('src', `/assets/furni/${furnitureItem.iconloc}`);
+					$rootScope.inventoryWindow.enabled = false;
+
+					$rootScope.tileWatchHover = $('#map .tile .inner').hover(function(){
+						// console.log(`url('${furnitureItem.iconloc}') !important`);
+						$(this).css("background-image", `url('/assets/images/sprites/floor.png')`);
+						var tileBottom = parseInt($(this).parent().css("bottom")) +9
+						$furnioverlay.parent().css("bottom", `${tileBottom}px`);
+						$furnioverlay.parent().css("left", $(this).parent().css("left"));
+						$rootScope.currentTileX = $(this).attr('data-x');
+						$rootScope.currentTileY = $(this).attr('data-y');
+						$furnioverlay.css({
+							"display": "block"
+						});
 					});
+
+					$rootScope.tileWatchOffhover = $('#map .tile .inner').mouseout(function(){
+						// console.log(`url('${furnitureItem.iconloc}') !important`);
+						$(this).removeProp("background-image");
+					});
+
+					$rootScope.tileWaitForClick = $(document).on("click", ".inner", function(event){
+						var x_loc = $(this).parent().attr("data-x");
+						var y_loc = $(this).parent().attr("data-y");
+						// making the socket connction, there will be a few responses and
+						// all have to be accounted for.
+						// success = yes, it went well. the client should have received
+						// 			     a socket from the backend anyway telling it to place furni.
+						// noMore  = worked but there is no more # of that furni, so stop
+						// 					 being in furniture mode and open back up the thing.
+						// verifyUnsuccessful = verify was unsuccessful, the furni doesnt
+						// 		       exist for the user or it's a bad place, and a bunch of
+						//					 other auth for the user. just stop it all and open the
+						// 				   window.
+						$socket.emit("kill myself");
+
+						console.log(x_loc, y_loc);
+					});
+
+					$rootScope.waitForOutsideClick = $(document).on("click", function(event){
+						$this = $(event.target);
+						// console.log($this);
+						if (!$this.hasClass("inner") && !$this.hasClass('furni-icon')) {
+							$rootScope.stopPlacingFurni();
+							$rootScope.waitForOutsideClick.off();
+						}
+					});
+
+			}
+
+			$rootScope.stopPlacingFurni = function() {
+				console.log("Toggling furni placing off.");
+				$furnioverlay = $('#furni-hover-overlay');
+				$furnioverlay.css({
+					"display": "none"
+				});
+				$rootScope.tileWatchHover.off();
+				$rootScope.inventoryWindow.furniOverlayEnabled = false;
+				// $('.floor > .inner').css({
+				// 	"background-image": "url('/assets/images/sprites/floor.png')"
+				// });
+				$rootScope.tileWatchOffhover.off();
+				$rootScope.tileWaitForClick.off();
+				$rootScope.$apply();
 			}
 
 
@@ -90,19 +159,6 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
         let userid = parseInt($(this).attr('id').replace('user', ''));
         if (!isNaN(userid)) {
 					$rootScope.profileLoad(userid);
-          // push to backend to render the profile data
-          // Pulling backend data...
-          // alert(`${clientVars.host}:7777/api/profile/${userid}`);
-          // $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
-          //   if (profileData.error === true) {
-					//
-          //   }
-          //   else {
-          //     $rootScope.profileViewWindow.enabled = true;
-          //     $rootScope.profileViewWindow.data = profileData;
-          //     $rootScope.$apply();
-          //   }
-          // });
         }
       });
 
