@@ -38,11 +38,6 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 			$(d).css({
 				"top": b + "px",
 				"left": c,
-				"background-position": "top",
-				"background-size": "cover",
-				// "background-image": "url('http://www.tootimid.com/assets/images/0268_00_bu_6.png')",
-				// "background-image": "url('http://hopes-and-dreams.net/img/steveirwin2.gif')",
-
 				"background-image": "url(https://www.habbo.com.tr/habbo-imaging/avatarimage?figure=" + a.figure + "&size=n&direction=2&head_direction=2&crr=3&gesture=sml&size=n&direction=2&head_direction=2&crr=3&gesture=sml)",
         "transition": "all 0.3s linear 0s"
 			});
@@ -54,7 +49,12 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 		},
 		//                      a      d                      b
 		chatBubble: function(message, username, userid, position, avatar) {
-			console.log(message, username, userid, position, avatar)
+			const $chatInput = document.getElementById('chat-input');
+			$chatInput.disabled = true;
+			setTimeout(function() {
+				$chatInput.disabled = false;
+				$chatInput.focus();
+			}, 1500)
 			const $chatBubblesContainer = document.getElementById('map-chat-bubbles')
 
 	    const $chatBubble = document.createElement('div');
