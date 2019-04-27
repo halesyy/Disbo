@@ -1029,8 +1029,8 @@ body {
 	z-index:6;
 	/* background-position: center; */
 	background-size: cover;
-	/* background-image: url("../images/sprites/floor.png"); */
-	background-image: url("../furni/main/tile3.png");
+	background-image: url("../images/sprites/floor.png");
+	/* background-image: url("https://cdn.discordapp.com/attachments/313482274517811203/571338887318994944/tiletextured.png"); */
 }
 #map .tile.unclickable-floor .inner {
 	z-index:6;
@@ -1126,4 +1126,13 @@ body {
 }
 .clear {
 	clear: both;
+}
+
+.hover-change-red {
+	background: #c21f1f !important;
+	transition: all 0.1s;
+}
+.hover-change-red:hover {
+	background: #d43232 !important;
+	transition: all 0.1s;
 }

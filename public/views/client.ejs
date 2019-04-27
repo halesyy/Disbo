@@ -50,11 +50,10 @@
 					{{ profileViewWindow.data.username }}'s Profile
 				</div>
 				<div class="right">
-					<a class="button" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005;">x</a>
+					<a class="button hover-change-red" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
 				</div>
 				<div style="clear: both;"></div>
 			</div>
-			<!-- <p>{{ friends }}</p> -->
 			<div class="container">
 				<div class="third avatar-aisle" style="text-align: center;">
 						<div class="content">
@@ -93,7 +92,12 @@
 					<div class="title friend-selector fs-title-left" ng-click="changeFriendsListTab('friends')">Friends</div>
 				</div>
 				<div class="half">
-					<div class="title friend-selector fs-title-right" ng-click="changeFriendsListTab('pending')">Pending</div>
+					<div class="title friend-selector fs-title-right" ng-click="changeFriendsListTab('pending')">
+						Pending
+						<div style="float: right;">
+							<a class="button hover-change-red" ng-click="friendsListHandler()" style="padding-left: 9px; padding-right: 9px;">x</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="container f-content-container">

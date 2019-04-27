@@ -112,11 +112,18 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
    * data before.
    */
   $rootScope.friendsListHandler = function() {
-    $rootScope.refreshFriends(function(){
+    if ($rootScope.friendList.enabled === true) {
       $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
-      $rootScope.$apply();
-    });
+      // $rootScope.$apply();
+    }
+    else {
+      $rootScope.refreshFriends(function(){
+        $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
+        $rootScope.$apply();
+      });
+    }
   };
+
   $rootScope.changeFriendsListTab = function(to) {
     $rootScope.refreshFriends(function(){
       $rootScope.friendList.open = to;
