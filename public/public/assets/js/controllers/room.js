@@ -7,8 +7,44 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			$location.path('/');
 
 		} else {
-			var roomId = $routeParams.roomId;
-			if (isNaN(roomId)) $location.path('/')
+
+			if ($rootScope.roomId !== false) {
+				console.log("Room id is set, you must be moving rooms!");
+
+				$rootScope.previousRoomId = $rootScope.roomId;
+				$rootScope.roomId = $routeParams.roomId;
+
+				// Going to make sure that they are removed from their
+				// previous room just incase.
+				console.log("Just asked to leave "+$rootScope.previousRoomId);
+				$socket.emit('user leave room id', $rootScope.previousRoomId);
+				// $socket.emit('join room id', $rootScope.roomId);
+
+				$socket.off('load all users');
+				$socket.off('user join');
+				$socket.off('render room');
+				$socket.off('remove user');
+				$socket.off('user chat bubble');
+				$socket.off('user typing bubble');
+				$socket.off('user stopped typing');
+				$socket.off('user move');
+			}
+
+			// INVENTORY MANAGEMENT...
+			$rootScope.placeFurni = function() {
+					console.log("this!");
+					$('#map .tile .inner:hover').hover(function(){
+						$(this).css("background-color", "red !important");
+					});
+			}
+
+
+			const roomId = $routeParams.roomId;
+			$rootScope.roomId = roomId;
+			if (isNaN(roomId)) $location.path('/');
+
+			// Turning off potentially old sockets.
+			console.log("I just ran this! Loading room " + roomId);
 
 			$socket.emit('load room', {
 				roomId: roomId
@@ -53,19 +89,20 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
       $(document).on('click', '.avatar', function(event){
         let userid = parseInt($(this).attr('id').replace('user', ''));
         if (!isNaN(userid)) {
+					$rootScope.profileLoad(userid);
           // push to backend to render the profile data
           // Pulling backend data...
           // alert(`${clientVars.host}:7777/api/profile/${userid}`);
-          $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
-            if (profileData.error === true) {
-
-            }
-            else {
-              $rootScope.profileViewWindow.enabled = true;
-              $rootScope.profileViewWindow.data = profileData;
-              $rootScope.$apply();
-            }
-          });
+          // $.getJSON(`http://${clientVars.host}:7777/api/profile/${userid}`, function(profileData){
+          //   if (profileData.error === true) {
+					//
+          //   }
+          //   else {
+          //     $rootScope.profileViewWindow.enabled = true;
+          //     $rootScope.profileViewWindow.data = profileData;
+          //     $rootScope.$apply();
+          //   }
+          // });
         }
       });
 
@@ -85,12 +122,13 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
         // console.log(data);
 				// $scope.injectUser(data);
         userdata = data;
+        console.log(userdata);
         userHandler.inject(userdata);
 			});
 
 			$socket.on('user chat bubble', function(message, username, userid, position, avatar) {
 				userHandler.chatBubble(message, username, userid, position, avatar);
-        // console.log(`[XX:XX:XX] ${username}: "${message}"`);
+        console.log(`[XX:XX:XX] ${username}: "${message}"`);
 			});
 
 			$socket.on('remove user', function(userData) {
@@ -99,7 +137,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 			$socket.on('load all users', function(allUsers) {
         // console.log("load all users:");
-        // console.log(allUsers);
+        console.log(allUsers);
         // console.log(userHandler);
 				for (var user in allUsers) {
 					userHandler.inject(allUsers[user]);

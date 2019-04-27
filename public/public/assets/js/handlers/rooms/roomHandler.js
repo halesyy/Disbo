@@ -46,7 +46,9 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 					1: "empty",
 					2: "wall-left",
 					3: "wall-right",
-					4: "door"
+					4: "door",
+          5: "inline-corner",
+          6: "unclickable-floor"
       };
 
 			var a = $("#map");
@@ -102,50 +104,62 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
       //# iterating over each piece of furniture to be
       //# introduced into the gameworld
 			for (furnix in longhandFurni) {
-        $FurniParent = $(`<div class="furni-${furnix}" />`);
-
 
 				const schemeData = longhandFurni[furnix];
         const rootBlock = schemeData.rootBlock.split(',')
         const walkable = schemeData.walkable
         const x = parseInt(rootBlock[0]); //r
         const y = parseInt(rootBlock[1]); //r
+        // console.log("const x,y", x, y);
+
+        const $FurniParent = $(`<div class="furni-${furnix}" />`);
 
         //# the furniture container
-        adjacentRows = schemeData.adjacentLocations.split("\n");
+        // adjacentRows = schemeData.adjacentLocations.split("\n");
+        adjacents = schemeData.adjacents.split("\n");
+        console.log(schemeData);
+        // console.log(rootBlock);
 
         // Iterating over each tile worth of data
-        for (rowidx in adjacentRows) {
-          rowData = adjacentRows[rowidx].split(': ');
-          xyMovement = rowData[0].split(',');
+        for (rowidx in adjacents) {
+          // rowData = adjacents[rowidx].split(': ');
+          xyMovement = adjacents[rowidx].split(',');
           xmove = parseInt(xyMovement[0])
           ymove = parseInt(xyMovement[1])
-          filelocation = rowData[1];
+          filelocation = schemeData.location;
 
           // Furni location
           const furniChildX = x + xmove;
-          const furniChildY = x + ymove;
+          const furniChildY = y + ymove;
+
+          // console.log(furniChildX, furniChildY);
 
           // Loading image, then appending to the furni class
           $img = $("<img class='furni-part' />");
           $img.attr('src', `assets/furni/${filelocation}`);
+          $img.css({
+            "pointer-events": "none"
+          });
+          // $img.attr('src', `assets/furni/${filelocation}`);
+          // $img.css({'z-index': "99"});
           $img.load(function(){
               $(this).css('display', 'inline-block');
               if (walkable) $(this).addClass('walkable-furni');
 
 
               // The tile that bounds the X/Y coords
-              $tile = $(`[data-x=${furniChildX}][data-y=${furniChildY}]`);
+              $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
 
-              tileTop  = parseInt($tile.css("top"));
+              tileBottom = parseInt($tile.css("bottom")) + 8;
               tileLeft = parseInt($tile.css("left"));
-              $(this).css('top',  `${tileTop}px`);
+              $(this).css('bottom',  `${tileBottom}px`);
               $(this).css('left', `${tileLeft}px`);
               $FurniParent.append($(this))
           });
+          $('#map #map-furni').append($FurniParent);
         }
       }
-      $('#map #map-furni').append($FurniParent);
+      // $rootScope.$apply();
 			// return false;
 		},
 

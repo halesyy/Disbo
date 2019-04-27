@@ -33,7 +33,7 @@
 			</ul> -->
 		</div>
 
-		<div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
+		<div class="dialog small-dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
 			<div class="title">{{ dialog.title }}</div>
 			<p>{{ dialog.body }}</p>
 			<div class="bottom">
@@ -42,20 +42,120 @@
 		</div>
 
 		<!--PROFILE VIEW-->
-		<div id="profile-view-window" class="dialog profile-dialog alert ng-hide" style="z-index: 1001;" ng-draggable ng-show="profileViewWindow.enabled && isBootstrapped">
+		<div id="profile-view-window" class="dialog profile-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="profileViewWindow.enabled && isBootstrapped">
 			<div class="title" style="z-index: 1005;">
 				<div class="left">
 					{{ profileViewWindow.data.username }}'s Profile
 				</div>
 				<div class="right">
-					<a class="button" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005;">x</a>
+					<a class="button hover-change-red" ng-click="profileViewWindow.enabled = false" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
 				</div>
 				<div style="clear: both;"></div>
 			</div>
-			<img class="avatar" src="{{ profileViewWindow.data.discordavatarurl }}" />
-			<p>Nothing to see here.. This is on it's way!</p>
-			<div class="bottom">
+			<div class="container">
+				<div class="third avatar-aisle" style="text-align: center;">
+						<div class="content">
+							<img class="avatar" src="{{ profileViewWindow.data.discordavatarurl }}" />
+						</div>
+						<div class="dialog-clickable-container friend" ng-if="isBootstrapped && !isFriend() && !isYou()" style="padding-bottom: 20px;">
+							<a class="button dialog-clickable" ng-click="sendFriendRequest();" style="z-index: 1005; margin-bottom: 20px; background: green;">Friend</a>
+						</div>
+						<div class="dialog-clickable-container unfriend" ng-if="isBootstrapped && isFriend() && !isYou()" style="padding-bottom: 20px;">
+							<a class="button dialog-clickable" ng-click="removeFriendship();" style="z-index: 1005; margin-bottom: 20px; background: #c21f1f; color: white;">Unfriend</a>
+						</div>
+						<div ng-if="isBootstrapped && isYou()">
+							<h3 style="margin-bottom: 20px;">Looking sexy!</h3>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="two-third">
+						<div class="content">
+							<div style="margin: 15px; padding: 10px; background: lightgrey;">
+								{{ profileViewWindow.data.motto }}
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			<div class="clear"></div>
+		</div>
+
+		<!--INVENTORY CONTAINER-->
+		<div id="inventory-window" class="dialog inventory-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="inventoryWindow.enabled && isBootstrapped">
+			<div class="title">
+				<div class="left">
+					Your Inventory
+				</div>
+				<div class="right">
+					<a class="button hover-change-red" ng-click="inventoryWindow.enabled = false" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
+				</div>
+				<div style="clear: both;"></div>
 			</div>
+			<div class="container">
+				<div class="furni-container" ng-repeat="furnitureItem in inventory">
+					<img src="assets/furni/{{ furnitureItem.iconloc }}" ng-click="placeFurni()" />
+					<span class="amount">{{ furnitureItem.amount }}</span>
+					<!-- {{furniriteItem}} -->
+				</div>
+			</div>
+		</div>
+
+		<!--FRIENDS LIST VIEW-->
+		<div id="friend-list-window" class="dialog friend-list-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="friendList.enabled && isBootstrapped">
+			<!-- <p>{{ friends }}</p> -->
+			<div class="container">
+				<div class="half">
+					<div class="title friend-selector fs-title-left" ng-click="changeFriendsListTab('friends')">Friends</div>
+				</div>
+				<div class="half">
+					<div class="title friend-selector fs-title-right" ng-click="changeFriendsListTab('pending')">
+						Pending
+						<div style="float: right;">
+							<a class="button hover-change-red" ng-click="friendsListHandler()" style="padding-left: 9px; padding-right: 9px;">x</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container f-content-container">
+				<!--all friends on friends list-->
+				<div class="content-friends " ng-if="friendList.open == 'friends'">
+					<div class="fl-friend" ng-repeat="friendContainer in friends.friendBriefs">
+						<div class="profile-icon" id="friendid-{{ friendContainer.id }}">
+							<img src="{{ friendContainer.discordavatarurl }}" />
+						</div>
+						<div class="rest">
+							<span class="username" ng-click="profileLoad(friendContainer.id)">{{ friendContainer.username }}</span>
+							<span class="right-options">
+								<a class="button remove" ng-click="fl_removeFriend(friendContainer.id);">x</a>
+							</span>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<!--all pending-->
+				<div class="container-pending" ng-if="friendList.open == 'pending'">
+					<div class="fl-friend" ng-repeat="pendingContainer in friends.pendingBriefs">
+						<div class="profile-icon" id="friendid-{{ pendingContainer.id }}">
+							<img src="{{ pendingContainer.discordavatarurl }}" />
+						</div>
+						<div class="rest">
+							<span class="username" ng-click="profileLoad(pendingContainer.id)">{{ pendingContainer.username }}</span>
+							<span class="right-options">
+								<a class="button remove" ng-click="fl_removeFriend(pendingContainer.id);">x</a>
+								<a class="button" style="color: green;" ng-click="fl_acceptfriend(pendingContainer.id);">+</a>
+							</span>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
 		</div>
 
 		<!-- <div class="dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
@@ -91,7 +191,6 @@
 
 		<div class="dialog ng-hide" ng-draggable id="navigator-window" ng-show="navigatorWindow.enabled && isBootstrapped">
 			<div class="title"><a class="close" ng-click="navigatorWindow.enabled = false"></a>Navigator</div>
-
 		</div>
 
 
@@ -106,16 +205,17 @@
 				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="featureNotImplemented()"></span>
 				<span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span>
 				<!-- <span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span> -->
-				<span id="hotel-view-bar-icon-inventory" ng-if="!superfluousBarItems" ng-click="featureNotImplemented()"></span>
+				<span id="hotel-view-bar-icon-inventory" ng-if="superfluousBarItems" ng-click="inventoryWindow.enabled = !inventoryWindow.enabled"></span>
 				<span id="hotel-view-bar-icon-user" ng-click="featureNotImplemented()">
 					<img src="https://www.habbo.com.tr/habbo-imaging/avatarimage?figure={{ userinfo.figure }}&size=n&direction=2&head_direction=2&crr=3&gesture=sml&frame=3">
 				</span>
 			</div>
 			<div id="hotel-view-bar-friends">
 				<div id="hotel-view-bar-friends-icons">
-					<span class="hotel-view-bar-friends-icon-all" ng-click="featureNotImplemented()"></span>
-					<span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span>
+					<span class="hotel-view-bar-friends-icon-all" ng-click="friendsListHandler()"></span>
+					<!-- <span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span> -->
 				</div>
+
 				<!-- <div class="hotel-view-bar-friends-slots" ng-if="superfluousFriendBarItems">
 					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
 						<img src="assets/images/hotelview/barIcons/friend_head.png">
@@ -130,6 +230,7 @@
 						Find new <br>friends
 					</div>
 				</div> -->
+
 				<div id="hotel-view-bar-friends-more" class="flip" ng-class="{ flip: superfluousFriendBarItems }" ng-click="toggleSuperfluousFriendBarItems()" >
 					<img src="assets/images/hotelview/barIcons/arrow.png">
 				</div>
@@ -152,5 +253,21 @@
 		<script src="assets/js/controllers/splash.js" type="text/javascript"></script>
 		<script src="assets/js/controllers/view.js" type="text/javascript"></script>
 		<script src="assets/js/controllers/room.js" type="text/javascript"></script>
+
+		<script>
+			var zipush = 1000;
+			$(document).on('click', '.dialog', function(event){
+				$(this).css({
+					"z-index": zipush
+				});
+				zipush += 1;
+			})
+			function pushSmallDialog() {
+				$('.small-dialog').css({
+					"z-index": zipush
+				});
+				zipush += 1;
+			}
+		</script>
 	</body>
 </html>

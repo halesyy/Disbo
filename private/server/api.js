@@ -25,12 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
  */
 app.get("/api/profile/:id", function(req, res){
   var userid = req.params.id;
-  globaldb.query("SELECT username,figure,avatar,discordid FROM users WHERE id = :userid", {
+  globaldb.query("SELECT id,username,motto,figure,avatar,discordid FROM users WHERE id = :userid", {
     replacements: { userid: userid },
     type: Sequelize.QueryTypes.SELECT
   }).then(function(result){
     // Profile exists, checking if client is their friend...
     if (result.length > 0) {
+      // result[0].userid =
       result[0].discordavatarurl = `https://images.discordapp.net/avatars/${result[0]["discordid"]}/${result[0]["avatar"]}.png?size=256`;
       res.json(result[0]);
     }
@@ -38,19 +39,149 @@ app.get("/api/profile/:id", function(req, res){
   });
 });
 
+/*
+ * returning all friend-based information
+ * this is to be refreshed when the user clicks
+ * to open the f/l, as well as their pending list.
+ * just to be safe and make sure everything is current
+ * as hell.
+ */
 app.get("/api/friends/:sso", async function(req, res){
-  var sso    = req.params.sso;
-  var userid = await environment.game.dbops.users.ssoToUserId(sso);
-
-  globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending != 1", {
-    replacements: { userid: userid },
-    type: Sequelize.QueryTypes.SELECT
-  }).then(function(result){
-    res.json(result[0]);
-    // Profile exists, checking if client is their friend...
-    // if (result.length > 0) res.join({error: false});
-    // else res.json({error: true});
+  var sso           = req.params.sso;
+  var userid        = await environment.game.dbops.users.ssoToUserId(sso);
+  var friendsRows   = await environment.game.dbops.users.friendsIds(userid);
+  var friendIds     = await environment.game.dbops.users.justFriendsIds(friendsRows, userid);
+  var friendBriefs  = await environment.game.dbops.users.friendsIdsToBrief(friendsRows, userid);
+  var pendingIds    = await environment.game.dbops.users.pendingIds(userid);
+  var pendingbriefs = await environment.game.dbops.users.pendingBriefs(pendingIds, userid);
+  res.json({
+    clientID: userid,
+    friendIds: friendIds,
+    friendBriefs: friendBriefs,
+    pending: pendingIds,
+    pendingBriefs: pendingbriefs
   });
+});
+
+/*
+ * returning all friend-based information
+ * this is to be refreshed when the user clicks
+ * to open the f/l, as well as their pending list.
+ * just to be safe and make sure everything is current
+ * as hell.
+ */
+app.get("/api/inventory/:sso", async function(req, res){
+  var sso            = req.params.sso;
+  var userid         = await environment.game.dbops.users.ssoToUserId(sso);
+  var inventory      = await environment.game.dbops.users.inventory(userid);
+  var countInventory = await environment.game.dbops.users.countInventory(inventory);
+  console.log(inventory, countInventory);
+  res.json({
+    inventory: countInventory
+  });
+});
+
+app.post("/api/addFriend", async function(req, res){
+  // checking friendid is a number
+    let sso      = req.body.sso;
+    let friendID = req.body.friendID;
+    if (isNaN(friendID)) res.json({error:true,message:"friend id not int"});
+
+    // getting other friend data ready to manipulate
+    let userid   = await environment.dbops.users.ssoToUserId(sso);
+    let query = "SELECT id FROM friends WHERE (userID1 = :clientid AND userID2 = :friendid) OR (userID2 = :clientid AND userID1 = :friendid)";
+    let replacements = {
+      clientid: userid,
+      friendid: friendID
+    }
+    if (await environment.dbops.basic.hasData(query, replacements)) {
+      // has data - let the user know so they dont nek
+      res.json({
+        hasdata: true
+      });
+    }
+    else {
+      // no data - inserting into database.
+      // var res = await enironment.dbops.friends.sendFR(userid, friendID);
+      let insertQuery = "INSERT INTO friends (userID1, userID2, pending) VALUES (:clientid, :friendid, '1')";
+      let insertReplacements = {
+        clientid: userid,
+        friendid: friendID
+      };
+      let ins = await environment.dbops.basic.insert(insertQuery, insertReplacements);
+      console.log(ins);
+      res.json({success: true});
+    }
+});
+
+
+
+
+app.post("/api/removeFriend", async function(req, res){
+  // checking friendid is a number
+    let sso      = req.body.sso;
+    let friendID = req.body.friendID;
+    if (isNaN(friendID)) res.json({error:true,message:"friend id not int"});
+
+    // getting other friend data ready to manipulate
+    let userid   = await environment.dbops.users.ssoToUserId(sso);
+    let query = "SELECT id FROM friends WHERE (userID1 = :clientid AND userID2 = :friendid) OR (userID2 = :clientid AND userID1 = :friendid)";
+    let replacements = {
+      clientid: userid,
+      friendid: friendID
+    }
+    if (await environment.dbops.basic.hasData(query, replacements)) {
+      // has data - deleting it rip.
+      let deleteQuery = "DELETE FROM friends WHERE (userID1 = :clientid AND userID2 = :friendid) OR (userID2 = :clientid AND userID1 = :friendid)";
+      let deleteReplacements = {
+        clientid: userid,
+        friendid: friendID
+      };
+      let ins = await environment.dbops.basic.delete(deleteQuery, deleteReplacements);
+      console.log(ins);
+      res.json({success: true});
+    }
+    else {
+      // opposite of adding friend, row doesnt exist therefore
+      // we don't do anything.
+      res.json({
+        hasdata: false
+      });
+    }
+});
+
+
+app.post("/api/acceptPending", async function(req, res){
+  // checking friendid is a number
+    let sso      = req.body.sso;
+    let friendID = req.body.friendID;
+    if (isNaN(friendID)) res.json({error:true,message:"friend id not int"});
+
+    // getting other friend data ready to manipulate
+    let userid   = await environment.dbops.users.ssoToUserId(sso);
+    let query = "SELECT id FROM friends WHERE (userID1 = :friendid AND userID2 = :clientid)";
+    let replacements = {
+      clientid: userid,
+      friendid: friendID
+    }
+    if (await environment.dbops.basic.hasData(query, replacements)) {
+      // has data - updating it.
+      let updateQuery = "UPDATE friends SET pending = '0' WHERE (userID1 = :friendid AND userID2 = :clientid)";
+      let updateReplacements = {
+        clientid: userid,
+        friendid: friendID
+      };
+      let ins = await environment.dbops.basic.update(updateQuery, updateReplacements);
+      console.log(ins);
+      res.json({success: true});
+    }
+    else {
+      // opposite of adding friend, row doesnt exist therefore
+      // we don't do anything.
+      res.json({
+        hasdata: false
+      });
+    }
 });
 
 app.post('/set/token', function (req, res) {

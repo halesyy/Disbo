@@ -23,7 +23,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', '$http', function($scope, $rootScope, $socket, $location, $http) {
+app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', function($scope, $rootScope, $socket, $location) {
 
   $rootScope.dialog = {
 		enabled: false,
@@ -31,21 +31,206 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		body: ''
 	};
 
-  // $socket.emit("client friends list");
-  // $socket.on("got client friends list", function(friendshipsData){
-  //   console.log("got");
-  // });
-  $http.get(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
-    console.log(data);
-    // if (profileData.error === true) {
-    // }
-    // else {
-    //   $rootScope.profileViewWindow.enabled = true;
-    //   $rootScope.profileViewWindow.data = profileData;
-    //   $rootScope.$apply();
-    // }
+  $rootScope.friends = false;
+  $rootScope.inventory = false;
 
-  });
+  $rootScope.roomId = false; // the current roomid occupied by client user.
+  $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
+
+  $rootScope.friendList = {
+    enabled: false,
+    open: "friends"
+  };
+
+  $rootScope.inventoryWindow = {
+    enabled: false
+  };
+
+  $rootScope.refreshFriends = function(ondone = false) {
+    $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
+      console.log("friends: ", data);
+      $rootScope.friends = data;
+      $rootScope.$apply();
+      if (ondone !== false) {
+        ondone();
+      }
+    });
+  };
+  $rootScope.refreshFriends();
+
+  $rootScope.refreshInventory = function(ondone = false) {
+    $.getJSON(`http://${clientVars.host}:7777/api/inventory/${clientVars.sso}`, function(data){
+      console.log("inventory: ", data);
+      $rootScope.inventory = data.inventory;
+      $rootScope.$apply();
+      if (ondone !== false) {
+        ondone();
+      }
+    });
+  }
+  $rootScope.refreshInventory();
+
+  $rootScope.profileLoad = function(profileid) {
+    if (!isNaN(profileid)) {
+      $rootScope.refreshFriends(function(){
+          // Pulling backend data...
+          $.getJSON(`http://${clientVars.host}:7777/api/profile/${profileid}`, function(profileData){
+            if (profileData.error === true) {
+
+            }
+            else {
+              $rootScope.profileViewWindow.enabled = true;
+              $rootScope.profileViewWindow.data = profileData;
+              $rootScope.$apply();
+              $('.profile-dialog').css({
+                "z-index": zipush
+              });
+              zipush += 1;
+            }
+          });
+      });
+    }
+  }
+
+  /*
+   * sending over friend requests from the SSO-based userid to the
+   * current viewing id.
+   */
+  $rootScope.sendFriendRequest = function() {
+    if (!isNaN($rootScope.profileViewWindow.data.id)) {
+      console.log("Going to send f/r");
+      $.post(`http://${clientVars.host}:7777/api/addFriend`, {
+        sso: clientVars.sso,
+        friendID: $rootScope.profileViewWindow.data.id
+      }, function(data){
+        if (data.hasdata) {
+          // already set as a friend, pending or not...
+          // give them some space bruh
+          $rootScope.dialog = {
+            enabled: true,
+            title: "Already sent them a request",
+            body: "Give it some time! Maybe they need some space..."
+          }
+          pushSmallDialog();
+          $rootScope.$apply();
+          console.log("already a friend OR f/r is pending");
+        }
+        else {
+          // alert(data);
+          console.log(data);
+          $('.friend').html("<strong>Friend request sent!</strong>");
+        }
+      });
+    }
+    else console.log("No profile window ID provided in scope.");
+  };
+
+  /*
+   * handles the opening of the friends list,
+   * quickly does a get request to refresh the friend
+   * data before.
+   */
+  $rootScope.friendsListHandler = function() {
+    if ($rootScope.friendList.enabled === true) {
+      $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
+      // $rootScope.$apply();
+    }
+    else {
+      $rootScope.refreshFriends(function(){
+        $rootScope.friendList.enabled = !$rootScope.friendList.enabled;
+        $rootScope.$apply();
+      });
+    }
+  };
+
+  $rootScope.changeFriendsListTab = function(to) {
+    $rootScope.refreshFriends(function(){
+      $rootScope.friendList.open = to;
+      $rootScope.$apply();
+    });
+  }
+
+  $scope.fl_removeFriend = function(theirid) {
+    console.log(theirid);
+    if (isNaN(theirid)) return false;
+    $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+      sso: clientVars.sso,
+      friendID: theirid
+    }, function(data){
+      console.log("did..");
+      if (data.success === true) {
+        $('#friendid-'+theirid).parent().fadeOut(500, function(){
+          $(this).remove();
+        });
+      }
+    });
+  }
+
+  $scope.fl_acceptfriend = function(theirid) {
+    console.log(theirid);
+    if (isNaN(theirid)) return false;
+    $.post(`http://${clientVars.host}:7777/api/acceptPending`, {
+      sso: clientVars.sso,
+      friendID: theirid
+    }, function(data){
+      console.log("did..");
+      if (data.success === true) {
+        $('#friendid-'+theirid).parent().fadeOut(500, function(){
+          $(this).remove();
+        });
+      }
+    });
+  }
+
+  /*
+   * deleting friends from the unfriend link from SSO-based userid
+   * to the current viewing id.
+   */
+  $rootScope.removeFriendship = function() {
+    if (!isNaN($rootScope.profileViewWindow.data.id)) {
+      console.log("Going to remove f/r");
+      $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+        sso: clientVars.sso,
+        friendID: $rootScope.profileViewWindow.data.id
+      }, function(data){
+        if (data.hasdata === false) {
+          // already set as a friend, pending or not...
+          // give them some space bruh
+          $rootScope.dialog = {
+            enabled: true,
+            title: "User is not your friend",
+            body: "Sad times..."
+          }
+          pushSmallDialog();
+          $rootScope.$apply();
+          console.log("friend did not exist in row OR f/r is pending");
+        }
+        else {
+          // alert(data);
+          console.log(data);
+          $('.unfriend').html("<strong>Friend deleted.</strong>");
+        }
+      });
+    }
+    else console.log("No profile window ID provided in scope.");
+  }
+
+
+  $rootScope.isFriend = function(){
+    var inside = false;
+    for (clientFriendsID in $rootScope.friends.friendIds) {
+      if ($rootScope.friends.friendIds[clientFriendsID] == $rootScope.profileViewWindow.data.id) inside = true;
+    }
+    return inside;
+  }
+
+  $rootScope.isYou = function(){
+    // console.log($rootScope.friends.clientID);
+    // console.log($rootScope.profileViewWindow.data.id);
+    if ($rootScope.friends.clientID == $rootScope.profileViewWindow.data.id)
+      return true;
+    else return false;
+  }
 
 	$rootScope.hcWindow = {
 		enabled: false
