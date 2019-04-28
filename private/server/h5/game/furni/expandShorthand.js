@@ -51,6 +51,7 @@ module.exports = function(environment, shorthandFurni) {
               rotateable: row.rotateable,
               walkable: row.walkable,
               stackable: row.stackable,
+              bottomAdjust: row.bottomAdjust,
               baselayer: bl,
               rootBlock: basexy
             })

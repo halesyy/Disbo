@@ -73,7 +73,8 @@ module.exports = {
           countedInventory[furnis[furnirowx].identifier] = {
             amount: 1,
             iconloc: longhand[0].location,
-            nameId: longhand[0].nameId
+            nameId: longhand[0].nameId,
+            bottomAdjust: longhand[0].bottomAdjust
           }
         }
       }

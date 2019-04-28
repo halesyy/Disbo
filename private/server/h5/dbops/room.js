@@ -40,6 +40,7 @@ module.exports = {
             rotateable: row.rotateable,
             walkable: row.walkable,
             stackable: row.stackable,
+            bottomAdjust: row.bottomAdjust,
             rootBlock: root
           });
         }

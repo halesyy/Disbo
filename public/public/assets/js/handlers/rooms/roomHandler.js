@@ -107,7 +107,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 			for (furnix in longhandFurni) {
 
 				const schemeData = longhandFurni[furnix];
-        // console.log(schemeData);
+        console.log(schemeData);
         const rootBlock = schemeData.rootBlock.split(',')
         const walkable = schemeData.walkable
         const x = parseInt(rootBlock[0]); //r
@@ -120,25 +120,28 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 
             // every piece of furni gets it's own little allowance
             // for removing itself.
-            console.log("Yeah, I just set this up")
             $FurniParent.click(function(event){
               if (event.ctrlKey) {
-                console.log(`Youre interested in ${$(this).attr("data-fid")}`);
-                console.log("I was just clicked!");
+                // console.log(`Youre interested in ${$(this).attr("data-fid")}`);
+                // console.log("I was just clicked!");
                 const fid = $(this).attr("data-fid");
-                console.log(fid);
+                // console.log(fid);
                 $socket.emit("verify remove furniture", {
                   sso: clientVars.sso,
                   inventoryID: $(this).attr("data-fid"),
                   roomID: $rootScope.roomId
                 }, function(response){
-                  console.log(response);
+                  // console.log(response);
                   if (response.error === false) {
                     // worked, rid should be removed for all users
                     $rootScope.refreshInventory();
                   }
                   else {
-                    console.log(response.reason);
+                    $rootScope.dialog = {
+                      enabled: true,
+                      title: "Oops!",
+                      body: response.reason
+                    }
                   }
                 })
               }
@@ -149,10 +152,13 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             const xmove = parseInt(xyMovement[0])
             const ymove = parseInt(xyMovement[1])
             const filelocation = schemeData.location;
+            const bottomAdjust = schemeData.bottomAdjust;
+            console.log(bottomAdjust);
 
             // Furni location
             const furniChildX = x + xmove;
             const furniChildY = y + ymove;
+            // console.log(furniChildX, furniChildY);
 
             // Loading image, then appending to the furni class
             const $img = $("<img class='furni-part' />");
@@ -160,11 +166,13 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             $img.attr('position', `absolute`);
 
             const $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
-            const tileBottom = parseInt($tile.css("bottom")) - 10;
+            const tileBottom = parseInt($tile.css("bottom")) - 10 + bottomAdjust;
             const tileLeft = parseInt($tile.css("left"));
+            var baselayer = 7;
+            if ("baselayer" in schemeData) baselayer += parseInt(schemeData.baselayer);
             $FurniParent.css('bottom',  `${tileBottom}px`);
             $FurniParent.css('left', `${tileLeft}px`);
-            $FurniParent.css('z-index', 10);
+            $FurniParent.css('z-index', baselayer);
             $FurniParent.css('position', `absolute`);
 
             $img.load(function(){

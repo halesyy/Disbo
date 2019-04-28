@@ -149,6 +149,7 @@ module.exports = function(env, frontend, frontenddata) {
           walkable: furnitureRow[0].walkable,
           stackable: furnitureRow[0].stackable,
           baselayer: furnitureRow[0].baselayer,
+          bottomAdjust: furnitureRow[0].bottomAdjust,
           rootBlock: `${ei.root[1]},${ei.root[0]}`
         }]);
 
