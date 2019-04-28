@@ -75,7 +75,8 @@ app.get("/api/inventory/:sso", async function(req, res){
   var userid         = await environment.game.dbops.users.ssoToUserId(sso);
   var inventory      = await environment.game.dbops.users.inventory(userid, all=false);
   var countInventory = await environment.game.dbops.users.countInventory(inventory);
-  console.log(inventory, countInventory);
+  // console.log(inventory, countInventory);
+  console.log(`[XX:XX:XX] Refreshed ${userid}'s inventory.`);
   res.json({
     inventory: countInventory
   });

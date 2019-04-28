@@ -2,10 +2,10 @@
   body {
     background-color:#000;
   }
-  .furni {
+  /* .furni {
   	z-index:9;
   	display:inline-block;
-  }
+  } */
   .furni-part {
   	position:absolute;
     z-index:9;
@@ -13,12 +13,12 @@
 </style>
 
 <div id="map" ng-draggable>
-	<div id="map-users"></div>
-	<div id="map-furni">
+  <div id="map-furni">
     <div class="furni-hoverable" style="position: absolute; z-index: 8;" >
       <img id="furni-hover-overlay" style="opacity: 0.7;"/>
     </div>
   </div>
+	<div id="map-users"></div>
 	<div id="map-chat-bubbles"></div>
 	<div id="map-tiles"></div>
 </div>
@@ -30,6 +30,4 @@
   <input id="chat-input" ng-model="chatMessage" placeholder="Type here to chat..." autocomplete="off" />
 </form>
 
-<div id="room-info">
-
-</div>
+<div id="room-info"></div>

@@ -24,7 +24,11 @@ const globaldb = new Sequelize(conf.mysql.db, conf.mysql.user, conf.mysql.pass, 
 global.globaldb  = globaldb
 global.Sequelize = Sequelize
 global.environment = environment
+// all shorthand queries for querying the database! :)
 global.gt = environment.dbops.basic.get
+global.in = environment.dbops.basic.insert
+global.up = environment.dbops.basic.update
+global.dt = environment.dbops.basic.delete
 
 // Loading the public->private API
 require('./api');

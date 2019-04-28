@@ -17,6 +17,7 @@ module.exports = function(environment, shorthandFurni) {
     furnitureData = [];
     for (var furnix in shorthandFurni) {
       const furniData = shorthandFurni[furnix]
+      console.log(furniData);
       const furniSplit = furniData.split(":")
 
       /* --
@@ -24,9 +25,11 @@ module.exports = function(environment, shorthandFurni) {
        * is correct. (has to contain one ":" to get past default check)
        */
       if (furniSplit.length == environment.configuration.database_rules.furni.shorthand_segments) {
-        const nameIdentifier = furniSplit[0];
-        const basexy = furniSplit[1];
-        // console.log(basexy);
+        const inventoryID = furniSplit[0];
+        const nameIdentifier = furniSplit[1];
+        const basexy = furniSplit[2];
+        const baselayer = furniSplit[3];
+
 
         // Getting all nameid information from shorthand [0] side
         CompletionPromises.push(new Promise((resolve, reject) => {
@@ -35,7 +38,11 @@ module.exports = function(environment, shorthandFurni) {
             type: Sequelize.QueryTypes.SELECT
           }).then(function(result){
             row = result[0];
+            if (baselayer == -1) {
+              var bl = row.baselayer;
+            } else bl = baselayer;
             resolve({
+              inventoryID: inventoryID,
               nameId: nameIdentifier,
               description: row.description,
               // adjacentLocations: row.adjacentLocations,
@@ -44,6 +51,7 @@ module.exports = function(environment, shorthandFurni) {
               rotateable: row.rotateable,
               walkable: row.walkable,
               stackable: row.stackable,
+              baselayer: bl,
               rootBlock: basexy
             })
           })

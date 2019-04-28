@@ -5,7 +5,6 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 	function($routeParams, $scope, $socket, $location, $rootScope, userHandler, roomHandler) {
 		if (!$rootScope.isBootstrapped) {
 			$location.path('/');
-
 		} else {
 
 			if ($rootScope.roomId !== false) {
@@ -33,12 +32,42 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			/*
 			 * all the inventory window and current selected furniture code.
 			 */
-		  $rootScope.inventoryWindow = {
-		    enabled: false
-		  };
-			$rootScope.currentSelectedFurni = false;
+		  
 
-			// INVENTORY MANAGEMENT...
+			/*
+			 * deleting of furniture that is yours, when
+			 * hitting "ctrl" to open up the ability to click
+			 * on furniture over the tiles, then to
+			 * affect when clicking on the actual furniture.
+			 */
+			const ctrlStart = $(window).keydown("ctrl", function(event){
+				if (event.ctrlKey) {
+					// console.log("ctrl down...");
+					// MAKE FURNI CLICKABLE
+					$('.furni').removeClass("unclickable");
+					$('.furni').addClass("ctrl-watch-for-click");
+					$('#map #map-tiles').addClass("unclickable");
+				}
+			});
+			const ctrlDone = $(window).keyup("ctrl", function(event){
+				// console.log("ctrl up...");
+				// MAKE FURNI NON-CLICKABLE
+				$('.furni').addClass("unclickable");
+				$('.furni').removeClass("ctrl-watch-for-click");
+				$('#map #map-tiles').removeClass("unclickable");
+			});
+
+			// waiting for a "remove furni fid" emit
+			// to ask to remove furniture.
+			$socket.on("remove furni from id", function(fid){
+				$(`[data-fid="${fid}"]`).remove();
+			});
+
+
+			/*
+			 * wholistic inventory and furniture placement
+			 * management, a very large collection of intricate code.
+			 */
 			$rootScope.placeFurni = function(furnitureItem) {
 
 					console.log("Toggling furni placing on.");
@@ -84,17 +113,9 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 						fe_collection.sso = clientVars.sso;
 						fe_collection.roomID = $rootScope.roomId;
 						fe_collection.root = [x_loc, y_loc];
-
 						$socket.emit("verify furniture place", fe_collection, function(response){
 							console.log(response);
-							// console.log("this worked "+response);
 						});
-
-						fe_colletion = null;
-
-						// make sure to setup a callback function with socket and not an API
-						// lolz.
-						// console.log(x_loc, y_loc);
 					});
 
 					$rootScope.waitForOutsideClick = $(document).on("click", function(event){
@@ -109,8 +130,8 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			}
 
 			$rootScope.stopPlacingFurni = function(reopenWindow = true) {
-				$rootScope.inventoryWindow.enabled = reopenWindow;
 				console.log("Toggling furni placing off.");
+				$rootScope.inventoryWindow.enabled = reopenWindow;
 				$furnioverlay = $('#furni-hover-overlay');
 				$furnioverlay.css({
 					"display": "none"
@@ -152,7 +173,12 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				furni = data.longhandFurni
 
         roomHandler.generateModel(base);
-				roomHandler.generateFurniture(data.longhandFurni);
+				roomHandler.generateFurniture(data.longhandFurni, $socket);
+			});
+
+			$socket.on("new furni placed", function(data){
+				roomHandler.generateFurniture(data, $socket);
+				// console.log(data);
 			});
 
 			$('#map').click(function(event) {

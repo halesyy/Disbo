@@ -98,137 +98,87 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 		 *	 walkable: row.walkable,
 		 *	 rootBlock: basexy
 		 * }
+     * also, setup the click event for if clicked to be removed :P
 		 */
-		generateFurniture: function(longhandFurni) {
+		generateFurniture: function(longhandFurni, $socket) {
 
       //# iterating over each piece of furniture to be
       //# introduced into the gameworld
 			for (furnix in longhandFurni) {
 
 				const schemeData = longhandFurni[furnix];
+        // console.log(schemeData);
         const rootBlock = schemeData.rootBlock.split(',')
         const walkable = schemeData.walkable
         const x = parseInt(rootBlock[0]); //r
         const y = parseInt(rootBlock[1]); //r
-        // console.log("const x,y", x, y);
-
-        const $FurniParent = $(`<div class="furni-${furnix}" />`);
-
         //# the furniture container
-        // adjacentRows = schemeData.adjacentLocations.split("\n");
         adjacents = schemeData.adjacents.split("\n");
-        console.log(schemeData);
-        // console.log(rootBlock);
-
         // Iterating over each tile worth of data
-        for (rowidx in adjacents) {
-          // rowData = adjacents[rowidx].split(': ');
-          xyMovement = adjacents[rowidx].split(',');
-          xmove = parseInt(xyMovement[0])
-          ymove = parseInt(xyMovement[1])
-          filelocation = schemeData.location;
+        for (var rowidx in adjacents) {
+            const $FurniParent = $(`<div class="furni unclickable" id="${schemeData.inventoryID}-${rowidx}" data-fid="${schemeData.inventoryID}" style="width: 50px; height: 50px;"></div>`);
 
-          // Furni location
-          const furniChildX = x + xmove;
-          const furniChildY = y + ymove;
+            // every piece of furni gets it's own little allowance
+            // for removing itself.
+            console.log("Yeah, I just set this up")
+            $FurniParent.click(function(event){
+              if (event.ctrlKey) {
+                console.log(`Youre interested in ${$(this).attr("data-fid")}`);
+                console.log("I was just clicked!");
+                const fid = $(this).attr("data-fid");
+                console.log(fid);
+                $socket.emit("verify remove furniture", {
+                  sso: clientVars.sso,
+                  inventoryID: $(this).attr("data-fid"),
+                  roomID: $rootScope.roomId
+                }, function(response){
+                  console.log(response);
+                  if (response.error === false) {
+                    // worked, rid should be removed for all users
+                    $rootScope.refreshInventory();
+                  }
+                  else {
+                    console.log(response.reason);
+                  }
+                })
+              }
+            });
 
-          // console.log(furniChildX, furniChildY);
+            // rowData = adjacents[rowidx].split(': ');
+            const xyMovement = adjacents[rowidx].split(',');
+            const xmove = parseInt(xyMovement[0])
+            const ymove = parseInt(xyMovement[1])
+            const filelocation = schemeData.location;
 
-          // Loading image, then appending to the furni class
-          $img = $("<img class='furni-part' />");
-          $img.attr('src', `assets/furni/${filelocation}`);
-          $img.css({
-            "pointer-events": "none"
-          });
-          // $img.attr('src', `assets/furni/${filelocation}`);
-          // $img.css({'z-index': "99"});
-          $img.load(function(){
-              $(this).css('display', 'inline-block');
-              if (walkable) $(this).addClass('walkable-furni');
+            // Furni location
+            const furniChildX = x + xmove;
+            const furniChildY = y + ymove;
 
+            // Loading image, then appending to the furni class
+            const $img = $("<img class='furni-part' />");
+            $img.attr('src', `assets/furni/${filelocation}`);
+            $img.attr('position', `absolute`);
 
-              // The tile that bounds the X/Y coords
-              $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
+            const $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
+            const tileBottom = parseInt($tile.css("bottom")) - 10;
+            const tileLeft = parseInt($tile.css("left"));
+            $FurniParent.css('bottom',  `${tileBottom}px`);
+            $FurniParent.css('left', `${tileLeft}px`);
+            $FurniParent.css('z-index', 10);
+            $FurniParent.css('position', `absolute`);
 
-              tileBottom = parseInt($tile.css("bottom")) + 8;
-              tileLeft = parseInt($tile.css("left"));
-              $(this).css('bottom',  `${tileBottom}px`);
-              $(this).css('left', `${tileLeft}px`);
-              $FurniParent.append($(this))
-          });
-          $('#map #map-furni').append($FurniParent);
+            $img.load(function(){
+                $(this).css('display', 'inline-block');
+                $(this).addClass('click-through');
+                var baselayer = 7;
+                if ("baselayer" in schemeData) baselayer += parseInt(schemeData.baselayer);
+                const $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
+                $(this).css('z-index', baselayer);
+                $FurniParent.append($(this))
+            });
+            $('#map-furni').append($FurniParent);
         }
       }
-      // $rootScope.$apply();
-			// return false;
-		},
-
-		generateFurni: function(furni) {
-			this.appendFurniPart = function(furnidata, furnipartposition, furnipartid) {
-        /*
-        {
-            id: 1,
-            title: "Not a shit named furni like habbo do",
-            description: "Hello!",
-            walkable: true,
-            floor: false,
-            root: 3:1,
-            adjacent: [
-              #x:y, what to increase values by
-              #e.g. this would be a 2x2 structure, starting at x=3,y=1, spanning
-              #3,2 - 4,1 - 4,2
-              '0:1',
-              '1:0',
-              '1:1'
-            ] // figure out how to represent this, explains in what relation it has to the other tiles
-        } - {
-            "name": "green-floor",
-            "formal": "Green Floor",
-            "locations": {
-              "0:0": "assets/furni/floors/green-floor-1x1.png",
-              "1:0": "assets/furni/floors/green-floor-1x1.png",
-              "0:1": "assets/furni/floors/green-floor-1x1.png",
-              "1:1": "assets/furni/floors/green-floor-1x1.png",
-            }
-        }
-        EACH TILE IS WIDTH: 66px;, HEIGHT: 40px.
-        */
-				var furnielement = $("<div class='furni' />");
-
-
-				var img = $('<img class="furni-part" />');
-				$(img).attr('src', 'assets/images/furniture/' + furnidata.name + '/' + furnipartid + '.png');
-				$(img).load(function() {
-						$(img).css('display', 'inline-block');
-						var furnipartpositions = furnipartposition.split(':');
-
-	          // Gathering the
-						var $tile = $(
-							'[data-x=' + furnipartpositions[0] + '][data-y=' + furnipartpositions[1] + ']'
-						);
-	          furniparttile = $tile
-
-						var top = parseInt($tile.css('top'));
-						var left = parseInt($tile.css('left'));
-
-						$(this).css('top', (top-this.height) + 'px');
-						$(this).css('left', (left) + 'px');
-
-						$(this).appendTo(furnielement);
-				});
-			};
-
-      // Iterating and calling above function multiple times
-      // furnidata, furnielement, furnipartposition, furnipartid
-			for (furnix in furni) {
-				for (x in furni[furnix]['tiles']) {
-
-					this.appendFurniPart(furni[furnix], furni[furnix]['tiles'][x], x);
-
-				}
-
-			}
 		}
-
 	}
 }]);

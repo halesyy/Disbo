@@ -5,7 +5,7 @@ module.exports = {
         shorthand = [];
         for (furnirowidx in roomFurni) {
           var row = roomFurni[furnirowidx]
-          shorthand.push(`${row.identifier}:${row.root}`);
+          shorthand.push(`${row.id}:${row.identifier}:${row.root}:${row.baselayer}`);
         }
         return shorthand;
       },
@@ -24,12 +24,14 @@ module.exports = {
         for (shorthandidx in shorthand) {
           var shortDefiner = shorthand[shorthandidx];
           var pieces = shortDefiner.split(":");
-          var identifier = pieces[0];
-          var root = pieces[1];
+          var inventoryID = pieces[0];
+          var identifier = pieces[1];
+          var root = pieces[2];
           // loading furnidata beyond the shorthand array.
           var furniture = await environment.dbops.basic.get("SELECT * FROM furniture WHERE nameId = :nid", {nid: identifier});
           var row = furniture[0];
           longhand.push({
+            inventoryID: inventoryID,
             nameId: identifier,
             description: row.description,
             // adjacentLocations: row.adjacentLocations,

@@ -996,9 +996,11 @@ body {
 	margin-top:10px;
 	margin-right:15px;
 }
+
 .ng-hide {
 	display: none;
 }
+
 #map {
 	background-color: black;
 	width: 1000px;
@@ -1022,7 +1024,7 @@ body {
     height:               40px;
     background-repeat:    no-repeat;
     background-position:  left bottom;
-    text-indent:-999999px;
+    text-indent:          -999999px;
 }
 #map .tile.floor .inner {
 	z-index:6;
@@ -1032,7 +1034,7 @@ body {
 	/* background-image: url("https://cdn.discordapp.com/attachments/313482274517811203/571338887318994944/tiletextured.png"); */
 }
 #map .tile.unclickable-floor .inner {
-	z-index:6;
+	z-index: 6;
 	pointer-events: none !important;
 	background-image: url("../images/sprites/floor.png");
 }
@@ -1128,6 +1130,16 @@ word-wrap: break-word;
 .walkable-furni {
 	pointer-events: none;
 }
+.click-through {
+	pointer-events: none;
+}
+.unclickable {
+	pointer-events: none;
+}
+.ctrl-watch-for-click {
+	z-index: 100 !important;
+	pointer-events: auto !important;
+}
 
 .container {
 	width: 100%;
@@ -1151,6 +1163,10 @@ word-wrap: break-word;
 	clear: both;
 }
 
+.inventory-dialog {
+	width: 700px !important;
+	min-height: 350px;
+}
 .hover-change-red {
 	background: #c21f1f !important;
 	transition: all 0.1s;
@@ -1161,17 +1177,20 @@ word-wrap: break-word;
 }
 .furni-container {
 	float: left;
-	width: 60px;
-	height: 50px;
-	margin: 5px;
-	padding: 5px;
+	width: 70px;
+	height: 70px;
+	margin: 10px 0 10px 10px;
+	padding: 10px;
 	line-height: 50px;
   display: inline-block;
+	border-radius: 6px;
 	background: lightgrey;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 .furni-container .amount {
-	position: absolute;
-	top: 30px;
+	position: relative;
+	top: -70px;
 }
 .furni-container img {
 	vertical-align: middle;
