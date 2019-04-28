@@ -43,6 +43,7 @@ module.exports = function(environment, shorthandFurni) {
               adjacents: row.adjacents,
               rotateable: row.rotateable,
               walkable: row.walkable,
+              stackable: row.stackable,
               rootBlock: basexy
             })
           })

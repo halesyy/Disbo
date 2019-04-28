@@ -73,7 +73,7 @@ app.get("/api/friends/:sso", async function(req, res){
 app.get("/api/inventory/:sso", async function(req, res){
   var sso            = req.params.sso;
   var userid         = await environment.game.dbops.users.ssoToUserId(sso);
-  var inventory      = await environment.game.dbops.users.inventory(userid);
+  var inventory      = await environment.game.dbops.users.inventory(userid, all=false);
   var countInventory = await environment.game.dbops.users.countInventory(inventory);
   console.log(inventory, countInventory);
   res.json({

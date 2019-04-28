@@ -19,7 +19,6 @@ module.exports = {
             furniRow = userFurniDataRows[rowidx];
             shorthand.push(`${furniRow.identifier}:${furniRow.root}`);
           }
-          // console.log(shorthand);
           return shorthand;
       }
 

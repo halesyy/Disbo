@@ -37,6 +37,26 @@ module.exports = {
     },
 
     /*
+     * takes the furniture nid and check if the user
+     * actually has any of it available to use in the room
+     * they are planning on putting furniture in.
+     */
+    furniAmountAvailable: async function(userID, identifier) {
+      var furnirows = await gt("SELECT * FROM users_inventory WHERE identifier = :nid AND root = '' AND roomid < 1 AND userID = :uid", {uid: userID, nid: identifier});
+      return furnirows.length;
+    },
+
+    /*
+     * future allow for admin check, room admin, etc...
+     */
+    allowedToPlaceFurniInRoom: async function(userid, roomid) {
+      var allowed = await environment.dbops.basic.get("SELECT ownerID FROM rooms WHERE id = :rid", {rid: roomid});
+      var db_roomOwner = allowed[0].ownerID;
+      if (isNaN(db_roomOwner) || isNaN(userid)) return false;
+      return (db_roomOwner == userid);
+    },
+
+    /*
      * taking all of the rows and creating a better way
      * to represent them to the user.
      */
@@ -52,7 +72,8 @@ module.exports = {
           let longhand = await environment.game.dbops.basic.get("SELECT * FROM furniture WHERE nameId = :nid", {nid: furnis[furnirowx].identifier});
           countedInventory[furnis[furnirowx].identifier] = {
             amount: 1,
-            iconloc: longhand[0].location
+            iconloc: longhand[0].location,
+            nameId: longhand[0].nameId
           }
         }
       }

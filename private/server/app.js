@@ -24,6 +24,7 @@ const globaldb = new Sequelize(conf.mysql.db, conf.mysql.user, conf.mysql.pass, 
 global.globaldb  = globaldb
 global.Sequelize = Sequelize
 global.environment = environment
+global.gt = environment.dbops.basic.get
 
 // Loading the public->private API
 require('./api');
@@ -79,6 +80,7 @@ var callbacks = {
 		h5.game.rooms.chat(h5.scope(), frontend, frontenddata);
 		h5.game.rooms.leave(h5.scope(), frontend, frontenddata);
 		h5.game.rooms.move(h5.scope(), frontend, frontenddata);
+		h5.game.rooms.furniWatch(h5.scope(), frontend, frontenddata);
 		// console.log(environment.rooms);
 	}
 };
@@ -90,12 +92,5 @@ h5.event.on("establish connection",    callbacks.establishConnection);
 h5.event.on("user login",              callbacks.userLogin);
 h5.event.on("client view rendered",    callbacks.clientViewRendered);
 h5.event.on("load room",               callbacks.loadRoom);
-
-// h5.event.on("bigtest", function(frontend){
-// 	console.log("rec!!!!!!!!!!!!!!!!!!!!!!!!!!");
-// });
-// h5.event.on("bigtest", function(){
-// 	console.log("rec!!!!!!!!!!!!!!!");
-// });
 
 h5.listen();

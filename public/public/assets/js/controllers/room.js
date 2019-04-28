@@ -30,10 +30,13 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				$socket.off('user move');
 			}
 
+			/*
+			 * all the inventory window and current selected furniture code.
+			 */
 		  $rootScope.inventoryWindow = {
-		    enabled: false,
-		    furniOverlayEnabled: false
+		    enabled: false
 		  };
+			$rootScope.currentSelectedFurni = false;
 
 			// INVENTORY MANAGEMENT...
 			$rootScope.placeFurni = function(furnitureItem) {
@@ -42,6 +45,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 					// $rootScope.inventoryWindow.furniOverlayEnabled = true;
 					$furnioverlay = $('#furni-hover-overlay');
 					$furnioverlay.attr('src', `/assets/furni/${furnitureItem.iconloc}`);
+					$rootScope.currentSelectedFurni = furnitureItem;
 					$rootScope.inventoryWindow.enabled = false;
 
 					$rootScope.tileWatchHover = $('#map .tile .inner').hover(function(){
@@ -75,9 +79,22 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 						// 		       exist for the user or it's a bad place, and a bunch of
 						//					 other auth for the user. just stop it all and open the
 						// 				   window.
-						$socket.emit("kill myself");
+						// notYourRoom
+						fe_collection = $rootScope.currentSelectedFurni;
+						fe_collection.sso = clientVars.sso;
+						fe_collection.roomID = $rootScope.roomId;
+						fe_collection.root = [x_loc, y_loc];
 
-						console.log(x_loc, y_loc);
+						$socket.emit("verify furniture place", fe_collection, function(response){
+							console.log(response);
+							// console.log("this worked "+response);
+						});
+
+						fe_colletion = null;
+
+						// make sure to setup a callback function with socket and not an API
+						// lolz.
+						// console.log(x_loc, y_loc);
 					});
 
 					$rootScope.waitForOutsideClick = $(document).on("click", function(event){
@@ -91,7 +108,8 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 			}
 
-			$rootScope.stopPlacingFurni = function() {
+			$rootScope.stopPlacingFurni = function(reopenWindow = true) {
+				$rootScope.inventoryWindow.enabled = reopenWindow;
 				console.log("Toggling furni placing off.");
 				$furnioverlay = $('#furni-hover-overlay');
 				$furnioverlay.css({
