@@ -135,33 +135,43 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
         "transition": "all 0.3s linear 0s"
 			});
 
-			$Hat = $("<img src='https://goorin-goorinbrosinc.netdna-ssl.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/imports/products/100-5799-BLK-F01.png'>");
-			$Face = $("<img src='https://s3.amazonaws.com/keybase_processed_uploads/98dbad2c59dc54d8c65a650bf5921a05_360_360.jpg' />");
-			$Legs = $("<img src='assets/av/legs/1.png'>");
-			$Feet = $("<img src='assets/av/feet/shoe.png'>");
-			$Hat.width(40).css({
-				'margin-bottom': '-33px',
-				'z-index': 3,
-				'position': 'relative'
-			});
+			$Face = $("<img src='https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/50519253_388564998618786_1711903668455866368_n.jpg?_nc_cat=104&_nc_ht=scontent.fbne3-1.fna&oh=427bd5d96b7e93e586507d89aaf34fef&oe=5D695569' />");
+			$Whole = $("<img src='assets/av/whole/1.png'>");
+			// $Legs = $("<img src='assets/av/legs/1.png'>");
+			// $Feet = $("<img src='assets/av/feet/shoe.png'>");
+			// $Hat.width(40).css({
+			// 	'margin-bottom': '-33px',
+			// 	'z-index': 3,
+			// 	'position': 'relative'
+			// });
+			// $Face.width(40).css({
+			// 	'z-index': 2,
+			// 	'position': 'relative'
+			// });
+			// $Legs.width(40).css({
+			// 	'margin-bottom': '-15px',
+			// 	'z-index': 2,
+			// 	'position': 'relative'
+			// });
+			// $Feet.css({
+			// 	'z-index': 1,
+			// 	'position': 'relative'
+			// });
 			$Face.width(40).css({
+				'margin-bottom': '-65px',
 				'z-index': 2,
-				'position': 'relative'
+				'position': 'relative',
+				'border-radius': '20px',
 			});
-			$Legs.width(40).css({
-				'margin-bottom': '-15px',
-				'z-index': 2,
-				'position': 'relative'
-			});
-			$Feet.css({
+			$Whole.css({
 				'z-index': 1,
 				'position': 'relative'
 			});
-			new ColourManager($Legs, "#ff4500", [40, "ig"]);
-			new ColourManager($Feet, "#ff4500", [40, "ig"]);
+			new ColourManager($Whole, "#ffffff", [40, "ig"]);
+			// new ColourManager($Feet, "#ff4500", [40, "ig"]);
 			// $()
 
-			$AvatarContainer.append([$Hat, $Face, $Legs, $Feet]);
+			$AvatarContainer.append([$Face, $Whole]);
 			$("#map #map-users").append($AvatarContainer);
 		},
 
