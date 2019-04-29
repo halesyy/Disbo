@@ -37,10 +37,12 @@ module.exports = function(environment, base, longhandFurni, defNotWalkable = fal
         xmove = parseInt(xyMovement.split(',')[0]);
         ymove = parseInt(xyMovement.split(',')[1]);
 
-        base[x+xmove][y+ymove] = NOT_WALKABLE;
+        if (x+xmove >= base.length || y+ymove >= base[x+xmove].length) {}
+        else base[x+xmove][y+ymove] = NOT_WALKABLE;
       }
 
     }
   }
+  console.log(base);
   return base
 }

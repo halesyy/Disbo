@@ -80,7 +80,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 					$rootScope.tileWatchHover = $('#map .tile .inner').hover(function(){
 						// console.log(`url('${furnitureItem.iconloc}') !important`);
 						$(this).css("background-image", `url('/assets/images/sprites/floor.png')`);
-						var tileBottom = parseInt($(this).parent().css("bottom")) + 9;
+						var tileBottom = parseInt($(this).parent().css("bottom")) + 9 + furnitureItem.bottomAdjust;
 						$furnioverlay.parent().css("bottom", `${tileBottom}px`);
 						$furnioverlay.parent().css("left", $(this).parent().css("left"));
 						$rootScope.currentTileX = $(this).attr('data-x');

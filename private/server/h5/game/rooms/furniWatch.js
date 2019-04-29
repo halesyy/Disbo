@@ -99,11 +99,17 @@ module.exports = function(env, frontend, frontenddata) {
         var xroot = parseInt(wantsToPlace[0]);
         var yroot = parseInt(wantsToPlace[1]);
         // checking parameters
-        var checkx = xmove + xroot;
-        var checky = ymove + yroot;
+        var checkx = parseInt(xmove + xroot);
+        var checky = parseInt(ymove + yroot);
         // console.log(checkx, checky);
         // console.log(base[checkx][checky])
-        if (base[checky][checkx] == 1) placeable = false;
+        // checking that map area even exists:
+        // console.log(base);
+        // console.log(checky, checkx);
+        // console.log(base.length-1);
+        // console.log(base[checky].length-1);
+        if (checky >= base.length || checkx >= base[checky].length) {}
+        else if (base[checky][checkx] == 1) placeable = false;
       }
 
       if (!placeable) {

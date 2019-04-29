@@ -113,10 +113,10 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
         const x = parseInt(rootBlock[0]); //r
         const y = parseInt(rootBlock[1]); //r
         //# the furniture container
-        adjacents = schemeData.adjacents.split("\n");
+        adjacents = [schemeData.adjacents.split("\n")[0]];
         // Iterating over each tile worth of data
         for (var rowidx in adjacents) {
-            const $FurniParent = $(`<div class="furni unclickable" id="${schemeData.inventoryID}-${rowidx}" data-fid="${schemeData.inventoryID}" style="width: 50px; height: 50px;"></div>`);
+            const $FurniParent = $(`<div class="furni unclickable" id="${schemeData.inventoryID}-${rowidx}" data-fid="${schemeData.inventoryID}""></div>`);
 
             // every piece of furni gets it's own little allowance
             // for removing itself.
@@ -166,7 +166,8 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             $img.attr('position', `absolute`);
 
             const $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
-            const tileBottom = parseInt($tile.css("bottom")) - 10 + bottomAdjust;
+            // ADJUST
+            const tileBottom = parseInt($tile.css("bottom")) + 10 + bottomAdjust;
             const tileLeft = parseInt($tile.css("left"));
             var baselayer = 7;
             if ("baselayer" in schemeData) baselayer += parseInt(schemeData.baselayer);
@@ -176,6 +177,10 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             $FurniParent.css('position', `absolute`);
 
             $img.load(function(){
+
+                $FurniParent.height($img[0].height);
+                $FurniParent.width($img[0].width);
+                // $img.css("bottom": )
                 $(this).css('display', 'inline-block');
                 $(this).addClass('click-through');
                 var baselayer = 7;
