@@ -107,7 +107,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
 			for (furnix in longhandFurni) {
 
 				const schemeData = longhandFurni[furnix];
-        console.log(schemeData);
+        // console.log(schemeData);
         const rootBlock = schemeData.rootBlock.split(',')
         const walkable = schemeData.walkable
         const x = parseInt(rootBlock[0]); //r
@@ -153,7 +153,7 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             const ymove = parseInt(xyMovement[1])
             const filelocation = schemeData.location;
             const bottomAdjust = schemeData.bottomAdjust;
-            console.log(bottomAdjust);
+            // console.log(bottomAdjust);
 
             // Furni location
             const furniChildX = x + xmove;

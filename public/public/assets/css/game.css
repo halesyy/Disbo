@@ -16,6 +16,20 @@ html {
 *, :before, :after {
 	box-sizing: inherit
 }
+/* @namespace url(http://www.w3.org/1999/xhtml); */
+/* @-moz-document regexp("((.*\\.(png|apng|jpg|jpeg|gif|tiff|bmp))|(^data:image\\/.*))(\\?([^#]*))?(#(.*))?") {*/
+html {
+image-rendering: -moz-crisp-edges !important;
+}
+
+img {
+    image-rendering: optimizeSpeed !important;             /*                     */
+    image-rendering: -moz-crisp-edges !important;          /* Firefox             */
+    image-rendering: -o-crisp-edges !important;            /* Opera               */
+    image-rendering: -webkit-optimize-contrast !important; /* Chrome (and Safari) */
+    image-rendering: optimize-contrast !important;         /* CSS3 Proposed       */
+    -ms-interpolation-mode: nearest-neighbor !important;   /* IE8+                */
+    }
 body {
 	max-width: 100%;
 	max-height: 100%;
@@ -1078,8 +1092,8 @@ body {
     background-image: url("../images/sprites/selected.png");
 }
 #map .avatar {
-    width:64px;
-    height:110px;
+    width:40px;
+    min-height:70px;
     position:absolute;
     display:inline-block;
     z-index: 100;

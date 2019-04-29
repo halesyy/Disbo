@@ -1,4 +1,95 @@
 
+class ColourManager {
+
+
+
+	 constructor($image, colour, sizearray) {
+		 this.$image = $image;
+		 this.image  = $image[0];
+		 this.canvas = document.createElement("canvas");
+		 this.ctx    = null;
+		 this.originalPixels = null;
+		 this.currentPixels  = null;
+		 const th = this;
+		 const size = sizearray;
+		 const clr = colour;
+		 const loadwait = $image.load(function(){
+			 th.apply(clr, sizearray);
+			 loadwait.off();
+		 })
+	 }
+
+	 // applying using the #colour
+	 apply(colour, size) {
+		 this.loadPixels();
+		 // 333333 -> 515151
+		 this.replaceColour("#858585", colour);
+		 this.applyToImage(this.canvas.toDataURL("image/png"));
+		 this.resize(size);
+	 }
+
+	 loadPixels() {
+		 this.canvas.width = this.image.width;
+		 this.canvas.height = this.image.height;
+
+ 		 this.ctx = this.canvas.getContext("2d");
+		 this.ctx.drawImage(this.image, 0, 0, this.image.naturalWidth, this.image.naturalHeight, 0, 0, this.image.width, this.image.height);
+		 this.originalPixels = this.ctx.getImageData(0, 0, this.image.width, this.image.height);
+		 this.currentPixels = this.ctx.getImageData(0, 0, this.image.width, this.image.height);
+
+		 this.image.onload = null;
+	 }
+
+	 replaceColour(search, replace) {
+
+		 // this.getPixels(img);
+		 if (!this.originalPixels) return; // Check if image has loaded
+
+		 var searchColour  = this.hexToRGB(search);
+		 var replaceColour = this.hexToRGB(replace);
+
+		 // console.log(searchColour);
+		 // console.log(replaceColour);
+
+		 for (var I = 0, L = this.originalPixels.data.length; I < L; I += 4)
+		 {
+		 		if (this.currentPixels.data[I + 3] > 0)
+		 		{
+					console.log(`${this.currentPixels.data[I]}${this.currentPixels.data[I+1]}${this.currentPixels.data[I+2]}`);
+		 				if (`#${this.currentPixels.data[I]}${this.currentPixels.data[I+1]}${this.currentPixels.data[I+2]}` == search) {
+							console.log("time to replace");
+							this.currentPixels.data[I] = replaceColour.R;
+							this.currentPixels.data[I + 1] = replaceColour.G;
+							this.currentPixels.data[I + 2] = replaceColour.B;
+		 				}
+		 		}
+		 }
+
+		 this.ctx.putImageData(this.currentPixels, 0, 0);
+		 // this.image.src = this.canvas.toDataURL("image/png");
+	 }
+
+	 applyToImage(data) {
+		 this.$image.attr('src', data);
+	 }
+
+	 resize(sizearray) {
+		 const w = sizearray[0];
+		 const h = sizearray[1];
+		 if (w != "ig") this.$image.width(w);
+		 if (h != "ig") this.$image.height(h);
+	 }
+
+	 hexToRGB(Hex) {
+		 var Long = parseInt(Hex.replace(/^#/, ""), 16);
+		 return {
+				 R: (Long >>> 16) & 0xff,
+				 G: (Long >>> 8) & 0xff,
+				 B: Long & 0xff
+		 };
+	 }
+};
+
 
 //FONTEND
 app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
@@ -15,11 +106,11 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 
 					window.setTimeout(function() {
 						var c = $("[data-x=" + a.steps[b][0] + "][data-y=" + a.steps[b][1] + "]"),
-							d = parseInt($(c).css("top")) - 80,
-							c = $(c).css("left");
+							d = parseInt($(c).css("bottom"))+20,
+							c = parseInt($(c).css("left"));
 						$("[id=user" + a.id + "]").css({
-							top: d + "px",
-							left: c
+							bottom: d + "px",
+							left: (c+10) + "px"
 						});
           // Speed, 100 = default, 300 = normal habbo-like speed
         }, 300 * b);
@@ -29,19 +120,49 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 		},
 
 		inject: function(a) {
-			var d = $('<div class="avatar"></div>'),
-				b = a.currentPosition.split(":"),
-				c = $("[data-x=" + b[0] + "][data-y=" + b[1] + "]"),
-				b = parseInt($(c).css("top")) - 80,
-				c = $(c).css("left");
-			$(d).attr("id", "user" + a.id);
-			$(d).css({
-				"top": b + "px",
-				"left": c,
-				"background-image": "url(https://www.habbo.com.tr/habbo-imaging/avatarimage?figure=" + a.figure + "&size=n&direction=2&head_direction=2&crr=3&gesture=sml&size=n&direction=2&head_direction=2&crr=3&gesture=sml)",
+			var $AvatarContainer = $('<div class="avatar"></div>');
+			var b = a.currentPosition.split(":");
+			var $tile = $("[data-x=" + b[0] + "][data-y=" + b[1] + "]");
+
+			var b = parseInt($tile.css("bottom"));
+			var c = parseInt($tile.css("left"));
+
+			$AvatarContainer.attr("id", "user" + a.id);
+			$AvatarContainer.css({
+				"bottom": (b+20) + "px",
+				"left": (c+10) + "px",
+				// "background-image": "url(https://www.habbo.com.tr/habbo-imaging/avatarimage?figure=" + a.figure + "&size=n&direction=2&head_direction=2&crr=3&gesture=sml&size=n&direction=2&head_direction=2&crr=3&gesture=sml)",
         "transition": "all 0.3s linear 0s"
 			});
-			$("#map #map-users").append(d);
+
+			$Hat = $("<img src='https://goorin-goorinbrosinc.netdna-ssl.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/imports/products/100-5799-BLK-F01.png'>");
+			$Face = $("<img src='https://s3.amazonaws.com/keybase_processed_uploads/98dbad2c59dc54d8c65a650bf5921a05_360_360.jpg' />");
+			$Legs = $("<img src='assets/av/legs/1.png'>");
+			$Feet = $("<img src='assets/av/feet/shoe.png'>");
+			$Hat.width(40).css({
+				'margin-bottom': '-33px',
+				'z-index': 3,
+				'position': 'relative'
+			});
+			$Face.width(40).css({
+				'z-index': 2,
+				'position': 'relative'
+			});
+			$Legs.width(40).css({
+				'margin-bottom': '-15px',
+				'z-index': 2,
+				'position': 'relative'
+			});
+			$Feet.css({
+				'z-index': 1,
+				'position': 'relative'
+			});
+			new ColourManager($Legs, "#ff4500", [40, "ig"]);
+			new ColourManager($Feet, "#ff4500", [40, "ig"]);
+			// $()
+
+			$AvatarContainer.append([$Hat, $Face, $Legs, $Feet]);
+			$("#map #map-users").append($AvatarContainer);
 		},
 
 		remove: function(a) {
