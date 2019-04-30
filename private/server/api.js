@@ -117,7 +117,7 @@ app.patch("/api/rooms/:guildID/public", async function(req, res){
   //# data required:
   //# Public (bool)
   //# Guild ID that it represents, as their "HQ"
-  const requiredPostKeys = ["ownerIDs", "roomName", "public"];
+  const requiredPostKeys = ["public"];
   for (const required of requiredPostKeys)
     if (!req.body.hasOwnProperty(required))
       {
