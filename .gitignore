@@ -1,5 +1,12 @@
+# Configs
 private/server/h5/conf.json
+public/config.js
+bot/config.js
+
+# Node modules
 public/node_modules
 private/server/node_modules
+bot/node_modules
+
+# macOS shit
 .DS_Store
-public/config.js
