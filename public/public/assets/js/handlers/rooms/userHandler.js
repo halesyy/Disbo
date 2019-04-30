@@ -180,8 +180,10 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 
 		move: function(stepData) {
 			if (window.moving) return;
-			else window.moving = true;
 
+			window.moving = true;
+			const sd = stepData;
+			// console.log(stepData);
 			for (const stepx in stepData.steps) {
 				window.setTimeout(function() {
 						var $tile = $("[data-x=" + stepData.steps[stepx][0] + "][data-y=" + stepData.steps[stepx][1] + "]");
@@ -191,7 +193,8 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 							bottom: (bottomAdjust+10) + "px",
 							left: (leftAdjust-2) + "px"
 						});
-						if (stepx == (stepData.length-1)) window.moving = false;
+						// console.log(stepx, sd.length);
+						if (stepx == (stepData.steps.length-1)) window.moving = false;
           // Speed, 100 = default, 300 = normal habbo-like speed
         }, 300 * stepx);
 

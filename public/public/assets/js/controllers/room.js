@@ -183,7 +183,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 			$('#map').click(function(event) {
 				var innerTile = userHandler.calculateTile(event);
-				if (innerTile != null) {
+				if (innerTile != null && !window.moving) {
 					var coordinates = innerTile.innerHTML;
 					var c = coordinates.split(':');
 					$socket.emit('verify movement', {
