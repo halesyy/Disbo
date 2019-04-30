@@ -72,35 +72,62 @@ app.get("/api/friends/:sso", async function(req, res){
  * --
  * ROOM-GENERATION
  */
-app.post("/api/server-room", async function(req, res){
+app.post("/api/rooms/:guildID/create", async function(req, res){
   const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
   //# data required:
   //# Public (bool)
   //# Room name
   //# Discord owner ID's
   //# Guild ID that it represents, as their "HQ"
-  const requiredPostKeys = ["guildID", "ownerIDs", "roomName", "public"];
+  const requiredPostKeys = ["ownerIDs", "roomName", "public"];
   for (const required of requiredPostKeys)
     if (!req.body.hasOwnProperty(required))
       {
         badReply.short  = "IMPROPER_KEYS"; badReply.reason = "Improper required data was sent."; res.json(badReply);
       }
 
-   const guildID = req.body.guildID;
+   const guildID = req.params.guildID;
    const ownerIDs = req.body.ownerIDs;
    const roomName = req.body.roomName;
    const public = req.body.public;
-   if (isNaN(guildID) || isNaN(ownerIDs))
-     {
-        badReply.short  = "NOT_INT_ON_SOME"; badReply.reason = "Some of the variables supplied are required to be integers..."; res.json(badReply);
-     }
-
-
-
-
+   // if (isNaN(guildID) || isNaN(ownerIDs))
+   //   {
+   //      badReply.short  = "NOT_INT_ON_SOME"; badReply.reason = "Some of the variables supplied are required to be integers..."; res.json(badReply);
+   //   }
 });
 
+app.patch("/api/rooms/:guildID/name", async function(req, res){
+  const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
+  //# data required:
+  //# Room name
+  //# Guild ID that it represents, as their "HQ"
+  const requiredPostKeys = ["roomName"];
+  for (const required of requiredPostKeys)
+    if (!req.body.hasOwnProperty(required))
+      {
+        badReply.short  = "IMPROPER_KEYS"; badReply.reason = "Improper required data was sent."; res.json(badReply);
+      }
 
+   const guildID = req.parms.guildID;
+   const roomName = req.body.roomName;
+});
+
+app.patch("/api/rooms/:guildID/public", async function(req, res){
+  const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
+  //# data required:
+  //# Public (bool)
+  //# Guild ID that it represents, as their "HQ"
+  const requiredPostKeys = ["ownerIDs", "roomName", "public"];
+  for (const required of requiredPostKeys)
+    if (!req.body.hasOwnProperty(required))
+      {
+        badReply.short  = "IMPROPER_KEYS"; badReply.reason = "Improper required data was sent."; res.json(badReply);
+      }
+
+   const guildID = req.params.guildID;
+   const public = req.body.public;
+
+});
 
 
 
@@ -248,5 +275,7 @@ app.post('/set/token', function (req, res) {
 });
 
 
+
+
 // app.use('/api', router);
-app.listen(7777)
+app.listen(7777);
