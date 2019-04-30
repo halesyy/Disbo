@@ -17,9 +17,8 @@ module.exports = {
           const shorthand = [];
           for (rowidx in userFurniDataRows) {
             furniRow = userFurniDataRows[rowidx];
-            shorthand.push(`${furniRow.identifier}:${furniRow.root}`);
+            shorthand.push(`${furniRow.id}:${furniRow.identifier}:${furniRow.root}:${furniRow.baselayer}`);
           }
-          // console.log(shorthand);
           return shorthand;
       }
 

@@ -22,7 +22,7 @@
 	"database_rules": {
 		"furni": {
 			"_comment": "the split side in shorthand representations of furniture data, e.g. (shorthand:placement) == 2 required",
-			"shorthand_segments": 2
+			"shorthand_segments": 3
 		}
 	}
 }

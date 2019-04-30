@@ -4,14 +4,17 @@
  * the walkability if so.
  */
 
-module.exports = function(environment, base, longhandFurni) {
+module.exports = function(environment, base, longhandFurni, defNotWalkable = false) {
 
   // console.log("\nGoing to start merging the base and longhandfurni\n");
   // console.log(base);
   // console.log(longhandFurni);
 
-  NOT_WALKABLE = 6
+  if (defNotWalkable === false)
+    NOT_WALKABLE = 6
+  else NOT_WALKABLE = defNotWalkable;
   WALKABLE = 0
+  // STACKABLE = 7
   // console.log(base);
   for (schemex in longhandFurni) {
     schemeData = longhandFurni[schemex];
@@ -34,12 +37,12 @@ module.exports = function(environment, base, longhandFurni) {
         xmove = parseInt(xyMovement.split(',')[0]);
         ymove = parseInt(xyMovement.split(',')[1]);
 
-        base[x+xmove][y+ymove] = NOT_WALKABLE;
+        if (x+xmove >= base.length || y+ymove >= base[x+xmove].length) {}
+        else base[x+xmove][y+ymove] = NOT_WALKABLE;
       }
 
     }
   }
-  // console.log(base);
-
+  console.log(base);
   return base
 }

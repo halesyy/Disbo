@@ -92,7 +92,8 @@ module.exports = function(b, d) {
 	this.game = {
 		dbops: {
 			users: require("./dbops/users"),
-			basic: require("./dbops/basic")
+			basic: require("./dbops/basic"),
+			room: require("./dbops/room")
 		},
 		user: {
 			update: require("./game/user/update"),
@@ -111,6 +112,7 @@ module.exports = function(b, d) {
 			chat: require("./game/rooms/chat"),
 			leave: require("./game/rooms/leave"),
 			converter: require("./game/rooms/converter"),
+			furniWatch: require("./game/rooms/furniWatch"),
 			db: require("./game/rooms/db")
 		},
 		furni: {

@@ -16,6 +16,20 @@ html {
 *, :before, :after {
 	box-sizing: inherit
 }
+/* @namespace url(http://www.w3.org/1999/xhtml); */
+/* @-moz-document regexp("((.*\\.(png|apng|jpg|jpeg|gif|tiff|bmp))|(^data:image\\/.*))(\\?([^#]*))?(#(.*))?") {*/
+html {
+image-rendering: -moz-crisp-edges !important;
+}
+
+img {
+    image-rendering: optimizeSpeed !important;             /*                     */
+    image-rendering: -moz-crisp-edges !important;          /* Firefox             */
+    image-rendering: -o-crisp-edges !important;            /* Opera               */
+    image-rendering: -webkit-optimize-contrast !important; /* Chrome (and Safari) */
+    image-rendering: optimize-contrast !important;         /* CSS3 Proposed       */
+    -ms-interpolation-mode: nearest-neighbor !important;   /* IE8+                */
+    }
 body {
 	max-width: 100%;
 	max-height: 100%;
@@ -996,9 +1010,11 @@ body {
 	margin-top:10px;
 	margin-right:15px;
 }
+
 .ng-hide {
 	display: none;
 }
+
 #map {
 	background-color: black;
 	width: 1000px;
@@ -1022,7 +1038,7 @@ body {
     height:               40px;
     background-repeat:    no-repeat;
     background-position:  left bottom;
-    text-indent:-999999px;
+    text-indent:          -999999px;
 }
 #map .tile.floor .inner {
 	z-index:6;
@@ -1032,7 +1048,7 @@ body {
 	/* background-image: url("https://cdn.discordapp.com/attachments/313482274517811203/571338887318994944/tiletextured.png"); */
 }
 #map .tile.unclickable-floor .inner {
-	z-index:6;
+	z-index: 6;
 	pointer-events: none !important;
 	background-image: url("../images/sprites/floor.png");
 }
@@ -1073,11 +1089,11 @@ body {
 		/* background-image: url("../images/sprites/wall_right.png") !important; */
 }
 #map .tile .inner:hover {
-    background-image: url("../images/sprites/selected.png") !important;
+    background-image: url("../images/sprites/selected.png");
 }
 #map .avatar {
-    width:64px;
-    height:110px;
+    width:40px;
+    min-height:70px;
     position:absolute;
     display:inline-block;
     z-index: 100;
@@ -1101,6 +1117,8 @@ body {
   align-items: center;
   border: 1px solid #484848;
 	overflow-x: none!important;
+white-space: pre-wrap;
+word-wrap: break-word;
 }
 
 #map #map-chat-bubbles .chatbubble img {
@@ -1126,6 +1144,16 @@ body {
 .walkable-furni {
 	pointer-events: none;
 }
+.click-through {
+	pointer-events: none;
+}
+.unclickable {
+	pointer-events: none;
+}
+.ctrl-watch-for-click {
+	z-index: 100 !important;
+	pointer-events: auto !important;
+}
 
 .container {
 	width: 100%;
@@ -1149,6 +1177,10 @@ body {
 	clear: both;
 }
 
+.inventory-dialog {
+	width: 700px !important;
+	min-height: 350px;
+}
 .hover-change-red {
 	background: #c21f1f !important;
 	transition: all 0.1s;
@@ -1159,17 +1191,20 @@ body {
 }
 .furni-container {
 	float: left;
-	width: 60px;
-	height: 50px;
-	margin: 5px;
-	padding: 5px;
+	width: 70px;
+	height: 70px;
+	margin: 10px 0 10px 10px;
+	padding: 10px;
 	line-height: 50px;
   display: inline-block;
+	border-radius: 6px;
 	background: lightgrey;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 .furni-container .amount {
-	position: absolute;
-	top: 30px;
+	position: relative;
+	top: -70px;
 }
 .furni-container img {
 	vertical-align: middle;
@@ -1177,4 +1212,11 @@ body {
 	/* height: 50px; */
 	border-radius: 4px;
 	cursor: pointer;
+}
+/*hoverable furni overlay stuff*/
+.furni-hoverable {
+	pointer-events: none;
+}
+.furni-hoverable #furni-hover-overlay {
+
 }

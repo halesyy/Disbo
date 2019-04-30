@@ -37,13 +37,13 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.roomId = false; // the current roomid occupied by client user.
   $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
 
+
+  /*
+   * all friends-list-based information
+   */
   $rootScope.friendList = {
     enabled: false,
     open: "friends"
-  };
-
-  $rootScope.inventoryWindow = {
-    enabled: false
   };
 
   $rootScope.refreshFriends = function(ondone = false) {
@@ -58,6 +58,11 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
   $rootScope.refreshFriends();
 
+  /*
+   * all inventory-based init
+   * most functionality is used in room.js controller, though
+   * it is init in main.js since that's important.
+   */
   $rootScope.refreshInventory = function(ondone = false) {
     $.getJSON(`http://${clientVars.host}:7777/api/inventory/${clientVars.sso}`, function(data){
       console.log("inventory: ", data);
@@ -69,6 +74,17 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     });
   }
   $rootScope.refreshInventory();
+
+  $rootScope.inventoryWindow = {
+    enabled: false
+  };
+  $rootScope.currentSelectedFurni = false;
+  $rootScope.inventoryWindowHandler = function() {
+    if ($rootScope.inventoryWindow.enabled === false) {
+      $rootScope.refreshInventory();
+    }
+    $rootScope.inventoryWindow.enabled = !$rootScope.inventoryWindow.enabled;
+  }
 
   $rootScope.profileLoad = function(profileid) {
     if (!isNaN(profileid)) {

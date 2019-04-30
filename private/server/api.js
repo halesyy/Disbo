@@ -63,6 +63,47 @@ app.get("/api/friends/:sso", async function(req, res){
   });
 });
 
+
+
+
+/*
+ * discord bot-based function that takes in a grouping
+ * of data and does operations for the bot.
+ * --
+ * ROOM-GENERATION
+ */
+app.post("/api/server-room", async function(req, res){
+  const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
+  //# data required:
+  //# Public (bool)
+  //# Room name
+  //# Discord owner ID's
+  //# Guild ID that it represents, as their "HQ"
+  const requiredPostKeys = ["guildID", "ownerIDs", "roomName", "public"];
+  for (const required of requiredPostKeys)
+    if (!req.body.hasOwnProperty(required))
+      {
+        badReply.short  = "IMPROPER_KEYS"; badReply.reason = "Improper required data was sent."; res.json(badReply);
+      }
+
+   const guildID = req.body.guildID;
+   const ownerIDs = req.body.ownerIDs;
+   const roomName = req.body.roomName;
+   const public = req.body.public;
+   if (isNaN(guildID) || isNaN(ownerIDs))
+     {
+        badReply.short  = "NOT_INT_ON_SOME"; badReply.reason = "Some of the variables supplied are required to be integers..."; res.json(badReply);
+     }
+
+
+
+
+});
+
+
+
+
+
 /*
  * returning all friend-based information
  * this is to be refreshed when the user clicks
@@ -73,9 +114,10 @@ app.get("/api/friends/:sso", async function(req, res){
 app.get("/api/inventory/:sso", async function(req, res){
   var sso            = req.params.sso;
   var userid         = await environment.game.dbops.users.ssoToUserId(sso);
-  var inventory      = await environment.game.dbops.users.inventory(userid);
+  var inventory      = await environment.game.dbops.users.inventory(userid, all=false);
   var countInventory = await environment.game.dbops.users.countInventory(inventory);
-  console.log(inventory, countInventory);
+  // console.log(inventory, countInventory);
+  console.log(`[XX:XX:XX] Refreshed ${userid}'s inventory.`);
   res.json({
     inventory: countInventory
   });

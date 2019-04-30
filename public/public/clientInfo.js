@@ -1,6 +1,6 @@
 
 var clientVars = {
-  host: '115.64.232.86',
+  host: '59.102.70.18',
   port: '7858',
   sso:  'abc'
 };
