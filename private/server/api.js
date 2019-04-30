@@ -65,6 +65,39 @@ app.get("/api/friends/:sso", async function(req, res){
 
 
 
+/*
+ * discord bot-based function that takes in a grouping
+ * of data and does operations for the bot.
+ * --
+ * ROOM-GENERATION
+ */
+app.post("/api/rooms", async function(req, res){
+  const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
+  //# data required:
+  //# Public (bool)
+  //# Room name
+  //# Discord owner ID's
+  //# Guild ID that it represents, as their "HQ"
+  var by = req.body.by;
+
+  // Going to sort by the "most recent" to return data
+  if (by == 'recent') {
+    var rooms = await gt("SELECT id,guildID,name FROM rooms WHERE public = '1' LIMIT 10");
+  }
+  else {
+    var rooms = await gt("SELECT id,guildID,name FROM rooms WHERE public = '1' AND name LIKE :search LIMIT 10", {search:`%${by}%`});
+  }
+  res.json(rooms);
+});
+
+
+
+
+
+
+
+
+
 
 /*
  * discord bot-based function that takes in a grouping

@@ -37,6 +37,52 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.roomId = false; // the current roomid occupied by client user.
   $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
 
+  /*
+   * all finder-based information
+   */
+
+  $rootScope.finder = {
+    enabled: false,
+  };
+  $rootScope.rooms = false;
+
+  $rootScope.refreshFinder = function(ondone = false, by = false) {
+    // doing some manip to get search results if so.
+    if (by === false) var by = 'recent';
+    $.post(`http://${clientVars.host}:7777/api/rooms`, {
+      sso: clientVars.sso,
+      by:  by
+    }, function(rooms){
+      console.log("rooms: ", rooms);
+      $rootScope.rooms= rooms;
+      $rootScope.$apply();
+      if (ondone !== false) ondone();
+    });
+  };
+  $rootScope.refreshFinder();
+
+
+  // jquery push
+  $('.finder-search-wait').submit(event => {
+    var by = $('.finder-search-for').val();
+    // alert(`searching for ${by}`);
+    $rootScope.refreshFinder(false, by);
+    $rootScope.$apply();
+  });
+
+
+  $rootScope.manageFinder = function() {
+    if (!$rootScope.finder.enabled) {
+      $rootScope.refreshFinder(function(){
+        $rootScope.finder.enabled = !$rootScope.finder.enabled;
+        $rootScope.$apply();
+      })
+    }
+    else {
+      $rootScope.finder.enabled = !$rootScope.finder.enabled;
+    }
+
+  }
 
   /*
    * all friends-list-based information

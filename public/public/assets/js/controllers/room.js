@@ -13,6 +13,11 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				$rootScope.previousRoomId = $rootScope.roomId;
 				$rootScope.roomId = $routeParams.roomId;
 
+				// when entering, set to allow a clean slate and
+				// the click "effect" when entering a room from the
+				// finder. defaulting false.
+				$rootScope.finder.enabled = false;
+
 				// Going to make sure that they are removed from their
 				// previous room just incase.
 				console.log("Just asked to leave "+$rootScope.previousRoomId);

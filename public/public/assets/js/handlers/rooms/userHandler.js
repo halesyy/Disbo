@@ -179,9 +179,8 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 		},
 
 		move: function(stepData) {
-			if (window.moving) return;
+			if (window.moving) return; else window.moving = true;
 
-			window.moving = true;
 			const sd = stepData;
 			// console.log(stepData);
 			for (const stepx in stepData.steps) {
@@ -196,7 +195,7 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 						// console.log(stepx, sd.length);
 						if (stepx == (stepData.steps.length-1)) window.moving = false;
           // Speed, 100 = default, 300 = normal habbo-like speed
-        }, 300 * stepx);
+        }, 250 * stepx);
 
 			}
 		},
