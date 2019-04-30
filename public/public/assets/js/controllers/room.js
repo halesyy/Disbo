@@ -245,11 +245,12 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			});
 
 			$socket.on('user typing bubble', function(userid) {
-				$('#user' + userid).html('<img style="float:right" src="assets/images/hotelview/userIcons/typing.png">');
+				$('#user' + userid + ' > .typing').remove();
+				$('#user' + userid).prepend('<img class="typing" style="float:right" src="assets/images/hotelview/userIcons/typing.png">');
 			});
 
 			$socket.on('user stopped typing', function(userid) {
-				$('#user' + userid).html('');
+				$('#user' + userid + ' > .typing').remove();
 			});
 
 			$socket.on('user move', function(data) {
