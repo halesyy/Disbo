@@ -1,13 +1,15 @@
 const fetch = require('node-fetch');
 
 module.exports = async (client) => {
-  client.createRoom = async (guildID, guildAvatar) => {
+  client.createRoom = async (guildID, roomName, ownerIDs) => {
     return new Promise(resolve => {
       let options = {
         guildID: guildID,
-        privacy: value
+        roomName: roomName,
+        public: true,
+        ownerIDs: ownerIDs,
       };
-      //
+      console.log(options)
       // const setPrivacy = await fetch(client.config.gameServer.host, {
       //   method: 'POST',
       //   headers: {
@@ -18,12 +20,10 @@ module.exports = async (client) => {
       //
       // if (setPrivacy.ok) {
       // }
-      const a = false; // temp for now
-      if (a) {
-        resolve(true);
-      } else {
-        resolve(false);
+      var x = {
+        success: true
       }
+      resolve(x);
 
     })
   };
