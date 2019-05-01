@@ -11,6 +11,27 @@ module.exports = {
       });
     },
 
+    ssoToDiscordId: async function(sso) {
+      return new Promise((resolve, reject) => {
+        globaldb.query("SELECT discordid FROM users WHERE sso = :sso", {
+          replacements: { sso: sso },
+          type: Sequelize.QueryTypes.SELECT
+        }).then(function(result){
+          if (result.length > 0) resolve(result[0].discordid);
+        });
+      });
+    },
+
+    currency: async function(userID) {
+      let userData = await gt("SELECT credits,duckets,diamonds FROM users WHERE id = :id", {id: userID});
+      let currency = {
+        credits: parseInt(userData[0].credits),
+        duckets: parseInt(userData[0].duckets),
+        diamonds: parseInt(userData[0].diamonds),
+      };
+      return currency;
+    },
+
     friendsIds: async function(userid) {
       return new Promise((resolve, reject) => {
         globaldb.query("SELECT * FROM friends WHERE (userID1 = :userid OR userID2 = :userid) AND pending = 0", {
@@ -25,12 +46,13 @@ module.exports = {
     // if all = false, then it's just getting the furni
     // that has no root and room id, since that furni has been
     // placed
-    inventory: async function(userid, all=true) {
+    inventory: async function(discordID, all=true) {
+      console.log(discordID);
       if (all) {
-        var inven = await environment.game.dbops.basic.get("SELECT * FROM users_inventory WHERE userID = :id", {id: userid});
+        var inven = await environment.game.dbops.basic.get("SELECT * FROM users_inventory WHERE userID = :id", {id: discordID});
       }
       else {
-        var inven = await environment.game.dbops.basic.get("SELECT * FROM users_inventory WHERE root = '' AND roomID < 1 AND userID = :id", {id: userid});
+        var inven = await environment.game.dbops.basic.get("SELECT * FROM users_inventory WHERE root = '' AND roomID < 1 AND userID = :id", {id: discordID});
       }
       // console.log(inven);
       return inven;
@@ -42,7 +64,7 @@ module.exports = {
      * they are planning on putting furniture in.
      */
     furniAmountAvailable: async function(userID, identifier) {
-      var furnirows = await gt("SELECT * FROM users_inventory WHERE identifier = :nid AND root = '' AND roomid < 1 AND userID = :uid", {uid: userID, nid: identifier});
+      var furnirows = await gt("SELECT * FROM users_inventory WHERE identifier = :nid AND root = '' AND roomid < 1 AND userID = :id", {id: userID, nid: identifier});
       return furnirows.length;
     },
 
@@ -50,10 +72,16 @@ module.exports = {
      * future allow for admin check, room admin, etc...
      */
     allowedToPlaceFurniInRoom: async function(userid, roomid) {
-      var allowed = await environment.dbops.basic.get("SELECT ownerID FROM rooms WHERE id = :rid", {rid: roomid});
-      var db_roomOwner = allowed[0].ownerID;
-      if (isNaN(db_roomOwner) || isNaN(userid)) return false;
-      return (db_roomOwner == userid);
+      var allowed = await environment.dbops.basic.get("SELECT ownerIDs FROM rooms WHERE guildID = :rid", {rid: roomid});
+      var db_roomOwners = allowed[0].ownerIDs.split(',');
+      var allowed = false;
+      for (var idx in db_roomOwners)
+        if (userid == db_roomOwners[idx])
+          allowed = true;
+
+      // console.log(allowed);
+      // if (isNaN(db_roomOwner) || isNaN(userid)) return false;
+      return allowed;
     },
 
     /*

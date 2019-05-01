@@ -19,6 +19,110 @@ app.use(bodyParser.json({ limit: '1mb' }));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
 
+
+/* ================================================================
+ * SHOP
+ * ================================================================
+ */
+
+     app.get("/api/shop/categories", async function(req, res){
+       let categories = await gt("SELECT DISTINCT(category) FROM furniture");
+       console.log(categories);
+       let catreturn  = [];
+       for (var row of categories)
+          catreturn.push(row.category);
+       res.json(catreturn);
+
+       // var userid = req.params.id;
+       // globaldb.query("SELECT id,username,motto,figure,avatar,discordid FROM users WHERE id = :userid", {
+       //   replacements: { userid: userid },
+       //   type: Sequelize.QueryTypes.SELECT
+       // }).then(function(result){
+       //   // Profile exists, checking if client is their friend...
+       //   if (result.length > 0) {
+       //     // result[0].userid =
+       //     result[0].discordavatarurl = `https://images.discordapp.net/avatars/${result[0]["discordid"]}/${result[0]["avatar"]}.png?size=256`;
+       //     res.json(result[0]);
+       //   }
+       //   else res.json({error: true});
+       // });
+     });
+
+
+     app.get("/api/shop/furni/:bycategory", async function(req, res){
+       let category = req.params.bycategory;
+       let furnis = await gt("SELECT * FROM furniture WHERE category = :cat", {cat: category});
+       console.log("find by category furni: "+furnis);
+       const furnistore = [];
+       for (furni of furnis) {
+         furnistore.push({
+           nameId: furni.nameId,
+           category: furni.category,
+           description: furni.description,
+           location: furni.location,
+           creditCost: furni.creditCost
+         });
+       }
+       res.json(furnistore);
+     });
+
+
+     app.post("/api/shop/buy", async function(req, res){
+       const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
+
+       let sso = req.body.sso;
+       let nameId = req.body.furni;
+       let userID   = await environment.dbops.users.ssoToUserId(sso);
+       let discordId= await environment.dbops.users.ssoToDiscordId(sso);
+       let currency = await environment.dbops.users.currency(userID);
+       let clientCredits = currency.credits;
+
+       // getting furni information
+       let furniStore = await gt("SELECT * FROM furniture WHERE nameId = :nid", {nid: nameId});
+       let creditCost = furniStore[0].creditCost;
+
+       // user aint got no money send em to the purchaseables ;)
+       if ( (clientCredits - creditCost) < 0) {
+         badReply.short = "POOR";
+         badReply.reason = "Not enough credits to purchaes this item.";
+         res.json(badReply);
+         return;
+       }
+
+       let newClientCredits = (clientCredits - creditCost);
+
+       // 1. add new furni to the row
+       is("INSERT INTO users_inventory (userID, roomID, identifier, root, rotation, baselayer) VALUES (:userID, '0', :fid, '', '0', '0')", {
+         userID: discordId,
+         fid: nameId
+       });
+       // 2. change users currency
+       up("UPDATE users SET credits = :newcredits WHERE id = :id", {
+         newcredits: newClientCredits,
+         id: userID
+       });
+       res.json({error: false});
+       // let category = req.params.bycategory;
+       // let furnis = await gt("SELECT * FROM furniture WHERE category = :cat", {cat: category});
+       // console.log("find by category furni: "+furnis);
+       // const furnistore = [];
+       // for (furni of furnis) {
+       //   furnistore.push({
+       //     category: furni.category,
+       //     description: furni.description,
+       //     location: furni.location,
+       //     creditCost: furni.creditCost
+       //   });
+       // }
+       // res.json(furnistore);
+     });
+
+
+
+
+
+
+
 /*
  * returning the GET data for a profile that exists,
  * with reference to the session.
@@ -66,10 +170,7 @@ app.get("/api/friends/:sso", async function(req, res){
 
 
 /*
- * discord bot-based function that takes in a grouping
- * of data and does operations for the bot.
- * --
- * ROOM-GENERATION
+ * returning rooms
  */
 app.post("/api/rooms", async function(req, res){
   const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
@@ -82,10 +183,10 @@ app.post("/api/rooms", async function(req, res){
 
   // Going to sort by the "most recent" to return data
   if (by == 'recent') {
-    var rooms = await gt("SELECT id,guildID,name FROM rooms WHERE public = '1' LIMIT 10");
+    var rooms = await gt("SELECT id,guildID,name FROM rooms WHERE public = '1' ORDER BY id DESC LIMIT 10");
   }
   else {
-    var rooms = await gt("SELECT id,guildID,name FROM rooms WHERE public = '1' AND name LIKE :search LIMIT 10", {search:`%${by}%`});
+    var rooms = await gt("SELECT id,guildID,name FROM rooms WHERE public = '1' AND name LIKE :search ORDER BY id DESC LIMIT 10", {search:`%${by}%`});
   }
   res.json(rooms);
 });
@@ -119,16 +220,44 @@ app.post("/api/rooms/:guildID/create", async function(req, res){
         badReply.short  = "IMPROPER_KEYS"; badReply.reason = "Improper required data was sent."; res.json(badReply);
       }
 
-   const guildID = req.params.guildID;
-   const ownerIDs = req.body.ownerIDs;
-   const roomName = req.body.roomName;
-   const public = req.body.public;
-   // if (isNaN(guildID) || isNaN(ownerIDs))
-   //   {
-   //      badReply.short  = "NOT_INT_ON_SOME"; badReply.reason = "Some of the variables supplied are required to be integers..."; res.json(badReply);
-   //   }
+   const guildID  = req.params.guildID;
+   const ownerIDs = req.body.ownerIDs; //array
+   const roomName = req.body.roomName; //str
+   const public   = req.body.public; //bool
+
+   // checking if row exists already under guildID pretense
+   const existingRows = await gt("SELECT * FROM rooms WHERE guildID = :gid", {gid: guildID});
+   if (existingRows.length == 1) {
+     badReply.short = "ALREADY_A_ROOM";
+     badReply.reason = "Your room has already been setup.";
+     badReply.guildID = guildID;
+     res.json(badReply);
+     return;
+   }
+
+   const DEFAULT_ROOM = 5; // the default copy template for a room
+   const baseRow = await gt("SELECT base FROM rooms WHERE id = :id", {id: DEFAULT_ROOM});
+   const base = baseRow[0].base;
+
+   if (ownerIDs.length < 1) return;
+   const ownerIDsString = ownerIDs.join(',');
+   const ownerID = ownerIDs[0];
+   const qret = await is("INSERT INTO rooms (ownerID, guildID, ownerIDs, name, base, public) VALUES (:ownerID, :guildID, :ownerIDs, :name, :base, :public)", {
+     ownerID: ownerID,
+     guildID: guildID,
+     ownerIDs: ownerIDsString,
+     name: roomName,
+     base: base,
+     public: public
+   });
+   res.json({error: false, guildID: guildID});
+
+   // console.log(qret);
 });
 
+/*
+ * changing
+ */
 app.patch("/api/rooms/:guildID/name", async function(req, res){
   const badReply = {error: true, short: "UNSPECIFIED", reason:"unspecified"};
   //# data required:
@@ -173,11 +302,12 @@ app.patch("/api/rooms/:guildID/public", async function(req, res){
  */
 app.get("/api/inventory/:sso", async function(req, res){
   var sso            = req.params.sso;
-  var userid         = await environment.game.dbops.users.ssoToUserId(sso);
-  var inventory      = await environment.game.dbops.users.inventory(userid, all=false);
+  // var userid         = await environment.game.dbops.users.ssoToUserId(sso);
+  var discordID      = await environment.game.dbops.users.ssoToDiscordId(sso);
+  var inventory      = await environment.game.dbops.users.inventory(discordID, all=false);
   var countInventory = await environment.game.dbops.users.countInventory(inventory);
   // console.log(inventory, countInventory);
-  console.log(`[XX:XX:XX] Refreshed ${userid}'s inventory.`);
+  console.log(`[XX:XX:XX] Refreshed ${discordID}'s inventory.`);
   res.json({
     inventory: countInventory
   });

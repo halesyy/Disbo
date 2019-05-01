@@ -37,15 +37,95 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.roomId = false; // the current roomid occupied by client user.
   $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
 
+
+
+
+    /*
+     * all finder-based information
+     */
+
+    // defaults
+    $rootScope.shop = {
+      enabled: false,
+      categories: false,
+      selectedCategory: false,
+      categoryFurnis: false
+    };
+
+    // building data for the finder
+    $rootScope.refreshShopCategories = function(ondone = false, by = false) {
+      // doing some manip to get search results if so.
+      $.getJSON(`http://${clientVars.host}:7777/api/shop/categories`, function(categories){
+        console.log("shop categories: ", categories);
+        $rootScope.shop.categories = categories;
+        $rootScope.$apply();
+        if (ondone !== false) ondone();
+      });
+    };
+    $rootScope.refreshShopCategories();
+
+    // finder search bar
+    // $('.finder-search-wait').submit(event => {
+    //   var by = $('.finder-search-for').val();
+    //   // alert(`searching for ${by}`);
+    //   $rootScope.refreshFinder(false, by);
+    //   $rootScope.$apply();
+    // });
+
+    // open/close the finder
+    $rootScope.manageShopWindow = function() {
+      if (!$rootScope.shop.enabled)
+        $rootScope.refreshFinder(function(){
+          $rootScope.shop.enabled = !$rootScope.shop.enabled;
+          $rootScope.$apply();
+        })
+      else $rootScope.shop.enabled = !$rootScope.shop.enabled;
+    }
+
+    $rootScope.viewCategory = function(category, ondone = false) {
+      // if (category == $rootScope.shop.selectedCategory) return;
+      // else
+      console.log("searching for furnis in: "+category);
+      $rootScope.shop.selectedCategory = category;
+
+      $.getJSON(`http://${clientVars.host}:7777/api/shop/furni/${category}`, function(furnis){
+        console.log("shop category furnis: ", furnis);
+        $rootScope.shop.categoryFurnis = furnis;
+        $rootScope.$apply();
+        if (ondone !== false) ondone();
+      });
+    }
+
+    $rootScope.buy = function(furniSchema) {
+      console.log("sending ");
+      console.log(furniSchema);
+      $.post(`http://${clientVars.host}:7777/api/shop/buy`, {
+        sso: clientVars.sso,
+        furni: furniSchema.nameId
+      }, function(response){
+        console.log("response from server for buying..");
+        console.log(response);
+      });
+    }
+
+
+
+
+
+
+
+
   /*
    * all finder-based information
    */
 
+  // defaults
   $rootScope.finder = {
     enabled: false,
   };
   $rootScope.rooms = false;
 
+  // building data for the finder
   $rootScope.refreshFinder = function(ondone = false, by = false) {
     // doing some manip to get search results if so.
     if (by === false) var by = 'recent';
@@ -61,8 +141,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
   $rootScope.refreshFinder();
 
-
-  // jquery push
+  // finder search bar
   $('.finder-search-wait').submit(event => {
     var by = $('.finder-search-for').val();
     // alert(`searching for ${by}`);
@@ -70,7 +149,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     $rootScope.$apply();
   });
 
-
+  // open/close the finder
   $rootScope.manageFinder = function() {
     if (!$rootScope.finder.enabled) {
       $rootScope.refreshFinder(function(){
@@ -81,8 +160,22 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     else {
       $rootScope.finder.enabled = !$rootScope.finder.enabled;
     }
-
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /*
    * all friends-list-based information
@@ -103,6 +196,16 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     });
   };
   $rootScope.refreshFriends();
+
+
+
+
+
+
+
+
+
+
 
   /*
    * all inventory-based init

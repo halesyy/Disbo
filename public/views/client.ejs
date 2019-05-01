@@ -124,11 +124,60 @@
 
 					</form>
 				</div>
-				<div class="room-container" ng-repeat="room in rooms">
-					<a href="#!/room/{{room.id}}">
-						{{ room.name }}
-					</a>
+				<div class="selector-container">
+					<div class="room-container" ng-repeat="room in rooms">
+						<a href="#!/room/{{room.guildID}}">
+							<div class="room-name">
+								{{ room.name }}
+							</div>
+						</a>
+					</div>
 				</div>
+			</div>
+		</div>
+
+		<!--ROOM FINDER CONTAINER-->
+		<div id="shop-window" class="dialog shop-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="shop.enabled && isBootstrapped">
+			<div class="title">
+				<div class="left">
+					Shop
+				</div>
+				<div class="right">
+					<a class="button hover-change-red" ng-click="manageShopWindow()" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="container">
+				<!-- <div class="search">
+					<form class="finder-search-wait ">
+						<input type="text" class="finder-search-for" placeholder="Tags, server name, room name..." />
+
+					</form>
+				</div> -->
+				<div class="left">
+					<div ng-repeat="category in shop.categories">
+						<a ng-click="viewCategory(category)">
+							<div class="category-container">
+								{{ category }}
+							</div>
+						</a>
+						<!-- <a href="#!/room/{{room.guildID}}">
+						<div class="room-name">
+					</div>
+				</a> -->
+					</div>
+				</div>
+				<div class="right">
+					<div class="shop-furni-item-container" ng-repeat="furni in shop.categoryFurnis" ng-click="buy(furni)">
+						<div class="furni-container-bg" style="background-image: url('assets/furni/{{ furni.location }}');">
+						</div>
+						<div class="amount-credits">${{ furni.creditCost }}</div>
+						<!-- {{furniriteItem}} -->
+					</div>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 
@@ -231,7 +280,7 @@
 				<span id="hotel-view-bar-icon-house" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span>
 				<!-- <span id="hotel-view-bar-icon-h" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span> -->
 				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="manageFinder()"></span>
-				<!-- <span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span> -->
+				<span id="hotel-view-bar-icon-catalogue" ng-click="manageShopWindow()"></span>
 				<!-- <span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span> -->
 				<span id="hotel-view-bar-icon-inventory" ng-if="superfluousBarItems" ng-click="inventoryWindowHandler()"></span>
 				<span id="hotel-view-bar-icon-user">

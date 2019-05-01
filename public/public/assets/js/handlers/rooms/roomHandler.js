@@ -121,8 +121,9 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             // every piece of furni gets it's own little allowance
             // for removing itself.
             $FurniParent.click(function(event){
-              if (event.ctrlKey) {
+              if (event.ctrlKey || event.metaKey) {
                 // console.log(`Youre interested in ${$(this).attr("data-fid")}`);
+                // alert("You just clicked to remove a piece of furniture")
                 // console.log("I was just clicked!");
                 const fid = $(this).attr("data-fid");
                 // console.log(fid);

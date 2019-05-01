@@ -17,7 +17,7 @@ module.exports = function(environment, shorthandFurni) {
     furnitureData = [];
     for (var furnix in shorthandFurni) {
       const furniData = shorthandFurni[furnix]
-      console.log(furniData);
+      // console.log(furniData);
       const furniSplit = furniData.split(":")
 
       /* --

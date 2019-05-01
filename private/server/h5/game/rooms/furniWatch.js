@@ -20,17 +20,20 @@ module.exports = function(env, frontend, frontenddata) {
         }
 
         // then check if inventoryID maps to the roomID and sso user ID
-        var userID = await environment.game.dbops.users.ssoToUserId(ei.sso);
+        var userID = await environment.game.dbops.users.ssoToDiscordId(ei.sso);
         var inventoryRows = await gt("SELECT * FROM users_inventory WHERE id = :irow", {irow: ei.inventoryID});
         if (inventoryRows.length != 1) { bad_reply.reason = "Bad rows.."; reply(bad_reply); return; }
         // check that the data is mapped to row appropriately
         var inventoryID = parseInt(ei.inventoryID);
-        var roomID = parseInt(ei.roomID);
+        var roomID = ei.roomID;
         var inventoryRow = inventoryRows[0];
         // physical check
         var allowedToPlaceFurniInRoom = await environment.dbops.users.allowedToPlaceFurniInRoom(userID, roomID);
+        console.log("data for room furni removal:");
+        console.log("userid: ", userID);
+        console.log(allowedToPlaceFurniInRoom, inventoryRow);
         if (inventoryRow.roomID !== roomID || inventoryRow.userID !== userID || !allowedToPlaceFurniInRoom) {
-          bad_reply.reason = "Not your furniture. Ignore."; reply(bad_reply);
+          bad_reply.reason = "This isn't your furniture."; reply(bad_reply);
           return;
         }
 
@@ -63,8 +66,8 @@ module.exports = function(env, frontend, frontenddata) {
       }
 
       // checking if user has permission
-      var userID = await environment.game.dbops.users.ssoToUserId(ei.sso);
-      var roomID = parseInt(ei.roomID);
+      var userID = await environment.game.dbops.users.ssoToDiscordId(ei.sso);
+      var roomID = ei.roomID;
       var permissionToPlace = await environment.game.dbops.users.allowedToPlaceFurniInRoom(userID, roomID);
       if (!permissionToPlace) {
         bad_reply.reason = "You're not allowed to place furni in this room!"; reply(bad_reply);

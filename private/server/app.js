@@ -17,7 +17,8 @@ const environment = h5
 const Sequelize = require('sequelize');
 const globaldb = new Sequelize(conf.mysql.db, conf.mysql.user, conf.mysql.pass, {
   host: conf.mysql.host,
-  dialect: 'mysql'
+  dialect: 'mysql',
+	logging: false
 });
 
 // Setting globals
@@ -25,10 +26,11 @@ global.globaldb  = globaldb
 global.Sequelize = Sequelize
 global.environment = environment
 // all shorthand queries for querying the database! :)
-global.gt = environment.dbops.basic.get
-global.in = environment.dbops.basic.insert
-global.up = environment.dbops.basic.update
-global.dt = environment.dbops.basic.delete
+global.gt = environment.dbops.basic.get;
+global.is = environment.dbops.basic.insert;
+global.up = environment.dbops.basic.update;
+global.dt = environment.dbops.basic.delete;
+global.config = conf;
 
 // Loading the public->private API
 require('./api');

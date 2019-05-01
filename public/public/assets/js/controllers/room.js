@@ -3,9 +3,13 @@
 
 app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$location', '$rootScope', 'userHandler', 'roomHandler',
 	function($routeParams, $scope, $socket, $location, $rootScope, userHandler, roomHandler) {
-		if (!$rootScope.isBootstrapped) {
+		if (!$rootScope.isBootstrapped) { // ignoring this for now, to allow the user to go straight into rooms
+			$rootScope.wantsToGoTo = $routeParams.roomId;
 			$location.path('/');
 		} else {
+
+			$rootScope.wantsToGoTo = false;
+			console.log("Rendering room from Room Controller.");
 
 			if ($rootScope.roomId !== false) {
 				console.log("Room id is set, you must be moving rooms!");
@@ -45,8 +49,10 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			 * on furniture over the tiles, then to
 			 * affect when clicking on the actual furniture.
 			 */
-			const ctrlStart = $(window).keydown("ctrl", function(event){
-				if (event.ctrlKey) {
+			const ctrlStart = $(window).keydown(function(event){
+				// console.log(event);
+				// console.log(event.metaKey);
+				if (event.ctrlKey || event.metaKey) {
 					// console.log("ctrl down...");
 					// MAKE FURNI CLICKABLE
 					$('.furni').removeClass("unclickable");
@@ -54,12 +60,19 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 					$('#map #map-tiles').addClass("unclickable");
 				}
 			});
-			const ctrlDone = $(window).keyup("ctrl", function(event){
+			$(window).keyup("ctrl", function(event){
 				// console.log("ctrl up...");
 				// MAKE FURNI NON-CLICKABLE
-				$('.furni').addClass("unclickable");
-				$('.furni').removeClass("ctrl-watch-for-click");
-				$('#map #map-tiles').removeClass("unclickable");
+					$('.furni').addClass("unclickable");
+					$('.furni').removeClass("ctrl-watch-for-click");
+					$('#map #map-tiles').removeClass("unclickable");
+			});
+			$(window).keyup("meta", function(event){
+				// console.log("ctrl up...");
+				// MAKE FURNI NON-CLICKABLE
+					$('.furni').addClass("unclickable");
+					$('.furni').removeClass("ctrl-watch-for-click");
+					$('#map #map-tiles').removeClass("unclickable");
 			});
 
 			// waiting for a "remove furni fid" emit
@@ -84,7 +97,12 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 					$rootScope.tileWatchHover = $('#map .tile .inner').hover(function(){
 						// console.log(`url('${furnitureItem.iconloc}') !important`);
-						$(this).css("background-image", `url('/assets/images/sprites/floor.png')`);
+						if ($(this).parent().hasClass("empty")) {
+
+						}
+						else {
+							$(this).css("background-image", `url('/assets/images/sprites/floor.png')`);
+						}
 						var tileBottom = parseInt($(this).parent().css("bottom")) + 9 + furnitureItem.bottomAdjust;
 						$furnioverlay.parent().css("bottom", `${tileBottom}px`);
 						$furnioverlay.parent().css("left", $(this).parent().css("left"));
@@ -98,6 +116,12 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 					$rootScope.tileWatchOffhover = $('#map .tile .inner').mouseout(function(){
 						// console.log(`url('${furnitureItem.iconloc}') !important`);
 						$(this).removeProp("background-image");
+						// console.log($(this).parent());
+						// if ($(this).parent().hasClass("empty")) {
+						// }
+						// else {
+						// 	// $(this).removeProp("background-image");
+						// }
 					});
 
 					$rootScope.tileWaitForClick = $(document).on("click", ".inner", function(event){
@@ -157,10 +181,9 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			if (isNaN(roomId)) $location.path('/');
 
 			// Turning off potentially old sockets.
-			console.log("I just ran this! Loading room " + roomId);
-
+			console.log("Sending request to load room " + roomId);
 			$socket.emit('load room', {
-				roomId: roomId
+				roomId: roomId.toString()
 			});
 
 			$rootScope.isInRoom = true;
@@ -242,7 +265,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 			$socket.on('load all users', function(allUsers) {
         // console.log("load all users:");
-        console.log(allUsers);
+        // console.log(allUsers);
         // console.log(userHandler);
 				for (var user in allUsers) {
 					userHandler.inject(allUsers[user]);

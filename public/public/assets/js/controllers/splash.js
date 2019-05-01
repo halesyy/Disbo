@@ -34,8 +34,15 @@ app.controller('SplashScreenController', ['$scope', '$rootScope', '$location', '
 	$socket.on('client view', function(data) {
 		if (data.response == true) {
 			$rootScope.userinfo = data.userinfo;
-			$location.path('/view');
+      // now done, checking if there's a redirect to go to a
+      // specified room.
 			$rootScope.isBootstrapped = true;
+      // $rootScope.$apply();
+
+      // else {
+        $location.path('/view');
+        // console.log("GOING TO VIEW");
+      // }
 		};
 	});
 }]);

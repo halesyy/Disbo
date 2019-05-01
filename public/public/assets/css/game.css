@@ -127,7 +127,7 @@ body {
 	background-color: #68E5FF;
 }
 #hotel-view.xmas {
-	background-color: #c167aa;
+	background-color: #8BC34A;
 }
 #hotel-view.xmas #hotel-view-beans #hotel-view-beans-limited h1 {
 	color: #fff;
@@ -611,13 +611,19 @@ body {
 	width: 700px !important;
 	/* pointer-events: none; */
 	/* background: rgba(); */
-	opacity: 0.7;
-	transition: opacity 0.5s;
 }
 .profile-dialog:hover {
 	/* background: rgba(0, 0, 0, 1); */
-	opacity: 1;
-	transition: opacity 0.5s;
+}
+.dialog {
+opacity: 0.7;
+transition: opacity 0.5s;
+
+}
+.dialog:hover {
+opacity: 1;
+transition: opacity 0.5s;
+
 }
 .profile-dialog .avatar {
 	/* position: absolute; */
@@ -1112,7 +1118,7 @@ body {
 	font-size:14px;
 	border-radius:3px;
 	position:absolute;
-	z-index:10;
+	z-index:999;
 	transition: 0.5s top;
   align-items: center;
   border: 1px solid #484848;
@@ -1189,6 +1195,47 @@ word-wrap: break-word;
 	background: #d43232 !important;
 	transition: all 0.1s;
 }
+
+
+.shop-furni-item-container {
+	float: left;
+	height: 75px;
+	/* overflow-y: hidden; */
+	margin: 10px 0 10px 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+.furni-container-bg {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+  display: inline-block;
+	border-radius: 6px;
+	background-color: whitesmoke;
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	/* background: lightgrey; */
+	/* overflow-x: hidden; */
+	/* overflow-y: hidden; */
+}
+.shop-furni-item-container .amount-credits {
+	height: 20px;
+	/* padding: 5px 10px 5px 10px; */
+	padding: 3px;
+	margin-top: -5px;
+	background: #eae640;
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	text-align: center;
+	font-size: 12px;
+	font-family: 'Ubuntu';
+}
+
+
+
 .furni-container {
 	float: left;
 	width: 70px;
@@ -1205,6 +1252,7 @@ word-wrap: break-word;
 .furni-container .amount {
 	position: relative;
 	top: -70px;
+	/* left: 0; */
 }
 .furni-container img {
 	vertical-align: middle;
@@ -1225,6 +1273,10 @@ word-wrap: break-word;
 #finder-window {
 
 }
+.selector-container {
+	height: 400px;
+	overflow-y: scroll;
+}
 .finder-dialog {
 	width: 700px !important;
 }
@@ -1235,7 +1287,7 @@ word-wrap: break-word;
 	font-family: 'Ubuntu';
 }
 .finder-dialog .room-container {
-	padding: 20px;
+	padding: 10px 20px 10px 20px;
 	background: whitesmoke;
 	transition: 0.3s;
 }
@@ -1247,4 +1299,49 @@ word-wrap: break-word;
 	text-decoration: none;
 	font-size: 24px;
 	color: black;
+}
+
+
+#shop-window {
+
+}
+.shop-dialog {
+	width:  700px !important;
+}
+.category-container {
+	text-align: center;
+	margin: 5px 5px 0 5px;
+	padding: 8px 15px 8px 15px;
+	border-radius: 12px;
+	transition: 0.3s;
+	background: whitesmoke;
+	cursor: pointer;
+}
+.category-container:hover {
+	transition: 0.3s;
+	background: lightgrey;
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+.shop-dialog a {
+	text-decoration: none;
+	color: black;
+}
+.shop-dialog .container .left {
+	float: left;
+	width: calc(40% - 1px);
+	height: 600px;
+	font-family: 'Ubuntu' !important;
+	border-right: dashed grey 1px;
+	overflow-y: scroll;
+}
+.shop-dialog .container .right {
+	float: left;
+	width: 60%;
+	height: 600px;
+	overflow-y: scroll;
+}
+.shop-item-container {
+
 }

@@ -12,7 +12,7 @@ module.exports = {
 
       base: async function(roomID) {
         if (isNaN(roomID)) return false;
-        var roomData = await gt("SELECT * FROM rooms WHERE id = :id", {id: roomID});
+        var roomData = await gt("SELECT * FROM rooms WHERE guildID = :id", {id: roomID});
         return roomData[0].base;
       },
 
@@ -44,6 +44,7 @@ module.exports = {
             rootBlock: root
           });
         }
+        // console.log(longhand);
         return longhand;
       },
 

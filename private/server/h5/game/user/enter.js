@@ -31,15 +31,20 @@ module.exports = function(environment, frontend) {
 
 	frontend.on("load room", async function(data) {
 
-		const roomId = data.roomId;
+		const roomId    = data.roomId;
 		const roomData  = await environment.game.rooms.db.loadFromId(roomId);
 		const furniData = await environment.game.rooms.db.shorthandFurni(roomId);
 		data.roomData = {}
+    // console.log(furniData);
 
     // let jacksinventory = await environment.game.dbops.users.inventory(1, true);
     // environment.game.dbops.users.countInventory(jacksinventory);
 
 		// Identifiers are the string-based variable changes in the room, such as d=door
+    if (!roomData.hasOwnProperty('base')) {
+      console.log("[XX:XX:XX] Error in getting ID, ignoring load.");
+      return;
+    }
     data.roomData.baseIdentifierArray = environment.game.rooms.converter.fromString(roomData.base);
 		data.roomData.baseIdentifierString = roomData.base;
 		// The original, safe, only-numeric matrix/base as well as furnishorthands
