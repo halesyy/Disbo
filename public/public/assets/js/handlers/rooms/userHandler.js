@@ -265,7 +265,7 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 			$chatBubbleImg.src = `https://images.discordapp.net/avatars/${userid}/${avatar}.png?size=256`
 
 			const $chatMessage = document.createElement('p');
-			$chatMessage.innerHTML = `<p><span>${username}: </span> ${message}</p>`
+			$chatMessage.innerHTML = `<p><span>${username}: </span>${message}</p>`
 
 			$chatBubble.appendChild($chatBubbleImg);
 			$chatBubble.appendChild($chatMessage);
