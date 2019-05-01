@@ -104,6 +104,34 @@
 			</div>
 		</div>
 
+		<!--ROOM FINDER CONTAINER-->
+		<div id="finder-window" class="dialog finder-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="finder.enabled && isBootstrapped">
+			<div class="title">
+				<div class="left">
+					Room Finder - Mingle with other Discord Servers
+				</div>
+				<div class="right">
+					<a class="button hover-change-red" ng-click="manageFinder()" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="container">
+				<div class="search">
+					<form class="finder-search-wait ">
+						<input type="text" class="finder-search-for" placeholder="Tags, server name, room name..." />
+
+					</form>
+				</div>
+				<div class="room-container" ng-repeat="room in rooms">
+					<a href="#!/room/{{room.id}}">
+						{{ room.name }}
+					</a>
+				</div>
+			</div>
+		</div>
+
 		<!--FRIENDS LIST VIEW-->
 		<div id="friend-list-window" class="dialog friend-list-dialog alert ng-hide"
 			style="z-index: 999; height: auto;"
@@ -197,24 +225,25 @@
 
 		<div id="hotel-view-bar" class="ng-hide" ng-show="isBootstrapped">
 			<div id="hotel-view-bar-icons">
-				<div id="hotel-view-bar-more" ng-class="{ flip: !superfluousBarItems }" ng-click="toggleSuperfluousBarItems()" >
+				<!-- <div id="hotel-view-bar-more" ng-class="{ flip: !superfluousBarItems }" ng-click="toggleSuperfluousBarItems()" >
 					<img src="assets/images/hotelview/barIcons/arrow.png">
-				</div>
-				<span id="hotel-view-bar-icon-house" ng-if="superfluousBarItems && !isInRoom" ng-click="enterRoom()"></span>
-				<span id="hotel-view-bar-icon-h" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span>
-				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="featureNotImplemented()"></span>
-				<span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span>
+				</div> -->
+				<span id="hotel-view-bar-icon-house" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span>
+				<!-- <span id="hotel-view-bar-icon-h" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span> -->
+				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="manageFinder()"></span>
+				<!-- <span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span> -->
 				<!-- <span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span> -->
 				<span id="hotel-view-bar-icon-inventory" ng-if="superfluousBarItems" ng-click="inventoryWindowHandler()"></span>
-				<span id="hotel-view-bar-icon-user" ng-click="featureNotImplemented()">
+				<span id="hotel-view-bar-icon-user">
 					<img src="https://www.habbo.com.tr/habbo-imaging/avatarimage?figure={{ userinfo.figure }}&size=n&direction=2&head_direction=2&crr=3&gesture=sml&frame=3">
 				</span>
-			</div>
-			<div id="hotel-view-bar-friends">
 				<div id="hotel-view-bar-friends-icons">
 					<span class="hotel-view-bar-friends-icon-all" ng-click="friendsListHandler()"></span>
 					<!-- <span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span> -->
 				</div>
+			</div>
+			<div id="hotel-view-bar-friends">
+
 
 				<!-- <div class="hotel-view-bar-friends-slots" ng-if="superfluousFriendBarItems">
 					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
@@ -231,9 +260,9 @@
 					</div>
 				</div> -->
 
-				<div id="hotel-view-bar-friends-more" class="flip" ng-class="{ flip: superfluousFriendBarItems }" ng-click="toggleSuperfluousFriendBarItems()" >
+				<!-- <div id="hotel-view-bar-friends-more" class="flip" ng-class="{ flip: superfluousFriendBarItems }" ng-click="toggleSuperfluousFriendBarItems()" >
 					<img src="assets/images/hotelview/barIcons/arrow.png">
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div id="game" ng-view>

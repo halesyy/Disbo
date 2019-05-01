@@ -13,6 +13,11 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 				$rootScope.previousRoomId = $rootScope.roomId;
 				$rootScope.roomId = $routeParams.roomId;
 
+				// when entering, set to allow a clean slate and
+				// the click "effect" when entering a room from the
+				// finder. defaulting false.
+				$rootScope.finder.enabled = false;
+
 				// Going to make sure that they are removed from their
 				// previous room just incase.
 				console.log("Just asked to leave "+$rootScope.previousRoomId);
@@ -183,7 +188,7 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 			$('#map').click(function(event) {
 				var innerTile = userHandler.calculateTile(event);
-				if (innerTile != null) {
+				if (innerTile != null && !window.moving) {
 					var coordinates = innerTile.innerHTML;
 					var c = coordinates.split(':');
 					$socket.emit('verify movement', {
@@ -245,11 +250,12 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 			});
 
 			$socket.on('user typing bubble', function(userid) {
-				$('#user' + userid).html('<img style="float:right" src="assets/images/hotelview/userIcons/typing.png">');
+				$('#user' + userid + ' > .typing').remove();
+				$('#user' + userid).prepend('<img class="typing" style="float:right" src="assets/images/hotelview/userIcons/typing.png">');
 			});
 
 			$socket.on('user stopped typing', function(userid) {
-				$('#user' + userid).html('');
+				$('#user' + userid + ' > .typing').remove();
 			});
 
 			$socket.on('user move', function(data) {
