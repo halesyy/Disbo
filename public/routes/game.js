@@ -11,6 +11,9 @@ router.get('/', (req, res) => {
   const opts = {
     host: config.gameServer.host,
     port: config.gameServer.port,
+    type: config.gameServer.type,
+    apihost: config.api.host,
+    apiport: config.api.port,
   }
   res.render('client', { user: req.user, opts });
 });

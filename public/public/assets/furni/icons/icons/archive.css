@@ -1,0 +1,135 @@
+HTML {
+	SCROLLBAR-FACE-COLOR: #3a3a3a; SCROLLBAR-HIGHLIGHT-COLOR: #494949; SCROLLBAR-SHADOW-COLOR: #252525; SCROLLBAR-3DLIGHT-COLOR: #252525; SCROLLBAR-ARROW-COLOR: #252525; SCROLLBAR-TRACK-COLOR: #3a3a3a; SCROLLBAR-DARKSHADOW-COLOR: #494949
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: small; BACKGROUND: url(gfx/back.gif) #000 0px -15px; PADDING-BOTTOM: 50px; MARGIN: 0px; COLOR: #ddd; LINE-HEIGHT: 130%; PADDING-TOP: 0px; FONT-FAMILY: 'Trebuchet MS', trebuchet, verdana, arial; _behavior: url(../common/scripts/csshover2.htc); voice-family: inherit
+}
+* {
+	-moz-outline: none
+}
+#header_bar {
+	BACKGROUND: #222; FILTER: alpha(style=0,opacity=30); LEFT: 0px; POSITION: relative; WIDTH: 100%; BORDER-BOTTOM: #fff 3px solid; TOP: 0px; HEIGHT: 90px; opacity: 0.3
+}
+#container {
+	LEFT: 7.5%; PADDING-BOTTOM: 50px; MARGIN: 24px auto 50px; POSITION: absolute; WIDTH: 85%; TOP: 0px
+}
+#upload_button {
+	LEFT: 92%; POSITION: absolute; MARGIN-LEFT: -2px; TOP: 36px
+}
+#upload_button A:link {
+	BACKGROUND: url(gfx/upload.gif) no-repeat 0px 0px; WIDTH: 25px; TEXT-INDENT: -500px; DISPLAY: block; HEIGHT: 25px; TEXT-DECORATION: none
+}
+#upload_button A:visited {
+	BACKGROUND: url(gfx/upload.gif) no-repeat 0px 0px; WIDTH: 25px; TEXT-INDENT: -500px; DISPLAY: block; HEIGHT: 25px; TEXT-DECORATION: none
+}
+#upload_button A:active {
+	BACKGROUND: url(gfx/upload.gif) no-repeat 0px 0px; WIDTH: 25px; TEXT-INDENT: -500px; DISPLAY: block; HEIGHT: 25px; TEXT-DECORATION: none
+}
+#upload_button A:hover {
+	BACKGROUND-POSITION: 0px -25px
+}
+#upload_button A:focus {
+	BACKGROUND-POSITION: 0px -25px
+}
+H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 180%; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 50px; LINE-HEIGHT: 50px; PADDING-TOP: 0px; HEIGHT: 50px
+}
+A:link {
+	COLOR: #ddd; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #ddd; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ddd; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #fff
+}
+#head A#home_link:link {
+	BACKGROUND: url(gfx/logo.gif) no-repeat 0px 0px; FLOAT: left; MARGIN: 0px 10px 0px 0px; WIDTH: 50px; TEXT-INDENT: -500px; DISPLAY: block; HEIGHT: 50px
+}
+#head A#home_link:visited {
+	BACKGROUND: url(gfx/logo.gif) no-repeat 0px 0px; FLOAT: left; MARGIN: 0px 10px 0px 0px; WIDTH: 50px; TEXT-INDENT: -500px; DISPLAY: block; HEIGHT: 50px
+}
+#head A#home_link:active {
+	BACKGROUND: url(gfx/logo.gif) no-repeat 0px 0px; FLOAT: left; MARGIN: 0px 10px 0px 0px; WIDTH: 50px; TEXT-INDENT: -500px; DISPLAY: block; HEIGHT: 50px
+}
+#head A#home_link:hover {
+	BACKGROUND-POSITION: 0px -50px
+}
+#head A#home_link:focus {
+	BACKGROUND-POSITION: 0px -50px
+}
+P {
+	FONT-SIZE: 105%; MARGIN-BOTTOM: 15px
+}
+.note {
+	FONT-SIZE: 100%
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.img_container SPAN {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BORDER-TOP: #fff 1px solid; BACKGROUND: #3a3a3a; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 1px; VERTICAL-ALIGN: middle; OVERFLOW: hidden; BORDER-LEFT: #fff 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #fff 1px solid; DISPLAY: block; TEXT-ALIGN: center
+}
+.img_container SPAN IMG {
+	MARGIN: auto
+}
+#nav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; RIGHT: 8%; PADDING-BOTTOM: 0px; MARGIN: 0px; POSITION: absolute; PADDING-TOP: 0px; TOP: 36px
+}
+#nav UL#list_1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 150px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#nav UL#list_1 LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; DISPLAY: inline
+}
+#nav UL#list_1 LI SPAN.subtitle {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 4px; BACKGROUND: #222; PADDING-BOTTOM: 2px; MARGIN: 0px; WIDTH: 142px; PADDING-TOP: 2px; DISPLAY: block
+}
+#nav UL#list_1 LI#current {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 15px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(gfx/drop_1.gif); BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 135px; CURSOR: pointer; COLOR: #ddd; PADDING-TOP: 5px; DISPLAY: block; HEIGHT: 18px; BORDER-RIGHT-WIDTH: 0px
+}
+#nav UL#list_1 LI#current:hover {
+	BACKGROUND-POSITION: 0px -23px
+}
+#nav UL#list_1 LI#visual_only {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 1px; BACKGROUND: url(gfx/drop_2.gif); BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: -8px 0px 0px; WIDTH: 150px; PADDING-TOP: 0px; DISPLAY: block; HEIGHT: 3px; BORDER-RIGHT-WIDTH: 0px; _margin: 0
+}
+#nav UL#list_1 LI.collapsed {
+	DISPLAY: none
+}
+#nav UL#list_1 LI.expanded {
+	BACKGROUND: url(gfx/nav_back.gif) 1px 3px
+}
+#nav UL#list_1 LI#list_2 {
+	
+}
+#nav UL#list_1 LI.expanded UL {
+	BORDER-RIGHT: #ddd 2px solid; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #ddd 2px solid; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#nav UL#list_1 LI.expanded UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 139px; COLOR: #494949; TEXT-INDENT: 8px; PADDING-TOP: 0px
+}
+#nav UL#list_1 LI.expanded UL LI UL {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; BORDER-RIGHT-WIDTH: 0px
+}
+#nav UL#list_1 LI.expanded UL LI UL LI {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 146px; PADDING-TOP: 0px; DISPLAY: block; BORDER-RIGHT-WIDTH: 0px
+}
+#nav UL#list_1 LI.expanded UL LI UL LI A:link {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; BACKGROUND: url(gfx/blank.gif); PADDING-BOTTOM: 2px; MARGIN: 0px; WIDTH: 140px; COLOR: #ddd; PADDING-TOP: 2px; DISPLAY: block; TEXT-DECORATION: none
+}
+#nav UL#list_1 LI.expanded UL LI UL LI A:visited {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; BACKGROUND: url(gfx/blank.gif); PADDING-BOTTOM: 2px; MARGIN: 0px; WIDTH: 140px; COLOR: #ddd; PADDING-TOP: 2px; DISPLAY: block; TEXT-DECORATION: none
+}
+#nav UL#list_1 LI.expanded UL LI UL LI A:active {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; BACKGROUND: url(gfx/blank.gif); PADDING-BOTTOM: 2px; MARGIN: 0px; WIDTH: 140px; COLOR: #ddd; PADDING-TOP: 2px; DISPLAY: block; TEXT-DECORATION: none
+}
+#nav UL#list_1 LI.expanded UL LI UL LI A:hover {
+	BACKGROUND: #444; COLOR: #ccc; TEXT-ALIGN: left
+}
+#nav UL#list_1 LI.expanded UL LI UL LI A:focus {
+	BACKGROUND: #444; COLOR: #ccc; TEXT-ALIGN: left
+}

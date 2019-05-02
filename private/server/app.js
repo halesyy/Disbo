@@ -17,7 +17,8 @@ const environment = h5
 const Sequelize = require('sequelize');
 const globaldb = new Sequelize(conf.mysql.db, conf.mysql.user, conf.mysql.pass, {
   host: conf.mysql.host,
-  dialect: 'mysql'
+  dialect: 'mysql',
+	logging: true
 });
 
 // Setting globals
@@ -25,10 +26,36 @@ global.globaldb  = globaldb
 global.Sequelize = Sequelize
 global.environment = environment
 // all shorthand queries for querying the database! :)
-global.gt = environment.dbops.basic.get
-global.in = environment.dbops.basic.insert
-global.up = environment.dbops.basic.update
-global.dt = environment.dbops.basic.delete
+global.gt = environment.dbops.basic.get;
+global.is = environment.dbops.basic.insert;
+global.up = environment.dbops.basic.update;
+global.dt = environment.dbops.basic.delete;
+global.users = environment.dbops.users;
+global.ssouid = environment.dbops.users.ssoToUserId;
+global.ssodid = environment.dbops.users.ssoToDiscordId;
+global.config = conf;
+
+// temporary management of the ../fexport/data.json furni data
+var import_from_fexport = false;
+if (import_from_fexport) {
+	const fdata = require("../fexport/data.json");
+	const defaultPrice = 1;
+	var count = 0;
+	for (var furniData of fdata) {
+		// if (count == 5) break;
+		const category = furniData.category;
+		const nameId = furniData.nameId;
+		const location = furniData.location;
+		var ins = is("INSERT INTO furniture (nameId, category, description, location, adjacents, creditCost, rotateable, walkable, baselayer, bottomAdjust) VALUES (:nameId, :category, '', :location, '0,0', :defaultPrice, '0', '1', '0', '0')", {
+			defaultPrice: defaultPrice,
+			nameId: nameId,
+			category: category,
+			location: location
+		});
+		console.log(ins);
+		count += 1;
+	}
+}
 
 // Loading the public->private API
 require('./api');
@@ -57,7 +84,7 @@ var callbacks = {
 	userLogin: function(a) {
     // console.log("User login")
 		h5.networking.login(h5.scope(), a);
-		h5.game.user.loops.creditsAndDuckets(h5.scope(), a);
+		// h5.game.user.loops.creditsAndDuckets(h5.scope(), a);
 	},
 	clientViewRendered: function(frontend) {
 		/*

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<base href="/">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Habbo</title>
+		<title>LuxLife</title>
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="stylesheet" href="assets/css/game.css" type="text/css">
 	</head>
@@ -13,24 +13,31 @@
 		var clientVars = {
 		  host: '<%= opts.host %>',
 		  port: '<%= opts.port %>',
-		  sso:  '<%= user.token %>'
+		  type: '<%= opts.type %>',
+		  sso:  '<%= user.token %>',
+		  apihost: '<%= opts.apihost %>',
+		  apiport: '<%= opts.apiport %>',
 		};
 		</script>
 		<div id="hotel-view-faststats" class="ng-hide" ng-show="isBootstrapped">
 			<ul id="hotel-view-faststats-stats">
-				<li class="diamonds">{{ userinfo.diamonds | limitTo:5 }} <i class="icon diamonds"></i></li>
-				<li class="credits">{{ userinfo.credits | limitTo: 5 }}<i class="icon credits"></i></li>
-				<li class="duckets">{{ userinfo.duckets | limitTo:5 }} <i class="icon duckets"></i></li>
+				<!-- <li class="diamonds">{{ userinfo.diamonds | limitTo:5 }} <i class="icon diamonds"></i></li> -->
+				<li class="credits">${{ userinfo.credits }}</li>
+				<!-- <li class="duckets">{{ userinfo.duckets | limitTo:5 }} <i class="icon duckets"></i></li> -->
 			</ul>
-			<span id="hotel-view-faststats-hc" ng-click="hcWindow.enabled = true">
+			<!-- <span id="hotel-view-faststats-hc" ng-click="hcWindow.enabled = true">
 				<i class="icon hc"></i>
 				<p>Join</p>
-			</span>
+			</span> -->
 			<!-- <ul id="hotel-view-faststats-buttons">
 				<li><a class="window-manager-button blue">Help</a></li>
 				<li ng-click="logout()"><a class="window-manager-button red"><i class="icon logout"></i></a></li>
 				<li><a class="window-manager-button purple"><i class="icon settings"></i></a></li>
 			</ul> -->
+		</div>
+
+		<div class="left-server-name">
+			{{ roomName }}
 		</div>
 
 		<div class="dialog small-dialog alert ng-hide" ng-draggable ng-show="dialog.enabled && isBootstrapped">
@@ -96,9 +103,10 @@
 				<div style="clear: both;"></div>
 			</div>
 			<div class="container">
-				<div class="furni-container" ng-repeat="furnitureItem in inventory">
-					<img class="furni-icon" src="assets/furni/{{ furnitureItem.iconloc }}" ng-click="placeFurni(furnitureItem)" />
-					<span class="amount">{{ furnitureItem.amount }}</span>
+				<div class="shop-furni-item-container" ng-repeat="furnitureItem in inventory">
+					<div class="amount-of-items">{{ furnitureItem.amount }}</div>
+					<div class="furni-container-bg" ng-click="placeFurni(furnitureItem)" style="background-image: url('assets/furni/{{ furnitureItem.iconloc }}');">
+					</div>
 					<!-- {{furniriteItem}} -->
 				</div>
 			</div>
@@ -124,11 +132,60 @@
 
 					</form>
 				</div>
-				<div class="room-container" ng-repeat="room in rooms">
-					<a href="#!/room/{{room.id}}">
-						{{ room.name }}
-					</a>
+				<div class="selector-container">
+					<div class="room-container" ng-repeat="room in rooms">
+						<a href="#!/room/{{room.guildID}}">
+							<div class="room-name">
+								{{ room.name }}
+							</div>
+						</a>
+					</div>
 				</div>
+			</div>
+		</div>
+
+		<!--SHOP-->
+		<div id="shop-window" class="dialog shop-dialog alert ng-hide"
+			style="z-index: 999; height: auto;"
+			ng-draggable ng-show="shop.enabled && isBootstrapped">
+			<div class="title">
+				<div class="left">
+					Shop
+				</div>
+				<div class="right">
+					<a class="button hover-change-red" ng-click="manageShopWindow()" style="background: #c21f1f; z-index: 1005; padding-left: 9px; padding-right: 9px;">x</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="container">
+				<!-- <div class="search">
+					<form class="finder-search-wait ">
+						<input type="text" class="finder-search-for" placeholder="Tags, server name, room name..." />
+
+					</form>
+				</div> -->
+				<div class="left">
+					<div ng-repeat="category in shop.categories">
+						<a ng-click="viewCategory(category)">
+							<div class="category-container">
+								{{ category }}
+							</div>
+						</a>
+						<!-- <a href="#!/room/{{room.guildID}}">
+						<div class="room-name">
+					</div>
+				</a> -->
+					</div>
+				</div>
+				<div class="right">
+					<div class="shop-furni-item-container" ng-repeat="furni in shop.categoryFurnis" ng-click="buy(furni)">
+						<div class="furni-container-bg" style="background-image: url('assets/furni/{{ furni.location }}');">
+						</div>
+						<div class="amount-credits">${{ furni.creditCost }}</div>
+						<!-- {{furniriteItem}} -->
+					</div>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 
@@ -231,7 +288,7 @@
 				<span id="hotel-view-bar-icon-house" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span>
 				<!-- <span id="hotel-view-bar-icon-h" ng-if="superfluousBarItems && isInRoom" ng-click="leaveRoom()"></span> -->
 				<span id="hotel-view-bar-icon-rooms" ng-if="superfluousBarItems" ng-click="manageFinder()"></span>
-				<!-- <span id="hotel-view-bar-icon-catalogue" ng-click="featureNotImplemented()"></span> -->
+				<span id="hotel-view-bar-icon-catalogue" ng-click="manageShopWindow()"></span>
 				<!-- <span id="hotel-view-bar-icon-bc" ng-click="featureNotImplemented()"></span> -->
 				<span id="hotel-view-bar-icon-inventory" ng-if="superfluousBarItems" ng-click="inventoryWindowHandler()"></span>
 				<span id="hotel-view-bar-icon-user">
@@ -242,33 +299,9 @@
 					<!-- <span class="hotel-view-bar-friends-icon-search" ng-click="featureNotImplemented()"></span> -->
 				</div>
 			</div>
-			<div id="hotel-view-bar-friends">
-
-
-				<!-- <div class="hotel-view-bar-friends-slots" ng-if="superfluousFriendBarItems">
-					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
-						<img src="assets/images/hotelview/barIcons/friend_head.png">
-						Find new <br>friends
-					</div>
-					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
-						<img src="assets/images/hotelview/barIcons/friend_head.png">
-						Find new <br>friends
-					</div>
-					<div class="hotel-view-bar-friends-slot no-friends" ng-click="featureNotImplemented()">
-						<img src="assets/images/hotelview/barIcons/friend_head.png">
-						Find new <br>friends
-					</div>
-				</div> -->
-
-				<!-- <div id="hotel-view-bar-friends-more" class="flip" ng-class="{ flip: superfluousFriendBarItems }" ng-click="toggleSuperfluousFriendBarItems()" >
-					<img src="assets/images/hotelview/barIcons/arrow.png">
-				</div> -->
-			</div>
 		</div>
-		<div id="game" ng-view>
+		<div id="game" ng-view></div>
 
-
-		</div>
 		<script src="assets/js/dependencies.js" type="text/javascript"></script>
 		<script src="assets/js/ng.js" type="text/javascript"></script>
 		<script src="assets/js/ng-route.js" type="text/javascript"></script>

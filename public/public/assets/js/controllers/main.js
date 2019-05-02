@@ -25,6 +25,9 @@
  */
 app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', function($scope, $rootScope, $socket, $location) {
 
+  console.log($location.path());
+	console.log($rootScope.wantsToGoTo);
+
   $rootScope.dialog = {
 		enabled: false,
 		title: '',
@@ -37,19 +40,111 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.roomId = false; // the current roomid occupied by client user.
   $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
 
+
+  $rootScope.roomName = '';
+
+    /*
+     * all finder-based information
+     */
+
+    // defaults
+    $rootScope.shop = {
+      enabled: false,
+      categories: false,
+      selectedCategory: false,
+      categoryFurnis: false
+    };
+    console.log(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/categories`);
+
+    // building data for the finder
+    $rootScope.refreshShopCategories = function(ondone = false, by = false) {
+      // doing some manip to get search results if so.
+      $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/categories`, function(categories){
+        console.log("shop categories: ", categories);
+        $rootScope.shop.categories = categories;
+        $rootScope.$apply();
+        if (ondone !== false) ondone();
+      });
+    };
+    $rootScope.refreshShopCategories();
+
+    // finder search bar
+    // $('.finder-search-wait').submit(event => {
+    //   var by = $('.finder-search-for').val();
+    //   // alert(`searching for ${by}`);
+    //   $rootScope.refreshFinder(false, by);
+    //   $rootScope.$apply();
+    // });
+
+    // open/close the finder
+    $rootScope.manageShopWindow = function() {
+      if (!$rootScope.shop.enabled)
+        $rootScope.refreshFinder(function(){
+          $rootScope.shop.enabled = !$rootScope.shop.enabled;
+          $rootScope.$apply();
+        })
+      else $rootScope.shop.enabled = !$rootScope.shop.enabled;
+    }
+
+    $rootScope.viewCategory = function(category, ondone = false) {
+      // if (category == $rootScope.shop.selectedCategory) return;
+      // else
+      console.log("searching for furnis in: "+category);
+      $rootScope.shop.selectedCategory = category;
+
+      $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/furni/${category}`, function(furnis){
+        console.log("shop category furnis: ", furnis);
+        $rootScope.shop.categoryFurnis = furnis;
+        $rootScope.$apply();
+        if (ondone !== false) ondone();
+      });
+    }
+
+    $rootScope.buy = function(furniSchema) {
+      // console.log("sending ");
+      // console.log(furniSchema);
+      $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/buy`, {
+        sso: clientVars.sso,
+        furni: furniSchema.nameId
+      }, function(response){
+        if (response.error === true) {
+          $rootScope.dialog = {
+            enabled: true,
+            title: 'Oops!',
+            body: response.reason
+          }
+        }
+        else {
+          $rootScope.refreshCurrencies();
+          $rootScope.refreshInventory();
+        }
+        // console.log("response from server for buying..");
+        // console.log(response);
+      });
+    }
+
+
+
+
+
+
+
+
   /*
    * all finder-based information
    */
 
+  // defaults
   $rootScope.finder = {
     enabled: false,
   };
   $rootScope.rooms = false;
 
+  // building data for the finder
   $rootScope.refreshFinder = function(ondone = false, by = false) {
     // doing some manip to get search results if so.
     if (by === false) var by = 'recent';
-    $.post(`http://${clientVars.host}:7777/api/rooms`, {
+    $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/rooms`, {
       sso: clientVars.sso,
       by:  by
     }, function(rooms){
@@ -61,8 +156,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
   $rootScope.refreshFinder();
 
-
-  // jquery push
+  // finder search bar
   $('.finder-search-wait').submit(event => {
     var by = $('.finder-search-for').val();
     // alert(`searching for ${by}`);
@@ -70,7 +164,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     $rootScope.$apply();
   });
 
-
+  // open/close the finder
   $rootScope.manageFinder = function() {
     if (!$rootScope.finder.enabled) {
       $rootScope.refreshFinder(function(){
@@ -81,8 +175,22 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     else {
       $rootScope.finder.enabled = !$rootScope.finder.enabled;
     }
-
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /*
    * all friends-list-based information
@@ -93,7 +201,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
 
   $rootScope.refreshFriends = function(ondone = false) {
-    $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
+    $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/friends/${clientVars.sso}`, function(data){
       console.log("friends: ", data);
       $rootScope.friends = data;
       $rootScope.$apply();
@@ -104,13 +212,23 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
   $rootScope.refreshFriends();
 
+
+
+
+
+
+
+
+
+
+
   /*
    * all inventory-based init
    * most functionality is used in room.js controller, though
    * it is init in main.js since that's important.
    */
   $rootScope.refreshInventory = function(ondone = false) {
-    $.getJSON(`http://${clientVars.host}:7777/api/inventory/${clientVars.sso}`, function(data){
+    $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/inventory/${clientVars.sso}`, function(data){
       console.log("inventory: ", data);
       $rootScope.inventory = data.inventory;
       $rootScope.$apply();
@@ -136,7 +254,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     if (!isNaN(profileid)) {
       $rootScope.refreshFriends(function(){
           // Pulling backend data...
-          $.getJSON(`http://${clientVars.host}:7777/api/profile/${profileid}`, function(profileData){
+          $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/profile/${profileid}`, function(profileData){
             if (profileData.error === true) {
 
             }
@@ -161,7 +279,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.sendFriendRequest = function() {
     if (!isNaN($rootScope.profileViewWindow.data.id)) {
       console.log("Going to send f/r");
-      $.post(`http://${clientVars.host}:7777/api/addFriend`, {
+      $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/addFriend`, {
         sso: clientVars.sso,
         friendID: $rootScope.profileViewWindow.data.id
       }, function(data){
@@ -215,7 +333,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $scope.fl_removeFriend = function(theirid) {
     console.log(theirid);
     if (isNaN(theirid)) return false;
-    $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+    $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/removeFriend`, {
       sso: clientVars.sso,
       friendID: theirid
     }, function(data){
@@ -231,7 +349,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $scope.fl_acceptfriend = function(theirid) {
     console.log(theirid);
     if (isNaN(theirid)) return false;
-    $.post(`http://${clientVars.host}:7777/api/acceptPending`, {
+    $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/acceptPending`, {
       sso: clientVars.sso,
       friendID: theirid
     }, function(data){
@@ -251,7 +369,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.removeFriendship = function() {
     if (!isNaN($rootScope.profileViewWindow.data.id)) {
       console.log("Going to remove f/r");
-      $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+      $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/removeFriend`, {
         sso: clientVars.sso,
         friendID: $rootScope.profileViewWindow.data.id
       }, function(data){
@@ -353,13 +471,16 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		$rootScope.dialog.body = data.body;
 	});
 
-  // Profile view handling
-  // $socket.on('signin-dialog', function(data){
-    // console.log("Going to throw up the signin dialog!")
-    // $rootScope.signinDialog.enabled = data.enabled;
-		// $rootScope.dialog.title = data.title;
-		// $rootScope.dialog.body = data.body;
-  // });
+  // CURRENCY REFRESHING. CALL THIS TO REFRESH THE $.
+  $rootScope.refreshCurrencies = function() {
+    let sso = clientVars.sso;
+    $.get(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/currency/${sso}`, function(currency){
+      $rootScope.userinfo.credits = currency.credits;
+      $rootScope.$apply();
+    });
+  }
+
+
 
 	$scope.buyHabboClub = function() {
 		$rootScope.dialog.enabled = true;
@@ -382,4 +503,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 	$socket.on('client count update', function(data) {
 		$rootScope.clientCount = data.response;
 	});
+
+
 }]);

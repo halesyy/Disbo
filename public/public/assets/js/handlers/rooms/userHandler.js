@@ -181,10 +181,55 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 		move: function(stepData) {
 			if (window.moving) return; else window.moving = true;
 
-			const sd = stepData;
+			const sd = stepData
+			var previousXY = [0, 0];
+			var previousChanged = [0, 0];
 			// console.log(stepData);
 			for (const stepx in stepData.steps) {
 				window.setTimeout(function() {
+						// checking whether going left or right.
+
+						// if (previousXY)
+						if (previousChanged) {
+							// comparing last data to now
+							const xto = parseInt(stepData.steps[stepx][0]);
+							const yto = parseInt(stepData.steps[stepx][1]);
+							const xfrom = parseInt(previousXY[0]);
+							const yfrom = parseInt(previousXY[1]);
+
+							// y goes from centre to the LEFT
+							// x goes from centre to the RIGHT
+							// console.log(`fromx ${xfrom} -> ${xto}, fromy ${yfrom} -> ${yto}`);
+
+							// going left check, y+1 with x-1,x,x+1
+							if (`${yto}${xto}` == `${yfrom+1}${xfrom-1}`     ||      `${yto}${xto}` == `${yfrom+1}${xfrom}`       ||       `${yto}${xto}` == `${yfrom+1}${xfrom+1}`) {
+								// console.log("going in left direction");
+								// giveClass = ""
+								// doesnt have class or is an inverted sprite
+								if ($(`[id=user${stepData.id}]`).hasClass("inverted")) {
+									$(`[id=user${stepData.id}]`).removeClass("avatar-left");
+								}
+								else if (!$(`[id=user${stepData.id}]`).hasClass("avatar-left")) {
+									$(`[id=user${stepData.id}]`).addClass("avatar-left");
+								}
+							}
+							else if (`${yto}${xto}` == `${yfrom-1}${xfrom+1}`     ||      `${yto}${xto}` == `${yfrom}${xfrom+1}`       ||       `${yto}${xto}` == `${yfrom+1}${xfrom+1}`) {
+								if ($(`[id=user${stepData.id}]`).hasClass("inverted")) {
+									$(`[id=user${stepData.id}]`).addClass("avatar-left");
+								}
+								else {
+									$(`[id=user${stepData.id}]`).removeClass("avatar-left");
+								}
+							}
+							// else {
+							// 	$(`[id=user${stepData.id}]`).removeClass("avatar-left");
+							// }
+
+							// going right check
+						}
+
+
+
 						var $tile = $("[data-x=" + stepData.steps[stepx][0] + "][data-y=" + stepData.steps[stepx][1] + "]");
 						var bottomAdjust = parseInt($tile.css("bottom"));
 						var leftAdjust   = parseInt($tile.css("left"));
@@ -192,55 +237,68 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 							bottom: (bottomAdjust+10) + "px",
 							left: (leftAdjust-2) + "px"
 						});
+						console.log(stepData);
 						// console.log(stepx, sd.length);
 						if (stepx == (stepData.steps.length-1)) window.moving = false;
-          // Speed, 100 = default, 300 = normal habbo-like speed
+
+						previousXY = [stepData.steps[stepx][0], stepData.steps[stepx][1]];
+						previousChanged = true;
         }, 250 * stepx);
 
 			}
 		},
 
 		inject: function(a) {
-			var $AvatarContainer = $('<div class="avatar"></div>');
 			var b = a.currentPosition.split(":");
 			var $tile = $("[data-x=" + b[0] + "][data-y=" + b[1] + "]");
 
 			var b = parseInt($tile.css("bottom"));
 			var c = parseInt($tile.css("left"));
+			var avatarLocation = a.sprite[0];
+			var avatarWidth    = a.sprite[1];
+			var avatarInverted = a.sprite[2];
 
+			var $AvatarContainer = $('<div class="avatar"></div>');
+			if (avatarInverted) {
+				$AvatarContainer.addClass('inverted');
+			}
 			$AvatarContainer.attr("id", "user" + a.id);
 			$AvatarContainer.css({
 				"bottom": (b+10) + "px",
 				"left": (c-2) + "px",
-				// "background-image": "url(https://www.habbo.com.tr/habbo-imaging/avatarimage?figure=" + a.figure + "&size=n&direction=2&head_direction=2&crr=3&gesture=sml&size=n&direction=2&head_direction=2&crr=3&gesture=sml)",
-        "transition": "all 0.3s linear 0s"
+				// "background-image": `url(${a.avatar})`,
+				"transition": "all 0.3s linear 0s",
+				// "background-size": "cover",
+				"width": "auto",
 			});
+			// console.log(a);
 
-			const avwidth = "65px";
+			$AvImg = $(`<img src='${avatarLocation}' width='${avatarWidth}' />`);
 
-			$Whole = $("<img src='assets/av/whole/sbase.png'>");
-			$Whole.css({'z-index': 1, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
-			$Whole.load(function(){ $(this).css({"display": "block"}); })
 
-			$Hair = $("<img src='assets/av/hair/mohawk.png'>");
-			$Hair.css({'z-index': 2, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
-			$Hair.load(function(){ $(this).css({"display": "block"}); })
+			// $Whole = $("<img src='assets/av/whole/sbase.png'>");
+			// $Whole.css({'z-index': 1, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
+			// $Whole.load(function(){ $(this).css({"display": "block"}); })
+			//
+			// $Hair = $("<img src='assets/av/hair/mohawk.png'>");
+			// $Hair.css({'z-index': 2, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
+			// $Hair.load(function(){ $(this).css({"display": "block"}); })
+			//
+			// $Shirt = $("<img src='assets/av/torso/shirt.png'>");
+			// $Shirt.css({'z-index': 3, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
+			// $Shirt.load(function(){ $(this).css({"display": "block"}); })
+			//
+			// $Legs = $("<img src='assets/av/legs/shorts.png'>");
+			// $Legs.css({'z-index': 3, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
+			// $Legs.load(function(){ $(this).css({"display": "block"}); })
+			//
+			// new ColourManager($Whole, "#eac086", ["ig", "ig"], name="template", random=false);
+			// new ColourManager($Hair, "#2d2a2a", ["ig", "ig"], name="hair");
+			// new ColourManager($Shirt, "#c21f1f", ["ig", "ig"], name="shirt", random=true);
+			// new ColourManager($Legs, "#c21f1f", ["ig", "ig"], name="legs", random=true);
 
-			$Shirt = $("<img src='assets/av/torso/shirt.png'>");
-			$Shirt.css({'z-index': 3, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
-			$Shirt.load(function(){ $(this).css({"display": "block"}); })
-
-			$Legs = $("<img src='assets/av/legs/shorts.png'>");
-			$Legs.css({'z-index': 3, 'position': 'absolute', 'bottom': 0, 'left': 0, "width": avwidth, "height": "auto", "display": "none"});
-			$Legs.load(function(){ $(this).css({"display": "block"}); })
-
-			new ColourManager($Whole, "#eac086", ["ig", "ig"], name="template", random=false);
-			new ColourManager($Hair, "#2d2a2a", ["ig", "ig"], name="hair");
-			new ColourManager($Shirt, "#c21f1f", ["ig", "ig"], name="shirt", random=true);
-			new ColourManager($Legs, "#c21f1f", ["ig", "ig"], name="legs", random=true);
-
-			$Stack = [$Whole, $Hair, $Shirt, $Legs];
-			$AvatarContainer.append($Stack);
+			// $Stack = [$Whole, $Hair, $Shirt, $Legs];
+			$AvatarContainer.append($AvImg);
 			$("#map #map-users").append($AvatarContainer);
 
 		},

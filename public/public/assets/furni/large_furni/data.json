@@ -1,0 +1,5182 @@
+[
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_armchair.gif",
+        "nameId": "area_armchair.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_beds.gif",
+        "nameId": "area_beds.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_bookshelves.gif",
+        "nameId": "area_bookshelves.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_chair.gif",
+        "nameId": "area_chair.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_coffeetable.gif",
+        "nameId": "area_coffeetable.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_corner.gif",
+        "nameId": "area_corner.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_desk.gif",
+        "nameId": "area_desk.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_divider.gif",
+        "nameId": "area_divider.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_gate.gif",
+        "nameId": "area_gate.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_safe.gif",
+        "nameId": "area_safe.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_sofa.gif",
+        "nameId": "area_sofa.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_stool.gif",
+        "nameId": "area_stool.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area/area_table.gif",
+        "nameId": "area_table.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_armchair_beige.gif",
+        "nameId": "area_armchair_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_chair_beige.gif",
+        "nameId": "area_chair_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_coffeetable_beige.gif",
+        "nameId": "area_coffeetable_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_corner_beige.gif",
+        "nameId": "area_corner_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_gate_beige.gif",
+        "nameId": "area_gate_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_safe_beige.gif",
+        "nameId": "area_safe_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_sofa_beige.gif",
+        "nameId": "area_sofa_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_stool_beige.gif",
+        "nameId": "area_stool_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Beige/area_table_beige.gif",
+        "nameId": "area_table_beige.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_armchair_black.gif",
+        "nameId": "area_armchair_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_chair_black.gif",
+        "nameId": "area_chair_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_coffeetable_black.gif",
+        "nameId": "area_coffeetable_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_corner_black.gif",
+        "nameId": "area_corner_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_gate_black.gif",
+        "nameId": "area_gate_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_safe_black.gif",
+        "nameId": "area_safe_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_sofa_black.gif",
+        "nameId": "area_sofa_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_stool_black.gif",
+        "nameId": "area_stool_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Black/area_table_black.gif",
+        "nameId": "area_table_black.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_armchair_blue.gif",
+        "nameId": "area_armchair_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_chair_blue.gif",
+        "nameId": "area_chair_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_coffeetable_blue.gif",
+        "nameId": "area_coffeetable_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_corner_blue.gif",
+        "nameId": "area_corner_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_gate_blue.gif",
+        "nameId": "area_gate_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_safe_blue.gif",
+        "nameId": "area_safe_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_sofa_blue.gif",
+        "nameId": "area_sofa_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_stool_blue.gif",
+        "nameId": "area_stool_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Blue/area_table_blue.gif",
+        "nameId": "area_table_blue.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_armchair_green.gif",
+        "nameId": "area_armchair_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_chair_green.gif",
+        "nameId": "area_chair_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_coffeetable_green.gif",
+        "nameId": "area_coffeetable_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_corner_green.gif",
+        "nameId": "area_corner_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_gate_green.gif",
+        "nameId": "area_gate_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_safe_green.gif",
+        "nameId": "area_safe_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_sofa_green.gif",
+        "nameId": "area_sofa_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_stool_green.gif",
+        "nameId": "area_stool_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Green/area_table_green.gif",
+        "nameId": "area_table_green.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_armchair_pink.gif",
+        "nameId": "area_armchair_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_chair_pink.gif",
+        "nameId": "area_chair_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_coffeetable_pink.gif",
+        "nameId": "area_coffeetable_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_corner_pink.gif",
+        "nameId": "area_corner_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_gate_pink.gif",
+        "nameId": "area_gate_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_safe_pink.gif",
+        "nameId": "area_safe_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_sofa_pink.gif",
+        "nameId": "area_sofa_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_stool_pink.gif",
+        "nameId": "area_stool_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Pink/area_table_pink.gif",
+        "nameId": "area_table_pink.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_armchair_red.gif",
+        "nameId": "area_armchair_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_chair_red.gif",
+        "nameId": "area_chair_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_coffeetable_red.gif",
+        "nameId": "area_coffeetable_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_corner_red.gif",
+        "nameId": "area_corner_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_gate_red.gif",
+        "nameId": "area_gate_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_safe_red.gif",
+        "nameId": "area_safe_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_sofa_red.gif",
+        "nameId": "area_sofa_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_stool_red.gif",
+        "nameId": "area_stool_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Red/area_table_red.gif",
+        "nameId": "area_table_red.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_armchair_white.gif",
+        "nameId": "area_armchair_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_chair_white.gif",
+        "nameId": "area_chair_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_coffeetable_white.gif",
+        "nameId": "area_coffeetable_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_corner_white.gif",
+        "nameId": "area_corner_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_gate_white.gif",
+        "nameId": "area_gate_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_safe_white.gif",
+        "nameId": "area_safe_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_sofa_white.gif",
+        "nameId": "area_sofa_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_stool_white.gif",
+        "nameId": "area_stool_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - White/area_table_white.gif",
+        "nameId": "area_table_white.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_armchair_yellow.gif",
+        "nameId": "area_armchair_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_chair_yellow.gif",
+        "nameId": "area_chair_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_coffeetable_yellow.gif",
+        "nameId": "area_coffeetable_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_corner_yellow.gif",
+        "nameId": "area_corner_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_gate_yellow.gif",
+        "nameId": "area_gate_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_safe_yellow.gif",
+        "nameId": "area_safe_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_sofa_yellow.gif",
+        "nameId": "area_sofa_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_stool_yellow.gif",
+        "nameId": "area_stool_yellow.gif"
+    },
+    {
+        "category": "Area",
+        "location": "large_furni/Area/Area - Yellow/area_table_yellow.gif",
+        "nameId": "area_table_yellow.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_candles.gif",
+        "nameId": "arabian_candles.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_chair.gif",
+        "nameId": "arabian_chair.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_divider.gif",
+        "nameId": "arabian_divider.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_fruit.gif",
+        "nameId": "arabian_fruit.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_pillow.gif",
+        "nameId": "arabian_pillow.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_round_table.gif",
+        "nameId": "arabian_round_table.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_rug.gif",
+        "nameId": "arabian_rug.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_snake.gif",
+        "nameId": "arabian_snake.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_sweets.gif",
+        "nameId": "arabian_sweets.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_swords.gif",
+        "nameId": "arabian_swords.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_table.gif",
+        "nameId": "arabian_table.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_teaset.gif",
+        "nameId": "arabian_teaset.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_tea_tray.gif",
+        "nameId": "arabian_tea_tray.gif"
+    },
+    {
+        "category": "Arabian",
+        "location": "large_furni/Cultural furni/Arabian/arabian_window.gif",
+        "nameId": "arabian_window.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_bookshelf.gif",
+        "nameId": "asian_bookshelf.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_calligraphy.gif",
+        "nameId": "asian_calligraphy.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_chair.gif",
+        "nameId": "asian_chair.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_corner.gif",
+        "nameId": "asian_corner.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_knots.gif",
+        "nameId": "asian_knots.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_lamp.gif",
+        "nameId": "asian_lamp.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_screen.gif",
+        "nameId": "asian_screen.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_sofa.gif",
+        "nameId": "asian_sofa.gif"
+    },
+    {
+        "category": "Asian",
+        "location": "large_furni/Cultural furni/Asian/asian_table.gif",
+        "nameId": "asian_table.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_bamboo.gif",
+        "nameId": "jp_bamboo.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_chabu_dai_ani.gif",
+        "nameId": "jp_chabu_dai_ani.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_drawer.gif",
+        "nameId": "jp_drawer.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_irori.gif",
+        "nameId": "jp_irori.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_katana_blue.gif",
+        "nameId": "jp_katana_blue.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_katana_green.gif",
+        "nameId": "jp_katana_green.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_katana_red.gif",
+        "nameId": "jp_katana_red.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_lantern.gif",
+        "nameId": "jp_lantern.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_ninja.gif",
+        "nameId": "jp_ninja.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_pillow.gif",
+        "nameId": "jp_pillow.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_sheet_1.gif",
+        "nameId": "jp_sheet_1.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_sheet_2.gif",
+        "nameId": "jp_sheet_2.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_sheet_3.gif",
+        "nameId": "jp_sheet_3.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_sushi.gif",
+        "nameId": "jp_sushi.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_tatami_large.gif",
+        "nameId": "jp_tatami_large.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_tatami_small.gif",
+        "nameId": "jp_tatami_small.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_tea.gif",
+        "nameId": "jp_tea.gif"
+    },
+    {
+        "category": "Japanese",
+        "location": "large_furni/Cultural furni/Japanese/jp_well.gif",
+        "nameId": "jp_well.gif"
+    },
+    {
+        "category": "Tampax",
+        "location": "large_furni/Cultural furni/Tampax/tampax_wall.png",
+        "nameId": "tampax_wall.png"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/noob_plant.gif",
+        "nameId": "noob_plant.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_bardisk.gif",
+        "nameId": "tiki_bardisk.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_djungelmatta.gif",
+        "nameId": "tiki_djungelmatta.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_fackla.gif",
+        "nameId": "tiki_fackla.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_fackla_animation.gif",
+        "nameId": "tiki_fackla_animation.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_fjarilar.gif",
+        "nameId": "tiki_fjarilar.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_horn.gif",
+        "nameId": "tiki_horn.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_pall.gif",
+        "nameId": "tiki_pall.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_parasoll_1.gif",
+        "nameId": "tiki_parasoll_1.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_parasoll_2.gif",
+        "nameId": "tiki_parasoll_2.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_sand.gif",
+        "nameId": "tiki_sand.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_skal_1.gif",
+        "nameId": "tiki_skal_1.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_skal_2.gif",
+        "nameId": "tiki_skal_2.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_skal_3.gif",
+        "nameId": "tiki_skal_3.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_skal_4.gif",
+        "nameId": "tiki_skal_4.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_skal_5.gif",
+        "nameId": "tiki_skal_5.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_staty.gif",
+        "nameId": "tiki_staty.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_staty_animation.gif",
+        "nameId": "tiki_staty_animation.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_surfboard.gif",
+        "nameId": "tiki_surfboard.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_toucan.gif",
+        "nameId": "tiki_toucan.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_vaggvaxt.gif",
+        "nameId": "tiki_vaggvaxt.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_vattenfall.gif",
+        "nameId": "tiki_vattenfall.gif"
+    },
+    {
+        "category": "Tiki",
+        "location": "large_furni/Cultural furni/Tiki/tiki_vattenfall_animation.gif",
+        "nameId": "tiki_vattenfall_animation.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_bar.gif",
+        "nameId": "exe_bar.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_chair_1.gif",
+        "nameId": "exe_chair_1.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_chair_2.gif",
+        "nameId": "exe_chair_2.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_corner.gif",
+        "nameId": "exe_corner.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_desk.gif",
+        "nameId": "exe_desk.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_floor.gif",
+        "nameId": "exe_floor.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_globe.gif",
+        "nameId": "exe_globe.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_plate.gif",
+        "nameId": "exe_plate.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_sofa.gif",
+        "nameId": "exe_sofa.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_table.gif",
+        "nameId": "exe_table.gif"
+    },
+    {
+        "category": "Executive",
+        "location": "large_furni/Executive/exe_tree.gif",
+        "nameId": "exe_tree.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Aqua/chair_aqua.gif",
+        "nameId": "chair_aqua.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Aqua/lamp_aqua.gif",
+        "nameId": "lamp_aqua.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Aqua/rug_aqua.gif",
+        "nameId": "rug_aqua.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Aqua/stool_aqua.gif",
+        "nameId": "stool_aqua.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Aqua/table_aqua.gif",
+        "nameId": "table_aqua.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - brown/chair_brown.gif",
+        "nameId": "chair_brown.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - brown/lamp_brown.gif",
+        "nameId": "lamp_brown.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - brown/rug_brown.gif",
+        "nameId": "rug_brown.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - brown/stool_brown.gif",
+        "nameId": "stool_brown.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - brown/table_brown.gif",
+        "nameId": "table_brown.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Lime/chair_lime.gif",
+        "nameId": "chair_lime.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Lime/lamp_lime.gif",
+        "nameId": "lamp_lime.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Lime/rug_lime.gif",
+        "nameId": "rug_lime.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Lime/stool_lime.gif",
+        "nameId": "stool_lime.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Lime/table_lime.gif",
+        "nameId": "table_lime.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Orange/lamp_orange.gif",
+        "nameId": "lamp_orange.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Orange/rug_orange.gif",
+        "nameId": "rug_orange.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Orange/stool_orange.gif",
+        "nameId": "stool_orange.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Orange/table_orange.gif",
+        "nameId": "table_orange.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Pink/lamp_pink.gif",
+        "nameId": "lamp_pink.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Pink/rug_pink.gif",
+        "nameId": "rug_pink.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Pink/stool_pink.gif",
+        "nameId": "stool_pink.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Pink/table_pink.gif",
+        "nameId": "table_pink.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Purple/chair_purple.gif",
+        "nameId": "chair_purple.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Purple/lamp_purple.gif",
+        "nameId": "lamp_purple.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Purple/rug_purple.gif",
+        "nameId": "rug_purple.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Purple/stool_purple.gif",
+        "nameId": "stool_purple.gif"
+    },
+    {
+        "category": "First entrance",
+        "location": "large_furni/First entrance/Noob - Purple/table_purple.gif",
+        "nameId": "table_purple.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Aqua/glass_bench_aqua.gif",
+        "nameId": "glass_bench_aqua.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Aqua/glass_chair_aqua.gif",
+        "nameId": "glass_chair_aqua.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Aqua/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Aqua/glass_sidetable_aqua.gif",
+        "nameId": "glass_sidetable_aqua.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Aqua/glass_table_aqua.gif",
+        "nameId": "glass_table_aqua.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Beige/glass_bench_beige.gif",
+        "nameId": "glass_bench_beige.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Beige/glass_chair_beige.gif",
+        "nameId": "glass_chair_beige.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Beige/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Beige/glass_sidetable_beige.gif",
+        "nameId": "glass_sidetable_beige.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Beige/glass_table_beige.gif",
+        "nameId": "glass_table_beige.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Black/glass_bench_black.gif",
+        "nameId": "glass_bench_black.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Black/glass_chair_black.gif",
+        "nameId": "glass_chair_black.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Black/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Black/glass_sidetable_black.gif",
+        "nameId": "glass_sidetable_black.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Black/glass_table_black.gif",
+        "nameId": "glass_table_black.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Blue/glass_bench_blue.gif",
+        "nameId": "glass_bench_blue.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Blue/glass_chair_blue.gif",
+        "nameId": "glass_chair_blue.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Blue/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Blue/glass_sidetable_blue.gif",
+        "nameId": "glass_sidetable_blue.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Blue/glass_table_blue.gif",
+        "nameId": "glass_table_blue.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Green/glass_bench_green.gif",
+        "nameId": "glass_bench_green.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Green/glass_chair_green.gif",
+        "nameId": "glass_chair_green.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Green/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Green/glass_sidetable_green.gif",
+        "nameId": "glass_sidetable_green.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Green/glass_table_green.gif",
+        "nameId": "glass_table_green.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Grey/glass_bench_grey.gif",
+        "nameId": "glass_bench_grey.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Grey/glass_chair_grey.gif",
+        "nameId": "glass_chair_grey.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Grey/glass_sidetable_grey.gif",
+        "nameId": "glass_sidetable_grey.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Grey/glass_table_grey.gif",
+        "nameId": "glass_table_grey.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Pink/glass_bench_pink.gif",
+        "nameId": "glass_bench_pink.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Pink/glass_chair_pink.gif",
+        "nameId": "glass_chair_pink.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Pink/glass_sidetable_pink.gif",
+        "nameId": "glass_sidetable_pink.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Pink/glass_table_pink.gif",
+        "nameId": "glass_table_pink.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Red/glass_bench_red.gif",
+        "nameId": "glass_bench_red.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Red/glass_chair_red.gif",
+        "nameId": "glass_chair_red.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Red/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Red/glass_sidetable_red.gif",
+        "nameId": "glass_sidetable_red.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Red/glass_table_red.gif",
+        "nameId": "glass_table_red.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Yellow/glass_bench_yellow.gif",
+        "nameId": "glass_bench_yellow.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Yellow/glass_chair_yellow.gif",
+        "nameId": "glass_chair_yellow.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Yellow/glass_shelves.gif",
+        "nameId": "glass_shelves.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Yellow/glass_sidetable_yellow.gif",
+        "nameId": "glass_sidetable_yellow.gif"
+    },
+    {
+        "category": "Glass",
+        "location": "large_furni/Glass/Glass - Yellow/glass_table_yellow.gif",
+        "nameId": "glass_table_yellow.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/candles.gif",
+        "nameId": "candles.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/fence.gif",
+        "nameId": "fence.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/floor.gif",
+        "nameId": "floor.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/fountain.gif",
+        "nameId": "fountain.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/gate.gif",
+        "nameId": "gate.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/hatch.gif",
+        "nameId": "hatch.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/table.gif",
+        "nameId": "table.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic/torch.gif",
+        "nameId": "torch.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Black/armchair_black.gif",
+        "nameId": "armchair_black.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Black/chair_black.gif",
+        "nameId": "chair_black.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Black/sofa_black.gif",
+        "nameId": "sofa_black.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Blue/armchair_blue.gif",
+        "nameId": "armchair_blue.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Blue/chair_blue.gif",
+        "nameId": "chair_blue.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Blue/sofa_blue.gif",
+        "nameId": "sofa_blue.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Green/armchair_green.gif",
+        "nameId": "armchair_green.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Green/chair_green.gif",
+        "nameId": "chair_green.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Green/sofa_green.gif",
+        "nameId": "sofa_green.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Pink/armchair_pink.gif",
+        "nameId": "armchair_pink.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Pink/chair_pink.gif",
+        "nameId": "chair_pink.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Pink/sofa_pink.gif",
+        "nameId": "sofa_pink.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Red/armchair_red.gif",
+        "nameId": "armchair_red.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Red/chair_red.gif",
+        "nameId": "chair_red.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Red/sofa_red.gif",
+        "nameId": "sofa_red.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Yellow/armchair_yellow.gif",
+        "nameId": "armchair_yellow.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Yellow/chair_yellow.gif",
+        "nameId": "chair_yellow.gif"
+    },
+    {
+        "category": "Gothic",
+        "location": "large_furni/Gothic/Gothic - Yellow/sofa_yellow.gif",
+        "nameId": "sofa_yellow.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_barrel.gif",
+        "nameId": "grunge_barrel.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_candle.gif",
+        "nameId": "grunge_candle.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_chair.gif",
+        "nameId": "grunge_chair.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_mattress.gif",
+        "nameId": "grunge_mattress.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_radiator.gif",
+        "nameId": "grunge_radiator.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_shelves.gif",
+        "nameId": "grunge_shelves.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_sofa.gif",
+        "nameId": "grunge_sofa.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_stopsign.gif",
+        "nameId": "grunge_stopsign.gif"
+    },
+    {
+        "category": "Grunge",
+        "location": "large_furni/Grunge/grunge_table.gif",
+        "nameId": "grunge_table.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_chair.gif",
+        "nameId": "hw_chair.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_chair_2.gif",
+        "nameId": "hw_chair_2.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_mirror.gif",
+        "nameId": "hw_mirror.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_rope.gif",
+        "nameId": "hw_rope.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_spotlight.gif",
+        "nameId": "hw_spotlight.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_tile_1.gif",
+        "nameId": "hw_tile_1.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_tile_2.gif",
+        "nameId": "hw_tile_2.gif"
+    },
+    {
+        "category": "Habbowood",
+        "location": "large_furni/Habbowood/hw_tile_3.gif",
+        "nameId": "hw_tile_3.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_10_new.gif",
+        "nameId": "iced_10_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_11_new.gif",
+        "nameId": "iced_11_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_12_new.gif",
+        "nameId": "iced_12_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_1_new.gif",
+        "nameId": "iced_1_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_2_new.gif",
+        "nameId": "iced_2_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_3_new.gif",
+        "nameId": "iced_3_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_4_new.gif",
+        "nameId": "iced_4_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_5_new.gif",
+        "nameId": "iced_5_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_6_new.gif",
+        "nameId": "iced_6_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_7_new.gif",
+        "nameId": "iced_7_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_8_new.gif",
+        "nameId": "iced_8_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced/iced_9_new.gif",
+        "nameId": "iced_9_new.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_10_aqua.gif",
+        "nameId": "iced_10_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_11_aqua.gif",
+        "nameId": "iced_11_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_12_aqua.gif",
+        "nameId": "iced_12_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_1_aqua.gif",
+        "nameId": "iced_1_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_2_aqua.gif",
+        "nameId": "iced_2_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_3_aqua.gif",
+        "nameId": "iced_3_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_4_aqua.gif",
+        "nameId": "iced_4_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_5_aqua.gif",
+        "nameId": "iced_5_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_6_aqua.gif",
+        "nameId": "iced_6_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_7_aqua.gif",
+        "nameId": "iced_7_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_8_aqua.gif",
+        "nameId": "iced_8_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Aqua/iced_9_aqua.gif",
+        "nameId": "iced_9_aqua.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_10_black.gif",
+        "nameId": "iced_10_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_11_black.gif",
+        "nameId": "iced_11_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_12_black.gif",
+        "nameId": "iced_12_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_1_black.gif",
+        "nameId": "iced_1_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_2_black.gif",
+        "nameId": "iced_2_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_3_black.gif",
+        "nameId": "iced_3_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_4_black.gif",
+        "nameId": "iced_4_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_5_black.gif",
+        "nameId": "iced_5_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_6_black.gif",
+        "nameId": "iced_6_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_7_black.gif",
+        "nameId": "iced_7_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_8_black.gif",
+        "nameId": "iced_8_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Black/iced_9_black.gif",
+        "nameId": "iced_9_black.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_10_blue.gif",
+        "nameId": "iced_10_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_11_blue.gif",
+        "nameId": "iced_11_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_12_blue.gif",
+        "nameId": "iced_12_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_1_blue.gif",
+        "nameId": "iced_1_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_2_blue.gif",
+        "nameId": "iced_2_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_3_blue.gif",
+        "nameId": "iced_3_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_4_blue.gif",
+        "nameId": "iced_4_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_5_blue.gif",
+        "nameId": "iced_5_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_6_blue.gif",
+        "nameId": "iced_6_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_7_blue.gif",
+        "nameId": "iced_7_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_8_blue.gif",
+        "nameId": "iced_8_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Blue/iced_9_blue.gif",
+        "nameId": "iced_9_blue.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_10_green.gif",
+        "nameId": "iced_10_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_11_green.gif",
+        "nameId": "iced_11_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_12_green.gif",
+        "nameId": "iced_12_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_1_green.gif",
+        "nameId": "iced_1_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_2_green.gif",
+        "nameId": "iced_2_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_3_green.gif",
+        "nameId": "iced_3_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_4_green.gif",
+        "nameId": "iced_4_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_5_green.gif",
+        "nameId": "iced_5_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_6_green.gif",
+        "nameId": "iced_6_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_7_green.gif",
+        "nameId": "iced_7_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_8_green.gif",
+        "nameId": "iced_8_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Green/iced_9_green.gif",
+        "nameId": "iced_9_green.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_10_pink.gif",
+        "nameId": "iced_10_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_11_pink.gif",
+        "nameId": "iced_11_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_12_pink.gif",
+        "nameId": "iced_12_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_1_pink.gif",
+        "nameId": "iced_1_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_2_pink.gif",
+        "nameId": "iced_2_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_3_pink.gif",
+        "nameId": "iced_3_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_4_pink.gif",
+        "nameId": "iced_4_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_5_pink.gif",
+        "nameId": "iced_5_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_6_pink.gif",
+        "nameId": "iced_6_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_7_pink.gif",
+        "nameId": "iced_7_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_8_pink.gif",
+        "nameId": "iced_8_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Pink/iced_9_pink.gif",
+        "nameId": "iced_9_pink.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_10_red.gif",
+        "nameId": "iced_10_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_11_red.gif",
+        "nameId": "iced_11_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_1_red.gif",
+        "nameId": "iced_1_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_2_red.gif",
+        "nameId": "iced_2_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_3_red.gif",
+        "nameId": "iced_3_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_4_red.gif",
+        "nameId": "iced_4_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_5_red.gif",
+        "nameId": "iced_5_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_6_red.gif",
+        "nameId": "iced_6_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_7_red.gif",
+        "nameId": "iced_7_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_8_red.gif",
+        "nameId": "iced_8_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Red/iced_9_red.gif",
+        "nameId": "iced_9_red.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_10_white.gif",
+        "nameId": "iced_10_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_11_white.gif",
+        "nameId": "iced_11_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_12_white.gif",
+        "nameId": "iced_12_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_1_white.gif",
+        "nameId": "iced_1_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_2_white.gif",
+        "nameId": "iced_2_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_3_white.gif",
+        "nameId": "iced_3_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_4_white.gif",
+        "nameId": "iced_4_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_5_white.gif",
+        "nameId": "iced_5_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_6_white.gif",
+        "nameId": "iced_6_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_7_white.gif",
+        "nameId": "iced_7_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_8_white.gif",
+        "nameId": "iced_8_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - White/iced_9_white.gif",
+        "nameId": "iced_9_white.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_10_yellow.gif",
+        "nameId": "iced_10_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_11_yellow.gif",
+        "nameId": "iced_11_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_12_yellow.gif",
+        "nameId": "iced_12_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_1_yellow.gif",
+        "nameId": "iced_1_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_2_yellow.gif",
+        "nameId": "iced_2_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_3_yellow.gif",
+        "nameId": "iced_3_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_4_yellow.gif",
+        "nameId": "iced_4_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_5_yellow.gif",
+        "nameId": "iced_5_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_6_yellow.gif",
+        "nameId": "iced_6_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_7_yellow.gif",
+        "nameId": "iced_7_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_8_yellow.gif",
+        "nameId": "iced_8_yellow.gif"
+    },
+    {
+        "category": "Iced",
+        "location": "large_furni/Iced/Iced - Yellow/iced_9_yellow.gif",
+        "nameId": "iced_9_yellow.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_bardesk.gif",
+        "nameId": "lodge_bardesk.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_barrel.gif",
+        "nameId": "lodge_barrel.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_beds.gif",
+        "nameId": "lodge_beds.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_bench.gif",
+        "nameId": "lodge_bench.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_bookshelf.gif",
+        "nameId": "lodge_bookshelf.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_candle.gif",
+        "nameId": "lodge_candle.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_corner.gif",
+        "nameId": "lodge_corner.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_divider.gif",
+        "nameId": "lodge_divider.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_fireplace.gif",
+        "nameId": "lodge_fireplace.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_gate.gif",
+        "nameId": "lodge_gate.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_lamp.gif",
+        "nameId": "lodge_lamp.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_minibar.gif",
+        "nameId": "lodge_minibar.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_stool.gif",
+        "nameId": "lodge_stool.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_table_1.gif",
+        "nameId": "lodge_table_1.gif"
+    },
+    {
+        "category": "Lodge",
+        "location": "large_furni/Lodge/lodge_table_2.gif",
+        "nameId": "lodge_table_2.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_bar.gif",
+        "nameId": "mode_bar.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_bed_1.gif",
+        "nameId": "mode_bed_1.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_bed_2.gif",
+        "nameId": "mode_bed_2.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_bookshelf.gif",
+        "nameId": "mode_bookshelf.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_chair.gif",
+        "nameId": "mode_chair.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_corner.gif",
+        "nameId": "mode_corner.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_fireplace.gif",
+        "nameId": "mode_fireplace.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_gate.gif",
+        "nameId": "mode_gate.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_minibar.gif",
+        "nameId": "mode_minibar.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_sofa.gif",
+        "nameId": "mode_sofa.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_tablechair.gif",
+        "nameId": "mode_tablechair.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_table_1.gif",
+        "nameId": "mode_table_1.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_table_2.gif",
+        "nameId": "mode_table_2.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_table_3.gif",
+        "nameId": "mode_table_3.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_table_4.gif",
+        "nameId": "mode_table_4.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode/mode_table_5.gif",
+        "nameId": "mode_table_5.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_bar_beige.gif",
+        "nameId": "mode_bar_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_bed_1_beige.gif",
+        "nameId": "mode_bed_1_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_bed_2_beige.gif",
+        "nameId": "mode_bed_2_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_chair_beige.gif",
+        "nameId": "mode_chair_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_corner_beige.gif",
+        "nameId": "mode_corner_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_gate_beige.gif",
+        "nameId": "mode_gate_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Beige/mode_sofa_beige.gif",
+        "nameId": "mode_sofa_beige.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_bar_black.gif",
+        "nameId": "mode_bar_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_bed_1_black.gif",
+        "nameId": "mode_bed_1_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_bed_2_black.gif",
+        "nameId": "mode_bed_2_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_chair_black.gif",
+        "nameId": "mode_chair_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_corner_black.gif",
+        "nameId": "mode_corner_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_gate_black.gif",
+        "nameId": "mode_gate_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Black/mode_sofa_black.gif",
+        "nameId": "mode_sofa_black.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_bar_blue.gif",
+        "nameId": "mode_bar_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_bed_1_blue.gif",
+        "nameId": "mode_bed_1_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_bed_2_blue.gif",
+        "nameId": "mode_bed_2_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_chair_blue.gif",
+        "nameId": "mode_chair_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_corner_blue.gif",
+        "nameId": "mode_corner_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_gate_blue.gif",
+        "nameId": "mode_gate_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Blue/mode_sofa_blue.gif",
+        "nameId": "mode_sofa_blue.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_bar_green.gif",
+        "nameId": "mode_bar_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_bed_1_green.gif",
+        "nameId": "mode_bed_1_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_bed_2_green.gif",
+        "nameId": "mode_bed_2_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_chair_green.gif",
+        "nameId": "mode_chair_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_corner_green.gif",
+        "nameId": "mode_corner_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_gate_green.gif",
+        "nameId": "mode_gate_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Green/mode_sofa_green.gif",
+        "nameId": "mode_sofa_green.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_bar_pink.gif",
+        "nameId": "mode_bar_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_bed_1_pink.gif",
+        "nameId": "mode_bed_1_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_bed_2_pink.gif",
+        "nameId": "mode_bed_2_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_chair_pink.gif",
+        "nameId": "mode_chair_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_corner_pink.gif",
+        "nameId": "mode_corner_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_gate_pink.gif",
+        "nameId": "mode_gate_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Pink/mode_sofa_pink.gif",
+        "nameId": "mode_sofa_pink.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_bar_red.gif",
+        "nameId": "mode_bar_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_bed_1_red.gif",
+        "nameId": "mode_bed_1_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_bed_2_red.gif",
+        "nameId": "mode_bed_2_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_chair_red.gif",
+        "nameId": "mode_chair_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_corner_red.gif",
+        "nameId": "mode_corner_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_gate_red.gif",
+        "nameId": "mode_gate_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Red/mode_sofa_red.gif",
+        "nameId": "mode_sofa_red.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_bar_white.gif",
+        "nameId": "mode_bar_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_bed_1_white.gif",
+        "nameId": "mode_bed_1_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_bed_2_white.gif",
+        "nameId": "mode_bed_2_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_chair_white.gif",
+        "nameId": "mode_chair_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_corner_white.gif",
+        "nameId": "mode_corner_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_gate_white.gif",
+        "nameId": "mode_gate_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - White/mode_sofa_white.gif",
+        "nameId": "mode_sofa_white.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_bar_yellow.gif",
+        "nameId": "mode_bar_yellow.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_bed_1_yellow.gif",
+        "nameId": "mode_bed_1_yellow.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_bed_2_yellow.gif",
+        "nameId": "mode_bed_2_yellow.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_chair_yellow.gif",
+        "nameId": "mode_chair_yellow.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_corner_yellow.gif",
+        "nameId": "mode_corner_yellow.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_gate_yellow.gif",
+        "nameId": "mode_gate_yellow.gif"
+    },
+    {
+        "category": "Mode",
+        "location": "large_furni/Mode/Mode - Yellow/mode_sofa_yellow.gif",
+        "nameId": "mode_sofa_yellow.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/beds_beta.gif",
+        "nameId": "beds_beta.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/cake.gif",
+        "nameId": "cake.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/combi_1.gif",
+        "nameId": "combi_1.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/combi_2.gif",
+        "nameId": "combi_2.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/combi_3.gif",
+        "nameId": "combi_3.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/pet_acc.gif",
+        "nameId": "pet_acc.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/port_closet.gif",
+        "nameId": "port_closet.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/port_loo.gif",
+        "nameId": "port_loo.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/port_phone.gif",
+        "nameId": "port_phone.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/presents.gif",
+        "nameId": "presents.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/tele_door.gif",
+        "nameId": "tele_door.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/tv_1.gif",
+        "nameId": "tv_1.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/tv_2.gif",
+        "nameId": "tv_2.gif"
+    },
+    {
+        "category": "Accesories",
+        "location": "large_furni/Other/Accesories/tv_3.gif",
+        "nameId": "tv_3.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/bath.gif",
+        "nameId": "bath.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/duckie.gif",
+        "nameId": "duckie.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/sink.gif",
+        "nameId": "sink.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/tiles.gif",
+        "nameId": "tiles.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/toilet_blue.gif",
+        "nameId": "toilet_blue.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/toilet_pink.gif",
+        "nameId": "toilet_pink.gif"
+    },
+    {
+        "category": "Bathroom",
+        "location": "large_furni/Other/Bathroom/toilet_yellow.gif",
+        "nameId": "toilet_yellow.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_1.gif",
+        "nameId": "plant_1.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_2.gif",
+        "nameId": "plant_2.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_3.gif",
+        "nameId": "plant_3.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_4.gif",
+        "nameId": "plant_4.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_5.gif",
+        "nameId": "plant_5.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_6.gif",
+        "nameId": "plant_6.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_7.gif",
+        "nameId": "plant_7.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_8.gif",
+        "nameId": "plant_8.gif"
+    },
+    {
+        "category": "Plants",
+        "location": "large_furni/Other/Plants/plant_9.gif",
+        "nameId": "plant_9.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/bear_rug_blue.gif",
+        "nameId": "bear_rug_blue.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/bear_rug_mint.gif",
+        "nameId": "bear_rug_mint.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/bear_rug_pink.gif",
+        "nameId": "bear_rug_pink.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/bear_rug_white.gif",
+        "nameId": "bear_rug_white.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/bear_rug_yellow.gif",
+        "nameId": "bear_rug_yellow.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/mats.gif",
+        "nameId": "mats.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/rugs_1.gif",
+        "nameId": "rugs_1.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/rugs_2.gif",
+        "nameId": "rugs_2.gif"
+    },
+    {
+        "category": "Rugs",
+        "location": "large_furni/Other/Rugs/singles.gif",
+        "nameId": "singles.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_ball.gif",
+        "nameId": "trophy_ball.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_cup.gif",
+        "nameId": "trophy_cup.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_cup_2.gif",
+        "nameId": "trophy_cup_2.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_duck.gif",
+        "nameId": "trophy_duck.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_fish.gif",
+        "nameId": "trophy_fish.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_friends.gif",
+        "nameId": "trophy_friends.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_habbo.gif",
+        "nameId": "trophy_habbo.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_jenkki.gif",
+        "nameId": "trophy_jenkki.gif"
+    },
+    {
+        "category": "Trophies",
+        "location": "large_furni/Other/Trophies/trophy_oneguy.gif",
+        "nameId": "trophy_oneguy.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/small_windows.gif",
+        "nameId": "small_windows.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/windows.png",
+        "nameId": "windows.png"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_01.gif",
+        "nameId": "window_01.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_02.gif",
+        "nameId": "window_02.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_03.gif",
+        "nameId": "window_03.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_04.gif",
+        "nameId": "window_04.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_05.gif",
+        "nameId": "window_05.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_06.gif",
+        "nameId": "window_06.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_07.gif",
+        "nameId": "window_07.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_08.gif",
+        "nameId": "window_08.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_09.gif",
+        "nameId": "window_09.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_10.gif",
+        "nameId": "window_10.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_11.gif",
+        "nameId": "window_11.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_12.gif",
+        "nameId": "window_12.gif"
+    },
+    {
+        "category": "Windows",
+        "location": "large_furni/Other/Windows/window_13.gif",
+        "nameId": "window_13.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Aqua/chair_aqua.gif",
+        "nameId": "chair_aqua.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Aqua/pod_aqua.gif",
+        "nameId": "pod_aqua.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Aqua/rectangle_aqua.gif",
+        "nameId": "rectangle_aqua.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Aqua/round_aqua.gif",
+        "nameId": "round_aqua.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Aqua/small_aqua.gif",
+        "nameId": "small_aqua.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Aqua/square_aqua.gif",
+        "nameId": "square_aqua.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Beige/chair_beige.gif",
+        "nameId": "chair_beige.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Beige/pod_beige.gif",
+        "nameId": "pod_beige.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Beige/rectangle_beige.gif",
+        "nameId": "rectangle_beige.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Beige/round_beige.gif",
+        "nameId": "round_beige.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Beige/small_beige.gif",
+        "nameId": "small_beige.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Beige/square_beige.gif",
+        "nameId": "square_beige.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Blue/chair_blue.gif",
+        "nameId": "chair_blue.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Blue/pod_blue.gif",
+        "nameId": "pod_blue.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Blue/rectangle_blue.gif",
+        "nameId": "rectangle_blue.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Blue/round_blue.gif",
+        "nameId": "round_blue.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Blue/small_blue.gif",
+        "nameId": "small_blue.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Blue/square_blue.gif",
+        "nameId": "square_blue.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Brown/chair_brown.gif",
+        "nameId": "chair_brown.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Brown/pod_brown.gif",
+        "nameId": "pod_brown.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Brown/rectangle_brown.gif",
+        "nameId": "rectangle_brown.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Brown/round_brown.gif",
+        "nameId": "round_brown.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Brown/small_brown.gif",
+        "nameId": "small_brown.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Brown/square_brown.gif",
+        "nameId": "square_brown.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Green/chair_green.gif",
+        "nameId": "chair_green.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Green/pod_green.gif",
+        "nameId": "pod_green.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Green/rectangle_green.gif",
+        "nameId": "rectangle_green.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Green/round_green.gif",
+        "nameId": "round_green.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Green/small_green.gif",
+        "nameId": "small_green.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Green/square_green.gif",
+        "nameId": "square_green.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Ocean/chair_ocean.gif",
+        "nameId": "chair_ocean.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Ocean/pod_ocean.gif",
+        "nameId": "pod_ocean.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Ocean/rectangle_ocean.gif",
+        "nameId": "rectangle_ocean.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Ocean/round_ocean.gif",
+        "nameId": "round_ocean.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Ocean/small_ocean.gif",
+        "nameId": "small_ocean.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Ocean/square_ocean.gif",
+        "nameId": "square_ocean.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Orange/chair_orange.gif",
+        "nameId": "chair_orange.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Orange/pod_orange.gif",
+        "nameId": "pod_orange.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Orange/rectangle_orange.gif",
+        "nameId": "rectangle_orange.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Orange/round_orange.gif",
+        "nameId": "round_orange.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Orange/small_orange.gif",
+        "nameId": "small_orange.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Orange/square_orange.gif",
+        "nameId": "square_orange.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Pink/chair_pink.gif",
+        "nameId": "chair_pink.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Pink/pod_pink.gif",
+        "nameId": "pod_pink.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Pink/rectangle_pink.gif",
+        "nameId": "rectangle_pink.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Pink/round_pink.gif",
+        "nameId": "round_pink.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Pink/small_pink.gif",
+        "nameId": "small_pink.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Pink/square_pink.gif",
+        "nameId": "square_pink.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Purple/chair_purple.gif",
+        "nameId": "chair_purple.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Purple/pod_purple.gif",
+        "nameId": "pod_purple.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Purple/rectangle_purple.gif",
+        "nameId": "rectangle_purple.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Purple/round_purple.gif",
+        "nameId": "round_purple.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Purple/small_purple.gif",
+        "nameId": "small_purple.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Purple/square_purple.gif",
+        "nameId": "square_purple.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Red/chair_red.gif",
+        "nameId": "chair_red.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Red/pod_red.gif",
+        "nameId": "pod_red.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Red/rectangle_red.gif",
+        "nameId": "rectangle_red.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Red/round_red.gif",
+        "nameId": "round_red.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Red/small_red.gif",
+        "nameId": "small_red.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Red/square_red.gif",
+        "nameId": "square_red.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - White/chair_white.gif",
+        "nameId": "chair_white.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - White/pod_white.gif",
+        "nameId": "pod_white.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - White/rectangle_white.gif",
+        "nameId": "rectangle_white.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - White/round_white.gif",
+        "nameId": "round_white.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - White/small_white.gif",
+        "nameId": "small_white.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - White/square_white.gif",
+        "nameId": "square_white.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Yellow/chair_yellow.gif",
+        "nameId": "chair_yellow.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Yellow/pod_yellow.gif",
+        "nameId": "pod_yellow.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Yellow/rectangle_yellow.gif",
+        "nameId": "rectangle_yellow.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Yellow/round_yellow.gif",
+        "nameId": "round_yellow.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Yellow/small_yellow.gif",
+        "nameId": "small_yellow.gif"
+    },
+    {
+        "category": "Plasto",
+        "location": "large_furni/Plasto/Plasto - Yellow/square_yellow.gif",
+        "nameId": "square_yellow.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_1.gif",
+        "nameId": "flag_1.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_10.gif",
+        "nameId": "flag_10.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_11.gif",
+        "nameId": "flag_11.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_12.gif",
+        "nameId": "flag_12.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_13.gif",
+        "nameId": "flag_13.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_14.gif",
+        "nameId": "flag_14.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_15.gif",
+        "nameId": "flag_15.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_16.gif",
+        "nameId": "flag_16.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_17.gif",
+        "nameId": "flag_17.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_18.gif",
+        "nameId": "flag_18.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_19.gif",
+        "nameId": "flag_19.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_2.gif",
+        "nameId": "flag_2.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_20.gif",
+        "nameId": "flag_20.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_21.gif",
+        "nameId": "flag_21.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_22.gif",
+        "nameId": "flag_22.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_23.gif",
+        "nameId": "flag_23.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_3.gif",
+        "nameId": "flag_3.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_4.gif",
+        "nameId": "flag_4.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_5.gif",
+        "nameId": "flag_5.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_6.gif",
+        "nameId": "flag_6.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_7.gif",
+        "nameId": "flag_7.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_8.gif",
+        "nameId": "flag_8.gif"
+    },
+    {
+        "category": "Flags",
+        "location": "large_furni/Posters and flags/Flags/flag_9.gif",
+        "nameId": "flag_9.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p1.gif",
+        "nameId": "gallery_p1.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p10.gif",
+        "nameId": "gallery_p10.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p2.gif",
+        "nameId": "gallery_p2.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p3.gif",
+        "nameId": "gallery_p3.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p4.gif",
+        "nameId": "gallery_p4.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p5.gif",
+        "nameId": "gallery_p5.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p6.gif",
+        "nameId": "gallery_p6.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p7.gif",
+        "nameId": "gallery_p7.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p8.gif",
+        "nameId": "gallery_p8.gif"
+    },
+    {
+        "category": "Pop posters",
+        "location": "large_furni/Posters and flags/Pop posters/gallery_p9.gif",
+        "nameId": "gallery_p9.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_1.gif",
+        "nameId": "gallery_1.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_2.gif",
+        "nameId": "gallery_2.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n1.gif",
+        "nameId": "gallery_n1.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n10.gif",
+        "nameId": "gallery_n10.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n11.gif",
+        "nameId": "gallery_n11.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n12.gif",
+        "nameId": "gallery_n12.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n13.gif",
+        "nameId": "gallery_n13.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n14.gif",
+        "nameId": "gallery_n14.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n15.gif",
+        "nameId": "gallery_n15.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n16.gif",
+        "nameId": "gallery_n16.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n17.gif",
+        "nameId": "gallery_n17.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n18.gif",
+        "nameId": "gallery_n18.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n19.gif",
+        "nameId": "gallery_n19.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n2.gif",
+        "nameId": "gallery_n2.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n20.gif",
+        "nameId": "gallery_n20.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n3.gif",
+        "nameId": "gallery_n3.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n4.gif",
+        "nameId": "gallery_n4.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n5.gif",
+        "nameId": "gallery_n5.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n6.gif",
+        "nameId": "gallery_n6.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n7.gif",
+        "nameId": "gallery_n7.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n8.gif",
+        "nameId": "gallery_n8.gif"
+    },
+    {
+        "category": "Posters",
+        "location": "large_furni/Posters and flags/Posters/gallery_n9.gif",
+        "nameId": "gallery_n9.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/anchor.gif",
+        "nameId": "anchor.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/buoy.gif",
+        "nameId": "buoy.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_3.gif",
+        "nameId": "gallery_3.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_4.gif",
+        "nameId": "gallery_4.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_5.gif",
+        "nameId": "gallery_5.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_6.gif",
+        "nameId": "gallery_6.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_7.gif",
+        "nameId": "gallery_7.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r1.gif",
+        "nameId": "gallery_r1.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r11.gif",
+        "nameId": "gallery_r11.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r2.gif",
+        "nameId": "gallery_r2.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r3.gif",
+        "nameId": "gallery_r3.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r4.gif",
+        "nameId": "gallery_r4.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r5.gif",
+        "nameId": "gallery_r5.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r6.gif",
+        "nameId": "gallery_r6.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r7.gif",
+        "nameId": "gallery_r7.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r8.gif",
+        "nameId": "gallery_r8.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/gallery_r9.gif",
+        "nameId": "gallery_r9.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/guitar_skull.gif",
+        "nameId": "guitar_skull.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/guitar_v.gif",
+        "nameId": "guitar_v.gif"
+    },
+    {
+        "category": "Rare posters",
+        "location": "large_furni/Posters and flags/Rare posters/porthole.gif",
+        "nameId": "porthole.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_bed1_aqua.gif",
+        "nameId": "pura_bed1_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_bed1_white.gif",
+        "nameId": "pura_bed1_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_bed2_aqua.gif",
+        "nameId": "pura_bed2_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_bed2_white.gif",
+        "nameId": "pura_bed2_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_bookshelf.gif",
+        "nameId": "pura_bookshelf.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_bookshelf_new.gif",
+        "nameId": "pura_bookshelf_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_fridge.gif",
+        "nameId": "pura_fridge.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_fridge_new.gif",
+        "nameId": "pura_fridge_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_lamp.gif",
+        "nameId": "pura_lamp.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_lamp_new.gif",
+        "nameId": "pura_lamp_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura/pura_minibar.gif",
+        "nameId": "pura_minibar.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_bed1_aqua_new.gif",
+        "nameId": "pura_bed1_aqua_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_bed2_aqua_new.gif",
+        "nameId": "pura_bed2_aqua_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_eggchair_aqua.gif",
+        "nameId": "pura_eggchair_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_module1_aqua.gif",
+        "nameId": "pura_module1_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_module2_aqua.gif",
+        "nameId": "pura_module2_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_module3_aqua.gif",
+        "nameId": "pura_module3_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_module4_aqua.gif",
+        "nameId": "pura_module4_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Aqua/pura_module5_aqua.gif",
+        "nameId": "pura_module5_aqua.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_bed1_beige.gif",
+        "nameId": "pura_bed1_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_bed2_beige.gif",
+        "nameId": "pura_bed2_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_eggchair_beige.gif",
+        "nameId": "pura_eggchair_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_module1_beige.gif",
+        "nameId": "pura_module1_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_module2_beige.gif",
+        "nameId": "pura_module2_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_module3_beige.gif",
+        "nameId": "pura_module3_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_module4_beige.gif",
+        "nameId": "pura_module4_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Beige/pura_module5_beige.gif",
+        "nameId": "pura_module5_beige.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_bed1_black.gif",
+        "nameId": "pura_bed1_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_bed2_black.gif",
+        "nameId": "pura_bed2_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_eggchair_black.gif",
+        "nameId": "pura_eggchair_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_module1_black.gif",
+        "nameId": "pura_module1_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_module2_black.gif",
+        "nameId": "pura_module2_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_module3_black.gif",
+        "nameId": "pura_module3_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_module4_black.gif",
+        "nameId": "pura_module4_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Black/pura_module5_black.gif",
+        "nameId": "pura_module5_black.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_bed1_blue.gif",
+        "nameId": "pura_bed1_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_bed2_blue.gif",
+        "nameId": "pura_bed2_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_eggchair_blue.gif",
+        "nameId": "pura_eggchair_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_module1_blue.gif",
+        "nameId": "pura_module1_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_module2_blue.gif",
+        "nameId": "pura_module2_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_module3_blue.gif",
+        "nameId": "pura_module3_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_module4_blue.gif",
+        "nameId": "pura_module4_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Blue/pura_module5_blue.gif",
+        "nameId": "pura_module5_blue.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_bed1_green.gif",
+        "nameId": "pura_bed1_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_bed2_green.gif",
+        "nameId": "pura_bed2_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_eggchair_green.gif",
+        "nameId": "pura_eggchair_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_module1_green.gif",
+        "nameId": "pura_module1_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_module2_green.gif",
+        "nameId": "pura_module2_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_module3_green.gif",
+        "nameId": "pura_module3_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_module4_green.gif",
+        "nameId": "pura_module4_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Green/pura_module5_green.gif",
+        "nameId": "pura_module5_green.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_bed1_pink.gif",
+        "nameId": "pura_bed1_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_bed2_pink.gif",
+        "nameId": "pura_bed2_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_eggchair_pink.gif",
+        "nameId": "pura_eggchair_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_module1_pink.gif",
+        "nameId": "pura_module1_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_module2_pink.gif",
+        "nameId": "pura_module2_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_module3_pink.gif",
+        "nameId": "pura_module3_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_module4_pink.gif",
+        "nameId": "pura_module4_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Pink/pura_module5_pink.gif",
+        "nameId": "pura_module5_pink.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_bed1_red.gif",
+        "nameId": "pura_bed1_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_bed2_red.gif",
+        "nameId": "pura_bed2_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_eggchair_red.gif",
+        "nameId": "pura_eggchair_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_module1_red.gif",
+        "nameId": "pura_module1_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_module2_red.gif",
+        "nameId": "pura_module2_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_module3_red.gif",
+        "nameId": "pura_module3_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_module4_red.gif",
+        "nameId": "pura_module4_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Red/pura_module5_red.gif",
+        "nameId": "pura_module5_red.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_bed1_white_new.gif",
+        "nameId": "pura_bed1_white_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_bed2_white_new.gif",
+        "nameId": "pura_bed2_white_new.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_eggchair_white.gif",
+        "nameId": "pura_eggchair_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_module1_white.gif",
+        "nameId": "pura_module1_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_module2_white.gif",
+        "nameId": "pura_module2_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_module3_white.gif",
+        "nameId": "pura_module3_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_module4_white.gif",
+        "nameId": "pura_module4_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - White/pura_module5_white.gif",
+        "nameId": "pura_module5_white.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_bed1_yellow.gif",
+        "nameId": "pura_bed1_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_bed2_yellow.gif",
+        "nameId": "pura_bed2_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_eggchair_yellow.gif",
+        "nameId": "pura_eggchair_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_module1_yellow.gif",
+        "nameId": "pura_module1_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_module2_yellow.gif",
+        "nameId": "pura_module2_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_module3_yellow.gif",
+        "nameId": "pura_module3_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_module4_yellow.gif",
+        "nameId": "pura_module4_yellow.gif"
+    },
+    {
+        "category": "Pura",
+        "location": "large_furni/Pura/Pura - Yellow/pura_module5_yellow.gif",
+        "nameId": "pura_module5_yellow.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/bookshelves_small.gif",
+        "nameId": "bookshelves_small.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/butler.gif",
+        "nameId": "butler.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/carpet_small.gif",
+        "nameId": "carpet_small.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/curtain.gif",
+        "nameId": "curtain.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/desk.gif",
+        "nameId": "desk.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/dice.gif",
+        "nameId": "dice.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/djset.gif",
+        "nameId": "djset.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/fireplace.gif",
+        "nameId": "fireplace.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/hcplasto.gif",
+        "nameId": "hcplasto.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/lamp.gif",
+        "nameId": "lamp.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/lantern.gif",
+        "nameId": "lantern.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/loading.gif",
+        "nameId": "loading.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/machine.gif",
+        "nameId": "machine.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/majestic.gif",
+        "nameId": "majestic.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/mocca.gif",
+        "nameId": "mocca.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/nordic.gif",
+        "nameId": "nordic.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/oil.gif",
+        "nameId": "oil.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/rollers.gif",
+        "nameId": "rollers.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/rontgen.gif",
+        "nameId": "rontgen.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/teles.gif",
+        "nameId": "teles.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/throne_sofa.gif",
+        "nameId": "throne_sofa.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/trolley.gif",
+        "nameId": "trolley.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/tub.gif",
+        "nameId": "tub.gif"
+    },
+    {
+        "category": "HC Rares",
+        "location": "large_furni/Rares/HC Rares/tv.gif",
+        "nameId": "tv.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/aloe.gif",
+        "nameId": "aloe.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/amber_blue.gif",
+        "nameId": "amber_blue.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/amber_red.gif",
+        "nameId": "amber_red.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/amber_yellow.gif",
+        "nameId": "amber_yellow.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/bath_blue.gif",
+        "nameId": "bath_blue.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/bath_green.gif",
+        "nameId": "bath_green.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/bath_red.gif",
+        "nameId": "bath_red.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/bath_white.gif",
+        "nameId": "bath_white.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/cola.gif",
+        "nameId": "cola.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/deck.gif",
+        "nameId": "deck.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/dino.gif",
+        "nameId": "dino.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/globe.gif",
+        "nameId": "globe.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/hammock.gif",
+        "nameId": "hammock.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/holo_girl.gif",
+        "nameId": "holo_girl.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/holo_pod.gif",
+        "nameId": "holo_pod.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/lapland.gif",
+        "nameId": "lapland.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/nelly_bronze.gif",
+        "nameId": "nelly_bronze.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/nelly_gold.gif",
+        "nameId": "nelly_gold.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/nelly_silver.gif",
+        "nameId": "nelly_silver.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/para_green.gif",
+        "nameId": "para_green.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/para_orange.gif",
+        "nameId": "para_orange.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/para_purple.gif",
+        "nameId": "para_purple.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/para_white.gif",
+        "nameId": "para_white.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/para_yellow.gif",
+        "nameId": "para_yellow.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/petal.gif",
+        "nameId": "petal.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/romance.gif",
+        "nameId": "romance.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/samovar.gif",
+        "nameId": "samovar.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/snow.gif",
+        "nameId": "snow.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/speaker.gif",
+        "nameId": "speaker.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/throne.gif",
+        "nameId": "throne.gif"
+    },
+    {
+        "category": "Rares",
+        "location": "large_furni/Rares/Rares/typo.gif",
+        "nameId": "typo.gif"
+    },
+    {
+        "category": "Road barriers",
+        "location": "large_furni/Rares/V11/Road barriers/barrier_red.gif",
+        "nameId": "barrier_red.gif"
+    },
+    {
+        "category": "Road barriers",
+        "location": "large_furni/Rares/V11/Road barriers/barrier_white.gif",
+        "nameId": "barrier_white.gif"
+    },
+    {
+        "category": "Road barriers",
+        "location": "large_furni/Rares/V11/Road barriers/barrier_yellow.gif",
+        "nameId": "barrier_yellow.gif"
+    },
+    {
+        "category": "Single items",
+        "location": "large_furni/Rares/V11/Single items/moon_patch.gif",
+        "nameId": "moon_patch.gif"
+    },
+    {
+        "category": "Single items",
+        "location": "large_furni/Rares/V11/Single items/sand_patch.gif",
+        "nameId": "sand_patch.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_army.gif",
+        "nameId": "bag_army.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_blue.gif",
+        "nameId": "bag_blue.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_khaki.gif",
+        "nameId": "bag_khaki.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_lime.gif",
+        "nameId": "bag_lime.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_ocean.gif",
+        "nameId": "bag_ocean.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_purple.gif",
+        "nameId": "bag_purple.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_red.gif",
+        "nameId": "bag_red.gif"
+    },
+    {
+        "category": "Sleeping bags",
+        "location": "large_furni/Rares/V11/Sleeping bags/bag_yellow.gif",
+        "nameId": "bag_yellow.gif"
+    },
+    {
+        "category": "Traffic lights",
+        "location": "large_furni/Rares/V11/Traffic lights/light_blue.gif",
+        "nameId": "light_blue.gif"
+    },
+    {
+        "category": "Traffic lights",
+        "location": "large_furni/Rares/V11/Traffic lights/light_classic.gif",
+        "nameId": "light_classic.gif"
+    },
+    {
+        "category": "Traffic lights",
+        "location": "large_furni/Rares/V11/Traffic lights/light_purple.gif",
+        "nameId": "light_purple.gif"
+    },
+    {
+        "category": "Traffic lights",
+        "location": "large_furni/Rares/V11/Traffic lights/light_red.gif",
+        "nameId": "light_red.gif"
+    },
+    {
+        "category": "Traffic lights",
+        "location": "large_furni/Rares/V11/Traffic lights/light_white.gif",
+        "nameId": "light_white.gif"
+    },
+    {
+        "category": "Traffic lights",
+        "location": "large_furni/Rares/V11/Traffic lights/light_yellow.gif",
+        "nameId": "light_yellow.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique/clock.gif",
+        "nameId": "clock.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique/lamp.gif",
+        "nameId": "lamp.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique/mirror.gif",
+        "nameId": "mirror.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique/tray_1.gif",
+        "nameId": "tray_1.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique/tray_2.gif",
+        "nameId": "tray_2.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Black/chair_black.gif",
+        "nameId": "chair_black.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Black/divan_black.gif",
+        "nameId": "divan_black.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Black/pianochair_black.gif",
+        "nameId": "pianochair_black.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Black/piano_black.gif",
+        "nameId": "piano_black.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Black/table_black.gif",
+        "nameId": "table_black.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Lime/chair_lime.gif",
+        "nameId": "chair_lime.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Lime/divan_lime.gif",
+        "nameId": "divan_lime.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Lime/divider_lime.gif",
+        "nameId": "divider_lime.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Lime/pianochair_lime.gif",
+        "nameId": "pianochair_lime.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Lime/piano_lime.gif",
+        "nameId": "piano_lime.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Lime/table_lime.gif",
+        "nameId": "table_lime.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Pink/chair_pink.gif",
+        "nameId": "chair_pink.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Pink/divan_pink.gif",
+        "nameId": "divan_pink.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Pink/divider_pink.gif",
+        "nameId": "divider_pink.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Pink/pianochair_pink.gif",
+        "nameId": "pianochair_pink.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Pink/piano_pink.gif",
+        "nameId": "piano_pink.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Pink/table_pink.gif",
+        "nameId": "table_pink.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Turquoise/chair_turquoise.gif",
+        "nameId": "chair_turquoise.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Turquoise/divan_turquoise.gif",
+        "nameId": "divan_turquoise.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Turquoise/divider_turquoise.gif",
+        "nameId": "divider_turquoise.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Turquoise/pianochair_turquoise.gif",
+        "nameId": "pianochair_turquoise.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Turquoise/piano_turquoise.gif",
+        "nameId": "piano_turquoise.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Turquoise/table_turquoise.gif",
+        "nameId": "table_turquoise.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Yellow/chair_yellow.gif",
+        "nameId": "chair_yellow.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Yellow/divan_yellow.gif",
+        "nameId": "divan_yellow.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Yellow/divider_yellow.gif",
+        "nameId": "divider_yellow.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Yellow/pianochair_yellow.gif",
+        "nameId": "pianochair_yellow.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Yellow/piano_yellow.gif",
+        "nameId": "piano_yellow.gif"
+    },
+    {
+        "category": "Romantique",
+        "location": "large_furni/Romantique/Romantique - Yellow/table_yellow.gif",
+        "nameId": "table_yellow.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/gallery_x1.gif",
+        "nameId": "gallery_x1.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/gallery_x2.gif",
+        "nameId": "gallery_x2.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/gallery_x3.gif",
+        "nameId": "gallery_x3.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/gallery_x4.gif",
+        "nameId": "gallery_x4.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/gallery_x5.gif",
+        "nameId": "gallery_x5.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/gallery_x6.gif",
+        "nameId": "gallery_x6.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/hedge_snow.gif",
+        "nameId": "hedge_snow.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/hedge_snow_gate.gif",
+        "nameId": "hedge_snow_gate.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/hyacinth_blue.gif",
+        "nameId": "hyacinth_blue.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/hyacinth_red.gif",
+        "nameId": "hyacinth_red.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/reindeer.gif",
+        "nameId": "reindeer.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/reindeer_poo.gif",
+        "nameId": "reindeer_poo.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/tree_1.gif",
+        "nameId": "tree_1.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/tree_2.gif",
+        "nameId": "tree_2.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/tree_3.gif",
+        "nameId": "tree_3.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/tree_4.gif",
+        "nameId": "tree_4.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/tree_5.gif",
+        "nameId": "tree_5.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/tree_6.gif",
+        "nameId": "tree_6.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_candle_r1.gif",
+        "nameId": "xmas_candle_r1.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_candle_r3.gif",
+        "nameId": "xmas_candle_r3.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_candle_w1.gif",
+        "nameId": "xmas_candle_w1.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_candle_w3.gif",
+        "nameId": "xmas_candle_w3.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_deco_g.gif",
+        "nameId": "xmas_deco_g.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_deco_s.gif",
+        "nameId": "xmas_deco_s.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_duck.gif",
+        "nameId": "xmas_duck.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_electric.gif",
+        "nameId": "xmas_electric.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_ginger1.gif",
+        "nameId": "xmas_ginger1.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_ginger2.gif",
+        "nameId": "xmas_ginger2.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_holly.gif",
+        "nameId": "xmas_holly.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_ice_gate.gif",
+        "nameId": "xmas_ice_gate.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_ice_lamp.gif",
+        "nameId": "xmas_ice_lamp.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_ice_tower.gif",
+        "nameId": "xmas_ice_tower.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_ice_wall.gif",
+        "nameId": "xmas_ice_wall.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_menorah.gif",
+        "nameId": "xmas_menorah.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_mistletoe.gif",
+        "nameId": "xmas_mistletoe.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_poinsetta.gif",
+        "nameId": "xmas_poinsetta.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_pudding.gif",
+        "nameId": "xmas_pudding.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_sleigh.gif",
+        "nameId": "xmas_sleigh.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_sock.gif",
+        "nameId": "xmas_sock.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_star_bg.gif",
+        "nameId": "xmas_star_bg.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_star_bs.gif",
+        "nameId": "xmas_star_bs.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_star_sg.gif",
+        "nameId": "xmas_star_sg.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_star_ss.gif",
+        "nameId": "xmas_star_ss.gif"
+    },
+    {
+        "category": "Christmas",
+        "location": "large_furni/Seasonal/Christmas/xmas_turkey.gif",
+        "nameId": "xmas_turkey.gif"
+    },
+    {
+        "category": "Easter",
+        "location": "large_furni/Seasonal/Easter/easter_basket.gif",
+        "nameId": "easter_basket.gif"
+    },
+    {
+        "category": "Easter",
+        "location": "large_furni/Seasonal/Easter/easter_bunny.gif",
+        "nameId": "easter_bunny.gif"
+    },
+    {
+        "category": "Easter",
+        "location": "large_furni/Seasonal/Easter/easter_duck.gif",
+        "nameId": "easter_duck.gif"
+    },
+    {
+        "category": "Easter",
+        "location": "large_furni/Seasonal/Easter/easter_egg.gif",
+        "nameId": "easter_egg.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/gallery_h1.gif",
+        "nameId": "gallery_h1.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/gallery_h2.gif",
+        "nameId": "gallery_h2.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/gallery_h3.gif",
+        "nameId": "gallery_h3.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_candle.gif",
+        "nameId": "hall_candle.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_cauldron.gif",
+        "nameId": "hall_cauldron.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_chains.gif",
+        "nameId": "hall_chains.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_crypt.gif",
+        "nameId": "hall_crypt.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_ducks.gif",
+        "nameId": "hall_ducks.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_grave.gif",
+        "nameId": "hall_grave.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_patch.gif",
+        "nameId": "hall_patch.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_pumpkin.gif",
+        "nameId": "hall_pumpkin.gif"
+    },
+    {
+        "category": "Halloween",
+        "location": "large_furni/Seasonal/Halloween/hall_web.gif",
+        "nameId": "hall_web.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/cauldron.gif",
+        "nameId": "cauldron.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_ball.gif",
+        "nameId": "love_ball.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_bear_blue.gif",
+        "nameId": "love_bear_blue.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_bear_brown.gif",
+        "nameId": "love_bear_brown.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_bear_green.gif",
+        "nameId": "love_bear_green.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_bear_grey.gif",
+        "nameId": "love_bear_grey.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_bear_pink.gif",
+        "nameId": "love_bear_pink.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_bear_yellow.gif",
+        "nameId": "love_bear_yellow.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_box.gif",
+        "nameId": "love_box.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_carpet.gif",
+        "nameId": "love_carpet.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_cupid.gif",
+        "nameId": "love_cupid.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_duck.gif",
+        "nameId": "love_duck.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_hart.gif",
+        "nameId": "love_hart.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_machine.gif",
+        "nameId": "love_machine.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_poster.gif",
+        "nameId": "love_poster.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_rose_pink.gif",
+        "nameId": "love_rose_pink.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_rose_purple.gif",
+        "nameId": "love_rose_purple.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_rose_red.gif",
+        "nameId": "love_rose_red.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_rose_white.gif",
+        "nameId": "love_rose_white.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_rose_yellow.gif",
+        "nameId": "love_rose_yellow.gif"
+    },
+    {
+        "category": "Love",
+        "location": "large_furni/Seasonal/Love/love_sofa.gif",
+        "nameId": "love_sofa.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/bbq_blue.gif",
+        "nameId": "bbq_blue.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/bbq_green.gif",
+        "nameId": "bbq_green.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/bbq_red.gif",
+        "nameId": "bbq_red.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/bbq_yellow.gif",
+        "nameId": "bbq_yellow.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_aqua.gif",
+        "nameId": "deckchair_aqua.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_beige.gif",
+        "nameId": "deckchair_beige.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_black.gif",
+        "nameId": "deckchair_black.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_blue.gif",
+        "nameId": "deckchair_blue.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_green.gif",
+        "nameId": "deckchair_green.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_pink.gif",
+        "nameId": "deckchair_pink.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_red.gif",
+        "nameId": "deckchair_red.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_white.gif",
+        "nameId": "deckchair_white.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/deckchair_yellow.gif",
+        "nameId": "deckchair_yellow.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/pool_blue.gif",
+        "nameId": "pool_blue.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/pool_green.gif",
+        "nameId": "pool_green.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/pool_red.gif",
+        "nameId": "pool_red.gif"
+    },
+    {
+        "category": "Summer",
+        "location": "large_furni/Seasonal/Summer/pool_yellow.gif",
+        "nameId": "pool_yellow.gif"
+    },
+    {
+        "category": "Spiderwick",
+        "location": "large_furni/Spiderwick/chest.gif",
+        "nameId": "chest.gif"
+    },
+    {
+        "category": "Spiderwick",
+        "location": "large_furni/Spiderwick/desk.gif",
+        "nameId": "desk.gif"
+    },
+    {
+        "category": "Spiderwick",
+        "location": "large_furni/Spiderwick/hole_poster.gif",
+        "nameId": "hole_poster.gif"
+    },
+    {
+        "category": "Spiderwick",
+        "location": "large_furni/Spiderwick/raven.gif",
+        "nameId": "raven.gif"
+    },
+    {
+        "category": "Spiderwick",
+        "location": "large_furni/Spiderwick/stone_poster.gif",
+        "nameId": "stone_poster.gif"
+    },
+    {
+        "category": "Spiderwick",
+        "location": "large_furni/Spiderwick/swords.gif",
+        "nameId": "swords.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/alarm.gif",
+        "nameId": "alarm.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/basket_field.gif",
+        "nameId": "basket_field.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/basket_lamp.gif",
+        "nameId": "basket_lamp.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/basket_net.gif",
+        "nameId": "basket_net.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/bench.gif",
+        "nameId": "bench.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/corner_blue.gif",
+        "nameId": "corner_blue.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/corner_green.gif",
+        "nameId": "corner_green.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/corner_red.gif",
+        "nameId": "corner_red.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/finish_blue.gif",
+        "nameId": "finish_blue.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/finish_green.gif",
+        "nameId": "finish_green.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/finish_red.gif",
+        "nameId": "finish_red.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/hockey.gif",
+        "nameId": "hockey.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/nike_lamp.gif",
+        "nameId": "nike_lamp.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/score.gif",
+        "nameId": "score.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/track_blue.gif",
+        "nameId": "track_blue.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/track_green.gif",
+        "nameId": "track_green.gif"
+    },
+    {
+        "category": "Sports",
+        "location": "large_furni/Sports/track_red.gif",
+        "nameId": "track_red.gif"
+    },
+    {
+        "category": "Branded items",
+        "location": "large_furni/V12+ Furniture/Branded items/icm_new.gif",
+        "nameId": "icm_new.gif"
+    },
+    {
+        "category": "Branded items",
+        "location": "large_furni/V12+ Furniture/Branded items/jukebox_pacha.gif",
+        "nameId": "jukebox_pacha.gif"
+    },
+    {
+        "category": "Branded items",
+        "location": "large_furni/V12+ Furniture/Branded items/puffet.gif",
+        "nameId": "puffet.gif"
+    },
+    {
+        "category": "Branded items",
+        "location": "large_furni/V12+ Furniture/Branded items/safe_postbank.gif",
+        "nameId": "safe_postbank.gif"
+    },
+    {
+        "category": "Branded items",
+        "location": "large_furni/V12+ Furniture/Branded items/trax_nouvelle.gif",
+        "nameId": "trax_nouvelle.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/bulrush.gif",
+        "nameId": "bulrush.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/eco_chair.gif",
+        "nameId": "eco_chair.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/eco_garden.gif",
+        "nameId": "eco_garden.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/eco_lamp.gif",
+        "nameId": "eco_lamp.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/eco_sofa.gif",
+        "nameId": "eco_sofa.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/exchange.gif",
+        "nameId": "exchange.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/fan.gif",
+        "nameId": "fan.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/hedge.gif",
+        "nameId": "hedge.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/hedge_gate.gif",
+        "nameId": "hedge_gate.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/monsterplant.gif",
+        "nameId": "monsterplant.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/mood_light.gif",
+        "nameId": "mood_light.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/sand_gate.gif",
+        "nameId": "sand_gate.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/sand_tower.gif",
+        "nameId": "sand_tower.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/sand_wall.gif",
+        "nameId": "sand_wall.gif"
+    },
+    {
+        "category": "Misc",
+        "location": "large_furni/V12+ Furniture/Misc/wheel.gif",
+        "nameId": "wheel.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/jukebox.gif",
+        "nameId": "jukebox.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/sound_files.gif",
+        "nameId": "sound_files.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/sound_files2.gif",
+        "nameId": "sound_files2.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/sound_files3.gif",
+        "nameId": "sound_files3.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/sound_files4.gif",
+        "nameId": "sound_files4.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/sound_files5.gif",
+        "nameId": "sound_files5.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/sound_files6.gif",
+        "nameId": "sound_files6.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_black.gif",
+        "nameId": "trax_black.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_blue.gif",
+        "nameId": "trax_blue.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_brown.gif",
+        "nameId": "trax_brown.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_green.gif",
+        "nameId": "trax_green.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_grey.gif",
+        "nameId": "trax_grey.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_ocean.gif",
+        "nameId": "trax_ocean.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_purple.gif",
+        "nameId": "trax_purple.gif"
+    },
+    {
+        "category": "Trax",
+        "location": "large_furni/V12+ Furniture/Trax/trax_red.gif",
+        "nameId": "trax_red.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/ads_sunnydleft.gif",
+        "nameId": "ads_sunnydleft.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/chairsandfloor.gif",
+        "nameId": "chairsandfloor.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/diner_cashreg.gif",
+        "nameId": "diner_cashreg.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/diner_shaker.gif",
+        "nameId": "diner_shaker.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/diner_trays.gif",
+        "nameId": "diner_trays.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/svnr_aus.gif",
+        "nameId": "svnr_aus.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/svnr_de.gif",
+        "nameId": "svnr_de.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/svnr_it.gif",
+        "nameId": "svnr_it.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/svnr_nl.gif",
+        "nameId": "svnr_nl.gif"
+    },
+    {
+        "category": "V22+",
+        "location": "large_furni/V22+/svnr_uk.gif",
+        "nameId": "svnr_uk.gif"
+    }
+]

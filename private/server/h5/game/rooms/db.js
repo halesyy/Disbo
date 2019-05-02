@@ -3,7 +3,7 @@ module.exports = {
       loadFromId: async function(roomid) {
       if (isNaN(roomid)) return false;
           // console.log("going to load "+roomid);
-          const roomData = await environment.dbops.basic.get("SELECT * FROM rooms WHERE id = :id", {id: roomid});
+          const roomData = await environment.dbops.basic.get("SELECT * FROM rooms WHERE guildID = :id", {id: roomid});
           return roomData[0];
       },
 

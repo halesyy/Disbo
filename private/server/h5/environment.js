@@ -75,7 +75,7 @@ module.exports = function(b, d) {
 	};
 
 	this.securify = function(a) {
-		var b = ["password"];
+		var b = ["password", "sso"];
 		if (a.id) {
 			for (var c in a) {
 				-1 < b.indexOf(c) && delete a[c];

@@ -121,17 +121,15 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             // every piece of furni gets it's own little allowance
             // for removing itself.
             $FurniParent.click(function(event){
-              if (event.ctrlKey) {
+              if (event.ctrlKey || event.metaKey) {
                 // console.log(`Youre interested in ${$(this).attr("data-fid")}`);
-                // console.log("I was just clicked!");
+                // alert("You just clicked to remove a piece of furniture")
                 const fid = $(this).attr("data-fid");
-                // console.log(fid);
                 $socket.emit("verify remove furniture", {
                   sso: clientVars.sso,
                   inventoryID: $(this).attr("data-fid"),
                   roomID: $rootScope.roomId
                 }, function(response){
-                  // console.log(response);
                   if (response.error === false) {
                     // worked, rid should be removed for all users
                     $rootScope.refreshInventory();
@@ -153,12 +151,10 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             const ymove = parseInt(xyMovement[1])
             const filelocation = schemeData.location;
             const bottomAdjust = schemeData.bottomAdjust;
-            // console.log(bottomAdjust);
 
             // Furni location
             const furniChildX = x + xmove;
             const furniChildY = y + ymove;
-            // console.log(furniChildX, furniChildY);
 
             // Loading image, then appending to the furni class
             const $img = $("<img class='furni-part' />");
@@ -175,16 +171,15 @@ app.service('roomHandler', ['$rootScope', function($rootScope) {
             $FurniParent.css('left', `${tileLeft}px`);
             $FurniParent.css('z-index', baselayer);
             $FurniParent.css('position', `absolute`);
+            // console.log(baselayer);
 
             $img.load(function(){
 
-                $FurniParent.height($img[0].height);
-                $FurniParent.width($img[0].width);
+                $FurniParent.height ($img[0].height);
+                $FurniParent.width  ($img[0].width);
                 // $img.css("bottom": )
                 $(this).css('display', 'inline-block');
                 $(this).addClass('click-through');
-                var baselayer = 7;
-                if ("baselayer" in schemeData) baselayer += parseInt(schemeData.baselayer);
                 const $tile = $(`[data-x=${furniChildY}][data-y=${furniChildX}]`);
                 $(this).css('z-index', baselayer);
                 $FurniParent.append($(this))

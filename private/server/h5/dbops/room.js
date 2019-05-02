@@ -12,7 +12,7 @@ module.exports = {
 
       base: async function(roomID) {
         if (isNaN(roomID)) return false;
-        var roomData = await gt("SELECT * FROM rooms WHERE id = :id", {id: roomID});
+        var roomData = await gt("SELECT * FROM rooms WHERE guildID = :id", {id: roomID});
         return roomData[0].base;
       },
 
@@ -38,12 +38,13 @@ module.exports = {
             location: row.location,
             adjacents: row.adjacents.split("\r").join(""),
             rotateable: row.rotateable,
+            baselayer: row.baselayer,
             walkable: row.walkable,
-            stackable: row.stackable,
             bottomAdjust: row.bottomAdjust,
             rootBlock: root
           });
         }
+        // console.log(longhand);
         return longhand;
       },
 

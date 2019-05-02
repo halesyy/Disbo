@@ -43,6 +43,6 @@ module.exports = function(environment, base, longhandFurni, defNotWalkable = fal
 
     }
   }
-  console.log(base);
+  // console.log(base);
   return base
 }

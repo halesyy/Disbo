@@ -17,7 +17,7 @@ module.exports = function(environment, shorthandFurni) {
     furnitureData = [];
     for (var furnix in shorthandFurni) {
       const furniData = shorthandFurni[furnix]
-      console.log(furniData);
+      // console.log(furniData);
       const furniSplit = furniData.split(":")
 
       /* --
@@ -37,10 +37,13 @@ module.exports = function(environment, shorthandFurni) {
             replacements: { nameid: nameIdentifier },
             type: Sequelize.QueryTypes.SELECT
           }).then(function(result){
-            row = result[0];
+            var row = result[0];
             if (baselayer == -1) {
               var bl = row.baselayer;
             } else bl = baselayer;
+            if (baselayer != 0) {
+              console.log(row);
+            }
             resolve({
               inventoryID: inventoryID,
               nameId: nameIdentifier,
