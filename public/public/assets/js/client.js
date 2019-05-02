@@ -56,6 +56,6 @@ app.config(['$routeProvider', '$locationProvider', '$socketProvider',
 		$socketProvider.
 		setTryMultipleTransports(true);
 		$socketProvider.
-		setConnectionUrl('http://' + clientVars.host + ':' + clientVars.port);
+		setConnectionUrl(clientVars.type + '://' + clientVars.host + ':' + clientVars.port);
 	}
 ]);

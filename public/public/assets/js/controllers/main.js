@@ -54,11 +54,12 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
       selectedCategory: false,
       categoryFurnis: false
     };
+    console.log(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/categories`);
 
     // building data for the finder
     $rootScope.refreshShopCategories = function(ondone = false, by = false) {
       // doing some manip to get search results if so.
-      $.getJSON(`http://${clientVars.host}:7777/api/shop/categories`, function(categories){
+      $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/categories`, function(categories){
         console.log("shop categories: ", categories);
         $rootScope.shop.categories = categories;
         $rootScope.$apply();
@@ -91,7 +92,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
       console.log("searching for furnis in: "+category);
       $rootScope.shop.selectedCategory = category;
 
-      $.getJSON(`http://${clientVars.host}:7777/api/shop/furni/${category}`, function(furnis){
+      $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/furni/${category}`, function(furnis){
         console.log("shop category furnis: ", furnis);
         $rootScope.shop.categoryFurnis = furnis;
         $rootScope.$apply();
@@ -102,7 +103,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     $rootScope.buy = function(furniSchema) {
       // console.log("sending ");
       // console.log(furniSchema);
-      $.post(`http://${clientVars.host}:7777/api/shop/buy`, {
+      $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/shop/buy`, {
         sso: clientVars.sso,
         furni: furniSchema.nameId
       }, function(response){
@@ -143,7 +144,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.refreshFinder = function(ondone = false, by = false) {
     // doing some manip to get search results if so.
     if (by === false) var by = 'recent';
-    $.post(`http://${clientVars.host}:7777/api/rooms`, {
+    $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/rooms`, {
       sso: clientVars.sso,
       by:  by
     }, function(rooms){
@@ -200,7 +201,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   };
 
   $rootScope.refreshFriends = function(ondone = false) {
-    $.getJSON(`http://${clientVars.host}:7777/api/friends/${clientVars.sso}`, function(data){
+    $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/friends/${clientVars.sso}`, function(data){
       console.log("friends: ", data);
       $rootScope.friends = data;
       $rootScope.$apply();
@@ -227,7 +228,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
    * it is init in main.js since that's important.
    */
   $rootScope.refreshInventory = function(ondone = false) {
-    $.getJSON(`http://${clientVars.host}:7777/api/inventory/${clientVars.sso}`, function(data){
+    $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/inventory/${clientVars.sso}`, function(data){
       console.log("inventory: ", data);
       $rootScope.inventory = data.inventory;
       $rootScope.$apply();
@@ -253,7 +254,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     if (!isNaN(profileid)) {
       $rootScope.refreshFriends(function(){
           // Pulling backend data...
-          $.getJSON(`http://${clientVars.host}:7777/api/profile/${profileid}`, function(profileData){
+          $.getJSON(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/profile/${profileid}`, function(profileData){
             if (profileData.error === true) {
 
             }
@@ -278,7 +279,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.sendFriendRequest = function() {
     if (!isNaN($rootScope.profileViewWindow.data.id)) {
       console.log("Going to send f/r");
-      $.post(`http://${clientVars.host}:7777/api/addFriend`, {
+      $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/addFriend`, {
         sso: clientVars.sso,
         friendID: $rootScope.profileViewWindow.data.id
       }, function(data){
@@ -332,7 +333,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $scope.fl_removeFriend = function(theirid) {
     console.log(theirid);
     if (isNaN(theirid)) return false;
-    $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+    $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/removeFriend`, {
       sso: clientVars.sso,
       friendID: theirid
     }, function(data){
@@ -348,7 +349,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $scope.fl_acceptfriend = function(theirid) {
     console.log(theirid);
     if (isNaN(theirid)) return false;
-    $.post(`http://${clientVars.host}:7777/api/acceptPending`, {
+    $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/acceptPending`, {
       sso: clientVars.sso,
       friendID: theirid
     }, function(data){
@@ -368,7 +369,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.removeFriendship = function() {
     if (!isNaN($rootScope.profileViewWindow.data.id)) {
       console.log("Going to remove f/r");
-      $.post(`http://${clientVars.host}:7777/api/removeFriend`, {
+      $.post(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/removeFriend`, {
         sso: clientVars.sso,
         friendID: $rootScope.profileViewWindow.data.id
       }, function(data){
@@ -473,7 +474,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   // CURRENCY REFRESHING. CALL THIS TO REFRESH THE $.
   $rootScope.refreshCurrencies = function() {
     let sso = clientVars.sso;
-    $.get(`http://${clientVars.host}:7777/api/currency/${sso}`, function(currency){
+    $.get(`${clientVars.type}://${clientVars.apihost}:${clientVars.apiport}/api/currency/${sso}`, function(currency){
       $rootScope.userinfo.credits = currency.credits;
       $rootScope.$apply();
     });

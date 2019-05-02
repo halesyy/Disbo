@@ -13,7 +13,10 @@
 		var clientVars = {
 		  host: '<%= opts.host %>',
 		  port: '<%= opts.port %>',
-		  sso:  '<%= user.token %>'
+		  type: '<%= opts.type %>',
+		  sso:  '<%= user.token %>',
+		  apihost: '<%= opts.apihost %>',
+		  apiport: '<%= opts.apiport %>',
 		};
 		</script>
 		<div id="hotel-view-faststats" class="ng-hide" ng-show="isBootstrapped">

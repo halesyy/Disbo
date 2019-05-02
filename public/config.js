@@ -11,6 +11,11 @@ module.exports = {
    dev: true,
    gameServer: {
      host: 'luxlife.ddns.net',
-     port: '7858',
+     type: 'http',
+     port: '7858'
    },
+   api: {
+     host: 'luxlife.ddns.net',
+     port: '7777'
+   }
 }
