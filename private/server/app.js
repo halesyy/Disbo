@@ -18,7 +18,7 @@ const Sequelize = require('sequelize');
 const globaldb = new Sequelize(conf.mysql.db, conf.mysql.user, conf.mysql.pass, {
   host: conf.mysql.host,
   dialect: 'mysql',
-	logging: false
+	logging: true
 });
 
 // Setting globals
@@ -30,7 +30,7 @@ global.gt = environment.dbops.basic.get;
 global.is = environment.dbops.basic.insert;
 global.up = environment.dbops.basic.update;
 global.dt = environment.dbops.basic.delete;
-global.users = environment.dbops.basic.users;
+global.users = environment.dbops.users;
 global.ssouid = environment.dbops.users.ssoToUserId;
 global.ssodid = environment.dbops.users.ssoToDiscordId;
 global.config = conf;

@@ -100,14 +100,24 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     }
 
     $rootScope.buy = function(furniSchema) {
-      console.log("sending ");
-      console.log(furniSchema);
+      // console.log("sending ");
+      // console.log(furniSchema);
       $.post(`http://${clientVars.host}:7777/api/shop/buy`, {
         sso: clientVars.sso,
         furni: furniSchema.nameId
       }, function(response){
-        console.log("response from server for buying..");
-        console.log(response);
+        if (response.error === true) {
+          $rootScope.dialog = {
+            enabled: true,
+            title: 'Oops!',
+            body: response.reason
+          }
+        }
+        else {
+          $rootScope.refreshCurrencies();
+        }
+        // console.log("response from server for buying..");
+        // console.log(response);
       });
     }
 
@@ -491,5 +501,5 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		$rootScope.clientCount = data.response;
 	});
 
-  
+
 }]);

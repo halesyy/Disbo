@@ -432,7 +432,7 @@ app.post('/set/token', function (req, res) {
     if (result.length < 1) {
       // console.log(`${req.body.user.avatar}`);
       let newUser = `INSERT INTO users(username, discordid, avatar, sso, diamonds, credits, duckets, figure)
-                     VALUES('${req.body.user.username}#${req.body.user.discriminator}', '${req.body.user.id}', '${req.body.user.avatar}', 'abc', 1000, 152900, 760500, 'sh-3035-82.hd-180-1.ch-3001-82-1408.lg-3290-110.cc-886-110.hr-3278-45-40')`;
+                     VALUES('${req.body.user.username}#${req.body.user.discriminator}', '${req.body.user.id}', '${req.body.user.avatar}', 'abc', 1000, 1000, 1000, 'sh-3035-82.hd-180-1.ch-3001-82-1408.lg-3290-110.cc-886-110.hr-3278-45-40')`;
       connection.query(newUser, function (error, results, fields) {
         if (error) throw error;
 
