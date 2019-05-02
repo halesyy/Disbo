@@ -474,6 +474,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
     let sso = clientVars.sso;
     $.get(`http://${clientVars.host}:7777/api/currency/${sso}`, function(currency){
       $rootScope.userinfo.credits = currency.credits;
+      $rootScope.$apply();
     });
   }
 
