@@ -25,6 +25,9 @@
  */
 app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location', function($scope, $rootScope, $socket, $location) {
 
+  console.log($location.path());
+	console.log($rootScope.wantsToGoTo);
+
   $rootScope.dialog = {
 		enabled: false,
 		title: '',
@@ -38,7 +41,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
   $rootScope.previousRoomId = false; // when loading controller room.js, sets this to current roomId.
 
 
-
+  $rootScope.roomName = '';
 
     /*
      * all finder-based information
@@ -456,13 +459,15 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 		$rootScope.dialog.body = data.body;
 	});
 
-  // Profile view handling
-  // $socket.on('signin-dialog', function(data){
-    // console.log("Going to throw up the signin dialog!")
-    // $rootScope.signinDialog.enabled = data.enabled;
-		// $rootScope.dialog.title = data.title;
-		// $rootScope.dialog.body = data.body;
-  // });
+  // CURRENCY REFRESHING. CALL THIS TO REFRESH THE $.
+  $rootScope.refreshCurrencies = function() {
+    let sso = clientVars.sso;
+    $.get(`http://${clientVars.host}:7777/api/currency/${sso}`, function(currency){
+      $rootScope.userinfo.credits = currency.credits;
+    });
+  }
+
+
 
 	$scope.buyHabboClub = function() {
 		$rootScope.dialog.enabled = true;
@@ -485,4 +490,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 	$socket.on('client count update', function(data) {
 		$rootScope.clientCount = data.response;
 	});
+
+  
 }]);

@@ -5,12 +5,12 @@ module.exports = {
    scopes: ['identify', 'email'],
    client_id: '569146915439116288',
    client_secret: '2s-mRIrVhXmiUzNr3zDj0lsnSAPrjEA1',
-   redirect_uri: 'http://193.116.213.241:3000/login/callback',
+   redirect_uri: 'http://luxlife.ddns.net:3000/login/callback',
    dbPort: '27017',
    dbPass: 'abc123',
    dev: true,
    gameServer: {
-     host: '193.116.213.241',
+     host: 'luxlife.ddns.net',
      port: '7858',
    },
 }

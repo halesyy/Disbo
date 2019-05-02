@@ -21,7 +21,10 @@ html {
 html {
 image-rendering: -moz-crisp-edges !important;
 }
-
+.avatar-left {
+	-webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
 img {
     image-rendering: optimizeQuality !important;             /*                     */
     image-rendering: -moz-crisp-edges !important;          /* Firefox             */
@@ -849,8 +852,8 @@ transition: opacity 0.5s;
 	box-shadow: 0px 2px 0px 0px #000;
 }
 #hotel-view-faststats > * {
-	float: left;
-	width: 50%;
+	/* float: left; */
+	/* width: 50%; */
 }
 #hotel-view-faststats ul#hotel-view-faststats-stats {
 	overflow: hidden;
@@ -871,6 +874,8 @@ transition: opacity 0.5s;
 }
 #hotel-view-faststats ul#hotel-view-faststats-stats li.credits {
 	color: #D3AD21;
+	font-size: 20px;
+	text-align: center;
 }
 #hotel-view-faststats ul#hotel-view-faststats-stats li.duckets {
 	color: #D686D6;
@@ -1202,7 +1207,7 @@ word-wrap: break-word;
 	height: 75px;
 	/* overflow-y: hidden; */
 	margin: 10px 0 10px 10px;
-	padding: 10px;
+	/* padding: 10px; */
 	cursor: pointer;
 }
 .furni-container-bg {
@@ -1230,6 +1235,18 @@ word-wrap: break-word;
 	border-bottom-right-radius: 12px;
 	border-bottom-left-radius: 12px;
 	text-align: center;
+	font-size: 12px;
+	font-family: 'Ubuntu';
+}
+.shop-furni-item-container .amount-of-items {
+	height: 20px;
+	background: #504e4e;
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;
+	text-align: center;
+	color: white;
+	padding: 3px 3px 0 3px;
+	/* margin-top: -5px; */
 	font-size: 12px;
 	font-family: 'Ubuntu';
 }
@@ -1312,7 +1329,7 @@ word-wrap: break-word;
 	text-align: center;
 	margin: 5px 5px 0 5px;
 	padding: 8px 15px 8px 15px;
-	border-radius: 12px;
+	/* border-radius: 12px; */
 	transition: 0.3s;
 	background: whitesmoke;
 	cursor: pointer;
@@ -1344,4 +1361,15 @@ word-wrap: break-word;
 }
 .shop-item-container {
 
+}
+
+
+
+.left-server-name {
+	position: absolute;
+	left: 20px;
+	z-index: 500;
+	color: white;
+	font-size: 40px;
+	font-weight: bold;
 }

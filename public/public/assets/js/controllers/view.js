@@ -1,8 +1,16 @@
 
 app.controller('HotelViewController', ['$scope', '$socket', '$location', '$rootScope', function($scope, $socket, $location, $rootScope) {
+	console.log($location.path());
+	console.log($rootScope.wantsToGoTo);
+
 	if (!$rootScope.isBootstrapped) {
 		$location.path('/');
-	};
+	}
+	else {
+		if ($rootScope.isBootstrapped && $rootScope.hasOwnProperty('wantsToGoTo') && !isNaN($rootScope.wantsToGoTo)) {
+			$location.path('/room/'+$rootScope.wantsToGoTo);
+		}
+	}
 
 	$socket.emit('client view rendered');
 	console.log("View model rendered.");
@@ -15,14 +23,10 @@ app.controller('HotelViewController', ['$scope', '$socket', '$location', '$rootS
 
 	if ($rootScope.roomId !== false && !isNaN($rootScope.roomId)) {
 		$socket.emit("user leave room id", $rootScope.roomId);
-		console.log("Made user leave the room" + $rootScope.roomId);
+		// console.log("Made user leave the room" + $rootScope.roomId);
 	}
-	
-	if ($rootScope.isBootstrapped && $rootScope.hasOwnProperty('wantsToGoTo') && !isNaN($rootScope.wantsToGoTo)) {
-		$location.path('/room/'+$rootScope.wantsToGoTo);
-		// console.log('/room/'+$rootScope.wantsToGoTo);
-		// console.log("GOING TO ROOM ID REDIRECT");
-	}
+
+
 
 	$socket.on('update userinfo', function(data) {
 		$rootScope.userinfo = data;

@@ -24,7 +24,11 @@
  * IN THE SOFTWARE.
  */
 app.controller('SplashScreenController', ['$scope', '$rootScope', '$location', '$socket', function($scope, $rootScope, $location, $socket) {
-	$rootScope.isBootstrapped = false;
+
+  console.log($location.path());
+	console.log($rootScope.wantsToGoTo);
+
+  $rootScope.isBootstrapped = false;
 	$rootScope.isInRoom = false;
 	$scope.loadingState = '0%';
 	$socket.emit('client connection', clientVars);
@@ -37,12 +41,17 @@ app.controller('SplashScreenController', ['$scope', '$rootScope', '$location', '
       // now done, checking if there's a redirect to go to a
       // specified room.
 			$rootScope.isBootstrapped = true;
-      // $rootScope.$apply();
 
-      // else {
+
+      if ($rootScope.isBootstrapped && $rootScope.hasOwnProperty('wantsToGoTo') && !isNaN($rootScope.wantsToGoTo)) {
         $location.path('/view');
-        // console.log("GOING TO VIEW");
-      // }
-		};
+      }
+      else {
+        $location.path('/view');
+      }
+		}
+    else {
+      console.log("Client view failed...");
+    }
 	});
 }]);

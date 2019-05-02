@@ -38,8 +38,8 @@ module.exports = {
             location: row.location,
             adjacents: row.adjacents.split("\r").join(""),
             rotateable: row.rotateable,
+            baselayer: row.baselayer,
             walkable: row.walkable,
-            stackable: row.stackable,
             bottomAdjust: row.bottomAdjust,
             rootBlock: root
           });

@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
 
      app.get("/api/shop/categories", async function(req, res){
        let categories = await gt("SELECT DISTINCT(category) FROM furniture");
-       console.log(categories);
+       // console.log(categories);
        let catreturn  = [];
        for (var row of categories)
           catreturn.push(row.category);
@@ -49,10 +49,18 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
      });
 
 
+
+     app.get("/api/currency/:sso", async function(req, res){
+       let userID   = await ssouid(req.params.sso);
+       let currency = await users.currency(userID);
+       res.json(currency);
+     });
+
+
      app.get("/api/shop/furni/:bycategory", async function(req, res){
        let category = req.params.bycategory;
        let furnis = await gt("SELECT * FROM furniture WHERE category = :cat", {cat: category});
-       console.log("find by category furni: "+furnis);
+       // console.log("find by category furni: "+furnis);
        const furnistore = [];
        for (furni of furnis) {
          furnistore.push({
@@ -89,7 +97,7 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '1mb' }));
          return;
        }
 
-       let newClientCredits = (clientCredits - creditCost);
+       var newClientCredits = (clientCredits - creditCost);
 
        // 1. add new furni to the row
        is("INSERT INTO users_inventory (userID, roomID, identifier, root, rotation, baselayer) VALUES (:userID, '0', :fid, '', '0', '0')", {
@@ -341,7 +349,7 @@ app.post("/api/addFriend", async function(req, res){
         friendid: friendID
       };
       let ins = await environment.dbops.basic.insert(insertQuery, insertReplacements);
-      console.log(ins);
+      // console.log(ins);
       res.json({success: true});
     }
 });
@@ -370,7 +378,7 @@ app.post("/api/removeFriend", async function(req, res){
         friendid: friendID
       };
       let ins = await environment.dbops.basic.delete(deleteQuery, deleteReplacements);
-      console.log(ins);
+      // console.log(ins);
       res.json({success: true});
     }
     else {
@@ -404,7 +412,7 @@ app.post("/api/acceptPending", async function(req, res){
         friendid: friendID
       };
       let ins = await environment.dbops.basic.update(updateQuery, updateReplacements);
-      console.log(ins);
+      // console.log(ins);
       res.json({success: true});
     }
     else {
@@ -422,7 +430,7 @@ app.post('/set/token', function (req, res) {
     if (error) throw error;
     const result = JSON.parse(JSON.stringify(results));
     if (result.length < 1) {
-      console.log(`${req.body.user.avatar}`);
+      // console.log(`${req.body.user.avatar}`);
       let newUser = `INSERT INTO users(username, discordid, avatar, sso, diamonds, credits, duckets, figure)
                      VALUES('${req.body.user.username}#${req.body.user.discriminator}', '${req.body.user.id}', '${req.body.user.avatar}', 'abc', 1000, 152900, 760500, 'sh-3035-82.hd-180-1.ch-3001-82-1408.lg-3290-110.cc-886-110.hr-3278-45-40')`;
       connection.query(newUser, function (error, results, fields) {
