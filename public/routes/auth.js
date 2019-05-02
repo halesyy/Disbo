@@ -79,6 +79,7 @@ router.get('/login/callback', async (req, res, next) => {
             }
           }
 
+          console.log("Setting the token.");
           const devadd = config.dev? '': '/api';
           const setTokenGameServer = await fetch(`${config.gameServer.type}://${config.api.host}:${config.api.port}${devadd}/api/set/token`, {
             method: 'post',
@@ -88,8 +89,9 @@ router.get('/login/callback', async (req, res, next) => {
               'Content-Type': 'application/json'
             },
           });
+          console.log("Set the token game server");
 
-          if (setTokenGameServer.ok) console.log(1);
+          if (setTokenGameServer.ok) console.log("OK RESPONSE FROM THE SET TOKEN");
         });
       } else {
         return res.sendError(500, 'An unknown error occurred while getting your data. Please try again.');

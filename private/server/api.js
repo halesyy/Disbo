@@ -450,6 +450,10 @@ app.post('/api/set/token', function (req, res) {
   });
 });
 
+app.post("/api/ping", function(req, res){
+  res.json({error: false, code: "gay"});
+})
+
 
 
 
