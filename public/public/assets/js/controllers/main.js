@@ -115,6 +115,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
         }
         else {
           $rootScope.refreshCurrencies();
+          $rootScope.refreshInventory();
         }
         // console.log("response from server for buying..");
         // console.log(response);
