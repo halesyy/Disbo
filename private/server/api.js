@@ -424,7 +424,7 @@ app.post("/api/acceptPending", async function(req, res){
     }
 });
 
-app.post('/set/token', function (req, res) {
+app.post('/api/set/token', function (req, res) {
   let checkUserExists = `SELECT * FROM users WHERE discordid = ?`
   connection.query(checkUserExists, req.body.user.id, function(error, results, fields) {
     if (error) throw error;

@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
     type: config.gameServer.type,
     apihost: config.api.host,
     apiport: config.api.port,
+    dev: config.dev,
   }
   res.render('client', { user: req.user, opts });
 });
