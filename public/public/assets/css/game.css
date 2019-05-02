@@ -1190,7 +1190,10 @@ word-wrap: break-word;
 
 .inventory-dialog {
 	width: 700px !important;
-	min-height: 350px;
+}
+.inventory-dialog .container {
+	height: 600px !important;
+	overflow-y: scroll;
 }
 .hover-change-red {
 	background: #c21f1f !important;
