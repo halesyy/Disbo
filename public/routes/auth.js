@@ -79,7 +79,7 @@ router.get('/login/callback', async (req, res, next) => {
             }
           }
 
-          const setTokenGameServer = await fetch('http://localhost:7777/set/token', {
+          const setTokenGameServer = await fetch(`${config.gameServer.type}://${config.api.host}:${config.api.port}/set/token`, {
             method: 'post',
             body: JSON.stringify(body),
             headers: {
