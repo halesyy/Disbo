@@ -10,7 +10,7 @@ module.exports = async (client) => {
         ownerIDs: ownerIDs,
       };
 
-      const createRoom = await fetch(`http://` + client.config.gameServer.host + ":" + client.config.gameServer.port + `/api/rooms/${guildID}/create`, {
+      const createRoom = await fetch(`https://` + client.config.gameServer.host + ":" + client.config.gameServer.port + `/api/rooms/${guildID}/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
