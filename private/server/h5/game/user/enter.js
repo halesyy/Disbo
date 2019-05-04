@@ -33,6 +33,8 @@ module.exports = function(environment, frontend) {
 
 
       // re-writing this...
+      console.log("CALLED TO LOAD ROOM WITH THE DATA: ");
+      console.log(data);
 
       const roomId = data.roomId;
 
