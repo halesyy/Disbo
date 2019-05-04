@@ -1,7 +1,7 @@
 module.exports = {
 
       shorthand: async function(roomID) {
-        var roomFurni = await environment.dbops.basic.get("SELECT * FROM users_inventory WHERE roomID = :rid AND root LIKE '%,%'", {rid: roomID});
+        var roomFurni = await environment.dbops.basic.get("SELECT * FROM users_inventory WHERE roomID = :rid AND CHAR_LENGTH(root) > 0", {rid: roomID});
         shorthand = [];
         for (furnirowidx in roomFurni) {
           var row = roomFurni[furnirowidx]

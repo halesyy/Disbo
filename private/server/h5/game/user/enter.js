@@ -35,6 +35,13 @@ module.exports = function(environment, frontend) {
       // re-writing this...
 
       const roomId = data.roomId;
+
+      if (data.roomId) {} else {
+        frontend.emit("room doesnt exist");
+        console.log("Something is happening here which is irritating..");
+        return;
+      }
+
       const roomRow = await gt("SELECT * FROM rooms WHERE guildID = :gid", {gid: roomId});
 
       // checking if row exists
