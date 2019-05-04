@@ -1,5 +1,4 @@
 exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission('MANAGE_SERVER')) return message.channel.send('Only users with the `MANAGE_SERVER` permission can setup rooms on Disbo :(');
 
     const loading = client.emojis.find(emoji => emoji.name === "disboloading")
     const msg = await message.channel.send(loading + ' We\'re creating you\'re room! Hold on!').catch(console.error);
