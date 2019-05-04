@@ -155,9 +155,11 @@ app.controller('RoomController', ['$routeParams', '$scope', '$socket', '$locatio
 
 			// Turning off potentially old sockets.
 			console.log("Sending request to load room " + roomId);
-			$socket.emit('load room', {
-				roomId: roomId.toString()
-			});
+			if (roomId && !isNaN(roomId)) {
+				$socket.emit('load room', {
+					roomId: roomId.toString()
+				});
+			}
 
 			$rootScope.isInRoom = true;
 			$scope.chatMessage = '';
