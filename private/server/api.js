@@ -250,7 +250,7 @@ app.post("/api/rooms/:guildID/create", async function(req, res){
    if (ownerIDs.length < 1) return;
    const ownerIDsString = ownerIDs.join(',');
    const ownerID = ownerIDs[0];
-   const qret = await is("INSERT INTO rooms (ownerID, guildID, ownerIDs, name, base, public) VALUES (:ownerID, :guildID, :ownerIDs, :name, :base, :public)", {
+   const qret = await is("INSERT INTO rooms (ownerID, guildID, ownerIDs, name, base, diagonalMovement, public) VALUES (:ownerID, :guildID, :ownerIDs, :name, :base, '0', :public)", {
      ownerID: ownerID,
      guildID: guildID,
      ownerIDs: ownerIDsString,
