@@ -343,7 +343,7 @@ app.post("/api/addFriend", async function(req, res){
     else {
       // no data - inserting into database.
       // var res = await enironment.dbops.friends.sendFR(userid, friendID);
-      let insertQuery = "INSERT INTO friends (userID1, userID2, pending) VALUES (:clientid, :friendid, '1')";
+      let insertQuery = "INSERT INTO friends (userID1, userID2, pending, extra, since) VALUES (:clientid, :friendid, '1', '', '')";
       let insertReplacements = {
         clientid: userid,
         friendid: friendID
