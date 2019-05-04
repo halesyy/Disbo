@@ -61,7 +61,7 @@ module.exports = function(c, a, roomData) {
 ['http://static.tumblr.com/53b6e3825c73f54cd04bac0c33d7f60d/xslkzvt/o8Rmqi2pl/tumblr_static_tumblr_static_tumblr_static_tumblr_static_chibi_transparent_cas.gif', 80, false],
 // ['https://i.pinimg.com/originals/5d/5e/d2/5d5ed2917f0a764ce2123f35cc353240.gif', 80, false],
 // ['https://i.pinimg.com/originals/9c/7a/6b/9c7a6bd0fe96252493065e8afb837e4a.gif', 80, false],
-['https://i.pinimg.com/originals/22/99/a6/2299a66bab649e9369abbd704967fd88.gif', 80, true]
+// ['https://i.pinimg.com/originals/22/99/a6/2299a66bab649e9369abbd704967fd88.gif', 80, true]
 ];
 
 
