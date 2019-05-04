@@ -18,7 +18,7 @@ module.exports = {
       },
 
       longhand: async function(shorthand) {
-        if (!isNaN(shorthand)) var shorthand = await this.shorthand(shorthand);
+        // if (!isNaN(shorthand)) var shorthand = await this.shorthand(shorthand);
         // adone
         // console.log(shorthand);
         longhand = [];
