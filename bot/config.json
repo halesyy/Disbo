@@ -2,7 +2,7 @@
   "token":"NTY5MTQ2OTE1NDM5MTE2Mjg4.XMe6Uw.JjqtHHUlsyPV4mL_OfG8XFISICU",
   "prefix":".",
   "gameServer": {
-    "host": "localhost",
-    "port": "5878"
+    "host": "193.116.213.241",
+    "port": "7777"
   }
 }
