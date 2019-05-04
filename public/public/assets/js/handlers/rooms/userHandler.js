@@ -298,6 +298,7 @@ app.service("userHandler", ["$rootScope", "$socket", function(f, g) {
 			// new ColourManager($Legs, "#c21f1f", ["ig", "ig"], name="legs", random=true);
 
 			// $Stack = [$Whole, $Hair, $Shirt, $Legs];
+			$AvatarContainer.html('');
 			$AvatarContainer.append($AvImg);
 			$("#map #map-users").append($AvatarContainer);
 
