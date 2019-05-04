@@ -52,16 +52,17 @@ module.exports = function(c, a, roomData) {
   // load.js is the file for injecting all interesting user-based data
   const avatars = [["https://mobilegamegraphics.com/pvpaterno/flying_pack/flying_1.gif", 80, false],
 ['https://thumbs.gfycat.com/HastyGrippingDuck-max-1mb.gif', 80, false],
-['https://i.kym-cdn.com/photos/images/original/000/784/180/ecf.gif', 80, false],
-['https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fc1430f-5c8f-41dc-a2ba-341cec31bbab/d4l9sr3-64553510-5101-4aeb-b3ed-fa2e940998d8.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdmYzE0MzBmLTVjOGYtNDFkYy1hMmJhLTM0MWNlYzMxYmJhYlwvZDRsOXNyMy02NDU1MzUxMC01MTAxLTRhZWItYjNlZC1mYTJlOTQwOTk4ZDguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.u6qDYoNpzXyXOIdF91aSM3ZEG4Bj5ajw4IR10RAfbWQ'
-, 80, true],
-['https://thumbs.gfycat.com/BasicAmbitiousCivet-max-1mb.gif', 80, false],
-['http://retribution.fm/r/146/images/image03.gif', 80, false],
-['https://cdnb.artstation.com/p/assets/images/images/003/303/407/original/nisa-bernal-character-walking-animation.gif?1472203528', 80, false],
+// ['https://i.kym-cdn.com/photos/images/original/000/784/180/ecf.gif', 80, false],
+// ['https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fc1430f-5c8f-41dc-a2ba-341cec31bbab/d4l9sr3-64553510-5101-4aeb-b3ed-fa2e940998d8.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdmYzE0MzBmLTVjOGYtNDFkYy1hMmJhLTM0MWNlYzMxYmJhYlwvZDRsOXNyMy02NDU1MzUxMC01MTAxLTRhZWItYjNlZC1mYTJlOTQwOTk4ZDguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.u6qDYoNpzXyXOIdF91aSM3ZEG4Bj5ajw4IR10RAfbWQ'
+// , 80, true],
+// ['https://thumbs.gfycat.com/BasicAmbitiousCivet-max-1mb.gif', 80, false],
+// ['http://retribution.fm/r/146/images/image03.gif', 80, false],
+// ['https://cdnb.artstation.com/p/assets/images/images/003/303/407/original/nisa-bernal-character-walking-animation.gif?1472203528', 80, false],
 ['http://static.tumblr.com/53b6e3825c73f54cd04bac0c33d7f60d/xslkzvt/o8Rmqi2pl/tumblr_static_tumblr_static_tumblr_static_tumblr_static_chibi_transparent_cas.gif', 80, false],
-['https://i.pinimg.com/originals/5d/5e/d2/5d5ed2917f0a764ce2123f35cc353240.gif', 80, false],
-['https://i.pinimg.com/originals/9c/7a/6b/9c7a6bd0fe96252493065e8afb837e4a.gif', 80, false],
-['https://i.pinimg.com/originals/22/99/a6/2299a66bab649e9369abbd704967fd88.gif', 80, true] ];
+// ['https://i.pinimg.com/originals/5d/5e/d2/5d5ed2917f0a764ce2123f35cc353240.gif', 80, false],
+// ['https://i.pinimg.com/originals/9c/7a/6b/9c7a6bd0fe96252493065e8afb837e4a.gif', 80, false],
+['https://i.pinimg.com/originals/22/99/a6/2299a66bab649e9369abbd704967fd88.gif', 80, true]
+];
 
 
   c.rooms[roomData.roomId] || (c.rooms[roomData.roomId] = {}, c.rooms[roomData.roomId].users = {});
