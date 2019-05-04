@@ -83,7 +83,8 @@ module.exports = function(env, frontend, frontenddata) {
 
 
       // third round if auth, making sure furnis position is possible and not obstructive.
-      var longhand = await environment.dbops.room.longhand(roomID);
+      var shorthand = await environment.dbops.room.shorthand(roomID);
+      var longhand = await environment.dbops.room.longhand(shorthand);
       // console.log(longhand);
       var base = await environment.dbops.room.base(roomID);
       var base = environment.game.rooms.converter.toNumeric(base); // securify
