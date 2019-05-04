@@ -462,7 +462,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$socket', '$location'
 			$socket.off('user stopped typing');
 			$socket.off('user move');
 			$rootScope.isInRoom = false;
-			$location.path('/view');
+			$location.path('/');
 		};
 	};
 
