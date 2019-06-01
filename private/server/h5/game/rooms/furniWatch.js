@@ -53,6 +53,7 @@ module.exports = function(env, frontend, frontenddata) {
      * socket to come back and return the callback with
      * a threshold of great data.
      */
+    console.log("establishing furni place socket connection");
     frontend.on("verify furniture place", async function(fe_eventinfo, reply){
       console.log("Starting to verify the furniture placing");
 
