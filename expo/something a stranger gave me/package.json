@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/node": "^10.5.2",
     "assets-loader": "^0.5.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "jquery-ui-dist": "^1.12.1",
     "socket.io-client": "^2.0.4",
     "ts-loader": "^2.0.3",
