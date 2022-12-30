@@ -10,10 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "bufferutil": "^3.0.3",
-    "copy-webpack-plugin": "^4.5.2",
+    "copy-webpack-plugin": "^11.0.0",
     "shortid": "^2.2.12",
     "strongly-typed-events": "^1.4.6",
-    "url-loader": "^1.0.1",
+    "url-loader": "^4.1.1",
     "utf-8-validate": "^3.0.4",
     "vue-drag-directive": "^0.1.0",
     "vue-draggabilly": "^1.1.0",
@@ -25,9 +25,9 @@
     "jquery": "^3.2.1",
     "jquery-ui-dist": "^1.12.1",
     "socket.io-client": "^2.0.4",
-    "ts-loader": "^2.0.3",
+    "ts-loader": "^9.4.2",
     "typescript": "^2.6.2",
     "vue": "^2.5.9",
-    "webpack": "^2.5.0"
+    "webpack": "^5.75.0"
   }
 }
